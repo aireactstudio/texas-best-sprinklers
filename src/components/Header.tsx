@@ -1,12 +1,13 @@
 
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Droplet } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,6 +17,11 @@ const Header = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Close mobile menu when route changes
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location.pathname]);
 
   return (
     <header 
@@ -34,20 +40,30 @@ const Header = () => {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
           <ul className="flex space-x-6">
-            {['Home', 'About', 'Services', 'Projects', 'Blog', 'Contact'].map((item) => (
-              <li key={item}>
+            {[
+              { name: 'Home', path: '/' },
+              { name: 'About', path: '/about' },
+              { name: 'Services', path: '/services' },
+              { name: 'Projects', path: '/projects' },
+              { name: 'Blog', path: '/blog' },
+              { name: 'Contact', path: '/contact' }
+            ].map((item) => (
+              <li key={item.name}>
                 <Link 
-                  to={item === 'Home' ? '/' : `/${item.toLowerCase()}`} 
+                  to={item.path} 
                   className={`font-medium ${
+                    location.pathname === item.path ? 'text-irrigation-green' : 
                     isScrolled ? 'text-gray-700 hover:text-irrigation-green' : 'text-white hover:text-irrigation-lightBlue'
                   } transition-colors duration-300`}
                 >
-                  {item}
+                  {item.name}
                 </Link>
               </li>
             ))}
           </ul>
-          <Button className="btn-primary">Get a Free Quote</Button>
+          <Link to="/contact">
+            <Button className="btn-primary">Get a Free Quote</Button>
+          </Link>
         </nav>
 
         {/* Mobile Menu Button */}
@@ -70,19 +86,32 @@ const Header = () => {
       {isMobileMenuOpen && (
         <div className="md:hidden bg-white shadow-lg">
           <ul className="py-4 px-6 space-y-4">
-            {['Home', 'About', 'Services', 'Projects', 'Blog', 'Contact'].map((item) => (
-              <li key={item}>
+            {[
+              { name: 'Home', path: '/' },
+              { name: 'About', path: '/about' },
+              { name: 'Services', path: '/services' },
+              { name: 'Projects', path: '/projects' },
+              { name: 'Blog', path: '/blog' },
+              { name: 'Contact', path: '/contact' }
+            ].map((item) => (
+              <li key={item.name}>
                 <Link 
-                  to={item === 'Home' ? '/' : `/${item.toLowerCase()}`} 
-                  className="block font-medium text-gray-700 hover:text-irrigation-green transition-colors duration-300"
+                  to={item.path} 
+                  className={`block font-medium ${
+                    location.pathname === item.path 
+                      ? 'text-irrigation-green' 
+                      : 'text-gray-700 hover:text-irrigation-green'
+                  } transition-colors duration-300`}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  {item}
+                  {item.name}
                 </Link>
               </li>
             ))}
             <li className="pt-2">
-              <Button className="btn-primary w-full">Get a Free Quote</Button>
+              <Link to="/contact">
+                <Button className="btn-primary w-full">Get a Free Quote</Button>
+              </Link>
             </li>
           </ul>
         </div>
