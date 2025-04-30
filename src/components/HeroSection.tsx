@@ -12,7 +12,7 @@ interface HeroSectionProps {
 const HeroSection: React.FC<HeroSectionProps> = ({
   title = "Transform Your Landscape with Expert Irrigation",
   subtitle = "Water-efficient solutions designed for your property's unique needs",
-  image = "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07",
+  image = "https://images.unsplash.com/photo-1500673922987-e212871fec22",
 }) => {
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
@@ -23,7 +23,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           backgroundImage: `url(${image})`,
         }}
       >
-        <div className="absolute inset-0 bg-irrigation-blue bg-opacity-70"></div>
+        <div className="absolute inset-0 bg-irrigation-blue bg-opacity-60"></div>
       </div>
 
       {/* Animated Water Drops */}
