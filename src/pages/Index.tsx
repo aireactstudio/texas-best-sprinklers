@@ -14,12 +14,12 @@ import CTA from '@/components/CTA';
 const Index: React.FC = () => {
   // Add SEO metadata
   React.useEffect(() => {
-    document.title = "PureFlow Irrigation - Professional Irrigation Contractor Services";
+    document.title = "Texas Best Sprinklers, Drainage and Lighting LLC - Fort Worth, TX";
     
     // Update meta description
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute("content", "PureFlow Irrigation provides expert irrigation services including sprinkler installation, drip irrigation, and smart controller setup. Save water and maintain a beautiful landscape.");
+      metaDescription.setAttribute("content", "Texas Best Sprinklers provides expert irrigation, drainage, and outdoor lighting services in Fort Worth, TX. Call (817) 304-7896 for professional installation and repairs.");
     }
   }, []);
 

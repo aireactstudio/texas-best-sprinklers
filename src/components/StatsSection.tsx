@@ -4,20 +4,20 @@ import React from 'react';
 const StatsSection: React.FC = () => {
   const stats = [
     {
-      value: "500+",
+      value: "1000+",
       label: "Projects Completed",
     },
     {
-      value: "30%",
-      label: "Average Water Savings",
+      value: "4.9",
+      label: "Google Rating",
     },
     {
-      value: "15+",
-      label: "Years of Experience",
+      value: "100+",
+      label: "Google Reviews",
     },
     {
-      value: "100%",
-      label: "Customer Satisfaction",
+      value: "Fort Worth",
+      label: "Texas",
     },
   ];
 

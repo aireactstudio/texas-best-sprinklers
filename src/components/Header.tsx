@@ -27,7 +27,7 @@ const Header = () => {
         <Link to="/" className="flex items-center space-x-2">
           <Droplet className={`h-8 w-8 ${isScrolled ? 'text-irrigation-blue' : 'text-white'}`} />
           <span className={`font-bold text-xl md:text-2xl font-['Montserrat'] ${isScrolled ? 'text-irrigation-blue' : 'text-white'}`}>
-            PureFlow Irrigation
+            Texas Best Sprinklers
           </span>
         </Link>
 

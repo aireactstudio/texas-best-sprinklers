@@ -12,10 +12,10 @@ const Footer = () => {
           <div>
             <div className="flex items-center space-x-2 mb-4">
               <Droplet className="h-8 w-8" />
-              <span className="font-bold text-xl font-['Montserrat']">PureFlow Irrigation</span>
+              <span className="font-bold text-xl font-['Montserrat']">Texas Best Sprinklers</span>
             </div>
             <p className="text-gray-300 mb-6">
-              Professional irrigation solutions for residential and commercial properties. We help you conserve water while maintaining beautiful landscapes.
+              Professional irrigation, drainage, and outdoor lighting solutions for residential and commercial properties in Fort Worth, Texas.
             </p>
             <div className="flex space-x-4">
               <a href="#" aria-label="Facebook" className="hover:text-irrigation-green transition-colors duration-300">
@@ -53,10 +53,10 @@ const Footer = () => {
             <ul className="space-y-3">
               {[
                 'Sprinkler Installation', 
-                'Drip Irrigation', 
-                'System Maintenance', 
-                'Smart Controller Setup',
-                'Water Efficiency Audits',
+                'Drainage Solutions', 
+                'Outdoor Lighting', 
+                'System Maintenance',
+                'Sprinkler Repair',
                 'Commercial Solutions'
               ].map((service) => (
                 <li key={service}>
@@ -77,17 +77,18 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 mt-0.5 text-irrigation-green" />
-                <span className="text-gray-300">123 Water Way, Springfield, IL 62701</span>
+                <span className="text-gray-300">10011 Harmon Rd suite 133, Fort Worth, TX 76177</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-irrigation-green" />
-                <a href="tel:+15551234567" className="text-gray-300 hover:text-irrigation-green transition-colors duration-300">(555) 123-4567</a>
+                <a href="tel:+18173047896" className="text-gray-300 hover:text-irrigation-green transition-colors duration-300">(817) 304-7896</a>
               </li>
               <li className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-irrigation-green" />
-                <a href="mailto:info@pureflowirrigation.com" className="text-gray-300 hover:text-irrigation-green transition-colors duration-300">info@pureflowirrigation.com</a>
+                <a href="mailto:info@texasbestsprinklers.com" className="text-gray-300 hover:text-irrigation-green transition-colors duration-300">info@texasbestsprinklers.com</a>
               </li>
               <li className="pt-2">
+                <p className="text-gray-300 mb-2">Hours: 7AM - 7PM Mon-Fri</p>
                 <Link to="/contact" className="bg-irrigation-green hover:bg-irrigation-darkGreen text-white font-medium py-2 px-4 rounded transition-colors duration-300 inline-block">
                   Get in Touch
                 </Link>
@@ -100,7 +101,7 @@ const Footer = () => {
         <div className="border-t border-gray-700 pt-6 pb-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm mb-4 md:mb-0">
-              © {new Date().getFullYear()} PureFlow Irrigation. All rights reserved.
+              © {new Date().getFullYear()} Texas Best Sprinklers, Drainage and Lighting LLC. All rights reserved.
             </p>
             <div className="flex space-x-5">
               <a href="#" className="text-gray-400 hover:text-irrigation-green text-sm transition-colors duration-300">Privacy Policy</a>

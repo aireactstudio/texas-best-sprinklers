@@ -11,7 +11,7 @@ interface HeroSectionProps {
 
 const HeroSection: React.FC<HeroSectionProps> = ({
   title = "Transform Your Landscape with Expert Irrigation",
-  subtitle = "Water-efficient solutions designed for your property's unique needs",
+  subtitle = "Professional sprinkler, drainage, and lighting solutions in Fort Worth, Texas",
   image = "https://images.unsplash.com/photo-1500673922987-e212871fec22",
 }) => {
   return (
@@ -44,7 +44,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       <div className="container-custom relative z-10 text-center text-white pt-20">
         <div className="inline-flex items-center bg-irrigation-green bg-opacity-90 px-4 py-2 rounded-full mb-6 animate-float">
           <Droplet className="h-5 w-5 mr-2 text-white" />
-          <span className="font-medium">Professional Irrigation Services</span>
+          <span className="font-medium">Texas Best Sprinklers, Drainage and Lighting</span>
         </div>
         
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 max-w-4xl mx-auto leading-tight">
