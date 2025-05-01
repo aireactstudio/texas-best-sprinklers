@@ -12,7 +12,7 @@ interface HeroSectionProps {
 const HeroSection: React.FC<HeroSectionProps> = ({
   title = "Transform Your Landscape with Expert Irrigation",
   subtitle = "Professional sprinkler, drainage, and lighting solutions in Fort Worth, Texas",
-  image = "https://images.unsplash.com/photo-1469474968028-56623f02e42e",
+  image = "https://images.unsplash.com/photo-1426604966848-d7adac402bff",
 }) => {
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
