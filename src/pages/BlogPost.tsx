@@ -1,9 +1,9 @@
-
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CTA from '@/components/CTA';
+import HeroSection from '@/components/HeroSection';
 import { Calendar, User, ArrowLeft, ArrowRight } from 'lucide-react';
 
 // Import blog data
@@ -56,8 +56,8 @@ const BlogPost = () => {
     return (
       <div className="min-h-screen">
         <Header />
-        <main className="pt-28 pb-20">
-          <div className="container-custom">
+        <main>
+          <div className="container-custom pt-28 pb-20">
             <h1 className="text-3xl font-bold text-center">Post not found</h1>
             <p className="text-center mt-4">The article you're looking for doesn't exist or has been removed.</p>
             <div className="text-center mt-8">
@@ -94,30 +94,12 @@ const BlogPost = () => {
     <div className="min-h-screen">
       <Header />
       
-      <main className="pt-28 pb-20">
+      <main>
         {/* Hero Section */}
-        <section className="bg-gray-50 py-12">
-          <div className="container-custom">
-            <div className="max-w-3xl mx-auto text-center">
-              <div className="inline-block bg-irrigation-green bg-opacity-20 text-irrigation-green px-4 py-1 rounded-full mb-6">
-                {post.category}
-              </div>
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 text-irrigation-blue">
-                {post.title}
-              </h1>
-              <div className="flex items-center justify-center text-gray-600 mb-8">
-                <div className="flex items-center mr-6">
-                  <Calendar className="h-4 w-4 mr-2" />
-                  <span>{post.date}</span>
-                </div>
-                <div className="flex items-center">
-                  <User className="h-4 w-4 mr-2" />
-                  <span>{post.author}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <HeroSection 
+          title={post.title}
+          subtitle={post.excerpt}
+        />
 
         {/* Blog Content */}
         <section className="py-12">

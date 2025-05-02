@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CTA from '@/components/CTA';
+import HeroSection from '@/components/HeroSection';
 import { Link } from 'react-router-dom';
 import { Calendar, User } from 'lucide-react';
 import { Input } from '@/components/ui/input';
@@ -116,18 +117,10 @@ const Blog = () => {
       
       <main>
         {/* Hero Section */}
-        <section className="pt-28 pb-20 bg-gray-50">
-          <div className="container-custom">
-            <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 text-irrigation-blue">
-                Irrigation & Landscaping Blog
-              </h1>
-              <p className="text-xl text-gray-700">
-                Expert tips, advice, and insights on irrigation, drainage, and outdoor lighting for Fort Worth homeowners.
-              </p>
-            </div>
-          </div>
-        </section>
+        <HeroSection 
+          title="Irrigation & Landscaping Blog"
+          subtitle="Expert tips, advice, and insights on irrigation, drainage, and outdoor lighting for Fort Worth homeowners."
+        />
 
         {/* Blog Posts */}
         <section className="py-16">

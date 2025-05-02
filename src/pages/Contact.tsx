@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -83,7 +84,7 @@ const Contact = () => {
     <div className="min-h-screen">
       <Header />
       
-      <main className="pt-28 pb-20">
+      <main>
         {/* Hero Section */}
         <HeroSection 
           title="Contact Us" 
