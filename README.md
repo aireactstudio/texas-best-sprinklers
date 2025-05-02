@@ -1,22 +1,20 @@
-# Welcome to your Lovable project
+# Texas Best Sprinklers, Drainage and Lighting
 
 ## Project info
 
-**URL**: https://lovable.dev/projects/bf94416a-16f3-4e08-a8f9-d8751ec6f77a
+**Website**: Texas Best Sprinklers
 
 ## How can I edit this code?
 
 There are several ways of editing your application.
 
-**Use Lovable**
+**Texas Best Sprinklers Website**
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/bf94416a-16f3-4e08-a8f9-d8751ec6f77a) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
+This is the codebase for the Texas Best Sprinklers business website.
 
 **Use your preferred IDE**
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+If you want to work locally using your own IDE, you can clone this repo and push changes.
 
 The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
@@ -62,12 +60,8 @@ This project is built with:
 
 ## How can I deploy this project?
 
-Simply open [Lovable](https://lovable.dev/projects/bf94416a-16f3-4e08-a8f9-d8751ec6f77a) and click on Share -> Publish.
+Build and deploy the project using your preferred hosting service.
 
-## Can I connect a custom domain to my Lovable project?
+## Domain setup
 
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+The website is designed to be deployed to a custom domain for Texas Best Sprinklers.
