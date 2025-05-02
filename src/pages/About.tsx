@@ -1,8 +1,8 @@
-
 import React from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CTA from '@/components/CTA';
+import HeroSection from '@/components/HeroSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
 
 const About: React.FC = () => {
@@ -23,18 +23,10 @@ const About: React.FC = () => {
       
       <main>
         {/* Hero Section */}
-        <section className="pt-28 pb-20 bg-gray-50">
-          <div className="container-custom">
-            <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 text-irrigation-blue">
-                About PureFlow Irrigation
-              </h1>
-              <p className="text-xl text-gray-700 mb-8">
-                Your trusted partner for water-efficient irrigation solutions since 2008.
-              </p>
-            </div>
-          </div>
-        </section>
+        <HeroSection 
+          title="About Texas Best Sprinklers" 
+          subtitle="Your trusted partner for water-efficient irrigation solutions since 2008"
+        />
 
         {/* Our Story Section */}
         <section className="py-16 md:py-24">

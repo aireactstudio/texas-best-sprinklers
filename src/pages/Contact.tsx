@@ -1,7 +1,7 @@
-
 import React, { useEffect, useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import HeroSection from '@/components/HeroSection';
 import { Phone, Mail, MapPin, Clock, Check } from 'lucide-react';
 import { 
   Form, 
@@ -85,18 +85,10 @@ const Contact = () => {
       
       <main className="pt-28 pb-20">
         {/* Hero Section */}
-        <section className="bg-gray-50 py-12">
-          <div className="container-custom">
-            <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 text-irrigation-blue">
-                Contact Us
-              </h1>
-              <p className="text-xl text-gray-700">
-                Get in touch with our team for a free consultation and quote on your irrigation, drainage, or lighting project.
-              </p>
-            </div>
-          </div>
-        </section>
+        <HeroSection 
+          title="Contact Us" 
+          subtitle="Get in touch with our team for a free consultation and quote on your irrigation, drainage, or lighting project"
+        />
 
         {/* Contact Information */}
         <section className="py-12">
