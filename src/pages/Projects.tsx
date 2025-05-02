@@ -1,9 +1,9 @@
-
 import React, { useEffect } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CTA from '@/components/CTA';
 import TestimonialsSection from '@/components/TestimonialsSection';
+import HeroSection from '@/components/HeroSection';
 import { Droplet, CloudRain, CloudSun } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -125,7 +125,7 @@ const Projects = () => {
       title: "Backyard Drainage Renovation",
       category: "Drainage System",
       description: "Complete backyard drainage renovation for a Fort Worth home with severe flooding issues during heavy rainfall.",
-      image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9",
+      image: "https://images.unsplash.com/photo-1509316973540-ff9c5deb0cd9",
       results: [
         "Eliminated backyard flooding during storms",
         "Properly channeled water away from structures",
@@ -157,18 +157,10 @@ const Projects = () => {
       
       <main>
         {/* Hero Section */}
-        <section className="pt-28 pb-20 bg-gray-50">
-          <div className="container-custom">
-            <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 text-irrigation-blue">
-                Our Projects
-              </h1>
-              <p className="text-xl text-gray-700 mb-8">
-                Explore our portfolio of irrigation, drainage, and lighting projects throughout Fort Worth and surrounding areas.
-              </p>
-            </div>
-          </div>
-        </section>
+        <HeroSection 
+          title="Our Projects" 
+          subtitle="Explore our portfolio of irrigation, drainage, and lighting projects throughout Fort Worth and surrounding areas."
+        />
 
         {/* Projects Filter */}
         <section className="py-10">
