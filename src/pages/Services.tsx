@@ -1,8 +1,8 @@
-
 import React, { useEffect } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CTA from '@/components/CTA';
+import HeroSection from '@/components/HeroSection';
 import { Link } from 'react-router-dom';
 import { Droplet, CloudRain, Settings, TreeDeciduous, CloudSun } from 'lucide-react';
 
@@ -93,21 +93,10 @@ const Services = () => {
       
       <main>
         {/* Hero Section */}
-        <section className="pt-28 pb-20 bg-gray-50">
-          <div className="container-custom">
-            <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 text-irrigation-blue">
-                Our Irrigation & Landscaping Services
-              </h1>
-              <p className="text-xl text-gray-700 mb-8">
-                Professional solutions for all your irrigation, drainage, and outdoor lighting needs in Fort Worth, Texas.
-              </p>
-              <div className="inline-block bg-irrigation-green bg-opacity-20 text-irrigation-green px-6 py-3 rounded-full">
-                Licensed & Insured Professionals
-              </div>
-            </div>
-          </div>
-        </section>
+        <HeroSection 
+          title="Our Irrigation & Landscaping Services"
+          subtitle="Professional solutions for all your irrigation, drainage, and outdoor lighting needs in Fort Worth, Texas."
+        />
 
         {/* Services Grid */}
         <section className="py-16 md:py-24">
