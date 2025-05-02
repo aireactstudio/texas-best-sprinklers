@@ -68,7 +68,7 @@ const FeaturesSection: React.FC = () => {
             Our Approach
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-irrigation-blue">
-            The PureFlow Difference
+            The Texas Best Sprinklers Difference
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             We combine innovative technology with industry expertise to create sustainable irrigation solutions that enhance the beauty of your landscape.

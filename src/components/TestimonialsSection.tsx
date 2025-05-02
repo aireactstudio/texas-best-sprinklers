@@ -17,7 +17,7 @@ const TestimonialsSection: React.FC = () => {
       name: "Michael Thompson",
       role: "Homeowner",
       location: "Springfield",
-      content: "PureFlow transformed our lawn with a state-of-the-art irrigation system. Our water bills have decreased by 30%, and our lawn has never looked better! Professional service from start to finish.",
+      content: "Texas Best Sprinklers transformed our lawn with a state-of-the-art irrigation system. Our water bills have decreased by 30%, and our lawn has never looked better! Professional service from start to finish.",
       stars: 5,
     },
     {
@@ -25,7 +25,7 @@ const TestimonialsSection: React.FC = () => {
       name: "Sarah Johnson",
       role: "Property Manager",
       location: "Riverside Estates",
-      content: "As a property manager, I've worked with many irrigation companies. PureFlow is by far the most professional and reliable. Their smart controller installation has saved our complex thousands in water costs.",
+      content: "As a property manager, I've worked with many irrigation companies. Texas Best Sprinklers is by far the most professional and reliable. Their smart controller installation has saved our complex thousands in water costs.",
       stars: 5,
     },
     {
@@ -33,7 +33,7 @@ const TestimonialsSection: React.FC = () => {
       name: "David Rodriguez",
       role: "Landscape Architect",
       location: "Green Horizons",
-      content: "I partner with PureFlow on all my client projects. Their attention to detail and technical expertise ensures that my landscape designs always have the perfect irrigation solution to support healthy plant growth.",
+      content: "I partner with Texas Best Sprinklers on all my client projects. Their attention to detail and technical expertise ensures that my landscape designs always have the perfect irrigation solution to support healthy plant growth.",
       stars: 5,
     },
   ];

@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -8,12 +9,12 @@ import TestimonialsSection from '@/components/TestimonialsSection';
 const About: React.FC = () => {
   // Add SEO metadata
   React.useEffect(() => {
-    document.title = "About PureFlow Irrigation - Expert Irrigation Contractors";
+    document.title = "About Texas Best Sprinklers - Expert Irrigation Contractors";
     
     // Update meta description
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute("content", "Learn about PureFlow Irrigation's expertise, commitment to water conservation, and how our professional irrigation contractors can transform your landscape.");
+      metaDescription.setAttribute("content", "Learn about Texas Best Sprinklers' expertise, commitment to water conservation, and how our professional irrigation contractors can transform your landscape.");
     }
   }, []);
 
@@ -40,7 +41,7 @@ const About: React.FC = () => {
                   A Commitment to Water Conservation
                 </h2>
                 <p className="text-lg text-gray-700 mb-6">
-                  PureFlow Irrigation was founded on a simple principle: create irrigation systems that conserve our most precious resource—water—while maintaining beautiful, healthy landscapes.
+                  Texas Best Sprinklers was founded on a simple principle: create irrigation systems that conserve our most precious resource—water—while maintaining beautiful, healthy landscapes.
                 </p>
                 <p className="text-lg text-gray-700 mb-6">
                   What began as a small family business has grown into the region's most trusted irrigation contractor, serving hundreds of residential and commercial clients with custom irrigation solutions.
@@ -86,7 +87,7 @@ const About: React.FC = () => {
                 {
                   year: "2008",
                   title: "Company Founded",
-                  description: "PureFlow Irrigation was established with a focus on water conservation and quality service."
+                  description: "Texas Best Sprinklers was established with a focus on water conservation and quality service."
                 },
                 {
                   year: "2012",
