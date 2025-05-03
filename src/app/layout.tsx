@@ -34,20 +34,16 @@ const montserrat = Montserrat({
   fallback: ['system-ui', 'Arial', 'sans-serif'],
 });
 
-export const metadata: Metadata = {
-  title: {
-    template: '%s | Texas Best Sprinkler, Drainage and Lighting LLC',
-    default: 'Texas Best Sprinkler, Drainage and Lighting LLC | Fort Worth & Weatherford Irrigation Experts',
-  },
-  description: 'Professional sprinkler, drainage, and lighting services in Fort Worth and Weatherford, TX. Expert installation, repair, and maintenance for residential and commercial properties.',
-  keywords: 'sprinklers, irrigation, drainage, outdoor lighting, lawn care, Fort Worth, Weatherford, Texas, lawn sprinklers, sprinkler repair, sprinkler installation',
-};
-
-// Define head tags that will be added to the <head> section
-// This is the correct way to add preload links in Next.js 14
+// Define metadata using generateMetadata function instead of static export
+// This resolves the conflicting exports issue
 export function generateMetadata(): Metadata {
   return {
-    ...metadata,
+    title: {
+      template: '%s | Texas Best Sprinkler, Drainage and Lighting LLC',
+      default: 'Texas Best Sprinkler, Drainage and Lighting LLC | Fort Worth & Weatherford Irrigation Experts',
+    },
+    description: 'Professional sprinkler, drainage, and lighting services in Fort Worth and Weatherford, TX. Expert installation, repair, and maintenance for residential and commercial properties.',
+    keywords: 'sprinklers, irrigation, drainage, outdoor lighting, lawn care, Fort Worth, Weatherford, Texas, lawn sprinklers, sprinkler repair, sprinkler installation',
     icons: {
       icon: '/favicon.ico',
     },
