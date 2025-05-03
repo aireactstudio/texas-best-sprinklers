@@ -1,0 +1,93 @@
+/* Critical-path CSS for immediate rendering of above-the-fold content */
+
+/* Reset and baseline styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Hero section critical styles */
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.inset-0 {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.z-0 {
+  z-index: 0;
+}
+
+.z-10 {
+  z-index: 10;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.min-h-\[90vh\] {
+  min-height: 90vh;
+}
+
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.bg-irrigation-blue {
+  background-color: #164e7a;
+}
+
+.bg-opacity-60 {
+  opacity: 0.6;
+}
+
+.text-white {
+  color: white;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.object-cover {
+  object-fit: cover;
+}
+
+/* Reduce animation impact on initial load */
+@media (prefers-reduced-motion: no-preference) {
+  .water-animation {
+    animation: none;
+  }
+  
+  .animate-float {
+    animation: none;
+  }
+}
+
+/* Only load animations after page is interactive */
+.js-loaded .water-animation {
+  animation: waterDrop 4s infinite;
+}
+
+.js-loaded .animate-float {
+  animation: float 3s ease-in-out infinite;
+}

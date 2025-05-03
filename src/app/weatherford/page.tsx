@@ -3,6 +3,7 @@
 import HeroSection from '@/components/HeroSection';
 import ServicesSection from '@/components/ServicesSection';
 import FeaturesSection from '@/components/FeaturesSection';
+import SchemaMarkup from '@/components/SchemaMarkup';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import CTA from '@/components/CTA';
 import LocalProjects from '@/components/LocalProjects';
@@ -49,11 +50,8 @@ export default function WeatherfordPage() {
 
   return (
     <>
-      {/* Inject schema markup */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
-      />
+      {/* Inject schema markup with optimized loading */}
+      <SchemaMarkup data={localBusinessSchema} />
       
       <HeroSection 
         title="Expert Irrigation Solutions in Weatherford" 

@@ -1,5 +1,6 @@
 
 import React from 'react';
+import Image from 'next/image';
 
 const HowItWorksSection: React.FC = () => {
   const steps = [
@@ -65,11 +66,16 @@ const HowItWorksSection: React.FC = () => {
           
           {/* Image or illustration */}
           <div className="bg-white rounded-lg shadow-xl overflow-hidden h-[500px] relative">
-            <img 
-              src="https://images.unsplash.com/photo-1518495973542-4542c06a5843" 
-              alt="Sunlight filtering through trees in a well-irrigated garden" 
-              className="w-full h-full object-cover"
-            />
+            <div className="relative w-full h-full">
+              <Image 
+                src="https://images.unsplash.com/photo-1518495973542-4542c06a5843" 
+                alt="Sunlight filtering through trees in a well-irrigated garden" 
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+                loading="lazy"
+              />
+            </div>
             <div className="absolute inset-0 bg-gradient-to-t from-irrigation-blue to-transparent opacity-30"></div>
             <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
               <div className="bg-irrigation-green px-4 py-2 rounded-full inline-block mb-4 text-sm font-medium">

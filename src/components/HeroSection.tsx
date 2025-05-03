@@ -1,13 +1,32 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
+import { Button } from './ui/button';
+import { ChevronRight } from 'lucide-react';
 import Link from 'next/link';
+import AnimatedWaterDrops from './AnimatedWaterDrops';
+import ResponsiveImage from './ResponsiveImage';
 import { Droplet } from 'lucide-react';
+import { HERO_BLUR_PLACEHOLDER } from '@/utils/image-placeholders';
 
 interface HeroSectionProps {
   title?: string;
   subtitle?: string;
   image?: string;
+  cta?: {
+    label: string;
+    href: string;
+  };
+}
+
+// Helper to construct optimized image URL with next-gen formats
+const getOptimizedImagePath = (src: string): string => {
+  // Use Next.js Image Optimization API to convert to WebP
+  if (src.startsWith('/')) {
+    return src.replace(/\.(png|jpg|jpeg)$/, '.webp');
+  }
+  return src;
 }
 
 const HeroSection: React.FC<HeroSectionProps> = ({
@@ -17,29 +36,29 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 }) => {
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-      {/* Background Image with Overlay */}
-      <div 
-        className="absolute inset-0 z-0 bg-cover bg-center"
-        style={{ 
-          backgroundImage: `url(${image})`,
-        }}
-      >
+      {/* Background Image with Overlay - Optimized for LCP */}
+      <div className="absolute inset-0 overflow-hidden z-0">
+        {/* Direct Image element for optimal LCP performance */}
+        <Image 
+          src={image || '/assets/images/hero-background.png'}
+          alt="Hero background" 
+          fill 
+          priority 
+          fetchPriority="high"
+          sizes="100vw"
+          quality={75}
+          placeholder="blur"
+          blurDataURL={HERO_BLUR_PLACEHOLDER}
+          loading="eager"
+          className="object-cover transition-opacity duration-300 opacity-100"
+          // Let Next.js automatically convert to WebP when supported
+          unoptimized={false}
+        />
         <div className="absolute inset-0 bg-irrigation-blue bg-opacity-60"></div>
       </div>
 
-      {/* Animated Water Drops */}
-      {[...Array(8)].map((_, i) => (
-        <div 
-          key={i}
-          className="water-animation absolute"
-          style={{
-            '--i': i,
-            top: `${Math.random() * 80 + 10}%`,
-            left: `${Math.random() * 80 + 10}%`,
-            opacity: 0.7,
-          } as React.CSSProperties}
-        />
-      ))}
+      {/* Client-only Animated Water Drops */}
+      <AnimatedWaterDrops count={8} />
 
       {/* Content */}
       <div className="container-custom relative z-10 text-center text-white pt-20">

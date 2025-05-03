@@ -46,11 +46,13 @@ const LocalProjects: React.FC<LocalProjectsProps> = ({ cityName }) => {
           {projects.map(project => (
             <div key={project.id} className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
               <div className="relative h-48 w-full">
-                {/* Note: We'd use Image component with proper dimensions in production */}
-                <img 
+                <Image 
                   src={project.image} 
                   alt={project.title}
-                  className="object-cover w-full h-full"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="object-cover"
+                  loading="lazy"
                 />
               </div>
               

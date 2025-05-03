@@ -3,10 +3,15 @@
 import HeroSection from '@/components/HeroSection';
 import ServicesSection from '@/components/ServicesSection';
 import FeaturesSection from '@/components/FeaturesSection';
-import TestimonialsSection from '@/components/TestimonialsSection';
+import SchemaMarkup from '@/components/SchemaMarkup';
 import CTA from '@/components/CTA';
-import LocalProjects from '@/components/LocalProjects';
-import LocalFAQ from '@/components/LocalFAQ';
+
+// Import lazy-loaded components for better performance
+import {
+  LazyTestimonialsSection,
+  LazyLocalProjects,
+  LazyLocalFAQ
+} from '@/components/lazy';
 
 export default function FortWorthPage() {
   // Define local business schema for Fort Worth location
@@ -49,11 +54,8 @@ export default function FortWorthPage() {
 
   return (
     <>
-      {/* Inject schema markup */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
-      />
+      {/* Inject schema markup with optimized loading */}
+      <SchemaMarkup data={localBusinessSchema} />
       
       <HeroSection 
         title="Expert Sprinkler & Irrigation Services in Fort Worth" 
@@ -66,8 +68,8 @@ export default function FortWorthPage() {
       {/* Key features section */}
       <FeaturesSection />
       
-      {/* Testimonials with Fort Worth filter */}
-      <TestimonialsSection cityFilter="Fort Worth" />
+      {/* Lazy-loaded Testimonials with Fort Worth filter */}
+      <LazyTestimonialsSection cityFilter="Fort Worth" />
       
       {/* Fort Worth-specific projects */}
       <section className="py-16 md:py-24 bg-irrigation-gray">
@@ -79,7 +81,7 @@ export default function FortWorthPage() {
             </p>
           </div>
           
-          <LocalProjects cityName="Fort Worth" />
+          <LazyLocalProjects cityName="Fort Worth" />
         </div>
       </section>
       
@@ -93,7 +95,7 @@ export default function FortWorthPage() {
             </p>
           </div>
           
-          <LocalFAQ cityName="Fort Worth" faqs={[
+          <LazyLocalFAQ cityName="Fort Worth" faqs={[
             {
               question: "What are the watering restrictions in Fort Worth?",
               answer: "Fort Worth typically allows twice-weekly watering, but restrictions may change based on drought conditions. Always check the city's current water conservation measures before setting your irrigation schedule."

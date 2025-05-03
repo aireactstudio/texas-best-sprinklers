@@ -1,0 +1,43 @@
+/* Non-critical page-specific styles loaded asynchronously */
+
+/* Testimonials section styles */
+.testimonial-card {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Projects section additional styles */
+.project-card img {
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover img {
+  transform: scale(1.05);
+}
+
+/* FAQ section animations */
+.faq-item {
+  transition: background-color 0.3s ease;
+}
+
+.faq-item[data-state="open"] {
+  background-color: rgba(22, 78, 122, 0.05);
+}
+
+/* Blog previews enhanced styles */
+.blog-preview-card:hover .blog-title {
+  color: #164e7a;
+}
+
+.blog-preview-card .blog-meta {
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.blog-preview-card:hover .blog-meta {
+  opacity: 1;
+}

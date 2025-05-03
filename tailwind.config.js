@@ -46,8 +46,8 @@ module.exports = {
         'irrigation-gray': '#f5f5f5',
       },
       fontFamily: {
-        sans: ['Montserrat', 'sans-serif'],
-        body: ['Open Sans', 'sans-serif'],
+        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        heading: ['var(--font-montserrat)', 'system-ui', 'sans-serif'],
       },
       borderRadius: {
         lg: "var(--radius)",
