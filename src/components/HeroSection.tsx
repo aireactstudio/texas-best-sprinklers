@@ -1,6 +1,7 @@
+'use client';
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Droplet } from 'lucide-react';
 
 interface HeroSectionProps {
@@ -12,7 +13,7 @@ interface HeroSectionProps {
 const HeroSection: React.FC<HeroSectionProps> = ({
   title = "Transform Your Landscape with Expert Irrigation",
   subtitle = "Professional sprinkler, drainage, and lighting solutions in Fort Worth, Texas",
-  image = "/lovable-uploads/46ae61a0-fbce-461d-9b45-e27c5db476bd.png",
+  image = "/assets/images/hero-background.png",
 }) => {
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
@@ -57,13 +58,13 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         
         <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
           <Link 
-            to="/contact" 
+            href="/contact" 
             className="btn-primary min-w-[200px] text-lg"
           >
             Get a Free Quote
           </Link>
           <Link 
-            to="/services" 
+            href="/services" 
             className="bg-white hover:bg-opacity-90 text-irrigation-blue font-semibold py-3 px-6 rounded-md transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1 min-w-[200px] text-lg"
           >
             Explore Services

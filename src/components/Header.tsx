@@ -1,13 +1,14 @@
 
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { Droplet } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const location = useLocation();
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,7 +22,7 @@ const Header = () => {
   // Close mobile menu when route changes
   useEffect(() => {
     setIsMobileMenuOpen(false);
-  }, [location.pathname]);
+  }, [router.pathname]);
 
   return (
     <header 
@@ -30,10 +31,10 @@ const Header = () => {
       }`}
     >
       <div className="container-custom flex justify-between items-center">
-        <Link to="/" className="flex items-center space-x-2">
+        <Link href="/" className="flex items-center space-x-2">
           <Droplet className={`h-8 w-8 ${isScrolled ? 'text-irrigation-blue' : 'text-white'}`} />
-          <span className={`font-bold text-xl md:text-2xl font-['Montserrat'] ${isScrolled ? 'text-irrigation-blue' : 'text-white'}`}>
-            Texas Best Sprinklers
+          <span className={`font-bold text-lg md:text-xl font-['Montserrat'] ${isScrolled ? 'text-irrigation-blue' : 'text-white'}`}>
+            Texas Best Sprinkler
           </span>
         </Link>
 
@@ -50,9 +51,9 @@ const Header = () => {
             ].map((item) => (
               <li key={item.name}>
                 <Link 
-                  to={item.path} 
+                  href={item.path} 
                   className={`font-medium ${
-                    location.pathname === item.path ? 'text-irrigation-green' : 
+                    router.pathname === item.path ? 'text-irrigation-green' : 
                     isScrolled ? 'text-gray-700 hover:text-irrigation-green' : 'text-white hover:text-irrigation-lightBlue'
                   } transition-colors duration-300`}
                 >
@@ -61,9 +62,12 @@ const Header = () => {
               </li>
             ))}
           </ul>
-          <Link to="/contact">
-            <Button className="btn-primary">Get a Free Quote</Button>
-          </Link>
+          <Button 
+            variant="outline"
+            className="text-irrigation-blue border-irrigation-blue hover:bg-irrigation-blue hover:text-white"
+          >
+            <Link href="/contact">Get a Quote</Link>
+          </Button>
         </nav>
 
         {/* Mobile Menu Button */}
@@ -96,23 +100,23 @@ const Header = () => {
             ].map((item) => (
               <li key={item.name}>
                 <Link 
-                  to={item.path} 
-                  className={`block font-medium ${
-                    location.pathname === item.path 
-                      ? 'text-irrigation-green' 
-                      : 'text-gray-700 hover:text-irrigation-green'
-                  } transition-colors duration-300`}
+                  href={item.path} 
+                  className={`relative font-medium text-sm hover:text-irrigation-blue transition-colors ${(
+                    router.pathname === item.path ||
+                    (item.path !== '/' && router.pathname.startsWith(item.path))
+                  ) 
+                    ? (isScrolled ? 'text-irrigation-blue' : 'text-irrigation-green') 
+                    : (isScrolled ? 'text-gray-800' : 'text-white')
+                  }`}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.name}
                 </Link>
               </li>
             ))}
-            <li className="pt-2">
-              <Link to="/contact">
-                <Button className="btn-primary w-full">Get a Free Quote</Button>
-              </Link>
-            </li>
+            <Button className="w-full bg-irrigation-blue text-white font-medium">
+              <Link href="/contact">Get a Quote</Link>
+            </Button>
           </ul>
         </div>
       )}

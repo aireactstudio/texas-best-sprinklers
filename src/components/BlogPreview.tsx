@@ -1,6 +1,8 @@
 
+'use client';
+
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 interface BlogPost {
   id: number;
@@ -65,7 +67,7 @@ const BlogPreview: React.FC<BlogPreviewProps> = ({
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {posts.map((post) => (
             <div key={post.id} className="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-              <Link to={`/blog/${post.slug}`} className="block">
+              <Link href={`/blog/${post.slug}`} className="block">
                 <img 
                   src={post.image} 
                   alt={post.title} 
@@ -77,7 +79,7 @@ const BlogPreview: React.FC<BlogPreviewProps> = ({
                   <span className="text-sm text-irrigation-green font-medium">{post.category}</span>
                   <span className="text-sm text-gray-500">{post.date}</span>
                 </div>
-                <Link to={`/blog/${post.slug}`} className="block mb-3">
+                <Link href={`/blog/${post.slug}`} className="block mb-3">
                   <h3 className="text-xl font-bold text-irrigation-blue hover:text-irrigation-green transition-colors duration-300">
                     {post.title}
                   </h3>
@@ -86,7 +88,7 @@ const BlogPreview: React.FC<BlogPreviewProps> = ({
                   {post.excerpt}
                 </p>
                 <Link 
-                  to={`/blog/${post.slug}`} 
+                  href={`/blog/${post.slug}`} 
                   className="text-irrigation-green font-medium hover:text-irrigation-darkGreen flex items-center"
                 >
                   Read More
@@ -100,7 +102,7 @@ const BlogPreview: React.FC<BlogPreviewProps> = ({
         </div>
         
         <div className="text-center mt-12">
-          <Link to="/blog" className="btn-secondary">
+          <Link href="/blog" className="btn-secondary">
             View All Articles
           </Link>
         </div>

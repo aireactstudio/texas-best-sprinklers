@@ -1,6 +1,8 @@
 
+'use client';
+
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Droplet, Phone, Mail, MapPin, Facebook, Instagram, Twitter } from 'lucide-react';
 
 const Footer = () => {
@@ -12,10 +14,10 @@ const Footer = () => {
           <div>
             <div className="flex items-center space-x-2 mb-4">
               <Droplet className="h-8 w-8" />
-              <span className="font-bold text-xl font-['Montserrat']">Texas Best Sprinklers</span>
+              <span className="font-bold text-lg font-['Montserrat']">Texas Best Sprinkler, Drainage and Lighting LLC</span>
             </div>
             <p className="text-gray-300 mb-6">
-              Professional irrigation, drainage, and outdoor lighting solutions for residential and commercial properties in Fort Worth, Texas.
+              Professional irrigation, drainage, and outdoor lighting solutions for residential and commercial properties in Fort Worth and Weatherford, Texas.
             </p>
             <div className="flex space-x-4">
               <a href="#" aria-label="Facebook" className="hover:text-irrigation-green transition-colors duration-300">
@@ -37,7 +39,7 @@ const Footer = () => {
               {['Home', 'About Us', 'Services', 'Projects', 'Blog', 'Contact Us'].map((item) => (
                 <li key={item}>
                   <Link 
-                    to={item === 'Home' ? '/' : `/${item.toLowerCase().replace(' ', '-')}`} 
+                    href={item === 'Home' ? '/' : `/${item.toLowerCase().replace(' ', '-')}`} 
                     className="text-gray-300 hover:text-irrigation-green transition-colors duration-300"
                   >
                     {item}
@@ -61,7 +63,7 @@ const Footer = () => {
               ].map((service) => (
                 <li key={service}>
                   <Link 
-                    to={`/services#${service.toLowerCase().replace(/\s+/g, '-')}`} 
+                    href={`/services#${service.toLowerCase().replace(/\s+/g, '-')}`} 
                     className="text-gray-300 hover:text-irrigation-green transition-colors duration-300"
                   >
                     {service}
@@ -85,11 +87,11 @@ const Footer = () => {
               </li>
               <li className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-irrigation-green" />
-                <a href="mailto:info@texasbestsprinklers.com" className="text-gray-300 hover:text-irrigation-green transition-colors duration-300">info@texasbestsprinklers.com</a>
+                <a href="mailto:info@sprinkleranddrains.com" className="text-gray-300 hover:text-irrigation-green transition-colors duration-300">info@sprinkleranddrains.com</a>
               </li>
               <li className="pt-2">
-                <p className="text-gray-300 mb-2">Hours: 7AM - 7PM Mon-Fri</p>
-                <Link to="/contact" className="bg-irrigation-green hover:bg-irrigation-darkGreen text-white font-medium py-2 px-4 rounded transition-colors duration-300 inline-block">
+                <p className="text-gray-300 mb-2">Hours: 7AM-7PM Mon-Sat, Closed Sunday</p>
+                <Link href="/contact" className="bg-irrigation-green hover:bg-irrigation-darkGreen text-white font-medium py-2 px-4 rounded transition-colors duration-300 inline-block">
                   Get in Touch
                 </Link>
               </li>
@@ -101,7 +103,7 @@ const Footer = () => {
         <div className="border-t border-gray-700 pt-6 pb-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm mb-4 md:mb-0">
-              © {new Date().getFullYear()} Texas Best Sprinklers, Drainage and Lighting LLC. All rights reserved.
+              © {new Date().getFullYear()} Texas Best Sprinkler, Drainage and Lighting LLC. All rights reserved.
             </p>
             <div className="flex space-x-5">
               <a href="#" className="text-gray-400 hover:text-irrigation-green text-sm transition-colors duration-300">Privacy Policy</a>

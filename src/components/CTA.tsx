@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 interface CTAProps {
   title?: string;
@@ -9,16 +9,30 @@ interface CTAProps {
   buttonLink?: string;
   variant?: 'primary' | 'secondary';
   className?: string;
+  locationName?: string;
 }
 
 const CTA: React.FC<CTAProps> = ({
-  title = "Ready to Transform Your Landscape?",
-  subtitle = "Let our irrigation experts create a water-efficient system that brings your outdoor space to life.",
+  title,
+  subtitle,
   buttonText = "Get a Free Quote",
   buttonLink = "/contact",
   variant = 'primary',
   className = '',
+  locationName,
 }) => {
+  // Location-specific content for SEO
+  const defaultTitle = locationName 
+    ? `Ready to Transform Your ${locationName} Landscape?` 
+    : "Ready to Transform Your Landscape?";
+  
+  const defaultSubtitle = locationName 
+    ? `Let our ${locationName} irrigation experts create a water-efficient system that brings your outdoor space to life.` 
+    : "Let our irrigation experts create a water-efficient system that brings your outdoor space to life.";
+  
+  // Use provided values or defaults
+  const ctaTitle = title || defaultTitle;
+  const ctaSubtitle = subtitle || defaultSubtitle;
   const bgClass = variant === 'primary' 
     ? 'bg-irrigation-blue text-white' 
     : 'bg-irrigation-green text-white';
@@ -30,12 +44,11 @@ const CTA: React.FC<CTAProps> = ({
   return (
     <section className={`py-16 ${bgClass} ${className}`}>
       <div className="container-custom text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 max-w-3xl mx-auto">{title}</h2>
-        <p className="text-lg md:text-xl opacity-90 mb-8 max-w-2xl mx-auto">{subtitle}</p>
+        <h2 className="text-3xl md:text-4xl font-bold mb-4">{ctaTitle}</h2>
+        <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">{ctaSubtitle}</p>
         <Link 
-          to={buttonLink} 
-          className={`${btnClass} text-white font-semibold py-3 px-8 rounded-md text-lg transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1 inline-block`}
-        >
+          href={buttonLink} 
+          className={`${btnClass} text-white font-semibold py-3 px-8 rounded-md transition-all duration-300 text-lg inline-block shadow-md hover:shadow-lg transform hover:-translate-y-1`}>
           {buttonText}
         </Link>
       </div>
