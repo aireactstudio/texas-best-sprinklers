@@ -32,7 +32,8 @@ const getOptimizedImagePath = (src: string): string => {
 const HeroSection: React.FC<HeroSectionProps> = ({
   title = "Transform Your Landscape with Expert Irrigation",
   subtitle = "Professional sprinkler, drainage, and lighting solutions in Fort Worth, Texas",
-  image = "/assets/images/hero-background.png",
+  image = "/assets/images/optimized/hero-background.webp",
+  cta,
 }) => {
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
@@ -40,7 +41,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       <div className="absolute inset-0 overflow-hidden z-0">
         {/* Direct Image element for optimal LCP performance */}
         <Image 
-          src={image || '/assets/images/hero-background.png'}
+          src={image || '/assets/images/optimized/hero-background.webp'}
           alt="Hero background" 
           fill 
           priority 

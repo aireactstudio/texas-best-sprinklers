@@ -15,15 +15,15 @@ const HeroPreloadScript = () => {
             var link = document.createElement('link');
             link.rel = 'preload';
             link.as = 'image';
-            link.href = '/assets/images/hero-background.png';
+            link.href = '/assets/images/optimized/hero-background.webp';
             link.fetchPriority = 'high';
-            link.type = 'image/png';
+            link.type = 'image/webp';
             document.head.appendChild(link);
             
             // Also start loading the image immediately to ensure browser prioritizes it
             var img = new Image();
             img.fetchPriority = 'high';
-            img.src = '/assets/images/hero-background.png';
+            img.src = '/assets/images/optimized/hero-background.webp';
           })();
         `,
       }}

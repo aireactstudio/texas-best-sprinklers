@@ -18,7 +18,8 @@ const HeroImagePreload = ({ imagePath }: { imagePath: string }) => {
     preloadLink.href = optimizedPath;
     
     // Set appropriate content type based on image extension
-    const imageType = imagePath.toLowerCase().endsWith('.png') ? 'image/png' : 'image/jpeg';
+    const imageType = imagePath.toLowerCase().endsWith('.webp') ? 'image/webp' : 
+                     imagePath.toLowerCase().endsWith('.png') ? 'image/png' : 'image/jpeg';
     preloadLink.type = imageType;
     preloadLink.fetchPriority = 'high';
     
