@@ -2,6 +2,7 @@
 
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Droplet, CloudRain, Settings, TreeDeciduous, CloudSun, Check } from 'lucide-react';
 import CTA from '@/components/CTA';
 
@@ -228,10 +229,13 @@ export default function ServiceDetail({ params }: { params: { service: string } 
     <>
       {/* Hero/Header */}
       <div className="relative h-96">
-        <img 
+        <Image 
           src={serviceInfo.image} 
           alt={serviceInfo.title} 
-          className="absolute inset-0 w-full h-full object-cover"
+          fill
+          sizes="100vw"
+          priority
+          className="object-cover"
         />
         <div className="absolute inset-0 bg-irrigation-blue bg-opacity-70"></div>
         <div className="absolute inset-0 flex items-center justify-center">

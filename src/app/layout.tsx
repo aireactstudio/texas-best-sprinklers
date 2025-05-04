@@ -68,7 +68,7 @@ export default function RootLayout({
         <NavigationObserver />
         <PerformanceMonitor />
         {/* Preload hero image to fix LCP issues */}
-        <HeroImagePreload imagePath="/assets/images/optimized/hero-background.webp" />
+        <HeroImagePreload imagePath="https://imagedelivery.net/Hs1aBZ5UERW4OpkuLtKJ6A/b96197d9-8f69-4145-7b7b-0b5a7ba70900/public" />
         <AppHeader />
         <main>{children}</main>
         <Footer />

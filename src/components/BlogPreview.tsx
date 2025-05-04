@@ -69,13 +69,13 @@ const BlogPreview: React.FC<BlogPreviewProps> = ({
           {posts.map((post, index) => (
             <div key={post.id} className="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
               <Link href={`/blog/${post.slug}`} className="block">
-                <div className="relative w-full h-48">
+                <div className="relative aspect-video overflow-hidden rounded-lg mb-4">
                   <Image 
                     src={post.image} 
-                    alt={post.title} 
+                    alt={post.title}
                     fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-cover"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover transition-all duration-300 hover:scale-105"
                     priority={index < 2} // Load first two images with priority
                   />
                 </div>

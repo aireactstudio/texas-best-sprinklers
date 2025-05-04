@@ -6,9 +6,7 @@ import { Button } from './ui/button';
 import { ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 import AnimatedWaterDrops from './AnimatedWaterDrops';
-import ResponsiveImage from './ResponsiveImage';
 import { Droplet } from 'lucide-react';
-import { HERO_BLUR_PLACEHOLDER } from '@/utils/image-placeholders';
 
 interface HeroSectionProps {
   title?: string;
@@ -37,23 +35,17 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 }) => {
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-      {/* Background Image with Overlay - Optimized for LCP */}
+      {/* Background Image with Overlay - Simple for reliable performance */}
       <div className="absolute inset-0 overflow-hidden z-0">
-        {/* Direct Image element for optimal LCP performance */}
         <Image 
-          src={image || '/assets/images/optimized/hero-background.webp'}
+          src="https://imagedelivery.net/Hs1aBZ5UERW4OpkuLtKJ6A/b96197d9-8f69-4145-7b7b-0b5a7ba70900/public"
           alt="Hero background" 
           fill 
           priority 
           fetchPriority="high"
           sizes="100vw"
-          quality={75}
-          placeholder="blur"
-          blurDataURL={HERO_BLUR_PLACEHOLDER}
-          loading="eager"
-          className="object-cover transition-opacity duration-300 opacity-100"
-          // Let Next.js automatically convert to WebP when supported
-          unoptimized={false}
+          className="object-cover"
+          unoptimized={true} // Skip Next.js optimization since Cloudflare already optimized it
         />
         <div className="absolute inset-0 bg-irrigation-blue bg-opacity-60"></div>
       </div>
