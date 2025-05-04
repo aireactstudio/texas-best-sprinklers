@@ -3,12 +3,12 @@
   "/contact/page": "app/contact/page.js",
   "/page": "app/page.js",
   "/[location]/page": "app/[location]/page.js",
-  "/blog/[slug]/page": "app/blog/[slug]/page.js",
-  "/blog/page": "app/blog/page.js",
-  "/about/page": "app/about/page.js",
+  "/weatherford/page": "app/weatherford/page.js",
   "/projects/page": "app/projects/page.js",
-  "/services/page": "app/services/page.js",
+  "/blog/page": "app/blog/page.js",
+  "/blog/[slug]/page": "app/blog/[slug]/page.js",
+  "/about/page": "app/about/page.js",
   "/services/[service]/page": "app/services/[service]/page.js",
-  "/fort-worth/page": "app/fort-worth/page.js",
-  "/weatherford/page": "app/weatherford/page.js"
+  "/services/page": "app/services/page.js",
+  "/fort-worth/page": "app/fort-worth/page.js"
 }

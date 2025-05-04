@@ -2,7 +2,7 @@
   "components/lazy/index.ts -> @/components/BlogPreview": {
     "id": 3941,
     "files": [
-      "static/chunks/941.749d60aaadb22b4d.js"
+      "static/chunks/941.ef90be4ca6aaa298.js"
     ]
   },
   "components/lazy/index.ts -> @/components/ContactForm": {
@@ -16,7 +16,7 @@
   "components/lazy/index.ts -> @/components/HowItWorksSection": {
     "id": 9076,
     "files": [
-      "static/chunks/76.ee32ab9e41acb6c2.js"
+      "static/chunks/76.a3e8b6cf3965a168.js"
     ]
   },
   "components/lazy/index.ts -> @/components/LocalFAQ": {
@@ -28,7 +28,7 @@
   "components/lazy/index.ts -> @/components/LocalProjects": {
     "id": 9698,
     "files": [
-      "static/chunks/698.268b2eb49667fff7.js"
+      "static/chunks/698.c41be9f5ec249583.js"
     ]
   },
   "components/lazy/index.ts -> @/components/StatsSection": {

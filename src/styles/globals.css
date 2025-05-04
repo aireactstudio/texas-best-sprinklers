@@ -136,11 +136,11 @@
   }
   
   .btn-primary {
-    @apply bg-irrigation-green hover:bg-irrigation-darkGreen text-white font-semibold py-3 px-6 rounded-md transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1;
+    @apply bg-irrigation-darkGreen hover:bg-black text-white font-semibold py-3 px-6 rounded-md transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1;
   }
   
   .btn-secondary {
-    @apply bg-irrigation-blue hover:bg-opacity-90 text-white font-semibold py-3 px-6 rounded-md transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1;
+    @apply bg-irrigation-darkBlue hover:bg-black text-white font-semibold py-3 px-6 rounded-md transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1;
   }
   
   .section {

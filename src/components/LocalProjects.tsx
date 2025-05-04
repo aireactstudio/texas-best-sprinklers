@@ -35,10 +35,10 @@ const LocalProjects: React.FC<LocalProjectsProps> = ({ cityName }) => {
   ];
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-16 bg-gray-100">
       <div className="container-custom">
-        <h2 className="text-3xl font-bold mb-2">Recent Projects in {cityName}</h2>
-        <p className="text-lg text-gray-600 mb-10">
+        <h2 className="text-3xl font-bold mb-2 text-irrigation-darkBlue">Recent Projects in {cityName}</h2>
+        <p className="text-lg text-irrigation-a11y-gray-dark mb-10">
           Check out some of our recently completed irrigation projects in the {cityName} area
         </p>
         

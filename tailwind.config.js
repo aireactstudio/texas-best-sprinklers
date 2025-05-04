@@ -42,8 +42,17 @@ module.exports = {
         'irrigation-blue': '#164e7a',
         'irrigation-darkBlue': '#0d3654',
         'irrigation-green': '#4aa24d',
-        'irrigation-darkGreen': '#357937',
+        'irrigation-darkGreen': '#2b602d', // Darkened for better contrast
         'irrigation-gray': '#f5f5f5',
+        'irrigation-a11y': {
+          'green': '#2b602d',     // Accessible green for text on light backgrounds
+          'blue': '#0d3654',      // Accessible blue for text on light backgrounds
+          'light': '#f8f9fa',     // Light color for text on dark backgrounds
+          'light-green': '#c8e6c9', // Light green with good contrast on dark backgrounds
+          'light-blue': '#cfe8ff',  // Light blue with good contrast on dark backgrounds
+          'gray-dark': '#555555',   // Dark gray with good contrast on light backgrounds
+          'gray-light': '#e0e0e0',  // Light gray with good contrast on dark backgrounds
+        },
       },
       fontFamily: {
         sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],

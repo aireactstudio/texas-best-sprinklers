@@ -70,14 +70,14 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName }) => {
   const locationPrefix = cityName ? cityName.toLowerCase().replace(' ', '-') : '';
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-16 bg-gray-100">
       <div className="container-custom">
         <h2 className="text-3xl font-bold mb-2">{locationTitle}</h2>
-        <p className="text-lg text-gray-600 mb-10">
+        <p className="text-lg text-irrigation-a11y-gray-dark mb-10">
           {locationDescription}
         </p>
         <div className="text-center mb-16">
-          <div className="inline-block bg-irrigation-green bg-opacity-20 text-irrigation-green px-4 py-2 rounded-full mb-4">
+          <div className="inline-block bg-irrigation-a11y-light-green text-irrigation-a11y-green px-4 py-2 rounded-full mb-4 font-medium">
             Our Services
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-irrigation-blue">

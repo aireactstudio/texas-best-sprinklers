@@ -33,13 +33,15 @@ const CTA: React.FC<CTAProps> = ({
   // Use provided values or defaults
   const ctaTitle = title || defaultTitle;
   const ctaSubtitle = subtitle || defaultSubtitle;
+  // Using darker backgrounds for better contrast with white text
   const bgClass = variant === 'primary' 
-    ? 'bg-irrigation-blue text-white' 
-    : 'bg-irrigation-green text-white';
+    ? 'bg-irrigation-darkBlue text-white' 
+    : 'bg-irrigation-darkGreen text-white';
   
+  // Ensuring buttons have sufficient contrast
   const btnClass = variant === 'primary' 
-    ? 'bg-irrigation-green hover:bg-irrigation-darkGreen' 
-    : 'bg-irrigation-blue hover:bg-opacity-90';
+    ? 'bg-irrigation-darkGreen hover:bg-black' 
+    : 'bg-irrigation-darkBlue hover:bg-black';
 
   return (
     <section className={`py-16 ${bgClass} ${className}`}>

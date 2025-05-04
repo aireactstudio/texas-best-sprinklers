@@ -27,20 +27,20 @@ const HowItWorksSection: React.FC = () => {
   ];
 
   return (
-    <section className="section bg-gray-50 relative overflow-hidden">
+    <section className="section bg-gray-100 relative overflow-hidden">
       {/* Background effect */}
       <div className="absolute right-0 top-0 w-1/3 h-full bg-irrigation-green opacity-5 rounded-l-full"></div>
       
       <div className="container-custom relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
           <div>
-            <div className="inline-block bg-irrigation-green bg-opacity-20 text-irrigation-green px-4 py-2 rounded-full mb-4">
+            <div className="inline-block bg-irrigation-a11y-light-green text-irrigation-a11y-green px-4 py-2 rounded-full mb-4 font-medium">
               Our Process
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-irrigation-blue">
               How We Transform Your Landscape
             </h2>
-            <p className="text-lg text-gray-700 mb-8">
+            <p className="text-lg text-irrigation-a11y-gray-dark mb-8">
               We follow a proven, step-by-step approach to create the perfect irrigation solution for your property, ensuring water efficiency and landscape health.
             </p>
             

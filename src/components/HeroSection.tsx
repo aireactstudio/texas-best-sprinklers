@@ -55,7 +55,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
       {/* Content */}
       <div className="container-custom relative z-10 text-center text-white pt-20">
-        <div className="inline-flex items-center bg-irrigation-green bg-opacity-90 px-4 py-2 rounded-full mb-6 animate-float">
+        <div className="inline-flex items-center bg-irrigation-darkGreen px-4 py-2 rounded-full mb-6 animate-float">
           <Droplet className="h-5 w-5 mr-2 text-white" />
           <span className="font-medium">Texas Best Sprinklers, Drainage and Lighting</span>
         </div>

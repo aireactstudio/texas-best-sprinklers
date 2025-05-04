@@ -64,7 +64,7 @@ const FeaturesSection: React.FC = () => {
     <section className="section bg-white">
       <div className="container-custom">
         <div className="text-center mb-16">
-          <div className="inline-block bg-irrigation-green bg-opacity-20 text-irrigation-green px-4 py-2 rounded-full mb-4">
+          <div className="inline-block bg-irrigation-a11y-light-green text-irrigation-a11y-green px-4 py-2 rounded-full mb-4 font-medium">
             Our Approach
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-irrigation-blue">
