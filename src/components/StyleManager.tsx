@@ -11,7 +11,8 @@ export default function StyleManager() {
     // Load non-critical CSS asynchronously after page load
     const loadNonCriticalCSS = () => {
       const links = [
-        { rel: 'stylesheet', href: '/styles/pages.css' }
+        // Use the correct import path for Next.js structure
+        { rel: 'stylesheet', href: '/_next/static/css/pages.css' }
       ];
       
       links.forEach(({ rel, href }) => {

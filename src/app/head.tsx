@@ -11,9 +11,9 @@ export default function Head() {
       {/* Preload the hero image for faster LCP */}
       <link 
         rel="preload" 
-        href="/assets/images/hero-background.png" 
+        href="https://imagedelivery.net/Hs1aBZ5UERW4OpkuLtKJ6A/b96197d9-8f69-4145-7b7b-0b5a7ba70900/public" 
         as="image" 
-        type="image/png" 
+        type="image/webp" 
         fetchPriority="high"
       />
     </>

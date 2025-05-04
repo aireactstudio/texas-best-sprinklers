@@ -13,9 +13,8 @@ const HeroImagePreload = ({ imagePath }: { imagePath: string }) => {
     const preloadLink = document.createElement('link');
     preloadLink.rel = 'preload';
     preloadLink.as = 'image';
-    // Use Next.js image optimization but respect original format (will auto-convert to WebP when possible)
-    const optimizedPath = `/_next/image?url=${encodeURIComponent(imagePath)}&w=1920&q=75`;
-    preloadLink.href = optimizedPath;
+    // Use the Cloudflare image URL directly as it's already optimized
+    preloadLink.href = imagePath;
     
     // Set appropriate content type based on image extension
     const imageType = imagePath.toLowerCase().endsWith('.webp') ? 'image/webp' : 

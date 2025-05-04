@@ -12,7 +12,7 @@ export default function ResourcePreloader() {
     const resourcesToPreload = [
       {
         rel: 'preload',
-        href: '/assets/images/hero-background.png',
+        href: 'https://imagedelivery.net/Hs1aBZ5UERW4OpkuLtKJ6A/b96197d9-8f69-4145-7b7b-0b5a7ba70900/public',
         as: 'image',
         fetchPriority: 'high'
       }

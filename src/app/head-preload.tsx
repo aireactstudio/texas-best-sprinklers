@@ -11,15 +11,7 @@ const HeadPreload = () => {
       {/* Preload hero image with highest priority */}
       <link 
         rel="preload" 
-        href="/assets/images/hero-background.png" 
-        as="image" 
-        fetchPriority="high"
-      />
-      
-      {/* Also preload the optimized version that Next.js will generate */}
-      <link 
-        rel="preload" 
-        href="/_next/image?url=%2Fassets%2Fimages%2Fhero-background.png&w=1920&q=75" 
+        href="https://imagedelivery.net/Hs1aBZ5UERW4OpkuLtKJ6A/b96197d9-8f69-4145-7b7b-0b5a7ba70900/public" 
         as="image" 
         fetchPriority="high"
         type="image/webp"

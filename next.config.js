@@ -51,8 +51,10 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: '/services/:slug*',
-        destination: '/services',
+        // Only redirect specific old service slugs that aren't valid anymore
+        // The wildcard pattern needs to be more specific to avoid catching the base route
+        source: '/services/:slug(irrigation|sprinklers|drainage|outdoor-lighting)/:subpath*',
+        destination: '/services/:slug',
         permanent: false,
       },
     ];
