@@ -16,17 +16,18 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon, id 
   return (
     <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
       <div className="p-8">
-        <div className="h-16 w-16 rounded-full bg-irrigation-green bg-opacity-20 flex items-center justify-center mb-6 text-irrigation-green">
+        <div className="h-16 w-16 rounded-full bg-irrigation-darkGreen bg-opacity-20 flex items-center justify-center mb-6 text-irrigation-darkGreen">
           {icon}
         </div>
-        <h3 className="text-xl font-bold mb-4 text-irrigation-blue">{title}</h3>
-        <p className="text-gray-600 mb-6">{description}</p>
+        <h3 className="text-xl font-bold mb-4 text-irrigation-darkBlue">{title}</h3>
+        <p className="text-gray-800 mb-6">{description}</p>
         <Link 
           href={`/services/${id}`} 
-          className="text-irrigation-green font-medium hover:text-irrigation-darkGreen flex items-center"
+          className="text-irrigation-darkGreen font-medium hover:text-irrigation-darkBlue flex items-center"
+          aria-label={`Learn more about ${title} service`}
         >
-          Learn More
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <span>Learn More about {title}</span>
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
           </svg>
         </Link>

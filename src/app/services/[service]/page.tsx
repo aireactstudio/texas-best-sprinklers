@@ -379,16 +379,17 @@ export default function ServiceDetail({ params }: { params: { service: string } 
                     <div className="h-14 w-14 rounded-full bg-irrigation-green bg-opacity-20 flex items-center justify-center mb-4 text-irrigation-green">
                       {relatedService.icon}
                     </div>
-                    <h3 className="text-xl font-bold mb-2 text-irrigation-blue">{relatedService.title}</h3>
-                    <p className="text-gray-700 mb-4">
+                    <h3 className="text-xl font-bold mb-2 text-irrigation-darkBlue">{relatedService.title}</h3>
+                    <p className="text-gray-800 mb-4">
                       {relatedService.description}
                     </p>
                     <Link 
                       href={`/services/${key}`} 
-                      className="text-irrigation-green font-medium hover:text-irrigation-darkGreen flex items-center"
+                      className="text-irrigation-darkGreen font-medium hover:text-irrigation-darkBlue flex items-center"
+                      aria-label={`Learn more about ${relatedService.title}`}
                     >
-                      Learn More
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <span>Learn More about {relatedService.title}</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
                     </Link>
