@@ -47,7 +47,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           className="object-cover"
           unoptimized={true} // Skip Next.js optimization since Cloudflare already optimized it
         />
-        <div className="absolute inset-0 bg-irrigation-blue bg-opacity-60"></div>
+        <div className="absolute inset-0 bg-black bg-opacity-80"></div>
       </div>
 
       {/* Client-only Animated Water Drops */}

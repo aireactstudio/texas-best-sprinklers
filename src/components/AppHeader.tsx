@@ -1,15 +1,30 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Droplet } from 'lucide-react';
+import { Droplet, ChevronRight, Phone, Mail, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const AppHeader = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
   const pathname = usePathname();
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMobileMenuOpen]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,44 +40,88 @@ const AppHeader = () => {
     setIsMobileMenuOpen(false);
   }, [pathname]);
 
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target as Node) && isMobileMenuOpen) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isMobileMenuOpen]);
+
+  const menuItems = [
+    { name: 'Home', path: '/' },
+    { 
+      name: 'Services', 
+      path: '/services',
+      submenu: [
+        { name: 'Sprinkler Installation', path: '/services/sprinkler-installation' },
+        { name: 'Drainage Solutions', path: '/services/drainage-solutions' },
+        { name: 'Outdoor Lighting', path: '/services/outdoor-lighting' },
+        { name: 'Maintenance', path: '/services/maintenance' },
+      ]
+    },
+    { name: 'Projects', path: '/projects' },
+    { name: 'About', path: '/about' },
+    { name: 'Blog', path: '/blog' },
+    { name: 'Contact', path: '/contact' }
+  ];
+
   return (
     <header 
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'
+      className={`fixed w-full z-50 transition-all duration-500 ${
+        isScrolled ? 'bg-black shadow-md py-2' : 'bg-transparent py-4'
       }`}
     >
       <div className="container-custom flex justify-between items-center">
-        <Link href="/" className="flex items-center space-x-2">
-          <Droplet className={`h-8 w-8 ${isScrolled ? 'text-irrigation-blue' : 'text-white'}`} />
-          <span className={`font-bold text-xl md:text-2xl font-['Montserrat'] ${isScrolled ? 'text-irrigation-blue' : 'text-white'}`}>
+        <Link href="/" className={`items-center space-x-2 z-[60] ${isMobileMenuOpen ? 'hidden lg:flex' : 'flex'}`}>
+          <Droplet className="h-8 w-8 text-white" />
+          <span className="font-bold text-xl md:text-2xl font-['Montserrat'] text-white">
             Texas Best Sprinklers
           </span>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
-          <ul className="flex space-x-6">
-            {[
-              { name: 'Home', path: '/' },
-              { name: 'About', path: '/about' },
-              { name: 'Services', path: '/services' },
-              { name: 'Projects', path: '/projects' },
-              { name: 'Blog', path: '/blog' },
-              { name: 'Contact', path: '/contact' }
-            ].map((item) => (
-              <li key={item.name}>
+        <nav className="hidden lg:flex items-center space-x-8">
+          <ul className="flex space-x-8 lg:space-x-10">
+            {menuItems.map((item) => (
+              <li key={item.name} className="relative group">
                 <Link 
                   href={item.path} 
-                  className={`relative font-medium text-sm hover:text-irrigation-blue transition-colors ${(
-                    pathname === item.path ||
-                    (item.path !== '/' && pathname?.startsWith(item.path))
-                  ) 
-                    ? (isScrolled ? 'text-irrigation-blue' : 'text-irrigation-green') 
-                    : (isScrolled ? 'text-gray-800' : 'text-white')
+                  className={`relative font-medium text-base lg:text-lg hover:text-irrigation-green transition-colors group-hover:text-irrigation-green ${
+                    (pathname === item.path ||
+                    (item.path !== '/' && pathname?.startsWith(item.path)))
+                      ? (isScrolled ? 'text-irrigation-green' : 'text-irrigation-green') 
+                      : 'text-white'
                   }`}
                 >
                   {item.name}
+                  {item.submenu && (
+                    <span className="ml-1 inline-block">▾</span>
+                  )}
                 </Link>
+                
+                {/* Desktop Dropdown */}
+                {item.submenu && (
+                  <div className="absolute left-0 mt-2 w-64 bg-white rounded-md shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50">
+                    <div className="py-2">
+                      {item.submenu.map((subitem) => (
+                        <Link 
+                          key={subitem.name}
+                          href={subitem.path}
+                          className="block px-4 py-3 text-sm text-gray-800 hover:bg-irrigation-blue/5 hover:text-irrigation-blue transition-colors"
+                        >
+                          {subitem.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </li>
             ))}
           </ul>
@@ -70,52 +129,173 @@ const AppHeader = () => {
             variant="outline"
             className="text-irrigation-blue border-irrigation-blue hover:bg-irrigation-blue hover:text-white"
           >
-            <Link href="/contact">Get a Quote</Link>
+            <Link href="/contact" className="flex items-center">
+              <Phone className="w-4 h-4 mr-2" /> Get a Quote
+            </Link>
           </Button>
         </nav>
 
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label="Toggle navigation menu"
-        >
-          <div className={`w-6 h-5 flex flex-col justify-between ${isScrolled ? 'text-gray-800' : 'text-white'}`}>
-            <span className={`w-full h-0.5 ${isScrolled ? 'bg-gray-800' : 'bg-white'} transform transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
-            <span className={`w-full h-0.5 ${isScrolled ? 'bg-gray-800' : 'bg-white'} transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
-            <span className={`w-full h-0.5 ${isScrolled ? 'bg-gray-800' : 'bg-white'} transform transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+        {/* Mobile Menu Button - ONLY shown on screens below lg breakpoint */}
+        <div className="lg:hidden block z-[70]">
+          <button
+            className="flex relative z-[60] w-14 h-14 items-center justify-center"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle navigation menu"
+          >
+          <div className="w-8 h-7 flex flex-col justify-between">
+            <span className={`w-full h-1 ${isMobileMenuOpen ? 'bg-white' : (isScrolled ? 'bg-irrigation-darkBlue' : 'bg-white')} transform transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-3' : ''}`}></span>
+            <span className={`w-full h-1 ${isMobileMenuOpen ? 'bg-white' : (isScrolled ? 'bg-irrigation-darkBlue' : 'bg-white')} transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
+            <span className={`w-full h-1 ${isMobileMenuOpen ? 'bg-white' : (isScrolled ? 'bg-irrigation-darkBlue' : 'bg-white')} transform transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-3' : ''}`}></span>
           </div>
-        </button>
+          </button>
+        </div>
       </div>
 
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden bg-white shadow-lg py-4 px-6 absolute top-full left-0 w-full z-50">
-          <ul className="space-y-4">
-            {[
-              { name: 'Home', path: '/' },
-              { name: 'About', path: '/about' },
-              { name: 'Services', path: '/services' },
-              { name: 'Projects', path: '/projects' },
-              { name: 'Blog', path: '/blog' },
-              { name: 'Contact', path: '/contact' }
-            ].map((item) => (
-              <li key={item.name}>
-                <Link 
-                  href={item.path}
-                  className={`block py-3 text-lg ${pathname === item.path ? 'text-irrigation-green' : 'text-gray-700'}`}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              </li>
-            ))}
-            <Button className="w-full bg-irrigation-blue text-white font-medium">
-              <Link href="/contact">Get a Quote</Link>
-            </Button>
-          </ul>
-        </div>
-      )}
+      {/* Apple-style Mobile Menu */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <>
+            {/* Backdrop */}
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="fixed inset-0 bg-black z-40"
+              onClick={() => setIsMobileMenuOpen(false)}
+            />
+            
+            {/* Menu Panel */}
+            <motion.div 
+              ref={mobileMenuRef}
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+              className="fixed top-0 right-0 bottom-0 w-[85%] max-w-md bg-white/95 backdrop-blur-xl shadow-xl z-50 overflow-y-auto"
+            >
+              <div className="flex flex-col h-full">
+                {/* Header */}
+                <div className="p-6 border-b border-gray-200">
+                  <div className="flex items-center space-x-3">
+                    <Droplet className="h-8 w-8 text-irrigation-darkBlue" />
+                    <h2 className="text-xl font-bold text-irrigation-darkBlue">Texas Best Sprinklers</h2>
+                  </div>
+                </div>
+                
+                {/* Menu Items */}
+                <div className="flex-grow overflow-y-auto py-4">
+                  <ul className="space-y-1 px-2">
+                    {menuItems.map((item) => (
+                      <li key={item.name}>
+                        {item.submenu ? (
+                          <>
+                            <button 
+                              onClick={() => setActiveSubmenu(activeSubmenu === item.name ? null : item.name)}
+                              className={`flex items-center justify-between w-full px-4 py-4 text-left text-gray-800 hover:bg-irrigation-blue/5 rounded-xl transition-colors ${activeSubmenu === item.name ? 'bg-irrigation-blue/5' : ''}`}
+                            >
+                              <span className="text-lg font-medium">{item.name}</span>
+                              <ChevronRight className={`w-5 h-5 text-gray-500 transition-transform duration-300 ${activeSubmenu === item.name ? 'rotate-90' : ''}`} />
+                            </button>
+                            
+                            {/* Submenu with animation */}
+                            <AnimatePresence>
+                              {activeSubmenu === item.name && (
+                                <motion.div
+                                  initial={{ height: 0, opacity: 0 }}
+                                  animate={{ height: 'auto', opacity: 1 }}
+                                  exit={{ height: 0, opacity: 0 }}
+                                  transition={{ duration: 0.3 }}
+                                  className="overflow-hidden"
+                                >
+                                  <div className="pl-6 pr-2 py-2 space-y-1">
+                                    {item.submenu.map((subitem) => (
+                                      <Link 
+                                        key={subitem.name}
+                                        href={subitem.path}
+                                        className={`block px-4 py-3 rounded-xl text-gray-600 hover:bg-irrigation-blue/5 hover:text-irrigation-blue transition-colors ${pathname === subitem.path ? 'text-irrigation-blue bg-irrigation-blue/5' : ''}`}
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                      >
+                                        {subitem.name}
+                                      </Link>
+                                    ))}
+                                  </div>
+                                </motion.div>
+                              )}
+                            </AnimatePresence>
+                          </>
+                        ) : (
+                          <Link 
+                            href={item.path}
+                            className={`block px-4 py-4 text-lg font-medium rounded-xl ${pathname === item.path ? 'text-irrigation-blue bg-irrigation-blue/5' : 'text-gray-800 hover:bg-irrigation-blue/5'}`}
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            {item.name}
+                          </Link>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                
+                {/* Footer with Contact Info */}
+                <div className="p-6 border-t border-gray-200 bg-gray-50">
+                  <div className="space-y-4">
+                    <div className="flex items-center space-x-3 text-gray-700">
+                      <Phone className="h-5 w-5 text-irrigation-darkBlue" />
+                      <a href="tel:+18173047896" className="hover:text-irrigation-blue">(817) 304-7896</a>
+                    </div>
+                    <div className="flex items-center space-x-3 text-gray-700">
+                      <Mail className="h-5 w-5 text-irrigation-darkBlue" />
+                      <a href="mailto:info@sprinkleranddrains.com" className="hover:text-irrigation-blue">info@sprinkleranddrains.com</a>
+                    </div>
+                    <div className="flex items-start space-x-3 text-gray-700">
+                      <MapPin className="h-5 w-5 mt-1 text-irrigation-darkBlue" />
+                      <span>10011 Harmon Rd suite 133, Fort Worth, TX 76177</span>
+                    </div>
+                    <Button onClick={() => setIsMobileMenuOpen(false)} className="w-full bg-irrigation-darkGreen hover:bg-black text-white font-medium py-3 mt-4">
+                      <Link href="/contact" className="flex items-center justify-center w-full">
+                        <Phone className="w-4 h-4 mr-2" /> Get a Quote
+                      </Link>
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+      
+      {/* Mobile Bottom CTA Bar - Only appears when scrolled on mobile */}
+      <AnimatePresence>
+        {isScrolled && (
+          <motion.div 
+            initial={{ y: '100%' }}
+            animate={{ y: 0 }}
+            exit={{ y: '100%' }}
+            transition={{ type: 'spring', damping: 20, stiffness: 300 }}
+            className="fixed bottom-0 left-0 right-0 bg-black py-3 px-4 lg:hidden z-50 shadow-lg shadow-black/20"
+          >
+            <div className="flex items-center justify-between gap-4">
+              <a 
+                href="tel:+18173047896"
+                className="flex-1 bg-irrigation-darkGreen hover:bg-irrigation-green text-white font-semibold py-3 px-4 rounded-lg transition-colors flex items-center justify-center"
+              >
+                <Phone className="w-5 h-5 mr-2" />
+                Call Now
+              </a>
+              
+              <Link 
+                href="/contact"
+                className="flex-1 bg-white hover:bg-gray-100 text-irrigation-darkBlue font-semibold py-3 px-4 rounded-lg transition-colors flex items-center justify-center"
+              >
+                <Mail className="w-5 h-5 mr-2" />
+                Contact
+              </Link>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 };
