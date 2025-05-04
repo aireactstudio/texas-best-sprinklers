@@ -61,8 +61,9 @@ const AppHeader = () => {
       path: '/services',
       submenu: [
         { name: 'Sprinkler Installation', path: '/services/sprinkler-installation' },
+        { name: 'Irrigation Repair', path: '/services/irrigation-repair' },
         { name: 'Drainage Solutions', path: '/services/drainage-solutions' },
-        { name: 'Outdoor Lighting', path: '/services/outdoor-lighting' },
+        { name: 'Outdoor Lighting', path: '/services/lighting' },
         { name: 'Maintenance', path: '/services/maintenance' },
       ]
     },
@@ -108,16 +109,17 @@ const AppHeader = () => {
                 
                 {/* Desktop Dropdown */}
                 {item.submenu && (
-                  <div className="absolute left-0 mt-2 w-64 bg-white rounded-md shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50">
+                  <div className="absolute left-0 mt-2 w-72 bg-white rounded-md shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50">
                     <div className="py-2">
                       {item.submenu.map((subitem) => (
-                        <Link 
-                          key={subitem.name}
-                          href={subitem.path}
-                          className="block px-4 py-3 text-sm text-gray-800 hover:bg-irrigation-blue/5 hover:text-irrigation-blue transition-colors"
-                        >
-                          {subitem.name}
-                        </Link>
+                        <div key={subitem.name}>
+                          <Link 
+                            href={subitem.path}
+                            className="block px-4 py-3 text-sm text-gray-800 hover:bg-irrigation-blue/5 hover:text-irrigation-blue transition-colors"
+                          >
+                            {subitem.name}
+                          </Link>
+                        </div>
                       ))}
                     </div>
                   </div>
@@ -210,14 +212,15 @@ const AppHeader = () => {
                                 >
                                   <div className="pl-6 pr-2 py-2 space-y-1">
                                     {item.submenu.map((subitem) => (
-                                      <Link 
-                                        key={subitem.name}
-                                        href={subitem.path}
-                                        className={`block px-4 py-3 rounded-xl text-gray-600 hover:bg-irrigation-blue/5 hover:text-irrigation-blue transition-colors ${pathname === subitem.path ? 'text-irrigation-blue bg-irrigation-blue/5' : ''}`}
-                                        onClick={() => setIsMobileMenuOpen(false)}
-                                      >
-                                        {subitem.name}
-                                      </Link>
+                                      <div key={subitem.name}>
+                                        <Link 
+                                          href={subitem.path}
+                                          className={`block px-4 py-3 rounded-xl text-gray-600 hover:bg-irrigation-blue/5 hover:text-irrigation-blue transition-colors ${pathname === subitem.path ? 'text-irrigation-blue bg-irrigation-blue/5' : ''}`}
+                                          onClick={() => setIsMobileMenuOpen(false)}
+                                        >
+                                          {subitem.name}
+                                        </Link>
+                                      </div>
                                     ))}
                                   </div>
                                 </motion.div>

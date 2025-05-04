@@ -1,14 +1,3 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
-  "/contact/page": "app/contact/page.js",
-  "/page": "app/page.js",
-  "/[location]/page": "app/[location]/page.js",
-  "/fort-worth/page": "app/fort-worth/page.js",
-  "/about/page": "app/about/page.js",
-  "/blog/[slug]/page": "app/blog/[slug]/page.js",
-  "/blog/page": "app/blog/page.js",
-  "/weatherford/page": "app/weatherford/page.js",
-  "/services/[service]/page": "app/services/[service]/page.js",
-  "/services/page": "app/services/page.js",
-  "/projects/page": "app/projects/page.js"
+  "/services/irrigation-repair/[location]/page": "app/services/irrigation-repair/[location]/page.js"
 }

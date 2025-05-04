@@ -78,17 +78,17 @@ export default function Services() {
             />
             
             <ServiceCard 
-              title="Smart Irrigation Controls"
-              description="Upgrade your system with weather-based, Wi-Fi enabled controllers that automatically adjust watering schedules based on local conditions."
+              title="Outdoor Lighting"
+              description="Enhance your property's beauty, security, and functionality with our custom-designed outdoor lighting solutions for pathways, gardens, and architectural features."
               icon={<CloudSun size={32} />}
-              id="smart-irrigation"
+              id="lighting"
             />
             
             <ServiceCard 
-              title="Drip Irrigation"
-              description="Water-efficient drip systems for gardens, flower beds, and container plants that deliver moisture directly to plant roots with minimal waste."
-              icon={<TreeDeciduous size={32} />}
-              id="drip-irrigation"
+              title="Irrigation System Maintenance"
+              description="Our proactive maintenance services extend the life of your irrigation system, optimize water efficiency, and prevent costly breakdowns through regular inspections and seasonal care."
+              icon={<Settings size={32} />}
+              id="maintenance"
             />
             
             <ServiceCard 

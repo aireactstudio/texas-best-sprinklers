@@ -1,1 +1,0 @@
-"use strict";exports.id=953,exports.ids=[953],exports.modules={1953:(e,s,t)=>{t.r(s),t.d(s,{default:()=>r});let r=(0,t(8570).createProxy)(String.raw`/Users/christopherhancock/Desktop/WebApps/texas-best-sprinklers/src/components/Footer.tsx#default`)}};
