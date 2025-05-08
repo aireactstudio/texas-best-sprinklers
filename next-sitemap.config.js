@@ -9,11 +9,9 @@ module.exports = {
         allow: '/',
       },
     ],
+    additionalSitemaps: [
+      'https://sprinkleranddrains.com/server-sitemap.xml',
+    ],
   },
   exclude: ['/server-sitemap.xml'],
-  // Optional: Add any specific URLs you want to prioritize or change frequencies for
-  // Example:
-  // additionalSitemaps: [
-  //   'https://sprinkleranddrains.com/server-sitemap.xml',
-  // ],
 }

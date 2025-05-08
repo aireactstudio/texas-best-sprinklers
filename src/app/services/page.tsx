@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import HeroSection from '@/components/HeroSection';
 import CTA from '@/components/CTA';
 import { Droplet, CloudRain, Settings, TreeDeciduous, CloudSun } from 'lucide-react';
@@ -107,7 +108,7 @@ export default function Services() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-irrigation-blue">
-                Why Choose Texas Best Sprinklers?
+                Why Choose Texas Best Sprinklers, Drainage and Outdoor Lighting?
               </h2>
               <div className="space-y-6">
                 <div className="flex items-start">
@@ -168,11 +169,15 @@ export default function Services() {
               </div>
             </div>
             
-            <div className="rounded-lg overflow-hidden shadow-xl">
-              <img
-                src="/assets/images/why-choose-us.jpg"
+            <div className="rounded-lg overflow-hidden shadow-xl relative h-[500px]">
+              <Image
+                src="/assets/images/optimized/outdoor_lighting_2.webp"
                 alt="Texas Best Sprinklers professional at work"
-                className="w-full h-auto object-cover"
+                fill
+                sizes="(max-width: 768px) 100vw, 600px"
+                priority
+                style={{ objectFit: 'cover' }}
+                className="hover:scale-105 transition-transform duration-500"
               />
             </div>
           </div>

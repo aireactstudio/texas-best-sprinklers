@@ -38,14 +38,15 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       {/* Background Image with Overlay - Simple for reliable performance */}
       <div className="absolute inset-0 overflow-hidden z-0">
         <Image 
-          src="https://imagedelivery.net/Hs1aBZ5UERW4OpkuLtKJ6A/b96197d9-8f69-4145-7b7b-0b5a7ba70900/public"
-          alt="Hero background" 
+          src="/assets/images/optimized/hero-background.webp"
+          alt="Irrigation system in a beautiful landscape" 
           fill 
           priority 
           fetchPriority="high"
           sizes="100vw"
           className="object-cover"
-          unoptimized={true} // Skip Next.js optimization since Cloudflare already optimized it
+          placeholder="blur"
+          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN88P/hfwAJhAPkz1MYsgAAAABJRU5ErkJggg=="
         />
         <div className="absolute inset-0 bg-black bg-opacity-80"></div>
       </div>

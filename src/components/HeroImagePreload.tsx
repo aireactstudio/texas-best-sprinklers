@@ -27,7 +27,10 @@ const HeroImagePreload = ({ imagePath }: { imagePath: string }) => {
     
     // Clean up on component unmount
     return () => {
-      document.head.removeChild(preloadLink);
+      // Check if the preloadLink is still a child of document.head
+      if (preloadLink.parentNode === document.head) {
+        document.head.removeChild(preloadLink);
+      }
     };
   }, [imagePath]);
 

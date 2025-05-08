@@ -63,7 +63,7 @@ const AppHeader = () => {
         { name: 'Sprinkler Installation', path: '/services/sprinkler-installation' },
         { name: 'Irrigation Repair', path: '/services/irrigation-repair' },
         { name: 'Drainage Solutions', path: '/services/drainage-solutions' },
-        { name: 'Outdoor Lighting', path: '/services/lighting' },
+        { name: 'Outdoor Lighting', path: '/services/outdoor-lighting' },
         { name: 'Maintenance', path: '/services/maintenance' },
       ]
     },

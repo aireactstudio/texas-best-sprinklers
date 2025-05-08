@@ -8,6 +8,12 @@ const nextConfig = {
   compress: true,
   poweredByHeader: false,
   
+  // Expose environment variables to the browser
+  env: {
+    GOOGLE_MAPS_API_KEY: process.env.GOOGLE_MAPS_API_KEY,
+    GOOGLE_PLACES_API_KEY: process.env.GOOGLE_PLACES_API_KEY,
+  },
+  
   // Performance optimizations
   experimental: {
     optimizeCss: true,
@@ -53,7 +59,7 @@ const nextConfig = {
       {
         // Only redirect specific old service slugs that aren't valid anymore
         // The wildcard pattern needs to be more specific to avoid catching the base route
-        source: '/services/:slug(irrigation|sprinklers|drainage|outdoor-lighting)/:subpath*',
+        source: '/services/:slug(irrigation|sprinklers|drainage)/:subpath*',
         destination: '/services/:slug',
         permanent: false,
       },

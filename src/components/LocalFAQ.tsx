@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from 'react';
 import { Plus, Minus } from 'lucide-react';
 
@@ -53,8 +55,8 @@ const LocalFAQ: React.FC<LocalFAQProps> = ({ cityName, faqs }) => {
             </div>
           ))}
         </div>
-        
-        {/* Structured data for FAQ page */}
+
+        {/* FAQ Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

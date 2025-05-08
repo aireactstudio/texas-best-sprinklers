@@ -1,7 +1,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Droplet, Leaf, Sprout } from 'lucide-react';
+import { Droplet, Leaf, Sprout, Lightbulb } from 'lucide-react';
 
 interface ServiceCardProps {
   icon: React.ReactNode;
@@ -15,7 +15,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description, lin
   const fullLink = locationPrefix ? `/${locationPrefix}${link}` : link;
   
   return (
-    <div className="bg-white rounded-lg shadow-lg p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+    <div className="bg-white rounded-lg shadow-lg p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 min-w-[280px] w-[calc(100vw-3rem)] sm:w-[350px] flex-shrink-0 snap-start">
       <div className="h-16 w-16 rounded-full bg-irrigation-darkGreen bg-opacity-20 flex items-center justify-center mb-6 text-irrigation-darkGreen">
         {icon}
       </div>
@@ -58,6 +58,12 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName }) => {
       description: "Weather-based smart controllers that automatically adjust watering schedules based on local conditions and seasonal changes.",
       link: "/services/smart-controllers",
     },
+    {
+      icon: <Lightbulb size={32} />,
+      title: "Outdoor Lighting",
+      description: "Professional landscape lighting that enhances your property's beauty, security, and value while extending outdoor living spaces.",
+      link: "/services/outdoor-lighting",
+    },
   ];
 
   // Location-specific text variations for SEO
@@ -72,10 +78,6 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName }) => {
   return (
     <section className="py-16 bg-gray-100">
       <div className="container-custom">
-        <h2 className="text-3xl font-bold mb-2">{locationTitle}</h2>
-        <p className="text-lg text-irrigation-a11y-gray-dark mb-10">
-          {locationDescription}
-        </p>
         <div className="text-center mb-16">
           <div className="inline-block bg-irrigation-a11y-light-green text-irrigation-a11y-green px-4 py-2 rounded-full mb-4 font-medium">
             Our Services
@@ -88,10 +90,17 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName }) => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <ServiceCard key={index} {...service} />
-          ))}
+        <div className="relative">
+          {/* Left shadow indicator for scrolling */}
+          <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-12 h-full bg-gradient-to-r from-gray-100 to-transparent z-10 pointer-events-none hidden md:block"></div>
+          {/* Right shadow indicator for scrolling */}
+          <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-12 h-full bg-gradient-to-l from-gray-100 to-transparent z-10 pointer-events-none hidden md:block"></div>
+          
+          <div className="flex flex-nowrap overflow-x-auto pb-4 space-x-6 snap-x snap-mandatory -mx-4 px-4" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+            {services.map((service, index) => (
+              <ServiceCard key={index} {...service} locationPrefix={locationPrefix} />
+            ))}
+          </div>
         </div>
         
         <div className="text-center mt-12">
