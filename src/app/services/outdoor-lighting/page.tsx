@@ -108,7 +108,7 @@ export default function OutdoorLightingPage() {
             Areas We Serve
           </h2>
           <ServiceAreas 
-            serviceType="outdoor-lighting"
+            serviceType={ServiceType.OUTDOOR_LIGHTING}
           />
         </div>
       </section>

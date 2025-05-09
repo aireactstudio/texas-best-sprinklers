@@ -108,7 +108,7 @@ export default function IrrigationRepairPage() {
             Areas We Serve
           </h2>
           <ServiceAreas 
-            serviceType="irrigation-repair"
+            serviceType={ServiceType.IRRIGATION_REPAIR}
           />
         </div>
       </section>

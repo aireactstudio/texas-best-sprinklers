@@ -29,7 +29,18 @@ const ServiceAreas: React.FC<ServiceAreasProps> = ({ serviceType }) => {
     { name: 'Euless', slug: 'euless', distance: 16 },
     { name: 'Haltom City', slug: 'haltom-city', distance: 8 },
     { name: 'Hurst', slug: 'hurst', distance: 14 },
-    { name: 'Saginaw', slug: 'saginaw', distance: 10 },
+    { name: 'Mansfield', slug: 'mansfield', distance: 22 },
+    { name: 'Grand Prairie', slug: 'grand-prairie', distance: 19 },
+    { name: 'Benbrook', slug: 'benbrook', distance: 10 },
+    { name: 'Watauga', slug: 'watauga', distance: 15 },
+    { name: 'Flower Mound', slug: 'flower-mound', distance: 28 },
+    { name: 'Lewisville', slug: 'lewisville', distance: 30 },
+    { name: 'Coppell', slug: 'coppell', distance: 26 },
+    { name: 'Irving', slug: 'irving', distance: 24 },
+    { name: 'Trophy Club', slug: 'trophy-club', distance: 27 },
+    { name: 'Roanoke', slug: 'roanoke', distance: 25 },
+    { name: 'Westlake', slug: 'westlake', distance: 23 },
+    { name: 'Dallas', slug: 'dallas', distance: 32 },
   ];
 
   // Weatherford area locations
@@ -44,6 +55,8 @@ const ServiceAreas: React.FC<ServiceAreasProps> = ({ serviceType }) => {
     { name: 'Azle', slug: 'azle', distance: 18 },
     { name: 'Annetta', slug: 'annetta', distance: 9 },
     { name: 'Brock', slug: 'brock', distance: 14 },
+    { name: 'Peaster', slug: 'peaster', distance: 12 },
+    { name: 'Cool', slug: 'cool', distance: 20 },
   ];
 
   // Create a location card with a link to the service-specific location page

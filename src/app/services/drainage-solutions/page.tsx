@@ -108,7 +108,7 @@ export default function DrainageSolutionsPage() {
             Areas We Serve
           </h2>
           <ServiceAreas 
-            serviceType="drainage-solutions"
+            serviceType={ServiceType.DRAINAGE}
           />
         </div>
       </section>

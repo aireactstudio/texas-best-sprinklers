@@ -1,10 +1,12 @@
 // Main service locations
 export const MAIN_LOCATIONS = [
   'weatherford',
+  'fort-worth',
 ];
 
 // Mapping of locations to their primary service area
 export const LOCATION_MAPPING = {
+  'fort-worth': 'fort-worth',
   'weatherford': 'weatherford',
   'arlington': 'weatherford',
   'keller': 'weatherford',
@@ -54,6 +56,19 @@ export function isValidLocation(location: string): boolean {
 
 // Detailed information about each location
 export const locationData = {
+  'fort-worth': {
+    name: 'Fort Worth',
+    nearestOffice: 'Fort Worth',
+    distanceFromOffice: 0,
+    landmarks: ['Fort Worth Stockyards', 'Sundance Square', 'Fort Worth Water Gardens', 'Dickies Arena'],
+    neighborhoods: ['Downtown', 'Fairmount', 'Arlington Heights', 'Westover Hills', 'Rivercrest', 'Westcliff', 'TCU Area', 'Cultural District'],
+    coordinates: {
+      latitude: 32.7555,
+      longitude: -97.3308
+    },
+    isOfficeLocation: true,
+    serviceRadius: 35
+  },
   'weatherford': {
     name: 'Weatherford',
     nearestOffice: 'Weatherford',

@@ -80,7 +80,7 @@ const southlakeArticleData: SprinklerInstallationArticleData = {
     }
   ],
   
-  timeline: '2-3 days installation + 7-10 business days for permits and HOA approval',
+  timeline: "Most residential sprinkler system installations in Southlake are completed within 2-3 days, depending on property size and system complexity. After your initial consultation, we typically schedule installation within 2-3 weeks. The permitting process through Southlake usually takes 5-7 business days, with HOA approvals potentially adding another 3-5 days. Once installed, your system will be fully operational immediately, with a follow-up inspection scheduled 2 weeks after completion to ensure everything is functioning optimally.",
   
   testimonial: {
     name: 'The Johnson Family',
@@ -92,5 +92,7 @@ const southlakeArticleData: SprinklerInstallationArticleData = {
   conclusion: "With over a decade of experience serving Southlake's premier neighborhoods, Texas Best Sprinklers brings deep local knowledge and proven performance to every installation project.\n\nWe offer a two-year warranty on parts and labor, seasonal check-ups aligned with Southlake's climate, and 24/7 emergency support. Trust Texas Best Sprinklers for irrigation solutions designed specifically for Southlake's distinctive landscapes."
 };
 
-// Generate the article using the template
-export const southlakeSprinklerInstallationArticle = generateSprinklerInstallationArticle(southlakeArticleData);
+// Generate the article HTML
+const southlakeArticleHtml = generateSprinklerInstallationArticle(southlakeArticleData);
+
+export default southlakeArticleHtml;

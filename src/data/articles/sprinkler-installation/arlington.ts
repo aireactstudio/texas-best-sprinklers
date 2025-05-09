@@ -80,7 +80,7 @@ const arlingtonArticleData: SprinklerInstallationArticleData = {
     }
   ],
   
-  timeline: '2-3 days installation + 7-10 days for permits and HOA approvals',
+  timeline: "Most residential sprinkler system installations in Arlington are completed within 2-3 days, depending on property size and system complexity. After your initial consultation, we typically schedule installation within 2-3 weeks. The permitting process through Arlington usually takes 5-7 business days, with HOA approvals potentially adding another 3-5 days. Once installed, your system will be fully operational immediately, with a follow-up inspection scheduled 2 weeks after completion to ensure everything is functioning optimally.",
   
   testimonial: {
     name: 'The Millers',
@@ -92,5 +92,7 @@ const arlingtonArticleData: SprinklerInstallationArticleData = {
   conclusion: "With over 15 years of experience in Arlington, Texas Best Sprinklers understands local soils, weather, and ordinances inside and out. We customize every system to address Arlington's unique challenges, from clay soil management to compliance with local water restrictions.\n\nWe offer a two-year parts-and-labor warranty, seasonal check-ups, and 24/7 support for emergencies like broken heads or controller issues. Choose Texas Best Sprinklers for reliable performance, transparent pricing, and service that's tailored to the unique needs of Arlington landscapes."
 };
 
-// Generate the article using the template
-export const arlingtonSprinklerInstallationArticle = generateSprinklerInstallationArticle(arlingtonArticleData);
+// Generate the article HTML
+const arlingtonArticleHtml = generateSprinklerInstallationArticle(arlingtonArticleData);
+
+export default arlingtonArticleHtml;

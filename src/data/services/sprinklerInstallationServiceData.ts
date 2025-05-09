@@ -77,16 +77,6 @@ export const sprinklerInstallationServiceData: Record<string, ServiceContent> = 
           'Pressure regulation installation',
           'Zone reconfiguration for improved coverage'
         ]
-      },
-      {
-        title: 'Seasonal Maintenance Programs',
-        description: 'Comprehensive maintenance packages designed to keep your sprinkler system operating at peak efficiency throughout the year. Our seasonal programs include spring startups, mid-season checkups, and winterization to protect your investment and extend system lifespan.',
-        features: [
-          'Spring system startup and pressure testing',
-          'Mid-season efficiency adjustments and coverage optimization',
-          'Fall system inspection and winterization',
-          'Year-round technical support and priority scheduling'
-        ]
       }
     ],
     
@@ -211,16 +201,6 @@ export const sprinklerInstallationServiceData: Record<string, ServiceContent> = 
           'Smart controller upgrades',
           'Pressure regulation installation',
           'Zone reconfiguration for improved coverage'
-        ]
-      },
-      {
-        title: 'Seasonal Maintenance Programs',
-        description: 'Comprehensive maintenance packages designed to keep your sprinkler system operating at peak efficiency throughout the year. Our seasonal programs include spring startups, mid-season checkups, and winterization to protect your investment and extend system lifespan.',
-        features: [
-          'Spring system startup and pressure testing',
-          'Mid-season efficiency adjustments and coverage optimization',
-          'Fall system inspection and winterization',
-          'Year-round technical support and priority scheduling'
         ]
       }
     ],
@@ -347,16 +327,6 @@ export const sprinklerInstallationServiceData: Record<string, ServiceContent> = 
           'Pressure regulation installation',
           'Zone reconfiguration for improved coverage'
         ]
-      },
-      {
-        title: 'Seasonal Maintenance Programs',
-        description: 'Comprehensive maintenance packages designed to keep your sprinkler system operating at peak efficiency throughout the year. Our seasonal programs include spring startups, mid-season checkups, and winterization to protect your investment and extend system lifespan.',
-        features: [
-          'Spring system startup and pressure testing',
-          'Mid-season efficiency adjustments and coverage optimization',
-          'Fall system inspection and winterization',
-          'Year-round technical support and priority scheduling'
-        ]
       }
     ],
     
@@ -462,16 +432,6 @@ export const sprinklerInstallationServiceData: Record<string, ServiceContent> = 
           'Custom programming for your specific landscape zones',
           'Integration with existing home automation systems'
         ]
-      },
-      {
-        title: 'Seasonal Maintenance Programs',
-        description: 'Comprehensive maintenance packages designed to keep your sprinkler system operating at peak efficiency throughout the year. Our seasonal programs include spring startups, mid-season checkups, and winterization to protect your investment and extend system lifespan.',
-        features: [
-          'Spring system startup and pressure testing',
-          'Mid-season efficiency adjustments and coverage optimization',
-          'Fall system inspection and winterization',
-          'Year-round technical support and priority scheduling'
-        ]
       }
     ],
     
@@ -537,16 +497,6 @@ export const sprinklerInstallationServiceData: Record<string, ServiceContent> = 
           'Mobile app control and monitoring capabilities',
           'Custom programming for your specific landscape zones',
           'Integration with existing home automation systems'
-        ]
-      },
-      {
-        title: 'Seasonal Maintenance Programs',
-        description: 'Comprehensive maintenance packages designed to keep your sprinkler system operating at peak efficiency throughout the year. Our seasonal programs include spring startups, mid-season checkups, and winterization to protect your investment and extend system lifespan.',
-        features: [
-          'Spring system startup and pressure testing',
-          'Mid-season efficiency adjustments and coverage optimization',
-          'Fall system inspection and winterization',
-          'Year-round technical support and priority scheduling'
         ]
       }
     ],
@@ -614,16 +564,6 @@ export const sprinklerInstallationServiceData: Record<string, ServiceContent> = 
           'Custom programming for your specific landscape zones',
           'Integration with existing home automation systems'
         ]
-      },
-      {
-        title: 'Seasonal Maintenance Programs',
-        description: 'Comprehensive maintenance packages designed to keep your sprinkler system operating at peak efficiency throughout the year. Our seasonal programs include spring startups, mid-season checkups, and winterization to protect your investment and extend system lifespan.',
-        features: [
-          'Spring system startup and pressure testing',
-          'Mid-season efficiency adjustments and coverage optimization',
-          'Fall system inspection and winterization',
-          'Year-round technical support and priority scheduling'
-        ]
       }
     ],
     
@@ -689,16 +629,6 @@ export const sprinklerInstallationServiceData: Record<string, ServiceContent> = 
           'Mobile app control and monitoring capabilities',
           'Custom programming for your specific landscape zones',
           'Integration with existing home automation systems'
-        ]
-      },
-      {
-        title: 'Seasonal Maintenance Programs',
-        description: 'Comprehensive maintenance packages designed to keep your sprinkler system operating at peak efficiency throughout the year. Our seasonal programs include spring startups, mid-season checkups, and winterization to protect your investment and extend system lifespan.',
-        features: [
-          'Spring system startup and pressure testing',
-          'Mid-season efficiency adjustments and coverage optimization',
-          'Fall system inspection and winterization',
-          'Year-round technical support and priority scheduling'
         ]
       }
     ],
@@ -766,16 +696,6 @@ export const sprinklerInstallationServiceData: Record<string, ServiceContent> = 
           'Custom programming for your specific landscape zones',
           'Integration with existing home automation systems'
         ]
-      },
-      {
-        title: 'Seasonal Maintenance Programs',
-        description: 'Comprehensive maintenance packages designed to keep your sprinkler system operating at peak efficiency throughout the year. Our seasonal programs include spring startups, mid-season checkups, and winterization to protect your investment and extend system lifespan.',
-        features: [
-          'Spring system startup and pressure testing',
-          'Mid-season efficiency adjustments and coverage optimization',
-          'Fall system inspection and winterization',
-          'Year-round technical support and priority scheduling'
-        ]
       }
     ],
     
@@ -842,16 +762,6 @@ export const sprinklerInstallationServiceData: Record<string, ServiceContent> = 
           'Custom programming for your specific landscape zones',
           'Integration with existing home automation systems'
         ]
-      },
-      {
-        title: 'Seasonal Maintenance Programs',
-        description: 'Comprehensive maintenance packages designed to keep your sprinkler system operating at peak efficiency throughout the year. Our seasonal programs include spring startups, mid-season checkups, and winterization to protect your investment and extend system lifespan.',
-        features: [
-          'Spring system startup and pressure testing',
-          'Mid-season efficiency adjustments and coverage optimization',
-          'Fall system inspection and winterization',
-          'Year-round technical support and priority scheduling'
-        ]
       }
     ],
     
@@ -917,16 +827,6 @@ export const sprinklerInstallationServiceData: Record<string, ServiceContent> = 
           'Mobile app control and monitoring capabilities',
           'Custom programming for your specific landscape zones',
           'Integration with existing home automation systems'
-        ]
-      },
-      {
-        title: 'Seasonal Maintenance Programs',
-        description: 'Comprehensive maintenance packages designed to keep your sprinkler system operating at peak efficiency throughout the year. Our seasonal programs include spring startups, mid-season checkups, and winterization to protect your investment and extend system lifespan.',
-        features: [
-          'Spring system startup and pressure testing',
-          'Mid-season efficiency adjustments and coverage optimization',
-          'Fall system inspection and winterization',
-          'Year-round technical support and priority scheduling'
         ]
       }
     ],

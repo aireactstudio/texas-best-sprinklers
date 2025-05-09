@@ -121,7 +121,7 @@ export default function SprinklerInstallationPage() {
             Areas We Serve
           </h2>
           <ServiceAreas 
-            serviceType="sprinkler-installation"
+            serviceType={ServiceType.SPRINKLER_INSTALLATION}
           />
         </div>
       </section>

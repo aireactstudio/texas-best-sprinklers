@@ -21,15 +21,10 @@ export default async function LocationSpecificInstallationPage({ params }: { par
   const { location } = params;
   
   // Get service content for this location using our centralized data structure
-  const serviceContent = getServiceLocationData(location, ServiceType.SPRINKLER_INSTALLATION);
+  let serviceContent = getServiceLocationData(location, ServiceType.SPRINKLER_INSTALLATION);
   
   // Try to get article content for this location
   const articleContent = await getArticleContent('sprinkler-installation', location);
-  
-  // Check if service is available at this location
-  if (!serviceContent || !isServiceAvailableAtLocation(location, ServiceType.SPRINKLER_INSTALLATION)) {
-    return notFound();
-  }
   
   // Get general location data
   const locationInfo = getLocationData(location);
@@ -39,6 +34,29 @@ export default async function LocationSpecificInstallationPage({ params }: { par
     .split('-')
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
+    
+  // Track if we're using fallback content
+  let usingFallbackContent = false;
+    
+  // If no service content is available, use fallback data from Fort Worth
+  if (!serviceContent || !isServiceAvailableAtLocation(location, ServiceType.SPRINKLER_INSTALLATION)) {
+    // Get fallback content from Fort Worth
+    const fallbackContent = getServiceLocationData('fort-worth', ServiceType.SPRINKLER_INSTALLATION);
+    
+    if (fallbackContent) {
+      // Create customized fallback content for this location
+      serviceContent = {
+        ...fallbackContent,
+        title: `Professional Sprinkler Installation in ${cityName}, TX`,
+        metaDescription: `Expert sprinkler system installation in ${cityName}. Custom irrigation solutions designed for Texas conditions with professional installation and support.`,
+        heroImage: fallbackContent.heroImage
+      };
+      usingFallbackContent = true;
+    } else {
+      // If even fallback content isn't available, show 404
+      return notFound();
+    }
+  }
   
   // Prepare structured data for the page
   const structuredDataProps = {
@@ -66,7 +84,8 @@ export default async function LocationSpecificInstallationPage({ params }: { par
       articleContent={articleContent}
       serviceTypeSlug="sprinkler-installation"
       serviceTitle="Sprinkler Installation"
-      backButtonText="Back to Main Sprinkler Installation Services"
+      backButtonText="Back to Sprinkler Installation Services"
+      usingFallbackContent={usingFallbackContent}
       structuredDataProps={structuredDataProps}
       serviceAreaText={`We provide professional sprinkler installation services throughout ${cityName} and surrounding areas.`}
       ctaTitle={`Professional Sprinkler Installation in ${cityName}`}

@@ -108,7 +108,7 @@ export default function MaintenancePage() {
             Areas We Serve
           </h2>
           <ServiceAreas 
-            serviceType="maintenance"
+            serviceType={ServiceType.MAINTENANCE}
           />
         </div>
       </section>

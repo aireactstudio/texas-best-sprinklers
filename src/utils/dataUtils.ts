@@ -6,7 +6,6 @@
 import { locationData, isValidLocation, CORE_LOCATIONS } from '../data/locationData';
 import { ServiceContent, ServiceType } from '../data/types/serviceTypes';
 import { getServiceLocationData } from '../data/utils/serviceUtils';
-import fencingServiceData from '../data/services/fencingServiceData';
 
 /**
  * Get detailed information for a specific location

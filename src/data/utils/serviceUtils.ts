@@ -4,12 +4,12 @@ import { ServiceType } from '../serviceTypes';
 import type { ServiceContent } from '../types/serviceTypes';
 
 // Import service-specific data
-import { maintenanceServiceData } from '../../data/services/maintenanceServiceData';
-import { irrigationRepairServiceData } from '../../data/services/irrigationRepairServiceData';
-import { drainageServiceData } from '../../data/services/drainageServiceData';
-import { lightingServiceData } from '../../data/services/lightingServiceData';
-import { fencingServiceData } from '../../data/services/fencingServiceData';
-import { sprinklerInstallationServiceData } from '../../data/services/sprinklerInstallationServiceData';
+import maintenanceServiceData from '../../data/services/maintenance';
+import irrigationRepairServiceData from '../../data/services/irrigation-repair';
+import drainageServiceData from '../../data/services/drainage';
+import lightingServiceData from '../../data/services/lighting';
+// import { fencingServiceData } from '../../data/services/fencingServiceData'; // File doesn't exist yet
+import sprinklerInstallationServiceData from '../../data/services/sprinkler-installation';
 
 // Import default service data generator
 import { generateDefaultServiceContent } from './defaultServiceData';
@@ -51,12 +51,14 @@ export const getServiceLocationData = (location: string, serviceType: string | S
         serviceData = maintenanceServiceData;
         break;
       
+      case 'irrigation-repair':
       case 'irrigation_repair':
       case ServiceType.IRRIGATION_REPAIR.toString().toLowerCase():
         serviceData = irrigationRepairServiceData;
         break;
       
       case 'drainage-solutions':
+      case 'drainage':
       case ServiceType.DRAINAGE.toString().toLowerCase():
         serviceData = drainageServiceData;
         break;
@@ -70,7 +72,10 @@ export const getServiceLocationData = (location: string, serviceType: string | S
 
       case 'fencing':
       case ServiceType.FENCING.toString().toLowerCase():
-        serviceData = fencingServiceData;
+        // Fencing service data not available yet
+        console.warn('Fencing service data not available yet');
+        return null;
+        // serviceData = fencingServiceData;
         break;
       
       case 'sprinkler-installation':

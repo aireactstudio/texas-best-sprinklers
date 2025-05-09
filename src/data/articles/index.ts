@@ -2,9 +2,9 @@
 
 // Sprinkler Installation Articles
 import weatherfordSprinklerInstallationArticle from './sprinkler-installation/weatherford';
-import { arlingtonSprinklerInstallationArticle } from './sprinkler-installation/arlington';
-import { kellerSprinklerInstallationArticle } from './sprinkler-installation/keller';
-import { southlakeSprinklerInstallationArticle } from './sprinkler-installation/southlake';
+import arlingtonSprinklerInstallationArticle from './sprinkler-installation/arlington';
+import kellerSprinklerInstallationArticle from './sprinkler-installation/keller';
+import southlakeSprinklerInstallationArticle from './sprinkler-installation/southlake';
 import colleyvilleSprinklerInstallationArticle from './sprinkler-installation/colleyville';
 import northRichlandHillsArticleHtml from './sprinkler-installation/north-richland-hills';
 import bedfordArticleHtml from './sprinkler-installation/bedford';

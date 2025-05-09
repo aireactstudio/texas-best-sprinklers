@@ -80,7 +80,7 @@ const kellerArticleData: SprinklerInstallationArticleData = {
     }
   ],
   
-  timeline: '2-3 days installation + 7-10 days for permits and utility locates',
+
   
   testimonial: {
     name: 'John W.',
@@ -89,8 +89,12 @@ const kellerArticleData: SprinklerInstallationArticleData = {
     stars: 5
   },
   
+  timeline: "Most residential sprinkler system installations in Keller are completed within 2-3 days, depending on property size and system complexity. After your initial consultation, we typically schedule installation within 2-3 weeks. The permitting process through Keller usually takes 5-7 business days. Once installed, your system will be fully operational immediately, with a follow-up inspection scheduled 2 weeks after completion to ensure everything is functioning optimally.",
+
   conclusion: "Texas Best Sprinklers brings over a decade of Keller-specific experience to every project. We understand the unique soil conditions, water restrictions, and neighborhood requirements that affect irrigation in this community.\n\nWe stand behind our work with a two-year parts-and-labor warranty, seasonal check-ups tailored to Keller's climate, and 24/7 emergency support. For irrigation solutions rooted in local expertise and backed by proven performance, trust Texas Best Sprinklers to keep your Keller landscape thriving."
 };
 
-// Generate the article using the template
-export const kellerSprinklerInstallationArticle = generateSprinklerInstallationArticle(kellerArticleData);
+// Generate the article HTML
+const kellerArticleHtml = generateSprinklerInstallationArticle(kellerArticleData);
+
+export default kellerArticleHtml;

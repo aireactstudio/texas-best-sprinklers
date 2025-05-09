@@ -5,7 +5,7 @@
 export enum ServiceType {
   FENCING = 'fencing',
   IRRIGATION = 'irrigation',
-  DRAINAGE = 'drainage',
+  DRAINAGE = 'drainage-solutions',
   OUTDOOR_LIGHTING = 'outdoor-lighting',
   SPRINKLER_INSTALLATION = 'sprinkler-installation',
   IRRIGATION_REPAIR = 'irrigation-repair',
