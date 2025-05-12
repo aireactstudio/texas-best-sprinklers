@@ -1,9 +1,10 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
-import { Check } from 'lucide-react';
+import { Check, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
 import Link from 'next/link';
+import { useToast } from '@/hooks/use-toast';
 
 interface ServicePageLayoutProps {
   children: React.ReactNode;
@@ -24,6 +25,21 @@ export default function ServicePageLayout({
   features,
   serviceType
 }: ServicePageLayoutProps) {
+  const { toast } = useToast();
+  // Form state
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    location: '',
+    message: '',
+    service: typeof serviceType === 'string' 
+      ? serviceType.toLowerCase().replace(/_/g, '-') 
+      : String(serviceType).toLowerCase().replace(/_/g, '-')
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formStatus, setFormStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
   // Split children into main content and full-width sections
   const childrenArray = React.Children.toArray(children);
   // Main content is the first child (if it's a div)
@@ -34,6 +50,107 @@ export default function ServicePageLayout({
   const serviceSlug = typeof serviceType === 'string' 
     ? serviceType.toLowerCase().replace(/_/g, '-') 
     : String(serviceType).toLowerCase().replace(/_/g, '-');
+    
+  // Handle form input changes
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+  
+  // Handle form submission
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    try {
+      // Reset form status
+      setFormStatus('idle');
+      
+      // Validate required fields
+      if (!formData.name || !formData.email || !formData.message) {
+        toast({
+          title: "Missing Information",
+          description: "Please fill out all required fields.",
+          variant: "destructive"
+        });
+        return;
+      }
+      
+      // Show loading state
+      setIsSubmitting(true);
+      
+      // Make sure service field is set correctly
+      const submissionData = {
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        phone: formData.phone ? formData.phone.trim() : null,
+        location: formData.location ? formData.location.trim() : null,
+        message: formData.message.trim(),
+        service: serviceSlug // Use the service slug from the page
+      };
+      
+      console.log('Submitting form data:', submissionData);
+      
+      // Send data to our API endpoint
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(submissionData),
+      });
+      
+      const data = await response.json();
+      
+      if (!response.ok) {
+        console.error('Form submission error:', data);
+        throw new Error(data.message || 'Something went wrong');
+      }
+      
+      // Set success status
+      setFormStatus('success');
+      
+      // Success toast
+      toast({
+        title: "Estimate Request Sent!",
+        description: "Thank you for your inquiry. We'll get back to you shortly.",
+        variant: "default"
+      });
+      
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        location: '',
+        message: '',
+        service: serviceSlug
+      });
+      
+      // Keep success status for 5 seconds, then reset to idle
+      setTimeout(() => {
+        setFormStatus('idle');
+      }, 5000);
+      
+    } catch (error) {
+      // Set error status
+      setFormStatus('error');
+      
+      console.error('Form submission error:', error);
+      
+      toast({
+        title: "Something went wrong",
+        description: "Please try again later.",
+        variant: "destructive",
+      });
+      
+      // Reset error status after 5 seconds
+      setTimeout(() => {
+        setFormStatus('idle');
+      }, 5000);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <>
@@ -72,21 +189,45 @@ export default function ServicePageLayout({
               {/* Contact Form */}
               <div className="bg-white rounded-lg shadow-md p-6">
                 <h3 className="text-xl font-bold mb-4 text-irrigation-darkGreen">Request a Free Quote</h3>
-                <form className="space-y-4">
+                
+                {/* Form notification based on status */}
+                {formStatus === 'success' && (
+                  <div className="mb-4 p-3 border border-green-200 bg-green-50 rounded-md flex items-center">
+                    <CheckCircle className="h-5 w-5 text-green-500 mr-2" />
+                    <p className="text-sm text-green-700">Your request has been sent successfully!</p>
+                  </div>
+                )}
+                
+                {formStatus === 'error' && (
+                  <div className="mb-4 p-3 border border-red-200 bg-red-50 rounded-md flex items-center">
+                    <AlertCircle className="h-5 w-5 text-red-500 mr-2" />
+                    <p className="text-sm text-red-700">There was an error sending your request. Please try again.</p>
+                  </div>
+                )}
+                
+                <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Your Name*</label>
                     <input 
                       type="text" 
                       id="name" 
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
                       className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-irrigation-green"
+                      required
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email Address*</label>
                     <input 
                       type="email" 
                       id="email" 
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
                       className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-irrigation-green"
+                      required
                     />
                   </div>
                   <div>
@@ -94,6 +235,9 @@ export default function ServicePageLayout({
                     <input 
                       type="tel" 
                       id="phone" 
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
                       className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-irrigation-green"
                     />
                   </div>
@@ -101,6 +245,9 @@ export default function ServicePageLayout({
                     <label htmlFor="location" className="block text-sm font-medium text-gray-700 mb-1">Your Location</label>
                     <select 
                       id="location" 
+                      name="location"
+                      value={formData.location}
+                      onChange={handleChange}
                       className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-irrigation-green"
                     >
                       <option value="">Select your city</option>
@@ -112,19 +259,31 @@ export default function ServicePageLayout({
                     </select>
                   </div>
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message*</label>
                     <textarea 
                       id="message" 
+                      name="message"
                       rows={4} 
+                      value={formData.message}
+                      onChange={handleChange}
                       className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-irrigation-green"
                       placeholder="Please provide details about your service needs..."
+                      required
                     ></textarea>
                   </div>
                   <button 
                     type="submit" 
                     className="w-full bg-irrigation-darkGreen hover:bg-irrigation-green text-white font-medium py-2 px-4 rounded-md transition-colors"
+                    disabled={isSubmitting}
                   >
-                    Request Free Estimate
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="inline mr-2 h-4 w-4 animate-spin" />
+                        Sending...
+                      </>
+                    ) : (
+                      'Request Free Estimate'
+                    )}
                   </button>
                 </form>
               </div>

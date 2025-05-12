@@ -10,7 +10,7 @@ export default function ServiceHero({ serviceContent }: ServiceHeroProps) {
   return (
     <div className="relative w-full h-[75vh] min-h-[500px]">
       <Image
-        src={serviceContent.heroImage}
+        src="/assets/images/optimized/hero-background.webp"
         alt={serviceContent.title}
         fill
         priority
