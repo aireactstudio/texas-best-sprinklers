@@ -9,7 +9,7 @@ const resend = new Resend('re_4TuhEvJ4_E7gk7TBktmSA8f2wK1emWJua');
 // Email configuration
 const EMAIL_CONFIG = {
   // Use Resend's default domain which works without verification
-  from: 'delivered@resend.dev',
+  from: 'onboarding@resend.dev',
   // Client's actual email where all form submissions will be delivered
   to: ['sprinkleranddrains@gmail.com']
 };

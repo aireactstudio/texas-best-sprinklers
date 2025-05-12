@@ -51,10 +51,24 @@ export default function Contact() {
   const onSubmit = async (data: FormValues) => {
     setIsSubmitting(true);
     
-    // Simulate sending data to server
     try {
-      // Replace with actual API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      // Send data to the API route
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...data,
+          location: '', // Optional location field
+          service: data.service || 'General Inquiry' // Default service type
+        }),
+      });
+      
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Failed to send message');
+      }
       
       toast({
         title: "Success!",
@@ -65,9 +79,10 @@ export default function Contact() {
       setFormSubmitted(true);
       form.reset();
     } catch (error) {
+      console.error('Form submission error:', error);
       toast({
         title: "Error",
-        description: "There was a problem sending your message. Please try again.",
+        description: error instanceof Error ? error.message : "There was a problem sending your message. Please try again.",
         variant: "destructive",
       });
     } finally {
