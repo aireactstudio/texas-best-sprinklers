@@ -53,18 +53,30 @@ const ContactForm: React.FC = () => {
       // Show loading state
       setIsSubmitting(true);
       
+      // Prepare submission data with proper formatting
+      const submissionData = {
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        phone: formData.phone ? formData.phone.trim() : null,
+        message: formData.message.trim(),
+        service: formData.service
+      };
+      
+      console.log('Submitting contact form:', submissionData);
+      
       // Send data to our API endpoint
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(submissionData),
       });
       
       const data = await response.json();
       
       if (!response.ok) {
+        console.error('Contact form submission error:', data);
         throw new Error(data.message || 'Something went wrong');
       }
       

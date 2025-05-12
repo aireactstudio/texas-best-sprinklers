@@ -5,6 +5,13 @@ import { z } from 'zod';
 // Initialize Resend with API key
 const resend = new Resend('re_4TuhEvJ4_E7gk7TBktmSA8f2wK1emWJua');
 
+// Email configuration
+const EMAIL_CONFIG = {
+  from: 'Texas Best Sprinklers <onboarding@resend.dev>',
+  to: ['sprinkleranddrains@gmail.com'],
+  replyTo: 'sprinkleranddrains@gmail.com'
+};
+
 // Define the contact form schema for validation
 const contactSchema = z.object({
   name: z.string().min(1, { message: "Name is required" }),
@@ -70,8 +77,9 @@ export async function POST(request: Request) {
     
     // Send email using Resend
     const { data, error } = await resend.emails.send({
-      from: 'Texas Best Sprinklers <onboarding@resend.dev>', // Using Resend's verified domain
-      to: ['sprinkleranddrains@gmail.com'],
+      from: EMAIL_CONFIG.from,
+      to: EMAIL_CONFIG.to,
+      replyTo: validatedData.email, // Allow replying directly to the customer
       subject: `New Contact Form Submission: ${serviceType}`,
       text: `
 Name: ${validatedData.name}
@@ -89,7 +97,7 @@ ${validatedData.message}
   
   <h3 style="color: #0c4b33;">Contact Information</h3>
   <p><strong>Name:</strong> ${validatedData.name}</p>
-  <p><strong>Email:</strong> ${validatedData.email}</p>
+  <p><strong>Email:</strong> <a href="mailto:${validatedData.email}">${validatedData.email}</a></p>
   <p><strong>Phone:</strong> ${validatedData.phone || 'Not provided'}</p>
   ${validatedData.location ? `<p><strong>Location:</strong> ${validatedData.location}</p>` : ''}
   
@@ -100,7 +108,7 @@ ${validatedData.message}
   
   <hr style="border: 1px solid #eee; margin: 20px 0;" />
   <p style="color: #666; font-size: 12px;">
-    This message was sent from the contact form on the Texas Best Sprinklers website.
+    This message was sent from the contact form on the Texas Best Sprinklers website on ${new Date().toLocaleDateString()}.
   </p>
 </div>
       `,
