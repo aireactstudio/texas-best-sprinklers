@@ -54,7 +54,7 @@ export async function GET() {
     
     const result = data.result;
     
-    // Format the reviews for our frontend
+    // Format the reviews for our frontend and filter for only 5-star reviews
     const formattedReviews = result.reviews?.map((review: any, index: number) => ({
       id: index + 1,
       name: review.author_name,
@@ -64,7 +64,8 @@ export async function GET() {
       stars: review.rating,
       photo: review.profile_photo_url,
       time: review.relative_time_description
-    })) || [];
+    }))
+    .filter((review: any) => review.stars === 5) || [];
     
     // Format business information
     const businessInfo = {
@@ -145,7 +146,7 @@ export async function GET() {
           role: "HOA President",
           location: "North Richland Hills",
           content: "Our HOA has been using Texas Best Sprinklers for maintenance of our common areas for over 2 years. They're responsive, thorough, and provide excellent value. Highly recommended for commercial properties.",
-          stars: 4,
+          stars: 5, // Updated to 5 stars
           time: "8 months ago"
         },
         {

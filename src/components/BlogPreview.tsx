@@ -4,6 +4,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { blogPosts } from '@/data/blogPosts';
 
 interface BlogPost {
   id: number;
@@ -20,35 +21,16 @@ interface BlogPreviewProps {
 }
 
 const BlogPreview: React.FC<BlogPreviewProps> = ({ 
-  posts = [
-    {
-      id: 1,
-      title: "How Professional Irrigation Boosts Your Lawn's Health",
-      excerpt: "Discover how the right irrigation system can transform your lawn from average to exceptionally lush and healthy.",
-      image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
-      date: "June 12, 2023",
-      category: "Lawn Care",
-      slug: "how-professional-irrigation-boosts-lawn-health",
-    },
-    {
-      id: 2,
-      title: "The Ultimate Guide to Water-Efficient Sprinkler Systems",
-      excerpt: "Learn how modern sprinkler technology can reduce water consumption while maintaining a vibrant landscape.",
-      image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9",
-      date: "May 28, 2023",
-      category: "Water Conservation",
-      slug: "guide-water-efficient-sprinkler-systems",
-    },
-    {
-      id: 3,
-      title: "5 Common Irrigation Mistakes Homeowners Make",
-      excerpt: "Avoid these frequent pitfalls that can waste water, damage your landscape, and increase your water bills.",
-      image: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07",
-      date: "April 15, 2023",
-      category: "Tips & Tricks",
-      slug: "common-irrigation-mistakes-homeowners-make",
-    },
-  ]
+  // Use the first 3 blog posts from the actual data file
+  posts = blogPosts.slice(0, 3).map(post => ({
+    id: post.id,
+    title: post.title,
+    excerpt: post.excerpt,
+    image: post.image,
+    date: post.date,
+    category: post.category,
+    slug: post.slug,
+  }))
 }) => {
   return (
     <section className="section bg-white">
