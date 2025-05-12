@@ -3,13 +3,15 @@ import { Resend } from 'resend';
 import { z } from 'zod';
 
 // Initialize Resend with API key
+// Using the production API key with paid subscription
 const resend = new Resend('re_4TuhEvJ4_E7gk7TBktmSA8f2wK1emWJua');
 
 // Email configuration
 const EMAIL_CONFIG = {
+  // Use Resend's default sender domain which works in all modes
   from: 'Texas Best Sprinklers <onboarding@resend.dev>',
-  to: ['sprinkleranddrains@gmail.com'],
-  replyTo: 'sprinkleranddrains@gmail.com'
+  // Client's actual email
+  to: ['sprinkleranddrains@gmail.com']
 };
 
 // Define the contact form schema for validation
@@ -74,6 +76,17 @@ export async function POST(request: Request) {
     };
     
     const serviceType = serviceTypes[validatedData.service] || validatedData.service;
+    
+    // Store form data in server logs for backup
+    console.log('CONTACT FORM SUBMISSION:', {
+      name: validatedData.name,
+      email: validatedData.email,
+      phone: validatedData.phone,
+      location: validatedData.location,
+      service: serviceType,
+      message: validatedData.message,
+      timestamp: new Date().toISOString()
+    });
     
     // Send email using Resend
     const { data, error } = await resend.emails.send({
