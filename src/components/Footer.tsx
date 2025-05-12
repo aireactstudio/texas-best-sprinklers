@@ -87,7 +87,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-irrigation-a11y-light-green" />
-                <a href="mailto:info@sprinkleranddrains.com" className="text-irrigation-a11y-light hover:text-irrigation-a11y-light-green transition-colors duration-300">info@sprinkleranddrains.com</a>
+                <a href="mailto:sprinkleranddrains@gmail.com" className="text-irrigation-a11y-light hover:text-irrigation-a11y-light-green transition-colors duration-300">sprinkleranddrains@gmail.com</a>
               </li>
               <li className="pt-2">
                 <p className="text-irrigation-a11y-light mb-2">Hours: 7AM-7PM Mon-Sat, Closed Sunday</p>

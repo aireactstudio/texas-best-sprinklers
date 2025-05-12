@@ -299,8 +299,8 @@ export default function ServicePageLayout({
                 </div>
                 <div>
                   <p className="font-semibold text-gray-800">Email:</p>
-                  <a href="mailto:info@texasbestsprinklers.com" className="text-irrigation-blue hover:text-irrigation-darkBlue">
-                    info@texasbestsprinklers.com
+                  <a href="mailto:sprinkleranddrains@gmail.com" className="text-irrigation-blue hover:text-irrigation-darkBlue">
+                    sprinkleranddrains@gmail.com
                   </a>
                 </div>
               </div>

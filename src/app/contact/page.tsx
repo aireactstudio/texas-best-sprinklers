@@ -113,7 +113,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="font-bold text-gray-900">Email</h3>
-                  <p className="text-gray-700">info@texasbestsprinklers.com</p>
+                  <p className="text-gray-700">sprinkleranddrains@gmail.com</p>
                 </div>
               </div>
               

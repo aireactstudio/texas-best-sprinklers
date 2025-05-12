@@ -250,7 +250,7 @@ const AppHeader = () => {
                     </div>
                     <div className="flex items-center space-x-3 text-gray-700">
                       <Mail className="h-5 w-5 text-irrigation-darkBlue" />
-                      <a href="mailto:info@sprinkleranddrains.com" className="hover:text-irrigation-blue">info@sprinkleranddrains.com</a>
+                      <a href="mailto:sprinkleranddrains@gmail.com" className="hover:text-irrigation-blue">sprinkleranddrains@gmail.com</a>
                     </div>
                     <div className="flex items-start space-x-3 text-gray-700">
                       <MapPin className="h-5 w-5 mt-1 text-irrigation-darkBlue" />
