@@ -7,7 +7,7 @@ const annettaData: ServiceContent = {
   metaDescription: 'Expert outdoor lighting design and installation in Annetta. Enhance your home\'s security, safety, and curb appeal with custom landscape and architectural lighting.',
   heroImage: '/assets/images/optimized/Outdoor-Lighting.png',
   serviceType: ServiceType.OUTDOOR_LIGHTING,
-  intro: "Texas Best Sprinklers provides Annetta homeowners with professional outdoor lighting services that enhance your property's beauty, security, and functionality. Our custom lighting designs highlight your home's best features while providing safety and security after dark.",
+  intro: "Texas Best Sprinklers provides Annetta homeowners with professional outdoor lighting services that enhance your property\'s beauty, security, and functionality. Our custom lighting designs highlight your home\'s best features while providing safety and security after dark.",
   benefits: commonBenefits,
   services: commonServices,
   process: getLocationProcess('Annetta'),
