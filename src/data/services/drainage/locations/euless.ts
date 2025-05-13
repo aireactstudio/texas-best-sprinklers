@@ -3,6 +3,7 @@ import type { ServiceContent } from '../../../types/serviceTypes';
 import { commonBenefits } from '../common/benefits';
 import { commonServices } from '../common/services';
 import { getCommonFAQs } from '../common/faqs';
+import { getLocationProcess } from '../common/process';
 
 export const eulessData: ServiceContent = {
   title: 'Professional Drainage Solutions in Euless, TX',
@@ -12,6 +13,7 @@ export const eulessData: ServiceContent = {
   intro: "Texas Best Sprinklers provides Euless homeowners with professional drainage solutions designed to protect your property from water damage. Our custom drainage systems effectively manage water flow, prevent flooding, and protect your home's foundation and landscape from costly water damage.",
   benefits: commonBenefits,
   services: commonServices,
+  process: getLocationProcess('Euless'),
   faqs: getCommonFAQs('Euless'),
   testimonial: {
     quote: "After years of dealing with yard flooding, Texas Best installed a drainage system that completely solved our problem. Highly recommend their services!",

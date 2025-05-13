@@ -4,9 +4,10 @@ import { ServiceContent } from '@/data/types/serviceTypes';
 
 interface ServiceHeroProps {
   serviceContent: ServiceContent;
+  location?: string;
 }
 
-export default function ServiceHero({ serviceContent }: ServiceHeroProps) {
+export default function ServiceHero({ serviceContent, location }: ServiceHeroProps) {
   return (
     <div className="relative w-full h-[75vh] min-h-[500px]">
       <Image
@@ -26,11 +27,20 @@ export default function ServiceHero({ serviceContent }: ServiceHeroProps) {
       
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="container mx-auto px-4 text-center text-white">
+          <div className="inline-flex items-center justify-center px-4 py-1 mb-4 rounded-full bg-green-600 bg-opacity-80 text-white text-sm font-medium">
+            <span>Professional Solutions</span>
+          </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-            {serviceContent.title}
+            {location 
+              ? `Our ${serviceContent.serviceType.replace('-', ' ')} Services in ${location}` 
+              : serviceContent.title
+            }
           </h1>
           <p className="text-xl md:text-2xl max-w-2xl mx-auto mb-8">
-            {serviceContent.metaDescription}
+            {location 
+              ? `Explore our professional ${serviceContent.serviceType.replace('-', ' ')} services designed specifically for ${location} properties and conditions` 
+              : serviceContent.metaDescription
+            }
           </p>
           <div className="flex justify-center space-x-4">
             <Link 

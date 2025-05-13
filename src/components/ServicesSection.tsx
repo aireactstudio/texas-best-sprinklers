@@ -260,13 +260,16 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName }) => {
       <div className="container mx-auto px-4 max-w-[1440px] w-full">
         <div className="text-center mb-16">
           <div className="inline-block bg-irrigation-a11y-light-green text-irrigation-a11y-green px-4 py-2 rounded-full mb-4 font-medium">
-            Our Services
+            Professional Solutions
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-irrigation-blue">
-            Comprehensive Irrigation Solutions
+            {cityName ? `Our ${services[selectedServiceIndex].title} Services in ${cityName}` : `Our ${services[selectedServiceIndex].title} Services`}
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            We provide expert irrigation services designed to conserve water while keeping your landscape lush and healthy all year round.
+            {cityName 
+              ? `Explore our professional ${services[selectedServiceIndex].title.toLowerCase()} services designed specifically for ${cityName} properties and conditions`
+              : `We provide expert ${services[selectedServiceIndex].title.toLowerCase()} services designed to enhance your outdoor space while ensuring optimal functionality year-round.`
+            }
           </p>
         </div>
         

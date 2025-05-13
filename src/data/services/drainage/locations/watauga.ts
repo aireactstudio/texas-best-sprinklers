@@ -3,6 +3,7 @@ import type { ServiceContent } from '../../../types/serviceTypes';
 import { commonBenefits } from '../common/benefits';
 import { commonServices } from '../common/services';
 import { getCommonFAQs } from '../common/faqs';
+import { getLocationProcess } from '../common/process';
 
 export const wataugaData: ServiceContent = {
   title: 'Professional Drainage Solutions in Watauga, TX',
@@ -12,6 +13,7 @@ export const wataugaData: ServiceContent = {
   intro: "Texas Best Sprinklers provides Watauga homeowners with professional drainage solutions designed to protect your property from water damage. Our custom drainage systems effectively manage water flow, prevent flooding, and protect your home's foundation and landscape from costly water damage.",
   benefits: commonBenefits,
   services: commonServices,
+  process: getLocationProcess('Watauga'),
   faqs: getCommonFAQs('Watauga'),
   testimonial: {
     quote: "The drainage solution from Texas Best Sprinklers has made a huge difference in our yard. No more standing water after rain, and their team was very professional.",

@@ -1,8 +1,10 @@
+'use client';
+
 import Link from 'next/link';
-import Image from 'next/image';
+import { useState } from 'react';
 import { ServiceContent, ServiceOffering } from '@/data/types/serviceTypes';
-import { FaCheck } from 'react-icons/fa';
-import { renderServiceIcon, getServiceTypeImage } from '@/components/service-page/utils';
+import { FaCheck, FaArrowRight } from 'react-icons/fa';
+import { renderServiceIcon } from '@/components/service-page/utils';
 
 interface ServiceOfferingsProps {
   serviceContent: ServiceContent;
@@ -10,19 +12,60 @@ interface ServiceOfferingsProps {
 }
 
 export default function ServiceOfferings({ serviceContent, location }: ServiceOfferingsProps) {
+  const [selectedServiceIndex, setSelectedServiceIndex] = useState(0);
+  
+  // Handle service selection
+  const handleServiceSelect = (index: number) => {
+    setSelectedServiceIndex(index);
+  };
+  
   return (
-    <div className="py-24 bg-white relative overflow-hidden">
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 bg-[url('/assets/images/optimized/hero-background.webp')] bg-cover opacity-[0.03] -z-10"></div>
-      <div className="absolute top-0 right-0 w-96 h-96 bg-green-50 rounded-full opacity-50 blur-3xl -z-10 transform translate-x-1/2 -translate-y-1/2"></div>
-      <div className="absolute bottom-10 left-10 h-40 w-40 border-4 border-green-100 rounded-full opacity-30 -z-10"></div>
-      
-      <div className="container mx-auto px-4">
-        {/* Section header with creative design */}
-        <ServiceOfferingsHeader serviceContent={serviceContent} location={location} />
+    <div className="py-16 bg-white">
+      <div className="container mx-auto px-4 max-w-6xl">
+        {/* Section header */}
+        <ServiceOfferingsHeader 
+          serviceContent={serviceContent} 
+          location={location} 
+          selectedServiceIndex={selectedServiceIndex} 
+        />
         
-        {/* Enhanced service cards in a responsive single row */}
-        <ServiceOfferingsRow serviceContent={serviceContent} />
+        <div className="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Service navigation sidebar */}
+          <div className="lg:col-span-1">
+            <div className="bg-gray-50 rounded-lg p-4">
+              <h3 className="text-lg font-semibold mb-4 text-gray-700">Our Services</h3>
+              <ul className="space-y-2">
+                {serviceContent.services.map((service, index) => (
+                  <li key={index}>
+                    <button
+                      onClick={() => handleServiceSelect(index)}
+                      className={`w-full text-left px-4 py-3 rounded-md transition-colors flex items-center ${selectedServiceIndex === index 
+                        ? 'bg-green-600 text-white' 
+                        : 'hover:bg-gray-100 text-gray-700'}`}
+                    >
+                      <span className="w-8 h-8 flex items-center justify-center mr-3 rounded-full bg-green-600 text-white font-medium">
+                        {index + 1}
+                      </span>
+                      <span className="font-medium">{service.title}</span>
+                      {selectedServiceIndex === index && (
+                        <FaArrowRight className="ml-auto" />
+                      )}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          
+          {/* Selected service details */}
+          <div className="lg:col-span-2">
+            <ServiceCard 
+              service={serviceContent.services[selectedServiceIndex]} 
+              index={selectedServiceIndex}
+              serviceType={serviceContent.serviceType}
+            />
+          </div>
+        </div>
         
         {/* Bottom CTA section */}
         <ServiceCta serviceContent={serviceContent} location={location} />
@@ -31,44 +74,29 @@ export default function ServiceOfferings({ serviceContent, location }: ServiceOf
   );
 }
 
-function ServiceOfferingsHeader({ serviceContent, location }: ServiceOfferingsProps) {
+interface ServiceOfferingsHeaderProps extends ServiceOfferingsProps {
+  selectedServiceIndex: number;
+}
+
+function ServiceOfferingsHeader({ serviceContent, location, selectedServiceIndex }: ServiceOfferingsHeaderProps) {
+  const selectedService = serviceContent.services[selectedServiceIndex];
+  
   return (
-    <div className="text-center mb-16 relative">
+    <div className="text-center mb-8">
       <div className="inline-block px-4 py-1 bg-green-50 text-green-800 rounded-full text-sm font-medium mb-3">
         Professional Solutions
       </div>
-      <h2 className="text-3xl md:text-4xl font-bold mb-5 relative inline-block">
-        <span className="relative z-10">Our {serviceContent.serviceType.charAt(0).toUpperCase() + serviceContent.serviceType.slice(1)} Services in {location}</span>
-        <span className="absolute bottom-2 left-0 w-full h-3 bg-green-100 opacity-50 -z-10 transform -rotate-1"></span>
+      <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-800">
+        Our {selectedService.title} Services in {location}
       </h2>
-      <p className="text-gray-600 max-w-2xl mx-auto mt-4">
-        Explore our professional {serviceContent.serviceType.replace('-', ' ')} services designed specifically for {location} properties and conditions
+      <p className="text-gray-600 max-w-2xl mx-auto">
+        Explore our professional {selectedService.title.toLowerCase()} services designed specifically for {location} properties and conditions
       </p>
     </div>
   );
 }
 
-function ServiceOfferingsRow({ serviceContent }: { serviceContent: ServiceContent }) {
-  return (
-    <div className="relative mb-16">
-      {/* Left shadow indicator for scrolling */}
-      <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-12 h-full bg-gradient-to-r from-white to-transparent z-10 pointer-events-none hidden md:block"></div>
-      {/* Right shadow indicator for scrolling */}
-      <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-12 h-full bg-gradient-to-l from-white to-transparent z-10 pointer-events-none hidden md:block"></div>
-      
-      <div className="flex overflow-x-auto pb-6 space-x-6 snap-x snap-mandatory -mx-4 px-4" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-        {serviceContent.services.map((service, index) => (
-          <ServiceCard 
-            key={index} 
-            service={service} 
-            index={index} 
-            serviceType={serviceContent.serviceType} 
-          />
-        ))}
-      </div>
-    </div>
-  );
-}
+
 
 interface ServiceCardProps {
   service: ServiceOffering;
@@ -77,61 +105,53 @@ interface ServiceCardProps {
 }
 
 function ServiceCard({ service, index, serviceType }: ServiceCardProps) {
-  // Use service-specific image if available, otherwise use our optimized fallback
-  const imageToUse = service.image || getServiceTypeImage(serviceType, index);
-  
   return (
-    <div className="group flex-shrink-0 snap-start min-w-[300px] w-[90vw] sm:w-[450px] md:w-[500px] lg:w-[550px] flex flex-col overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 bg-white relative">
-      {/* Service number indicator */}
-      <div className="absolute top-4 left-4 z-20 w-8 h-8 rounded-full bg-white text-green-600 font-bold flex items-center justify-center shadow-md">
-        {index + 1}
+    <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-6">
+      {/* Service header with icon */}
+      <div className="flex items-center mb-5">
+        <div className="w-14 h-14 rounded-full bg-green-50 flex items-center justify-center text-green-600 mr-4">
+          <div className="w-10 h-10 rounded-full bg-green-600 text-white flex items-center justify-center font-bold text-lg">
+            {index + 1}
+          </div>
+        </div>
+        <h3 className="text-2xl font-bold text-gray-800">{service.title}</h3>
       </div>
       
-      {/* Image section with overlay effect */}
-      <div className="w-full h-48 overflow-hidden relative">
-        <Image
-          src={imageToUse}
-          alt={service.title}
-          fill
-          className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-          sizes="(max-width: 768px) 100vw, 500px"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/50 opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
-      </div>
+      {/* Service description */}
+      <p className="text-gray-700 mb-6">{service.description}</p>
       
-      {/* Content section with clean design */}
-      <div className="w-full p-6 flex flex-col flex-grow justify-between">
-        <div>
-          <h3 className="text-xl font-bold mb-4 text-gray-800">{service.title}</h3>
-          <p className="text-gray-600 leading-relaxed mb-4">{service.description}</p>
-          
-          {/* Feature list with enhanced styling */}
-          {service.features && service.features.length > 0 && (
-            <div className="mt-auto">
-              <h4 className="text-sm font-semibold uppercase tracking-wide text-gray-500 mb-2">Key Features</h4>
-              <ul className="space-y-1">
-                {service.features.slice(0, 3).map((feature, idx) => (
-                  <li key={idx} className="flex items-start">
-                    <span className="h-5 w-5 rounded-full bg-green-100 flex-shrink-0 flex items-center justify-center mr-2">
-                      <FaCheck className="text-green-600 text-xs" />
-                    </span>
-                    <span className="text-gray-700 text-sm">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
+      {/* Feature list */}
+      {service.features && service.features.length > 0 && (
+        <div className="mb-6">
+          <h4 className="font-semibold text-gray-800 mb-3">Key Features:</h4>
+          <ul className="space-y-2">
+            {service.features.map((feature, idx) => (
+              <li key={idx} className="flex items-start">
+                <span className="text-green-600 mr-2 mt-1 flex-shrink-0">
+                  <FaCheck />
+                </span>
+                <span className="text-gray-700">{feature}</span>
+              </li>
+            ))}
+          </ul>
         </div>
-        
-        {/* CTA button */}
-        <div className="mt-5 pt-3 border-t border-gray-100">
-          <Link href="/contact" className="group inline-flex items-center text-green-600 font-medium hover:text-green-700 transition-colors">
-            <span>Request Service</span>
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </Link>
-        </div>
+      )}
+      
+      {/* CTA buttons */}
+      <div className="flex flex-col sm:flex-row gap-3 mt-auto pt-4 border-t border-gray-100">
+        <Link 
+          href="/contact" 
+          className="inline-flex items-center justify-center px-4 py-2 bg-green-600 text-white rounded-md font-medium hover:bg-green-700 transition-colors"
+        >
+          <span>Request Service</span>
+          <FaArrowRight className="ml-2" />
+        </Link>
+        <Link 
+          href={`/services/${serviceType}`} 
+          className="inline-flex items-center justify-center px-4 py-2 border border-green-600 text-green-600 rounded-md font-medium hover:bg-green-50 transition-colors"
+        >
+          <span>Learn More</span>
+        </Link>
       </div>
     </div>
   );

@@ -28,7 +28,7 @@ export default function ServicePage({ serviceContent, location, heroOnly = false
   return (
     <div className="service-page">
       {/* Hero Section */}
-      <ServiceHero serviceContent={serviceContent} />
+      <ServiceHero serviceContent={serviceContent} location={location} />
 
       {/* Introduction Section with features and testimonial */}
       {!heroOnly && <ServiceIntroduction serviceContent={serviceContent} location={location} />}

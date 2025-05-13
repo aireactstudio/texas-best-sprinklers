@@ -12,6 +12,7 @@ import CTA from '@/components/CTA';
 import StructuredData from '@/components/StructuredData';
 import HowToGetStartedSection from '@/components/HowToGetStartedSection';
 import MultiServiceHowToSchema from '@/components/MultiServiceHowToSchema';
+import ServiceAreaLocator from '@/components/ServiceAreaLocator';
 import { curatedReviews } from '@/data/curated-reviews';
 
 export default function Home() {
@@ -83,6 +84,11 @@ export default function Home() {
       <HowToGetStartedSection />
       <TestimonialsSection />
       <BlogPreview />
+      <ServiceAreaLocator 
+        apiKey={process.env.GOOGLE_MAPS_API_KEY || ''}
+        title="Our Service Areas"
+        subtitle="Texas Best Sprinklers provides expert irrigation and drainage solutions throughout the Fort Worth metroplex"
+      />
       <CTA />
     </>
   );
