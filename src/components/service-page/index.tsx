@@ -42,11 +42,17 @@ export default function ServicePage({ serviceContent, location, heroOnly = false
       {/* Compliance Information */}
       {!heroOnly && <ComplianceSection serviceContent={serviceContent} location={location} />}
 
-      {/* Step-by-step Process Section */}
-      {!heroOnly && <ProcessSection serviceContent={serviceContent} location={location} />}
-
-      {/* FAQ Section */}
-      {!heroOnly && <FAQSection serviceContent={serviceContent} location={location} />}
+      {/* Process and FAQ Sections side by side */}
+      {!heroOnly && (
+        <div className="flex flex-col lg:flex-row lg:space-x-6">
+          <div className="w-full lg:w-1/2 mb-6 lg:mb-0">
+            <ProcessSection serviceContent={serviceContent} location={location} />
+          </div>
+          <div className="w-full lg:w-1/2">
+            <FAQSection serviceContent={serviceContent} location={location} />
+          </div>
+        </div>
+      )}
 
       {/* Related Services Section */}
       {!heroOnly && <RelatedServicesSection serviceContent={serviceContent} location={location} />}

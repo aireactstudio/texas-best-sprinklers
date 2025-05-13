@@ -73,7 +73,7 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ cityFilter, m
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [autoplay, setAutoplay] = useState(true);
+  const [autoplay, setAutoplay] = useState(false); // Disabled autoplay by default
   const carouselRef = useRef<HTMLDivElement>(null);
   const reviewsPerPage = 3; // Number of reviews to show at once
 

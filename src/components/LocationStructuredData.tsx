@@ -38,9 +38,9 @@ const LocationStructuredData: React.FC<LocationDataProps> = ({
     "@graph": [
       {
         "@type": "LocalBusiness",
-        "@id": "https://texasbestsprinklers.com/#business",
+        "@id": "https://sprinklersanddrains.com/#business",
         "name": "Texas Best Sprinklers",
-        "url": "https://texasbestsprinklers.com/",
+        "url": "https://sprinklersanddrains.com/",
         "telephone": "(817) 304-7896",
         "address": {
           "@type": "PostalAddress",
@@ -58,24 +58,26 @@ const LocationStructuredData: React.FC<LocationDataProps> = ({
         "openingHoursSpecification": [
           {
             "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-            "opens": "08:00",
-            "closes": "17:00"
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            "opens": "07:00",
+            "closes": "19:00"
           }
         ],
         "priceRange": "$$",
-        "image": "https://texasbestsprinklers.com/images/logo.png",
+        "image": "https://sprinklersanddrains.com/images/logo.png",
         "sameAs": [
-          "https://www.facebook.com/texasbestsprinklers",
-          "https://www.instagram.com/texasbestsprinklers"
+          "https://www.facebook.com/TexasBest1/",
+          "https://www.instagram.com/texasbestoutdoorlighting/",
+          "http://x.com/sprinklerdrains",
+          "https://www.thumbtack.com/tx/fort-worth/sprinkler-systems-repair/texas-best-sprinklers-drainage-lighting-llc/service/260748333748118695"
         ]
       },
       {
         "@type": "Service",
-        "name": `${city} ${serviceName}`,
+        "name": `${serviceName} in ${city}`,
         "serviceType": serviceType,
         "provider": {
-          "@id": "https://texasbestsprinklers.com/#business"
+          "@id": "https://sprinklersanddrains.com/#business"
         },
         "areaServed": {
           "@type": "City",
@@ -101,7 +103,7 @@ const LocationStructuredData: React.FC<LocationDataProps> = ({
         "@type": "AggregateRating",
         "itemReviewed": {
           "@type": "LocalBusiness",
-          "name": `Texas Best Sprinklers - ${city} ${serviceName}`
+          "name": `Texas Best Sprinklers - ${serviceName} in ${city}`
         },
         "ratingValue": ratingValue,
         "bestRating": "5",
@@ -135,25 +137,25 @@ const LocationStructuredData: React.FC<LocationDataProps> = ({
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://texasbestsprinklers.com/"
+            "item": "https://sprinklersanddrains.com/"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Services",
-            "item": "https://texasbestsprinklers.com/services"
+            "item": "https://sprinklersanddrains.com/services"
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": serviceName,
-            "item": `https://texasbestsprinklers.com/services/${serviceSlug}`
+            "item": `https://sprinklersanddrains.com/services/${serviceSlug}`
           },
           {
             "@type": "ListItem",
             "position": 4,
-            "name": `${city} ${serviceName}`,
-            "item": `https://texasbestsprinklers.com/services/${serviceSlug}/${locationSlug}`
+            "name": `${serviceName} in ${city}`,
+            "item": `https://sprinklersanddrains.com/services/${serviceSlug}/${locationSlug}`
           }
         ]
       }

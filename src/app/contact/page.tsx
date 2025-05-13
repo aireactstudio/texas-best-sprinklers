@@ -19,13 +19,14 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useToast } from '@/hooks/use-toast';
 
-// Form schema
+// Form schema - matching the API endpoint schema
 const formSchema = z.object({
-  name: z.string().min(2, { message: "Name must be at least 2 characters" }),
-  email: z.string().email({ message: "Please enter a valid email address" }),
-  phone: z.string().min(10, { message: "Please enter a valid phone number" }),
-  service: z.string().min(1, { message: "Please select a service" }),
-  message: z.string().min(10, { message: "Message must be at least 10 characters" })
+  name: z.string().min(1, { message: "Name is required" }),
+  email: z.string().min(1, { message: "Email is required" }).email({ message: "Please enter a valid email address" }),
+  phone: z.string().optional(),
+  location: z.string().optional().default(''),
+  message: z.string().min(1, { message: "Message is required" }),
+  service: z.string().default('General Inquiry')
 });
 
 type FormValues = z.infer<typeof formSchema>;
@@ -50,6 +51,7 @@ export default function Contact() {
   // Handle form submission
   const onSubmit = async (data: FormValues) => {
     setIsSubmitting(true);
+    console.log('Submitting contact form data:', data);
     
     try {
       // Send data to the API route
@@ -58,16 +60,14 @@ export default function Contact() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          ...data,
-          location: '', // Optional location field
-          service: data.service || 'General Inquiry' // Default service type
-        }),
+        body: JSON.stringify(data),
       });
       
+      const result = await response.json();
+      console.log('API response:', result);
+      
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || 'Failed to send message');
+        throw new Error(result.message || 'Failed to send message');
       }
       
       toast({

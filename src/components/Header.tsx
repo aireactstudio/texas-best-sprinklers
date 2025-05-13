@@ -121,6 +121,7 @@ const Header = () => {
                 </div>
               </div>
             </li>
+            {/* Projects page not production ready - temporarily hidden
             <li>
               <Link 
                 href="/projects" 
@@ -132,6 +133,7 @@ const Header = () => {
                 Projects
               </Link>
             </li>
+            */}
             <li>
               <Link 
                 href="/blog" 
@@ -286,6 +288,7 @@ const Header = () => {
               </div>
             </li>
             
+            {/* Projects page not production ready - temporarily hidden
             <li>
               <Link 
                 href="/projects" 
@@ -299,6 +302,7 @@ const Header = () => {
                 Projects
               </Link>
             </li>
+            */}
             <li>
               <Link 
                 href="/blog" 
