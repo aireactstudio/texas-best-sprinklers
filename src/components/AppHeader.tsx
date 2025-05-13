@@ -67,7 +67,8 @@ const AppHeader = () => {
         { name: 'Maintenance', path: '/services/maintenance' },
       ]
     },
-    { name: 'Projects', path: '/projects' },
+    // Projects page not production ready - temporarily hidden
+    // { name: 'Projects', path: '/projects' },
     { name: 'About', path: '/about' },
     { name: 'Blog', path: '/blog' },
     { name: 'Contact', path: '/contact' }
