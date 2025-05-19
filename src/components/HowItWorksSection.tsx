@@ -64,25 +64,63 @@ const HowItWorksSection: React.FC = () => {
             </div>
           </div>
           
-          {/* Image or illustration */}
-          <div className="bg-white rounded-lg shadow-xl overflow-hidden h-[500px] relative">
-            <div className="relative w-full h-full">
-              <Image 
-                src="/assets/images/optimized/Truck-image-solo.png" 
-                alt="Texas Best Sprinklers service truck" 
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover"
-                loading="lazy"
-              />
-            </div>
-            <div className="absolute inset-0 bg-gradient-to-t from-irrigation-blue to-transparent opacity-30"></div>
-            <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-              <div className="bg-irrigation-green px-4 py-2 rounded-full inline-block mb-4 text-sm font-medium">
-                Expert Installation
+          {/* Right side content */}
+          <div className="bg-white rounded-lg shadow-xl p-8 relative">
+            <div className="mb-8">
+              <div className="bg-irrigation-a11y-light-green text-irrigation-a11y-green px-4 py-2 rounded-full inline-block mb-4 text-sm font-medium">
+                Quality Service
               </div>
-              <h3 className="text-2xl font-bold mb-2">Professionally Installed Systems</h3>
-              <p>Our certified technicians ensure your irrigation system is installed correctly and operates efficiently.</p>
+              <h3 className="text-2xl font-bold mb-4 text-irrigation-blue">Why Choose Our Process?</h3>
+              <p className="text-gray-600 mb-6">
+                Our methodical approach ensures your irrigation system is perfectly tailored to your landscape's unique needs, maximizing efficiency and minimizing water waste.
+              </p>
+            </div>
+            
+            <div className="space-y-6">
+              <div className="flex items-start">
+                <div className="bg-irrigation-green/20 p-3 rounded-full mr-4 text-irrigation-green">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="font-bold text-irrigation-darkBlue mb-1">Licensed & Certified</h4>
+                  <p className="text-gray-600">All installations performed by trained, licensed irrigation specialists</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start">
+                <div className="bg-irrigation-green/20 p-3 rounded-full mr-4 text-irrigation-green">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="font-bold text-irrigation-darkBlue mb-1">Timely Completion</h4>
+                  <p className="text-gray-600">Most residential irrigation systems installed in just 1-2 days</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start">
+                <div className="bg-irrigation-green/20 p-3 rounded-full mr-4 text-irrigation-green">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="font-bold text-irrigation-darkBlue mb-1">Warranty Protection</h4>
+                  <p className="text-gray-600">All new installations backed by our comprehensive service warranty</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="mt-8">
+              <a href="/contact" className="inline-flex items-center text-irrigation-green font-medium hover:text-irrigation-darkGreen transition-colors">
+                Schedule Your Consultation
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                </svg>
+              </a>
             </div>
           </div>
         </div>
