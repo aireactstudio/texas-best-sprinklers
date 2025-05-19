@@ -39,7 +39,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   };
   
   // Features list for featured cards
-  const getFeaturesList = () => {
+  const getFeaturesList = function() {
+    const title = arguments[0];
     switch(title) {
       case 'Sprinkler Installation':
         return [
@@ -87,7 +88,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   };
   
   // Long descriptions for each service
-  const getExpandedDescription = () => {
+  const getExpandedDescription = (longDescription: string | undefined, title: string) => {
     return longDescription || `Our professional ${title.toLowerCase()} services are designed to provide you with the best quality and value. We use only premium materials and the latest techniques to ensure your outdoor space looks beautiful and functions perfectly year-round.`;
   };
   
@@ -107,7 +108,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       </div>
       
       {/* Extended description */}
-      <p className="text-gray-800 mb-4 text-sm">{getExpandedDescription()}</p>
+      <p className="text-gray-800 mb-4 text-sm">{getExpandedDescription(longDescription, title)}</p>
       
       {/* Features list */}
       <div className="mb-4">
@@ -202,10 +203,118 @@ interface ServicesSectionProps {
 
 const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName }) => {
   const [selectedServiceIndex, setSelectedServiceIndex] = useState(0);
+  // Reference to the expanded details section for scrolling on mobile
+  const expandedDetailsRef = useRef<HTMLDivElement>(null);
+  // Track if we're in mobile view
+  const [isMobileView, setIsMobileView] = useState(false);
+  
+  // Helper function to get the expanded description for a service
+  const getServiceDescription = (longDescription: string | undefined, title: string) => {
+    return longDescription || `Our professional ${title.toLowerCase()} services are designed to provide you with the best quality and value. We use only premium materials and the latest techniques to ensure your outdoor space looks beautiful and functions perfectly year-round.`;
+  };
+  
+  // Helper function to get features for a specific service
+  const getFeaturesForService = (serviceTitle: string) => {
+    switch(serviceTitle) {
+      case 'Sprinkler Installation':
+        return [
+          'Custom system design tailored to your landscape',
+          'Water-efficient sprinkler heads and nozzles',
+          'Smart controller installation and setup',
+          'Professional installation by certified technicians',
+          'Full system testing and calibration'
+        ];
+      case 'Irrigation Repair':
+        return [
+          'Leak detection and repair',
+          'Broken head replacement',
+          'Valve and solenoid troubleshooting',
+          'Controller programming and repair',
+          'System pressure optimization'
+        ];
+      case 'Maintenance':
+        return [
+          'Seasonal system inspections',
+          'Winterization services',
+          'Spring start-up and testing',
+          'Controller programming updates',
+          'System efficiency optimization'
+        ];
+      case 'Drainage Solutions':
+        return [
+          'Yard drainage assessment',
+          'French drain installation',
+          'Surface drain solutions',
+          'Downspout extensions',
+          'Erosion control measures'
+        ];
+      case 'Outdoor Lighting':
+        return [
+          'Custom lighting design',
+          'Path and walkway lighting',
+          'Accent and spotlight installation',
+          'Security lighting solutions',
+          'Smart lighting controls'
+        ];
+      default:
+        return [];
+    }
+  };
+  
+  // Check viewport size on mount and window resize
+  useEffect(() => {
+    const checkViewport = () => {
+      setIsMobileView(window.innerWidth < 1024); // lg breakpoint
+    };
+    
+    // Initial check
+    checkViewport();
+    
+    // Add event listener for resize
+    window.addEventListener('resize', checkViewport);
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', checkViewport);
+  }, []);
   
   // Handle service selection
   const handleServiceSelect = (index: number) => {
+    // If same service clicked again on mobile, treat as a toggle
+    if (isMobileView && index === selectedServiceIndex) {
+      return; // Do nothing, let the user tap the View Details button
+    }
+    
     setSelectedServiceIndex(index);
+    
+    // On mobile, adjust scroll position to show the expanded content with more context
+    if (isMobileView) {
+      setTimeout(() => {
+        if (expandedDetailsRef.current) {
+          // Get the parent card element (the clicked card)
+          const parentCard = expandedDetailsRef.current.previousElementSibling;
+          
+          if (parentCard) {
+            // Get the current scroll position
+            const currentScrollY = window.scrollY;
+            
+            // Get the position of the parent element relative to the document
+            const parentTop = parentCard.getBoundingClientRect().top + currentScrollY;
+            
+            // Calculate a target scroll position that shows the top of the card plus a small buffer
+            const targetScrollPosition = parentTop - 120; // 120px from the top gives more context
+            
+            // Calculate how much we need to scroll from the current position
+            const scrollOffset = targetScrollPosition - currentScrollY;
+            
+            // Use window.scrollBy for a more controlled scroll
+            window.scrollBy({
+              top: scrollOffset,
+              behavior: 'smooth'
+            });
+          }
+        }
+      }, 200); // Longer delay to ensure DOM is fully updated
+    }
   };
   
   const services = [
@@ -275,10 +384,11 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName }) => {
         
         <div className="mb-6">
           {/* Interactive service layout with selectable cards */}
-          <div className="py-4">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          {/* Desktop Layout - Hidden on mobile */}
+          <div className="hidden lg:block py-4">
+            <div className="grid grid-cols-12 gap-6">
               {/* Featured service - currently selected service */}
-              <div className="lg:col-span-6 xl:col-span-5">
+              <div className="col-span-6 xl:col-span-5">
                 <ServiceCard 
                   {...services[selectedServiceIndex]} 
                   locationPrefix={locationPrefix} 
@@ -289,7 +399,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName }) => {
               </div>
               
               {/* Secondary services grid */}
-              <div className="lg:col-span-6 xl:col-span-7">
+              <div className="col-span-6 xl:col-span-7">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 h-full">
                   {services.map((service, index) => (
                     index !== selectedServiceIndex && (
@@ -305,6 +415,108 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName }) => {
                   ))}
                 </div>
               </div>
+            </div>
+          </div>
+          
+          {/* Mobile Layout - Hidden on desktop */}
+          <div className="lg:hidden">
+            {/* Service cards in a vertical scrollable list */}
+            <div className="space-y-4 mb-6">
+              {services.map((service, index) => (
+                <div key={index} className="relative">
+                  {/* Standard card that acts as a toggle button */}
+                  <div 
+                    className={`bg-white rounded-lg shadow-lg p-5 transition-all duration-300 
+                      border ${selectedServiceIndex === index ? 'border-irrigation-green border-2' : 'border-gray-200'} 
+                      cursor-pointer`}
+                    onClick={() => handleServiceSelect(index)}
+                  >
+                    <div className="flex items-center mb-3">
+                      <div className="h-12 w-12 rounded-full bg-irrigation-darkGreen bg-opacity-20 flex items-center justify-center mr-3 text-irrigation-darkGreen">
+                        {service.icon}
+                      </div>
+                      <h3 className="text-base font-bold text-irrigation-darkBlue">{service.title}</h3>
+                      
+                      {/* Indicator if this card is selected */}
+                      <div className="ml-auto">
+                        <svg 
+                          xmlns="http://www.w3.org/2000/svg" 
+                          className={`h-5 w-5 transition-transform duration-300 ${selectedServiceIndex === index ? 'text-irrigation-green rotate-180' : 'text-gray-400'}`} 
+                          fill="none" 
+                          viewBox="0 0 24 24" 
+                          stroke="currentColor"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </div>
+                    </div>
+                    
+                    <p className="text-gray-800 mb-3 text-sm">{service.description}</p>
+                    
+                    {/* Only show quick features if not expanded */}
+                    {selectedServiceIndex !== index && (
+                      <div className="text-irrigation-darkGreen font-semibold hover:text-irrigation-darkBlue transition-colors duration-300 inline-flex items-center text-sm mt-2">
+                        <span>View Details</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </div>
+                    )}
+                  </div>
+                  
+                  {/* Expanded content - only shown if this is the selected service */}
+                  {selectedServiceIndex === index && (
+                    <div 
+                      ref={expandedDetailsRef}
+                      className="mt-3 bg-white rounded-lg shadow-lg p-6 border-2 border-irrigation-green"
+                    >
+                      {/* Extended description */}
+                      <p className="text-gray-800 mb-4 text-sm">{getServiceDescription(service.longDescription, service.title)}</p>
+                      
+                      {/* Features list */}
+                      <div className="mb-4">
+                        <h4 className="text-base font-semibold text-irrigation-darkBlue mb-2">What's Included:</h4>
+                        <ul className="space-y-1 text-sm">
+                          {getFeaturesForService(service.title).map((feature, i) => (
+                            <li key={i} className="flex items-start">
+                              <div className="text-irrigation-green mr-2 mt-1 flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                </svg>
+                              </div>
+                              <span className="text-gray-700">{feature}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      
+                      {/* Testimonial */}
+                      <div className="bg-irrigation-a11y-light-green rounded-lg p-3 mb-4">
+                        <p className="text-irrigation-darkGreen italic text-xs mb-1">"The team at Texas Best Sprinklers did an amazing job with our {service.title.toLowerCase()}. Professional, efficient, and the results exceeded our expectations!"</p>
+                        <p className="text-irrigation-darkGreen font-medium text-xs">— Satisfied Customer in Fort Worth</p>
+                      </div>
+                      
+                      <div className="mt-4 flex flex-col gap-2">
+                        <Link 
+                          href={locationPrefix ? `/${locationPrefix}${service.link}` : service.link} 
+                          className="text-white bg-irrigation-darkGreen hover:bg-irrigation-darkBlue transition-colors duration-300 inline-flex items-center justify-center py-2 px-4 rounded-md font-medium text-sm"
+                          aria-label={`Learn more about ${service.title}`}>
+                          <span>View Details</span>
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                        </Link>
+                        <Link 
+                          href="/contact" 
+                          className="text-irrigation-darkGreen border border-irrigation-darkGreen hover:bg-irrigation-a11y-light-green transition-colors duration-300 inline-flex items-center justify-center py-2 px-4 rounded-md font-medium text-sm"
+                          aria-label={`Get a quote for ${service.title}`}>
+                          <span>Get a Quote</span>
+                        </Link>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
         </div>
