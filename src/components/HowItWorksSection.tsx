@@ -68,8 +68,8 @@ const HowItWorksSection: React.FC = () => {
           <div className="bg-white rounded-lg shadow-xl overflow-hidden h-[500px] relative">
             <div className="relative w-full h-full">
               <Image 
-                src="https://images.unsplash.com/photo-1518495973542-4542c06a5843" 
-                alt="Sunlight filtering through trees in a well-irrigated garden" 
+                src="/assets/images/optimized/Truck-image-solo.png" 
+                alt="Texas Best Sprinklers service truck" 
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"

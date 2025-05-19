@@ -82,7 +82,7 @@ export default function Services() {
               title="Outdoor Lighting"
               description="Enhance your property's beauty, security, and functionality with our custom-designed outdoor lighting solutions for pathways, gardens, and architectural features."
               icon={<CloudSun size={32} />}
-              id="lighting"
+              id="outdoor-lighting"
             />
             
             <ServiceCard 
