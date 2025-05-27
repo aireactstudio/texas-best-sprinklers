@@ -23,6 +23,11 @@ export const SERVICE_CONFIG: Record<string, ServiceConfig> = {
     title: 'Irrigation Repair',
     backButtonText: 'Back to Main Irrigation Repair Services'
   },
+  [ServiceType.SPRINKLER_REPAIR]: {
+    themeColor: 'irrigation-blue',
+    title: 'Sprinkler Repair',
+    backButtonText: 'Back to Main Sprinkler Repair Services'
+  },
   [ServiceType.DRAINAGE]: {
     themeColor: 'irrigation-green',
     title: 'Drainage Solutions',

@@ -21,7 +21,8 @@ export async function getArticleContent(serviceType: string, location: string): 
       'maintenance',
       'lighting',
       'outdoor-lighting',
-      'sprinkler-installation'
+      'sprinkler-installation',
+      'sprinkler-repair'
     ];
     
     // Check if the service type is supported

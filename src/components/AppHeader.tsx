@@ -62,6 +62,7 @@ const AppHeader = () => {
       submenu: [
         { name: 'Sprinkler Installation', path: '/services/sprinkler-installation' },
         { name: 'Irrigation Repair', path: '/services/irrigation-repair' },
+        { name: 'Sprinkler Repair', path: '/services/sprinkler-repair' },
         { name: 'Drainage Solutions', path: '/services/drainage-solutions' },
         { name: 'Outdoor Lighting', path: '/services/outdoor-lighting' },
         { name: 'Maintenance', path: '/services/maintenance' },

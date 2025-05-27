@@ -101,6 +101,12 @@ const Header = () => {
                     Irrigation Repair
                   </Link>
                   <Link 
+                    href="/services/sprinkler-repair"
+                    className={`block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ${pathname?.startsWith('/services/sprinkler-repair') ? 'bg-gray-50 text-irrigation-blue font-medium' : ''}`}
+                  >
+                    Sprinkler Repair
+                  </Link>
+                  <Link 
                     href="/services/maintenance"
                     className={`block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ${pathname?.startsWith('/services/maintenance') ? 'bg-gray-50 text-irrigation-blue font-medium' : ''}`}
                   >
@@ -251,6 +257,17 @@ const Header = () => {
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Irrigation Repair
+                </Link>
+                <Link 
+                  href="/services/sprinkler-repair" 
+                  className={`block text-sm ${
+                    pathname?.startsWith('/services/sprinkler-repair') 
+                    ? 'text-irrigation-blue font-medium' 
+                    : 'text-gray-600'
+                  }`}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Sprinkler Repair
                 </Link>
                 <Link 
                   href="/services/maintenance" 
