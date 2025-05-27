@@ -11,6 +11,7 @@ import PerformanceMonitor from '@/components/PerformanceMonitor';
 import HeroImagePreload from '@/components/HeroImagePreload';
 import HeadPreload from './head-preload';
 import HeroPreloadScript from '@/components/HeroPreloadScript';
+import SmartlookScript from '@/components/SmartlookScript';
 
 // Dynamically import non-critical components
 const Footer = dynamic(() => import('@/components/Footer'), {
@@ -69,6 +70,8 @@ export default function RootLayout({
         <PerformanceMonitor />
         {/* Preload hero image to fix LCP issues */}
         <HeroImagePreload imagePath="https://imagedelivery.net/Hs1aBZ5UERW4OpkuLtKJ6A/b96197d9-8f69-4145-7b7b-0b5a7ba70900/public" />
+        {/* Smartlook tracking script */}
+        <SmartlookScript />
         <AppHeader />
         <main>{children}</main>
         <Footer />
