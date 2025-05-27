@@ -1,5 +1,32 @@
 // Import and export all service articles
 
+// Sprinkler Repair Articles
+import fortWorthSprinklerRepairArticle from './sprinkler-repair/fort-worth';
+import arlingtonSprinklerRepairArticle from './sprinkler-repair/arlington';
+import kellerSprinklerRepairArticle from './sprinkler-repair/keller';
+import southlakeSprinklerRepairArticle from './sprinkler-repair/southlake';
+import colleyvilleSprinklerRepairArticle from './sprinkler-repair/colleyville';
+import grapevineSprinklerRepairArticle from './sprinkler-repair/grapevine';
+import northRichlandHillsSprinklerRepairArticle from './sprinkler-repair/north-richland-hills';
+import bedfordSprinklerRepairArticle from './sprinkler-repair/bedford';
+import eulessSprinklerRepairArticle from './sprinkler-repair/euless';
+import hurstSprinklerRepairArticle from './sprinkler-repair/hurst';
+import haltomCitySprinklerRepairArticle from './sprinkler-repair/haltom-city';
+import weatherfordSprinklerRepairArticle from './sprinkler-repair/weatherford';
+import westlakeSprinklerRepairArticle from './sprinkler-repair/westlake';
+import willowParkSprinklerRepairArticle from './sprinkler-repair/willow-park';
+import aledoSprinklerRepairArticle from './sprinkler-repair/aledo';
+import benbrookSprinklerRepairArticle from './sprinkler-repair/benbrook';
+import coppellSprinklerRepairArticle from './sprinkler-repair/coppell';
+import flowerMoundSprinklerRepairArticle from './sprinkler-repair/flower-mound';
+import grandPrairieSprinklerRepairArticle from './sprinkler-repair/grand-prairie';
+import irvingSprinklerRepairArticle from './sprinkler-repair/irving';
+import lewisvilleSprinklerRepairArticle from './sprinkler-repair/lewisville';
+import mansfieldSprinklerRepairArticle from './sprinkler-repair/mansfield';
+import roanokeSprinklerRepairArticle from './sprinkler-repair/roanoke';
+import trophyClubSprinklerRepairArticle from './sprinkler-repair/trophy-club';
+import wataugaSprinklerRepairArticle from './sprinkler-repair/watauga';
+
 // Sprinkler Installation Articles
 import weatherfordSprinklerInstallationArticle from './sprinkler-installation/weatherford';
 import arlingtonSprinklerInstallationArticle from './sprinkler-installation/arlington';
@@ -48,6 +75,33 @@ export { irvingArticleHtml };
 export { trophyClubArticleHtml };
 export { roanokeArticleHtml };
 
+// Sprinkler Repair Exports
+export { fortWorthSprinklerRepairArticle };
+export { arlingtonSprinklerRepairArticle };
+export { kellerSprinklerRepairArticle };
+export { southlakeSprinklerRepairArticle };
+export { colleyvilleSprinklerRepairArticle };
+export { grapevineSprinklerRepairArticle };
+export { northRichlandHillsSprinklerRepairArticle };
+export { bedfordSprinklerRepairArticle };
+export { eulessSprinklerRepairArticle };
+export { hurstSprinklerRepairArticle };
+export { haltomCitySprinklerRepairArticle };
+export { weatherfordSprinklerRepairArticle };
+export { westlakeSprinklerRepairArticle };
+export { willowParkSprinklerRepairArticle };
+export { aledoSprinklerRepairArticle };
+export { benbrookSprinklerRepairArticle };
+export { coppellSprinklerRepairArticle };
+export { flowerMoundSprinklerRepairArticle };
+export { grandPrairieSprinklerRepairArticle };
+export { irvingSprinklerRepairArticle };
+export { lewisvilleSprinklerRepairArticle };
+export { mansfieldSprinklerRepairArticle };
+export { roanokeSprinklerRepairArticle };
+export { trophyClubSprinklerRepairArticle };
+export { wataugaSprinklerRepairArticle };
+
 // Article lookup function
 export const getServiceArticle = (
   service: string,
@@ -82,6 +136,34 @@ export const getServiceArticle = (
       'irving': irvingArticleHtml,
       'trophy-club': trophyClubArticleHtml,
       'roanoke': roanokeArticleHtml,
+      // Add more locations as they become available
+    },
+    'sprinkler-repair': {
+      'fort-worth': fortWorthSprinklerRepairArticle,
+      'arlington': arlingtonSprinklerRepairArticle,
+      'keller': kellerSprinklerRepairArticle,
+      'southlake': southlakeSprinklerRepairArticle,
+      'colleyville': colleyvilleSprinklerRepairArticle,
+      'grapevine': grapevineSprinklerRepairArticle,
+      'north-richland-hills': northRichlandHillsSprinklerRepairArticle,
+      'bedford': bedfordSprinklerRepairArticle,
+      'euless': eulessSprinklerRepairArticle,
+      'hurst': hurstSprinklerRepairArticle,
+      'haltom-city': haltomCitySprinklerRepairArticle,
+      'weatherford': weatherfordSprinklerRepairArticle,
+      'westlake': westlakeSprinklerRepairArticle,
+      'willow-park': willowParkSprinklerRepairArticle,
+      'aledo': aledoSprinklerRepairArticle,
+      'benbrook': benbrookSprinklerRepairArticle,
+      'coppell': coppellSprinklerRepairArticle,
+      'flower-mound': flowerMoundSprinklerRepairArticle,
+      'grand-prairie': grandPrairieSprinklerRepairArticle,
+      'irving': irvingSprinklerRepairArticle,
+      'lewisville': lewisvilleSprinklerRepairArticle,
+      'mansfield': mansfieldSprinklerRepairArticle,
+      'roanoke': roanokeSprinklerRepairArticle,
+      'trophy-club': trophyClubSprinklerRepairArticle,
+      'watauga': wataugaSprinklerRepairArticle,
       // Add more locations as they become available
     },
     // Add more services as they become available

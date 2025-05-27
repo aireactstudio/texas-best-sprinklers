@@ -10,6 +10,7 @@ import drainageServiceData from '../../data/services/drainage';
 import lightingServiceData from '../../data/services/lighting';
 // import { fencingServiceData } from '../../data/services/fencingServiceData'; // File doesn't exist yet
 import sprinklerInstallationServiceData from '../../data/services/sprinkler-installation';
+import sprinklerRepairData from '../../data/services/sprinkler-repair';
 
 // Import default service data generator
 import { generateDefaultServiceContent } from './defaultServiceData';
@@ -81,6 +82,11 @@ export const getServiceLocationData = (location: string, serviceType: string | S
       case 'sprinkler-installation':
       case ServiceType.SPRINKLER_INSTALLATION.toString().toLowerCase():
         serviceData = sprinklerInstallationServiceData;
+        break;
+        
+      case 'sprinkler-repair':
+      case ServiceType.SPRINKLER_REPAIR.toString().toLowerCase():
+        serviceData = { default: sprinklerRepairData };
         break;
       
       default:

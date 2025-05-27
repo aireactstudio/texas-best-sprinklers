@@ -232,6 +232,14 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName }) => {
           'Controller programming and repair',
           'System pressure optimization'
         ];
+      case 'Sprinkler Repair':
+        return [
+          'Fast response times',
+          'Broken sprinkler head repair and replacement',
+          'Leak detection and repair',
+          'Valve and solenoid troubleshooting',
+          'Control box programming and repair'
+        ];
       case 'Maintenance':
         return [
           'Seasonal system inspections',
@@ -331,6 +339,13 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName }) => {
       description: "Expert repair services for all types of irrigation systems, fixing leaks, broken heads, and controller issues quickly and efficiently.",
       link: "/services/irrigation-repair",
       longDescription: "Our irrigation repair services address all types of system issues, from minor leaks to major component failures. We use advanced diagnostic techniques to quickly identify problems and implement lasting solutions. Whether you're dealing with broken sprinkler heads, malfunctioning valves, controller issues, or mysterious leaks, our experienced technicians have the skills and tools to restore your system to optimal performance."
+    },
+    {
+      icon: <Wrench size={32} />,
+      title: "Sprinkler Repair",
+      description: "Fast, reliable repair services for all types of sprinkler system issues, from broken heads and leaks to valve problems and controller malfunctions.",
+      link: "/services/sprinkler-repair",
+      longDescription: "Our expert sprinkler repair services provide fast, efficient solutions for all your system problems. We diagnose and fix broken heads, leaking pipes, malfunctioning valves, and controller issues with precision and care. Our experienced technicians use quality replacement parts and proper techniques to ensure lasting repairs, helping you save water and protect your landscape investment."
     },
     {
       icon: <Wrench size={32} />,
