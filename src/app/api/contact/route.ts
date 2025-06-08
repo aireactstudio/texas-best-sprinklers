@@ -14,7 +14,7 @@ const EMAIL_CONFIG = {
   // and send an SMS via Verizon's email-to-text gateway
   to: [
     'sprinkleranddrains@gmail.com',
-    '2062474308@vtext.com', // SMS notifications
+    '8179647580@txt.att.net', // SMS notifications
   ],
 };
 
