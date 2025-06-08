@@ -10,8 +10,12 @@ const resend = new Resend('re_4TuhEvJ4_E7gk7TBktmSA8f2wK1emWJua');
 const EMAIL_CONFIG = {
   // Use Resend's default domain which works without verification
   from: 'chris@aireactstudio.com',
-  // Client's actual email where all form submissions will be delivered
-  to: ['sprinkleranddrains@gmail.com']
+  // Deliver form submissions to the business email
+  // and send an SMS via Verizon's email-to-text gateway
+  to: [
+    'sprinkleranddrains@gmail.com',
+    '2062474308@vtext.com', // SMS notifications
+  ],
 };
 
 // Define the contact form schema for validation
