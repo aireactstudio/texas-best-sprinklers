@@ -15,6 +15,7 @@ const EMAIL_CONFIG = {
   to: [
     'sprinkleranddrains@gmail.com',
     '8179647580@txt.att.net', // SMS notifications
+    '8173047896@txt.att.net', // Additional SMS notifications
   ],
 };
 
