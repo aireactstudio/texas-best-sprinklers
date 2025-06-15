@@ -13,6 +13,7 @@ import HeadPreload from './head-preload';
 import HeroPreloadScript from '@/components/HeroPreloadScript';
 import SmartlookScript from '@/components/SmartlookScript';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
+import CallRailScript from '@/components/CallRailScript';
 
 // Dynamically import non-critical components
 const Footer = dynamic(() => import('@/components/Footer'), {
@@ -73,6 +74,7 @@ export default function RootLayout({
         <HeroImagePreload imagePath="https://imagedelivery.net/Hs1aBZ5UERW4OpkuLtKJ6A/b96197d9-8f69-4145-7b7b-0b5a7ba70900/public" />
         {/* Analytics tracking scripts */}
         <GoogleAnalytics />
+        <CallRailScript />
         <SmartlookScript />
         <AppHeader />
         <main>{children}</main>
