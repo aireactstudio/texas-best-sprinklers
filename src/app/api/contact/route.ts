@@ -12,10 +12,11 @@ const EMAIL_CONFIG = {
   from: 'chris@aireactstudio.com',
   // Deliver form submissions to the business email
   // and send an SMS via Verizon's email-to-text gateway
-  to: [
-    'sprinkleranddrains@gmail.com',
-    '8179647580@txt.att.net', // SMS notifications
-    '8173047896@txt.att.net', // Additional SMS notifications
+  primaryRecipient: 'sprinkleranddrains@gmail.com',
+  // SMS notifications are now handled separately
+  smsRecipients: [
+    '8179647580@txt.att.net',
+    '8173047896@txt.att.net',
   ],
 };
 
@@ -93,21 +94,17 @@ export async function POST(request: Request) {
       timestamp: new Date().toISOString()
     });
     
-    // Send email using Resend
-    const { data, error } = await resend.emails.send({
-      from: EMAIL_CONFIG.from,
-      to: EMAIL_CONFIG.to,
-      replyTo: validatedData.email, // Allow replying directly to the customer
-      subject: `New Contact Form Submission: ${serviceType}`,
-      text: `
+    // Define email content
+    const emailText = `
 Name: ${validatedData.name}
 Email: ${validatedData.email}
 Phone: ${validatedData.phone || 'Not provided'}
 ${validatedData.location ? `Location: ${validatedData.location}\n` : ''}Service Needed: ${serviceType}
 Message:
 ${validatedData.message}
-      `,
-      html: `
+`;
+
+    const emailHtml = `
 <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
   <h2 style="color: #0c4b33;">New Contact Form Submission</h2>
   <p><strong>Service Requested:</strong> ${serviceType}</p>
@@ -129,15 +126,49 @@ ${validatedData.message}
     This message was sent from the contact form on the Texas Best Sprinklers website on ${new Date().toLocaleDateString()}.
   </p>
 </div>
-      `,
+`;
+
+    // --- Step 1: Send the primary email ---
+    console.log(`Sending primary email to ${EMAIL_CONFIG.primaryRecipient}`);
+    const emailResult = await resend.emails.send({
+      from: EMAIL_CONFIG.from,
+      to: [EMAIL_CONFIG.primaryRecipient], // Send only to the main email address
+      replyTo: validatedData.email,
+      subject: `New Contact Form Submission: ${serviceType}`,
+      text: emailText,
+      html: emailHtml,
     });
-    
-    if (error) {
-      console.error('Error sending email with Resend:', error);
+
+    // Check for primary email sending errors
+    if (emailResult.error) {
+      console.error('Error sending primary email with Resend:', emailResult.error);
       return NextResponse.json(
-        { success: false, message: 'Failed to send email', error: error.message },
+        { success: false, message: 'Failed to send primary email notification.', error: emailResult.error.message },
         { status: 500 }
       );
+    }
+    console.log('Primary email sent successfully.');
+
+    // --- Step 2: Send SMS notifications (non-blocking) ---
+    if (EMAIL_CONFIG.smsRecipients && EMAIL_CONFIG.smsRecipients.length > 0) {
+      console.log('Sending SMS notifications to:', EMAIL_CONFIG.smsRecipients);
+      // Fire-and-forget: we don't await this promise.
+      resend.emails.send({
+        from: EMAIL_CONFIG.from,
+        to: EMAIL_CONFIG.smsRecipients,
+        subject: `New Lead: ${validatedData.name}`,
+        text: `New lead from ${validatedData.name} (${validatedData.phone || 'No phone'}). Service: ${serviceType}.`,
+      }).then(smsResult => {
+        if (smsResult.error) {
+          // Log the error but don't fail the request
+          console.error('Failed to send SMS notification:', smsResult.error);
+        } else {
+          console.log('SMS notifications sent successfully.');
+        }
+      }).catch(smsError => {
+        // Log any unexpected exception
+        console.error('Caught an exception during SMS sending:', smsError);
+      });
     }
     
     return NextResponse.json(
