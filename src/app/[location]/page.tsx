@@ -1,157 +1,95 @@
-'use client';
-
+import React from 'react';
+import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import HeroSection from '@/components/HeroSection';
-import ServicesSection from '@/components/ServicesSection';
-import FeaturesSection from '@/components/FeaturesSection';
-import SchemaMarkup from '@/components/SchemaMarkup';
-import TestimonialsSection from '@/components/TestimonialsSection';
-import CTA from '@/components/CTA';
-import LocalProjects from '@/components/LocalProjects';
-import LocalFAQ from '@/components/LocalFAQ';
+import LocationHomepage from '@/components/location-homepages/LocationHomepage';
+import { getLocationData, isValidLocation } from '@/data/locationData';
 
-// Define valid locations to prevent arbitrary routes
-const validLocations = [
-  'dallas', 
-  'arlington', 
-  'denton', 
-  'keller',
-  'southlake',
-  'grapevine',
-  'colleyville',
-  'bedford',
-  'euless',
-  'hurst'
-];
+interface LocationPageProps {
+  params: { location: string };
+}
 
-export default function LocationPage({ params }: { params: { location: string } }) {
+export async function generateMetadata({ params }: LocationPageProps): Promise<Metadata> {
   const { location } = params;
   
-  // Check if this is a valid location we serve
-  if (!validLocations.includes(location.toLowerCase())) {
+  if (!isValidLocation(location)) {
+    return {
+      title: 'Location Not Found',
+      description: 'The requested location is not in our service area.'
+    };
+  }
+
+  const locationData = getLocationData(location);
+  if (!locationData) {
+    return {
+      title: 'Location Not Found',
+      description: 'The requested location is not in our service area.'
+    };
+  }
+
+  const { name: locationName, landmarks, nearestOffice, distanceFromOffice } = locationData;
+
+  return {
+    title: `${locationName} Sprinkler & Irrigation Services | Texas Best Sprinklers`,
+    description: `Professional sprinkler installation, repair & maintenance in ${locationName}, TX. Texas Best Sprinklers provides expert irrigation services for ${locationName} homes and businesses. Licensed & insured with 15+ years experience.`,
+    keywords: `sprinkler installation ${locationName}, irrigation repair ${locationName}, sprinkler system ${locationName}, lawn sprinklers ${locationName}, Texas Best Sprinklers`,
+    alternates: {
+      canonical: `https://sprinkleranddrains.com/${location}`
+    },
+    openGraph: {
+      title: `${locationName} Sprinkler & Irrigation Services | Texas Best Sprinklers`,
+      description: `Professional sprinkler installation, repair & maintenance in ${locationName}, TX. Licensed & insured with 15+ years experience.`,
+      url: `https://sprinkleranddrains.com/${location}`,
+      siteName: 'Texas Best Sprinklers',
+      images: [
+        {
+          url: 'https://sprinkleranddrains.com/assets/images/optimized/hero-background.webp',
+          width: 1200,
+          height: 630,
+          alt: `${locationName} Sprinkler Services`
+        }
+      ],
+      locale: 'en_US',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${locationName} Sprinkler & Irrigation Services | Texas Best Sprinklers`,
+      description: `Professional sprinkler installation, repair & maintenance in ${locationName}, TX. Licensed & insured.`,
+      images: ['https://sprinkleranddrains.com/assets/images/optimized/hero-background.webp'],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+  };
+}
+
+export default function LocationPage({ params }: LocationPageProps) {
+  const { location } = params;
+  
+  if (!isValidLocation(location)) {
     notFound();
   }
-  
-  // Format location for display (capitalize, replace hyphens with spaces)
-  const formattedLocation = location
-    .split('-')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
-  
-  // Define local business schema for this location
-  const localBusinessSchema = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Texas Best Sprinkler, Drainage and Lighting LLC",
-    "image": "https://sprinkleranddrains.com/images/logo.png",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": formattedLocation,
-      "addressRegion": "TX",
-      "addressCountry": "US"
-    },
-    "url": `https://sprinkleranddrains.com/${location}`,
-    "telephone": "+18173047896",
-    "priceRange": "$$"
-  };
 
-  return (
-    <>
-      {/* Inject schema markup with optimized loading */}
-      <SchemaMarkup data={localBusinessSchema} />
-      
-      <HeroSection 
-        title={`${formattedLocation}'s Expert Irrigation Services`}
-        subtitle={`Professional sprinkler installation, repair & maintenance for ${formattedLocation} homes & businesses`}
-      />
-      
-      {/* Location-specific intro section */}
-      <section className="py-16 md:py-20">
-        <div className="container-custom">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-irrigation-blue">
-                Serving {formattedLocation} With Quality Irrigation Solutions
-              </h2>
-              <p className="text-gray-700 text-lg mb-4">
-                Texas Best Sprinklers is proud to provide professional irrigation, drainage, and outdoor lighting services to the {formattedLocation} community. Our team of licensed technicians brings years of local experience to every project.
-              </p>
-              <p className="text-gray-700 text-lg mb-4">
-                We understand the unique soil conditions, water regulations, and landscaping needs of {formattedLocation} properties. Our custom-designed irrigation systems help you maintain a beautiful landscape while conserving water and reducing utility costs.
-              </p>
-              <p className="text-gray-700 text-lg">
-                From new installation to repairs and seasonal maintenance, we're your complete irrigation partner in {formattedLocation}.
-              </p>
-            </div>
-            <div className="rounded-lg overflow-hidden shadow-xl">
-              <img
-                src="/assets/images/location-service.jpg"
-                alt={`Texas Best Sprinklers service in ${formattedLocation}`}
-                className="w-full h-auto object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-      
-      {/* Location-specific services section */}
-      <ServicesSection cityName={formattedLocation} />
-      
-      {/* Testimonials */}
-      <TestimonialsSection cityFilter={formattedLocation} />
-      
-      {/* Location-specific projects */}
-      <section className="py-16 md:py-24 bg-irrigation-gray">
-        <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-irrigation-blue">Recent {formattedLocation} Projects</h2>
-            <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-              View our recently completed irrigation and drainage projects in the {formattedLocation} area.
-            </p>
-          </div>
-          
-          <LocalProjects cityName={formattedLocation} />
-        </div>
-      </section>
-      
-      {/* Location-specific FAQ */}
-      <section className="py-16 md:py-24">
-        <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-irrigation-blue">{formattedLocation} Irrigation FAQs</h2>
-            <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-              Common questions about irrigation systems and services in the {formattedLocation} area.
-            </p>
-          </div>
-          
-          <LocalFAQ 
-            cityName={formattedLocation} 
-            faqs={[
-              {
-                question: `What are the watering restrictions in ${formattedLocation}?`,
-                answer: `${formattedLocation} typically follows regional watering guidelines, which may include designated watering days and conservation measures during drought periods. Contact your local water utility for specific information.`
-              },
-              {
-                question: `How much does a sprinkler system cost in ${formattedLocation}?`,
-                answer: `The cost for a typical residential sprinkler system in ${formattedLocation} ranges from $2,800-$5,500 depending on property size, design complexity, and component quality. Contact us for a free, customized estimate.`
-              },
-              {
-                question: `Do you offer maintenance plans in ${formattedLocation}?`,
-                answer: `Yes, we offer comprehensive maintenance plans for ${formattedLocation} properties that include regular inspections, seasonal adjustments, and priority service. Our maintenance ensures your system operates efficiently year-round.`
-              }
-            ]}
-          />
-        </div>
-      </section>
-      
-      {/* Location-specific CTA */}
-      <CTA 
-        title={`Ready to Improve Your ${formattedLocation} Property?`}
-        subtitle={`Contact us today for a free consultation and quote on your ${formattedLocation} irrigation project.`}
-        buttonText="Get a Free Quote"
-        buttonLink="/contact"
-        variant="primary"
-      />
-    </>
-  );
+  return <LocationHomepage locationSlug={location} />;
+}
+
+// Generate static paths for all valid locations
+export async function generateStaticParams() {
+  const locations = [
+    'fort-worth', 'arlington', 'keller', 'southlake', 'colleyville', 
+    'grapevine', 'north-richland-hills', 'bedford', 'euless', 'hurst',
+    'flower-mound', 'coppell', 'irving', 'dallas', 'weatherford'
+  ];
+
+  return locations.map((location) => ({
+    location: location,
+  }));
 }

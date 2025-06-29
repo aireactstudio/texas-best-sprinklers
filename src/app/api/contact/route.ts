@@ -1,17 +1,21 @@
 import { NextResponse } from 'next/server';
-import { Resend } from 'resend';
 import { z } from 'zod';
+import twilio from 'twilio';
+import { Resend } from 'resend';
 
 // Initialize Resend with API key
-// Using the production API key with paid subscription
-const resend = new Resend('re_4TuhEvJ4_E7gk7TBktmSA8f2wK1emWJua');
+const resend = new Resend(process.env.RESEND_API_KEY);
+
+// Initialize Twilio
+const twilioClient = process.env.TWILIO_ACCOUNT_SID && process.env.TWILIO_AUTH_TOKEN
+  ? twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN)
+  : null;
 
 // Email configuration
 const EMAIL_CONFIG = {
   // Use Resend's default domain which works without verification
   from: 'chris@aireactstudio.com',
   // Deliver form submissions to the business email
-  // and send an SMS via Verizon's email-to-text gateway
   primaryRecipient: 'sprinkleranddrains@gmail.com',
   // SMS notifications are now handled separately
   smsRecipients: [
@@ -29,6 +33,33 @@ const contactSchema = z.object({
   message: z.string().min(1, { message: "Message is required" }),
   service: z.string().optional().default('other'), // Accept any string for service type with default
 });
+
+// Define type for the validated data
+type ContactFormData = z.infer<typeof contactSchema>;
+
+/**
+ * Send an SMS notification using Twilio
+ */
+async function sendSms(to: string, body: string) {
+  if (!twilioClient || !process.env.TWILIO_PHONE_NUMBER) {
+    console.error('Twilio not configured. Missing credentials or phone number.');
+    return { success: false, error: 'Twilio not configured' };
+  }
+
+  try {
+    const message = await twilioClient.messages.create({
+      body,
+      from: process.env.TWILIO_PHONE_NUMBER,
+      to,
+    });
+    
+    console.log('SMS sent successfully', { messageId: message.sid });
+    return { success: true, messageId: message.sid };
+  } catch (error) {
+    console.error('Failed to send SMS:', error);
+    return { success: false, error };
+  }
+}
 
 export async function POST(request: Request) {
   try {
@@ -149,26 +180,42 @@ ${validatedData.message}
     }
     console.log('Primary email sent successfully.');
 
-    // --- Step 2: Send SMS notifications (non-blocking) ---
-    if (EMAIL_CONFIG.smsRecipients && EMAIL_CONFIG.smsRecipients.length > 0) {
-      console.log('Sending SMS notifications to:', EMAIL_CONFIG.smsRecipients);
-      // Fire-and-forget: we don't await this promise.
-      resend.emails.send({
-        from: EMAIL_CONFIG.from,
-        to: EMAIL_CONFIG.smsRecipients,
-        subject: `New Lead: ${validatedData.name}`,
-        text: `New lead from ${validatedData.name} (${validatedData.phone || 'No phone'}). Service: ${serviceType}.`,
-      }).then(smsResult => {
-        if (smsResult.error) {
-          // Log the error but don't fail the request
-          console.error('Failed to send SMS notification:', smsResult.error);
-        } else {
-          console.log('SMS notifications sent successfully.');
-        }
-      }).catch(smsError => {
-        // Log any unexpected exception
-        console.error('Caught an exception during SMS sending:', smsError);
-      });
+    // --- Step 2: Send SMS notifications via Twilio (non-blocking) ---
+    // Construct SMS message body
+    const smsBody = `New Lead: ${validatedData.name} (${validatedData.phone || 'No phone'}). Service: ${serviceType}. Email: ${validatedData.email}`;
+    
+    // Send to first recipient
+    if (process.env.SMS_RECIPIENT_1) {
+      console.log(`Sending SMS to first recipient: ${process.env.SMS_RECIPIENT_1}`);
+      // Fire-and-forget: we don't await this promise
+      sendSms(process.env.SMS_RECIPIENT_1, smsBody)
+        .then(result => {
+          if (!result.success) {
+            console.error('Failed to send SMS to first recipient:', result.error);
+          } else {
+            console.log('SMS sent successfully to first recipient');
+          }
+        })
+        .catch(error => {
+          console.error('Exception sending SMS to first recipient:', error);
+        });
+    }
+    
+    // Send to second recipient
+    if (process.env.SMS_RECIPIENT_2) {
+      console.log(`Sending SMS to second recipient: ${process.env.SMS_RECIPIENT_2}`);
+      // Fire-and-forget: we don't await this promise
+      sendSms(process.env.SMS_RECIPIENT_2, smsBody)
+        .then(result => {
+          if (!result.success) {
+            console.error('Failed to send SMS to second recipient:', result.error);
+          } else {
+            console.log('SMS sent successfully to second recipient');
+          }
+        })
+        .catch(error => {
+          console.error('Exception sending SMS to second recipient:', error);
+        });
     }
     
     return NextResponse.json(
