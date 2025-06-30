@@ -98,10 +98,6 @@ export default function LocationHeroSection({
               </div>
               <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-lg p-4 border border-white/10">
                 <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0" />
-                <span className="text-white font-medium">Same-Day Service</span>
-              </div>
-              <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-lg p-4 border border-white/10">
-                <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0" />
                 <span className="text-white font-medium">100% Satisfaction</span>
               </div>
             </div>
