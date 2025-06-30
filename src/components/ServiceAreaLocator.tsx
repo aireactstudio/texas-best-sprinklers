@@ -1,11 +1,10 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import Script from 'next/script';
 import ErrorBoundary from './ErrorBoundary';
+import { useGoogleMaps } from './GoogleMapsLoader';
 
 interface ServiceAreaLocatorProps {
-  apiKey: string;
   title?: string;
   subtitle?: string;
 }
@@ -49,13 +48,12 @@ const SERVICE_LOCATIONS = [
 ];
 
 const ServiceAreaLocator: React.FC<ServiceAreaLocatorProps> = ({ 
-  apiKey, 
   title = "Our Service Areas",
   subtitle = "We provide expert irrigation and drainage services throughout the Fort Worth area"
 }) => {
   const mapRef = useRef<HTMLDivElement>(null);
-  const [mapLoaded, setMapLoaded] = useState(false);
   const [activeLocation, setActiveLocation] = useState<string | null>(null);
+  const { isLoaded: mapLoaded } = useGoogleMaps();
 
   // Initialize the map once the script is loaded
   useEffect(() => {
@@ -246,9 +244,6 @@ const ServiceAreaLocator: React.FC<ServiceAreaLocatorProps> = ({
     };
   }, [mapLoaded]);
 
-  const handleScriptLoad = () => {
-    setMapLoaded(true);
-  };
 
   return (
     <section className="py-16 bg-gray-50 relative overflow-hidden">
@@ -335,16 +330,7 @@ const ServiceAreaLocator: React.FC<ServiceAreaLocatorProps> = ({
         </div>
       </div>
 
-      {/* Script for Google Maps API - ensure it's loaded only once globally */}
-      {typeof window !== 'undefined' && !window.google?.maps && (
-        <Script
-          id="google-maps-script"
-          src={`https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places&v=weekly`}
-          onLoad={handleScriptLoad}
-          onError={() => console.error('Error loading Google Maps script')}
-          strategy="lazyOnload"
-        />
-      )}
+      {/* No Script tag here - using centralized GoogleMapsLoader */}
     </section>
   );
 };

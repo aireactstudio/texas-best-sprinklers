@@ -14,6 +14,7 @@ import HeroPreloadScript from '@/components/HeroPreloadScript';
 import SmartlookScript from '@/components/SmartlookScript';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import CallRailScript from '@/components/CallRailScript';
+import GoogleMapsProviderWrapper from '@/components/GoogleMapsProvider';
 
 // Dynamically import non-critical components
 const Footer = dynamic(() => import('@/components/Footer'), {
@@ -76,9 +77,11 @@ export default function RootLayout({
         <GoogleAnalytics />
         <CallRailScript />
         <SmartlookScript />
-        <AppHeader />
-        <main>{children}</main>
-        <Footer />
+        <GoogleMapsProviderWrapper>
+          <AppHeader />
+          <main>{children}</main>
+          <Footer />
+        </GoogleMapsProviderWrapper>
       </body>
     </html>
   );

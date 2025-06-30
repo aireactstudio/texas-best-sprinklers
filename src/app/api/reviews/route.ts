@@ -34,12 +34,16 @@ export async function GET() {
     // Texas Best Sprinklers Place ID
     const placeId = 'ChIJSQAKM0rPTYYRLtwBoHZDGRY';
     
-    // Using the Google Places API Details endpoint
-    // Requesting maximum number of reviews (5 is the max from this API)
-    const url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=name,rating,user_ratings_total,reviews,url&reviews_sort=newest&key=${apiKey}`;
+    // Using the new Google Places API endpoint
+    // Updated to use Places API (New) format
+    const url = `https://places.googleapis.com/v1/places/${placeId}?fields=id,displayName,rating,userRatingCount,reviews,googleMapsUri&key=${apiKey}`;
     
     const response = await fetch(url, { 
-      cache: 'no-store'
+      cache: 'no-store',
+      headers: {
+        'X-Goog-Api-Key': apiKey,
+        'X-Goog-FieldMask': 'displayName,rating,userRatingCount,reviews,googleMapsUri'
+      }
     });
     
     if (!response.ok) {
@@ -48,31 +52,33 @@ export async function GET() {
     
     const data = await response.json();
     
-    if (data.status !== 'OK') {
-      throw new Error(`Google API error: ${data.status} - ${data.error_message || 'Unknown error'}`);
+    // New Places API doesn't use status field
+    if (data.error) {
+      throw new Error(`Google API error: ${data.error.code} - ${data.error.message || 'Unknown error'}`);
     }
     
-    const result = data.result;
+    // In the new API, we get the data directly, not under a 'result' property
+    const result = data;
     
     // Format the reviews for our frontend and filter for only 5-star reviews
     const formattedReviews = result.reviews?.map((review: any, index: number) => ({
       id: index + 1,
-      name: review.author_name,
+      name: review.authorAttribution?.displayName || 'Anonymous',
       role: 'Customer',
       location: 'Fort Worth', // Default location
-      content: review.text,
-      stars: review.rating,
-      photo: review.profile_photo_url,
-      time: review.relative_time_description
+      content: review.text?.text || '',
+      stars: review.rating || 0,
+      photo: review.authorAttribution?.photoUri,
+      time: review.relativePublishTimeDescription || ''
     }))
     .filter((review: any) => review.stars === 5) || [];
     
     // Format business information
     const businessInfo = {
-      name: result.name || 'Texas Best Sprinklers, Drainage and Lighting LLC',
+      name: result.displayName || 'Texas Best Sprinklers, Drainage and Lighting LLC',
       rating: result.rating || 5,
-      userRatingsTotal: result.user_ratings_total || 0,
-      googleUrl: 'https://www.google.com/search?q=Texas+Best+Sprinklers,+Drainage+and+Lighting+LLC+Reviews'
+      userRatingsTotal: result.userRatingCount || 0,
+      googleUrl: result.googleMapsUri || 'https://www.google.com/search?q=Texas+Best+Sprinklers,+Drainage+and+Lighting+LLC+Reviews'
     };
     
     return NextResponse.json({ 

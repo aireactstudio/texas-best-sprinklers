@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useMemo } from 'react';
-import { GoogleMap, useJsApiLoader, Marker, Circle } from '@react-google-maps/api';
+import { GoogleMap, Marker, Circle } from '@react-google-maps/api';
+import { useGoogleMaps } from './GoogleMapsLoader';
 // Import the type directly
 type LocationData = {
   name: string;
@@ -36,13 +37,8 @@ const LocationMap: React.FC<LocationMapProps> = ({
   height = '400px',
   width = '100%'
 }) => {
-  // Get API key from environment variable
-  const apiKey = process.env.GOOGLE_MAPS_API_KEY || '';
-  
-  const { isLoaded } = useJsApiLoader({
-    id: 'google-map-script',
-    googleMapsApiKey: apiKey
-  });
+  // Use our centralized Google Maps loader
+  const { isLoaded } = useGoogleMaps();
 
   const center = useMemo(() => {
     if (locationData.coordinates) {
