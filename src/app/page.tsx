@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import HeroSection from '@/components/HeroSection';
+import LocationHeroSection from '@/components/location-homepages/LocationHeroSection';
 import ServicesSection from '@/components/ServicesSection';
 import FeaturesSection from '@/components/FeaturesSection';
 import HowItWorksSection from '@/components/HowItWorksSection';
@@ -76,7 +76,14 @@ export default function Home() {
       <MultiServiceHowToSchema activeTab="irrigation" />
       
       {/* Page Content */}
-      <HeroSection />
+      <LocationHeroSection
+        locationName="Fort Worth"
+        locationSlug="fort-worth"
+        landmarks={['Fort Worth Stockyards', 'Sundance Square', 'Fort Worth Water Gardens', 'Dickies Arena']}
+        nearestOffice="Fort Worth"
+        distanceFromOffice={0}
+        serviceAreas={[]}
+      />
       <ServicesSection />
       <FeaturesSection />
       <StatsSection />
