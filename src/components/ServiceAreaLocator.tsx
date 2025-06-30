@@ -59,14 +59,17 @@ const ServiceAreaLocator: React.FC<ServiceAreaLocatorProps> = ({
 
   // Initialize the map once the script is loaded
   useEffect(() => {
-    if (!mapLoaded || !window.google || !mapRef.current) return;
-
+    // Clean up function to prevent memory leaks
+    let mounted = true;
+    
     const initMap = () => {
+      // Don't initialize if component unmounted or dependencies not ready
+      if (!mounted || !mapLoaded || !window.google?.maps?.Map || !mapRef.current) return;
+      
       try {
-        // Check if google.maps is properly initialized
-        if (!window.google || !window.google.maps || !window.google.maps.Map) {
-          console.error('Google Maps API not properly loaded');
-          return;
+        // Clear any existing content to prevent duplicate elements
+        if (mapRef.current) {
+          mapRef.current.innerHTML = '';
         }
         
         // Create the map centered on Fort Worth
@@ -153,7 +156,7 @@ const ServiceAreaLocator: React.FC<ServiceAreaLocatorProps> = ({
       const infoWindows: google.maps.InfoWindow[] = [];
 
       SERVICE_LOCATIONS.forEach((location, index) => {
-        // Create marker
+        // Create marker - using the standard Marker as AdvancedMarkerElement may require additional setup
         const marker = new google.maps.Marker({
           position: { lat: location.lat, lng: location.lng },
           map,
@@ -231,7 +234,16 @@ const ServiceAreaLocator: React.FC<ServiceAreaLocatorProps> = ({
     };
 
     // Initialize the map
-    initMap();
+    // Small timeout to ensure the API is fully loaded
+    const timer = setTimeout(() => {
+      initMap();
+    }, 100);
+    
+    // Cleanup function
+    return () => {
+      mounted = false;
+      clearTimeout(timer);
+    };
   }, [mapLoaded]);
 
   const handleScriptLoad = () => {
@@ -323,13 +335,16 @@ const ServiceAreaLocator: React.FC<ServiceAreaLocatorProps> = ({
         </div>
       </div>
 
-      {/* Script for Google Maps API */}
-      <Script
-        src={`https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places`}
-        onLoad={handleScriptLoad}
-        onError={() => console.error('Error loading Google Maps script')}
-        strategy="lazyOnload"
-      />
+      {/* Script for Google Maps API - ensure it's loaded only once globally */}
+      {typeof window !== 'undefined' && !window.google?.maps && (
+        <Script
+          id="google-maps-script"
+          src={`https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places&v=weekly`}
+          onLoad={handleScriptLoad}
+          onError={() => console.error('Error loading Google Maps script')}
+          strategy="lazyOnload"
+        />
+      )}
     </section>
   );
 };
