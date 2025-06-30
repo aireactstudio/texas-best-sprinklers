@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Phone, MapPin, Star, CheckCircle } from 'lucide-react';
 import LocationMap from '@/components/LocationMap';
+import ErrorBoundary from '@/components/ErrorBoundary';
 
 interface LocationHeroSectionProps {
   locationName: string;
@@ -159,21 +160,25 @@ export default function LocationHeroSection({
 
               {/* Google Map */}
               <div className="relative h-[350px] w-full rounded-xl overflow-hidden">
-                <LocationMap 
-                  locationData={{
-                    name: locationName,
-                    nearestOffice: nearestOffice,
-                    distanceFromOffice: distanceFromOffice,
-                    landmarks: landmarks,
-                    coordinates: {
-                      latitude: getLocationCoordinates(locationName).lat,
-                      longitude: getLocationCoordinates(locationName).lng
-                    }
-                  }}
-                  radiusMiles={8}
-                  height="350px"
-                  width="100%"
-                />
+                {typeof window !== 'undefined' && (
+                  <ErrorBoundary fallback={<div className="h-full w-full bg-gray-100 flex items-center justify-center"><span className="text-gray-500">Map unavailable</span></div>}>
+                    <LocationMap 
+                      locationData={{
+                        name: locationName,
+                        nearestOffice: nearestOffice,
+                        distanceFromOffice: distanceFromOffice,
+                        landmarks: landmarks,
+                        coordinates: {
+                          latitude: getLocationCoordinates(locationName).lat,
+                          longitude: getLocationCoordinates(locationName).lng
+                        }
+                      }}
+                      radiusMiles={8}
+                      height="350px"
+                      width="100%"
+                    />
+                  </ErrorBoundary>
+                )}
               </div>
               
               {/* Location Info Badge */}

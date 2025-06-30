@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import Script from 'next/script';
+import ErrorBoundary from './ErrorBoundary';
 
 interface ServiceAreaLocatorProps {
   apiKey: string;
@@ -61,8 +62,15 @@ const ServiceAreaLocator: React.FC<ServiceAreaLocatorProps> = ({
     if (!mapLoaded || !window.google || !mapRef.current) return;
 
     const initMap = () => {
-      // Create the map centered on Fort Worth
-      const map = new google.maps.Map(mapRef.current!, {
+      try {
+        // Check if google.maps is properly initialized
+        if (!window.google || !window.google.maps || !window.google.maps.Map) {
+          console.error('Google Maps API not properly loaded');
+          return;
+        }
+        
+        // Create the map centered on Fort Worth
+        const map = new window.google.maps.Map(mapRef.current!, {
         center: { lat: 32.7555, lng: -97.3308 },
         zoom: 9,
         mapTypeControl: false,
@@ -217,11 +225,18 @@ const ServiceAreaLocator: React.FC<ServiceAreaLocatorProps> = ({
         circles.forEach(c => c.setVisible(false));
         setActiveLocation(null);
       });
+      } catch (error) {
+        console.error('Error initializing Google Maps:', error);
+      }
     };
 
     // Initialize the map
     initMap();
   }, [mapLoaded]);
+
+  const handleScriptLoad = () => {
+    setMapLoaded(true);
+  };
 
   return (
     <section className="py-16 bg-gray-50 relative overflow-hidden">
@@ -300,14 +315,20 @@ const ServiceAreaLocator: React.FC<ServiceAreaLocatorProps> = ({
               </div>
             </div>
           </div>
+
+          {/* Service Area Map */}
+          <ErrorBoundary fallback={<div className="h-[480px] rounded-xl overflow-hidden shadow-2xl border border-gray-100 flex items-center justify-center bg-gray-100"><span className="text-gray-500">Map unavailable at the moment</span></div>}>
+            <div className="h-[480px] rounded-xl overflow-hidden shadow-2xl border border-gray-100" ref={mapRef}></div>
+          </ErrorBoundary>
         </div>
       </div>
 
-      {/* Load Google Maps JavaScript API with Locator Plus */}
+      {/* Script for Google Maps API */}
       <Script
-        src={`https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places,geometry&callback=Function.prototype`}
-        onLoad={() => setMapLoaded(true)}
-        strategy="afterInteractive"
+        src={`https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places`}
+        onLoad={handleScriptLoad}
+        onError={() => console.error('Error loading Google Maps script')}
+        strategy="lazyOnload"
       />
     </section>
   );
