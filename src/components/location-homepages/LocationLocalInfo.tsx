@@ -108,7 +108,7 @@ export default function LocationLocalInfo({
                   <div className="flex items-center gap-3">
                     <Phone className="w-5 h-5 text-blue-600" />
                     <div>
-                      <div className="font-semibold text-gray-900">(817) 277-6072</div>
+                      <div className="font-semibold text-gray-900">(817) 304-7896</div>
                       <div className="text-sm text-gray-600">Call for immediate service</div>
                     </div>
                   </div>

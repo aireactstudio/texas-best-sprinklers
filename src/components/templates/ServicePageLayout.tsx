@@ -293,7 +293,7 @@ export default function ServicePageLayout({
                 <h3 className="text-xl font-bold mb-4 text-irrigation-darkGreen">Contact Us</h3>
                 <p className="text-gray-700 mb-4">For immediate service or questions:</p>
                 <div className="mb-4">
-                  <p className="font-bold text-irrigation-darkGreen text-xl">(817) 520-0044</p>
+                  <p className="font-bold text-irrigation-darkGreen text-xl">(817) 304-7896</p>
                   <p className="text-gray-700">Monday-Friday: 7am-6pm</p>
                   <p className="text-gray-700">Saturday: 8am-2pm</p>
                 </div>

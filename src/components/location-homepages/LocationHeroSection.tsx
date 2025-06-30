@@ -43,7 +43,7 @@ export default function LocationHeroSection({
   distanceFromOffice,
   serviceAreas
 }: LocationHeroSectionProps) {
-  const phoneNumber = "(817) 277-6072";
+  const phoneNumber = "(817) 304-7896";
 
   return (
     <section className="relative overflow-hidden min-h-[80vh] w-full">

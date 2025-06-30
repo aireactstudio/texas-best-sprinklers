@@ -138,7 +138,7 @@ export default function LocationServicePageTemplate({
               />
               <div className="mt-6 pt-6 border-t border-gray-200">
                 <h4 className="font-semibold text-gray-900 mb-2">For immediate service in {cityName}:</h4>
-                <p className={`text-${themeColor} font-bold text-lg`}>(817) 520-0044</p>
+                <p className={`text-${themeColor} font-bold text-lg`}>(817) 304-7896</p>
               </div>
             </div>
           </div>
