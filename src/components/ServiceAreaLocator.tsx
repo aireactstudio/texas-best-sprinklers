@@ -2,11 +2,14 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Script from 'next/script';
 
 interface ServiceAreaLocatorProps {
   title?: string;
   subtitle?: string;
 }
+const apiKey = process.env.GOOGLE_MAPS_API_KEY || '';
+
 
 // Service area locations for Texas Best Sprinklers
 const SERVICE_LOCATIONS = [
@@ -50,10 +53,12 @@ const ServiceAreaLocator: React.FC<ServiceAreaLocatorProps> = ({
   title = "Our Service Areas",
   subtitle = "We provide expert irrigation and drainage services throughout the Fort Worth area"
 }) => {
+
+
+  // Keep the apiKey prop even though we're not using it directly
+  // This prevents breaking other components that might depend on the prop structure
   const [activeLocation, setActiveLocation] = useState<string | null>(null);
-
-
-
+  
 
   // Helper function to convert location name to URL slug
   const getLocationSlug = (name: string): string => {
@@ -66,6 +71,16 @@ const ServiceAreaLocator: React.FC<ServiceAreaLocatorProps> = ({
       <div className="absolute inset-0 bg-gradient-to-r from-green-100 to-blue-100 opacity-60"></div>
       <div className="absolute inset-0 bg-white/30 backdrop-blur-[2px]"></div>
       
+
+
+      {/* Decorative patterns */}
+      <div className="absolute inset-0 opacity-10" 
+           style={{ 
+             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23015e17' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")` 
+           }}>
+      </div>
+      
+
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-8">
           <h2 className="text-3xl font-bold mb-2 text-gray-800">{title}</h2>
@@ -105,6 +120,14 @@ const ServiceAreaLocator: React.FC<ServiceAreaLocatorProps> = ({
           </Link>
         </div>
       </div>
+
+      
+      {/* Keep the Google Maps Script reference for other components that need it */}
+      <Script
+        src={`https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places&v=weekly`}
+        strategy="lazyOnload"
+        id="google-maps-script"
+      />
     </section>
   );
 };
