@@ -98,10 +98,6 @@ export default function LocationHeroSection({
               </div>
               <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-lg p-4 border border-white/10">
                 <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0" />
-                <span className="text-white font-medium">Same-Day Service</span>
-              </div>
-              <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-lg p-4 border border-white/10">
-                <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0" />
                 <span className="text-white font-medium">100% Satisfaction</span>
               </div>
             </div>
@@ -124,7 +120,7 @@ export default function LocationHeroSection({
                 className="bg-white/10 backdrop-blur-md border-white/20 text-white hover:bg-white/20 px-8 py-4 rounded-xl font-semibold text-lg shadow-2xl transition-all duration-200"
                 asChild
               >
-                <a href="#contact">
+                <a href="/contact">
                   Get Free Estimate
                 </a>
               </Button>
