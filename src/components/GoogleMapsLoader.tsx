@@ -29,14 +29,25 @@ export function GoogleMapsProvider({ apiKey, children }: GoogleMapsProviderProps
 
   // Check if Google Maps is already loaded
   useEffect(() => {
-    if (typeof window !== 'undefined' && window.google?.maps) {
+    if (typeof window !== 'undefined' && window.google?.maps?.Map) {
+      console.log('Google Maps API already available');
       setIsLoaded(true);
     }
   }, []);
 
   const handleScriptLoad = () => {
     console.log('Google Maps script loaded successfully');
-    setIsLoaded(true);
+    // Wait for Google Maps API to be fully available
+    const checkGoogleMaps = () => {
+      if (typeof window !== 'undefined' && window.google?.maps?.Map) {
+        console.log('Google Maps API fully initialized');
+        setIsLoaded(true);
+      } else {
+        // Retry after a short delay
+        setTimeout(checkGoogleMaps, 100);
+      }
+    };
+    checkGoogleMaps();
   };
 
   const handleScriptError = () => {
