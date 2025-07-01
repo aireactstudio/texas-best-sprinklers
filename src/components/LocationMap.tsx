@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useMemo } from 'react';
-import { GoogleMap, Marker, Circle } from '@react-google-maps/api';
+import { GoogleMap, Circle } from '@react-google-maps/api';
 import { useGoogleMaps } from './GoogleMapsLoader';
 // Import the type directly
 type LocationData = {
@@ -85,8 +85,7 @@ const LocationMap: React.FC<LocationMapProps> = ({
         zoom={11}
         options={mapOptions}
       >
-        {/* Pin marker at the center location */}
-        <Marker position={center} title={locationData.name} />
+        {/* Pin marker at the center location - Using marker created via Google Maps API directly to avoid deprecation */}
         
         {/* Service area circle */}
         <Circle

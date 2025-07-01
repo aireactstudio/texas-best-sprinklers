@@ -2,13 +2,11 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import Script from 'next/script';
 
 interface ServiceAreaLocatorProps {
   title?: string;
   subtitle?: string;
 }
-const apiKey = process.env.GOOGLE_MAPS_API_KEY || '';
 
 
 // Service area locations for Texas Best Sprinklers
@@ -120,14 +118,6 @@ const ServiceAreaLocator: React.FC<ServiceAreaLocatorProps> = ({
           </Link>
         </div>
       </div>
-
-      
-      {/* Keep the Google Maps Script reference for other components that need it */}
-      <Script
-        src={`https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places&v=weekly`}
-        strategy="lazyOnload"
-        id="google-maps-script"
-      />
     </section>
   );
 };

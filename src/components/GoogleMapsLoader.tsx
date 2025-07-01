@@ -49,10 +49,11 @@ export function GoogleMapsProvider({ apiKey, children }: GoogleMapsProviderProps
       {!isLoaded && typeof window !== 'undefined' && !window.google?.maps && (
         <Script
           id="google-maps-script"
-          src={`https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places&v=weekly`}
+          src={`https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places&v=weekly&loading=async`}
           onLoad={handleScriptLoad}
           onError={handleScriptError}
-          strategy="lazyOnload"
+          strategy="afterInteractive"
+          async
         />
       )}
       {children}
