@@ -3,18 +3,26 @@ import '../styles/critical.css';
 import { Inter, Montserrat } from 'next/font/google';
 import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
-import AppHeader from '@/components/AppHeader';
-import ResourcePreloader from '@/components/ResourcePreloader';
-import StyleManager from '@/components/StyleManager';
-import NavigationObserver from '@/components/NavigationObserver';
-import PerformanceMonitor from '@/components/PerformanceMonitor';
 import HeroImagePreload from '@/components/HeroImagePreload';
 import HeadPreload from './head-preload';
 import HeroPreloadScript from '@/components/HeroPreloadScript';
-import SmartlookScript from '@/components/SmartlookScript';
-import GoogleAnalytics from '@/components/GoogleAnalytics';
-import CallRailScript from '@/components/CallRailScript';
 import GoogleMapsProviderWrapper from '@/components/GoogleMapsProvider';
+
+// Critical CSS for above-the-fold content
+const criticalCSS = `
+  .hero-section { content-visibility: auto; contain: content; }
+  .hero-image { backface-visibility: hidden; transform: translateZ(0); }
+`;
+
+// Dynamically import components that aren't needed for initial render
+const AppHeader = dynamic(() => import('@/components/AppHeader'), { ssr: true });
+const ResourcePreloader = dynamic(() => import('@/components/ResourcePreloader'), { ssr: false });
+const StyleManager = dynamic(() => import('@/components/StyleManager'), { ssr: false });
+const NavigationObserver = dynamic(() => import('@/components/NavigationObserver'), { ssr: false });
+const PerformanceMonitor = dynamic(() => import('@/components/PerformanceMonitor'), { ssr: false });
+const GoogleAnalytics = dynamic(() => import('@/components/GoogleAnalytics'), { ssr: false });
+const CallRailScript = dynamic(() => import('@/components/CallRailScript'), { ssr: false });
+const SmartlookScript = dynamic(() => import('@/components/SmartlookScript'), { ssr: false });
 
 // Dynamically import non-critical components
 const Footer = dynamic(() => import('@/components/Footer'), {
@@ -59,10 +67,33 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || '';
+
   return (
-    <html lang="en" className={`${inter.variable} ${montserrat.variable}`}>
+    <html lang="en" suppressHydrationWarning>
       <head>
         <HeadPreload />
+        {/* Critical init function for Google Maps */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            window.initMap = function() {
+              // This empty function prevents Maps API from blocking the main thread
+              // Actual map initialization happens in the components that need it
+              console.log('Maps API loaded');
+            };
+          `
+          }}
+        />
+        {/* Inline critical CSS to reduce render blocking */}
+        <style dangerouslySetInnerHTML={{ __html: criticalCSS }} />
+        {/* Preload critical assets */}
+        <link 
+          rel="preload" 
+          href="https://imagedelivery.net/Hs1aBZ5UERW4OpkuLtKJ6A/b96197d9-8f69-4145-7b7b-0b5a7ba70900/public" 
+          as="image" 
+          fetchPriority="high" 
+        />
       </head>
       <body className="font-sans">
         {/* Ultra-high priority hero image preload script - runs first */}

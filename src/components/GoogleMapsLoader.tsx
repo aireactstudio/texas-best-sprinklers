@@ -60,11 +60,11 @@ export function GoogleMapsProvider({ apiKey, children }: GoogleMapsProviderProps
       {!isLoaded && typeof window !== 'undefined' && !window.google?.maps && (
         <Script
           id="google-maps-script"
-          src={`https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places&loading=async&v=beta`}
+          src={`https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places&loading=async&v=beta&callback=initMap`}
           onLoad={handleScriptLoad}
           onError={handleScriptError}
           strategy="lazyOnload"
-          async
+          defer
         />
       )}
       {children}
