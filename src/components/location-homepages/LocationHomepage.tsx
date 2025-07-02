@@ -2,7 +2,7 @@
 
 import React from 'react';
 import LocationHeroSection from './LocationHeroSection';
-import LocationServicesOverview from './LocationServicesOverview';
+import ServicesSection from '@/components/ServicesSection';
 import LocationTestimonials from './LocationTestimonials';
 import LocationLocalInfo from './LocationLocalInfo';
 import { getLocationData } from '@/data/locationData';
@@ -46,9 +46,9 @@ export default function LocationHomepage({ locationSlug }: LocationHomepageProps
       />
 
       {/* Services Overview */}
-      <LocationServicesOverview
-        locationName={locationName}
-        locationSlug={locationSlug}
+      <ServicesSection
+        cityName={locationName}
+        routePrefix={locationSlug}
       />
 
       {/* Local Information & Expertise */}

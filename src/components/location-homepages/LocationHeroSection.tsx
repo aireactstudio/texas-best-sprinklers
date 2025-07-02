@@ -57,7 +57,15 @@ export default function LocationHeroSection({
             priority 
             fetchPriority="high"
             sizes="100vw"
-            style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+            loading="eager"
+            quality={75}
+            decoding="async"
+            style={{ 
+              objectFit: 'cover', 
+              width: '100%', 
+              height: '100%',
+              contain: 'paint',
+            }}
             placeholder="blur"
             blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN88P/hfwAJhAPkz1MYsgAAAABJRU5ErkJggg=="
           />
@@ -81,8 +89,16 @@ export default function LocationHeroSection({
               <h1 className="text-4xl lg:text-6xl font-bold text-white leading-tight drop-shadow-lg" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>
                 <span className="text-green-400">#1 Sprinkler</span> & Irrigation Services in {locationName}
               </h1>
-              <p className="text-xl text-white/90 max-w-2xl drop-shadow-md" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.5)' }}>
-                Texas Best Sprinklers provides trusted irrigation solutions for {locationName} residents and businesses. As your local irrigation experts, we deliver top-quality sprinkler services throughout the {locationName} area. Our licensed technicians are ready to assist with all your sprinkler system needs!
+              <p className="text-xl text-white/90 max-w-2xl font-medium" 
+                 style={{ 
+                   textShadow: '0 1px 2px rgba(0,0,0,0.5)',
+                   contain: 'content',
+                   contentVisibility: 'auto'
+                 }}
+                 id="hero-main-text"
+                 aria-label="Main description"
+              >
+                Texas Best Sprinklers provides trusted irrigation solutions for {locationName} residents and businesses. As your local irrigation experts, we deliver top-quality sprinkler services throughout the {locationName} area.
               </p>
             </div>
 

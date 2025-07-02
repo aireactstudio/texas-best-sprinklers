@@ -214,9 +214,10 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 
 interface ServicesSectionProps {
   cityName?: string;
+  routePrefix?: string;
 }
 
-const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName }) => {
+const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName, routePrefix }) => {
   const [selectedServiceIndex, setSelectedServiceIndex] = useState(0);
   // Reference to the expanded details section for scrolling on mobile
   const expandedDetailsRef = useRef<HTMLDivElement>(null);
@@ -399,7 +400,8 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName }) => {
     : 'Comprehensive sprinkler, drainage, and lighting solutions for your outdoor spaces';
 
   // The location prefix for the service links
-  const locationPrefix = cityName ? cityName.toLowerCase().replace(' ', '-') : '';
+  // Use provided routePrefix if available, otherwise generate from cityName
+  const locationPrefix = routePrefix || (cityName ? cityName.toLowerCase().replace(' ', '-') : '');
 
   return (
     <section className="bg-gray-100 py-16">
