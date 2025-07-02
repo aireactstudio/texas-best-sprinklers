@@ -152,17 +152,10 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       </div>
     </div>
   ) : (
-    // Standard service card - clickable to expand
+    // Standard service card - no longer clickable as a whole
     <div 
-      className="bg-white rounded-lg shadow-lg p-5 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 h-full border border-gray-200 cursor-pointer group relative"
-      onClick={handleCardClick}
+      className="bg-white rounded-lg shadow-lg p-5 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 h-full border border-gray-200 group relative"
     >
-      {/* Click indicator that appears on hover */}
-      <div className="absolute inset-0 bg-irrigation-darkGreen bg-opacity-0 group-hover:bg-opacity-5 flex items-center justify-center transition-all duration-300 rounded-lg">
-        <div className="bg-irrigation-green text-white px-3 py-1 rounded-full opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 text-xs font-medium">
-          Click to View
-        </div>
-      </div>
       
       <div className="flex items-center mb-3">
         <div className="h-12 w-12 rounded-full bg-irrigation-darkGreen bg-opacity-20 flex items-center justify-center mr-3 text-irrigation-darkGreen">
@@ -187,11 +180,33 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         ))}
       </ul>
       
-      <div className="text-irrigation-darkGreen font-semibold hover:text-irrigation-darkBlue transition-colors duration-300 inline-flex items-center text-sm mt-auto">
-        <span>View Details</span>
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-        </svg>
+      {/* Button container */}
+      <div className="flex gap-2 mt-auto">
+        {/* View Details button - keeps existing functionality */}
+        <button 
+          className="text-irrigation-darkGreen font-semibold hover:text-irrigation-darkBlue transition-colors duration-300 inline-flex items-center text-sm flex-1 justify-center py-1"
+          onClick={(e) => {
+            e.stopPropagation();
+            handleCardClick();
+          }}
+        >
+          <span>View Details</span>
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+        
+        {/* View Page link - navigates to service page */}
+        <Link 
+          href={fullLink}
+          className="bg-irrigation-green text-white font-semibold hover:bg-irrigation-darkGreen transition-colors duration-300 inline-flex items-center text-sm flex-1 justify-center py-1 px-2 rounded"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <span>View Page</span>
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+        </Link>
       </div>
     </div>
   )
@@ -442,9 +457,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName }) => {
                   {/* Standard card that acts as a toggle button */}
                   <div 
                     className={`bg-white rounded-lg shadow-lg p-5 transition-all duration-300 
-                      border ${selectedServiceIndex === index ? 'border-irrigation-green border-2' : 'border-gray-200'} 
-                      cursor-pointer`}
-                    onClick={() => handleServiceSelect(index)}
+                      border ${selectedServiceIndex === index ? 'border-irrigation-green border-2' : 'border-gray-200'}`}
                   >
                     <div className="flex items-center mb-3">
                       <div className="h-12 w-12 rounded-full bg-irrigation-darkGreen bg-opacity-20 flex items-center justify-center mr-3 text-irrigation-darkGreen">
@@ -468,13 +481,34 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName }) => {
                     
                     <p className="text-gray-800 mb-3 text-sm">{service.description}</p>
                     
-                    {/* Only show quick features if not expanded */}
+                    {/* Button container for mobile */}
                     {selectedServiceIndex !== index && (
-                      <div className="text-irrigation-darkGreen font-semibold hover:text-irrigation-darkBlue transition-colors duration-300 inline-flex items-center text-sm mt-2">
-                        <span>View Details</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
+                      <div className="flex gap-2 mt-3">
+                        {/* View Details button */}
+                        <button 
+                          className="text-irrigation-darkGreen font-semibold hover:text-irrigation-darkBlue transition-colors duration-300 inline-flex items-center text-sm flex-1 justify-center py-1"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleServiceSelect(index);
+                          }}
+                        >
+                          <span>View Details</span>
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                        </button>
+                        
+                        {/* View Page link */}
+                        <Link 
+                          href={service.link}
+                          className="bg-irrigation-green text-white font-semibold hover:bg-irrigation-darkGreen transition-colors duration-300 inline-flex items-center text-sm flex-1 justify-center py-1 px-2 rounded"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <span>View Page</span>
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                          </svg>
+                        </Link>
                       </div>
                     )}
                   </div>
