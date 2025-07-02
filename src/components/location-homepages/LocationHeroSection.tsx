@@ -58,16 +58,25 @@ export default function LocationHeroSection({
             fetchPriority="high"
             sizes="100vw"
             loading="eager"
-            quality={75}
+            quality={80}
             decoding="async"
             style={{ 
               objectFit: 'cover', 
               width: '100%', 
               height: '100%',
-              contain: 'paint',
+              contain: 'layout paint',
+              contentVisibility: 'auto',
             }}
             placeholder="blur"
             blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN88P/hfwAJhAPkz1MYsgAAAABJRU5ErkJggg=="
+            onLoad={(e) => {
+              // Mark the image as the LCP element
+              const img = e.currentTarget;
+              if ('elementTiming' in img) {
+                // @ts-ignore - elementTiming exists but TypeScript doesn't know about it
+                img.elementTiming = 'hero-image';
+              }
+            }}
           />
         </div>
         {/* Gradient overlay for better text contrast */}
@@ -75,7 +84,7 @@ export default function LocationHeroSection({
       </div>
 
       <div className="container mx-auto px-4 py-20 lg:py-32 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-center" style={{ minHeight: '480px' }}>
           {/* Content Side */}
           <div className="space-y-8">
             {/* Location Badge */}
@@ -103,16 +112,16 @@ export default function LocationHeroSection({
             </div>
 
             {/* Key Features */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-lg p-4 border border-white/10">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4" style={{ width: '100%', height: 'auto', aspectRatio: '3/1', minHeight: '120px' }}>
+              <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-lg p-4 border border-white/10 h-[60px]">
                 <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0" />
                 <span className="text-white font-medium">Licensed & Insured</span>
               </div>
-              <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-lg p-4 border border-white/10">
+              <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-lg p-4 border border-white/10 h-[60px]">
                 <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0" />
                 <span className="text-white font-medium">15+ Years Experience</span>
               </div>
-              <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-lg p-4 border border-white/10">
+              <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-lg p-4 border border-white/10 h-[60px]">
                 <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0" />
                 <span className="text-white font-medium">100% Satisfaction</span>
               </div>
