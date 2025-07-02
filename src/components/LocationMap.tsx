@@ -39,30 +39,6 @@ const LocationMap: React.FC<LocationMapProps> = ({
 }) => {
   // Use our centralized Google Maps loader
   const { isLoaded } = useGoogleMaps();
-  
-  // Lazy load the map with intersection observer
-  const [mapVisible, setMapVisible] = React.useState(false);
-  const mapRef = React.useRef<HTMLDivElement>(null);
-  
-  React.useEffect(() => {
-    if (!mapRef.current) return;
-    
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setMapVisible(true);
-          observer.disconnect();
-        }
-      },
-      { rootMargin: '200px' }
-    );
-    
-    observer.observe(mapRef.current);
-    
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
 
   const center = useMemo(() => {
     if (locationData.coordinates) {
@@ -101,29 +77,26 @@ const LocationMap: React.FC<LocationMapProps> = ({
     </div>;
   }
 
-  return (
-    <div style={{ height, width }} ref={mapRef}>
-      {(isLoaded && mapVisible) ? (
-        <GoogleMap
-          mapContainerStyle={{ height: '100%', width: '100%' }}
-          center={center}
-          zoom={10}
-          options={mapOptions}
-        >
-          {/* Pin marker at the center location - Using marker created via Google Maps API directly to avoid deprecation */}
+  return isLoaded ? (
+    <div className="map-container rounded-lg overflow-hidden shadow-md" style={{ height, width }}>
+      <GoogleMap
+        mapContainerStyle={{ width: '100%', height: '100%' }}
+        center={center}
+        zoom={11}
+        options={mapOptions}
+      >
+        {/* Pin marker at the center location - Using marker created via Google Maps API directly to avoid deprecation */}
         
-          {/* Service area circle */}
-          <Circle
-            center={center}
-            radius={milesToMeters(radiusMiles)}
-            options={circleOptions}
-          />
-        </GoogleMap>
-      ) : (
-        <div className="bg-gray-100 w-full h-full flex items-center justify-center rounded-lg">
-          <div className="text-gray-400 text-sm">Map loading...</div>
-        </div>
-      )}
+        {/* Service area circle */}
+        <Circle
+          center={center}
+          options={circleOptions}
+        />
+      </GoogleMap>
+    </div>
+  ) : (
+    <div className="map-container rounded-lg overflow-hidden shadow-md bg-gray-100 flex items-center justify-center" style={{ height, width }}>
+      <div className="text-gray-400 text-sm">Map loading...</div>
     </div>
   );
 };
