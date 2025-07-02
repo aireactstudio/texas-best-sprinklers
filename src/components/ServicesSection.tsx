@@ -383,6 +383,13 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName }) => {
       link: "/services/outdoor-lighting",
       longDescription: "Our outdoor lighting services transform your landscape into a beautiful, functional space that can be enjoyed day and night. We design custom lighting solutions that highlight your property's best features, improve safety along walkways and stairs, and enhance security around your home. Using energy-efficient LED fixtures and smart control systems, we create stunning lighting effects that add value to your property while minimizing energy consumption."
     },
+    {
+      icon: <CloudRain size={32} />,
+      title: "French Drain Installation",
+      description: "Expert French drain installation to effectively manage water flow and protect your property from water damage, flooding, and erosion.",
+      link: "/services/drainage-solutions",
+      longDescription: "Our professional French drain installation services provide long-lasting solutions for water management issues on your property. We expertly design and install French drains that effectively collect and redirect excess groundwater away from problem areas. Using high-quality materials including perforated pipes, proper gravel gradients, and geotextile fabric, our French drains provide superior drainage that protects your home's foundation, prevents erosion, eliminates standing water, and preserves your landscape investment."
+    },
   ];
 
   // Location-specific text variations for SEO
@@ -402,12 +409,12 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName }) => {
             Professional Solutions
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-irrigation-blue">
-            {cityName ? `Our ${services[selectedServiceIndex].title} Services in ${cityName}` : `Our ${services[selectedServiceIndex].title} Services`}
+            {cityName ? `Complete Outdoor Services in ${cityName}` : `Complete Outdoor Services`}
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             {cityName 
-              ? `Explore our professional ${services[selectedServiceIndex].title.toLowerCase()} services designed specifically for ${cityName} properties and conditions`
-              : `We provide expert ${services[selectedServiceIndex].title.toLowerCase()} services designed to enhance your outdoor space while ensuring optimal functionality year-round.`
+              ? `Explore our professional outdoor services designed specifically for ${cityName} properties and conditions`
+              : `We provide expert outdoor solutions designed to enhance your property while ensuring optimal functionality year-round.`
             }
           </p>
         </div>
