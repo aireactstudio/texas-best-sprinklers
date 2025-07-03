@@ -26,26 +26,70 @@ const nextConfig = {
   webpack: (config, { dev, isServer }) => {
     // Only apply in production builds for client-side bundles
     if (!dev && !isServer) {
-      // Modify chunking strategy
+      // Enhanced granular chunking strategy
       config.optimization.splitChunks = {
         chunks: 'all',
-        maxInitialRequests: 25, // Increase from default 4
-        minSize: 20000, // 20KB min chunk size
-        maxSize: 90000, // Aim for ~90KB chunks for optimal loading
+        maxInitialRequests: 30, // Increased for more granular chunks
+        minSize: 10000, // Reduced to 10KB min chunk size
+        maxSize: 60000, // Smaller target size for faster loading
         cacheGroups: {
-          // Create a separate vendor bundle for node_modules
-          vendors: {
-            test: /[\\/]node_modules[\\/]/,
-            name: 'vendors',
-            priority: 10,
-            enforce: true,
+          // Split react and related packages
+          react: {
+            test: /[\/]node_modules[\/](react|react-dom|scheduler|prop-types|use-subscription)[\/]/,
+            name: 'framework-react',
+            priority: 40,
             chunks: 'all',
           },
-          // Bundle common components together
+          // NextJS library
+          next: {
+            test: /[\/]node_modules[\/](next|@next)[\/]/,
+            name: 'framework-next',
+            priority: 39,
+            chunks: 'all',
+          },
+          // UI utilities (headlessui, radix, etc)
+          uiLibs: {
+            test: /[\/]node_modules[\/](@headlessui|@radix-ui|framer-motion|react-transition-group)[\/]/,
+            name: 'ui-libraries',
+            priority: 35,
+            chunks: 'all',
+          },
+          // Google Maps related packages
+          maps: {
+            test: /[\/]node_modules[\/](@react-google-maps|google-map-react)[\/]/,
+            name: 'google-maps',
+            priority: 30,
+            chunks: 'all',
+          },
+          // Other third party libraries
+          vendors: {
+            test: /[\/]node_modules[\/]/,
+            name: chunks => {
+              const name = chunks.map(chunk => {
+                const module = chunk.context.match(/[\/]node_modules[\/](.+?)(?:[\/]|$)/);
+                return module ? module[1].replace('@', '') : 'vendors';
+              })[0];
+              // Group small modules together
+              return name.length > 8 ? 'vendors-' + name.replace(/[^a-z0-9]/g, '-').substring(0, 8) : 'vendors-misc';
+            },
+            priority: 20,
+            chunks: 'all',
+            reuseExistingChunk: true,
+          },
+          // App components used on multiple pages
           commons: {
-            name: 'commons',
+            name: module => {
+              // Get module path relative to src directory
+              const modulePath = module.context.split('/src/')[1];
+              if (modulePath) {
+                // Group by top-level directory in src
+                const topDir = modulePath.split('/')[0];
+                return `common-${topDir}`;
+              }
+              return 'commons';
+            },
             minChunks: 2, // Used in at least 2 places
-            priority: 5,
+            priority: 10,
             reuseExistingChunk: true,
           },
           // Create route-specific bundles
