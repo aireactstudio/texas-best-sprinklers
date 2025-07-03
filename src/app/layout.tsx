@@ -21,9 +21,10 @@ const StyleManager = dynamic(() => import('@/components/StyleManager'), { ssr: f
 const NavigationObserver = dynamic(() => import('@/components/NavigationObserver'), { ssr: false });
 const PerformanceMonitor = dynamic(() => import('@/components/PerformanceMonitor'), { ssr: false });
 const ModulePreloader = dynamic(() => import('@/components/ModulePreloader'), { ssr: false });
-const GoogleAnalytics = dynamic(() => import('@/components/GoogleAnalytics'), { ssr: false });
-const CallRailScript = dynamic(() => import('@/components/CallRailScript'), { ssr: false });
-const SmartlookScript = dynamic(() => import('@/components/SmartlookScript'), { ssr: false });
+const LongTaskOptimizer = dynamic(() => import('@/components/LongTaskOptimizer'), { ssr: false });
+const GoogleAnalytics = dynamic(() => import('@/components/GoogleAnalytics'), { ssr: false, loading: () => null });
+const CallRailScript = dynamic(() => import('@/components/CallRailScript'), { ssr: false, loading: () => null });
+const SmartlookScript = dynamic(() => import('@/components/SmartlookScript'), { ssr: false, loading: () => null });
 
 // Dynamically import non-critical components
 const Footer = dynamic(() => import('@/components/Footer'), {
@@ -103,6 +104,8 @@ export default function RootLayout({
         <StyleManager />
         <NavigationObserver />
         <PerformanceMonitor />
+        <LongTaskOptimizer />
+        <ModulePreloader />
         {/* Preload hero image to fix LCP issues */}
         <HeroImagePreload imagePath="https://imagedelivery.net/Hs1aBZ5UERW4OpkuLtKJ6A/b96197d9-8f69-4145-7b7b-0b5a7ba70900/public" />
         {/* Analytics tracking scripts */}
