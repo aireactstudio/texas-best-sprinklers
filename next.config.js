@@ -64,30 +64,14 @@ const nextConfig = {
           // Other third party libraries
           vendors: {
             test: /[\/]node_modules[\/]/,
-            name: chunks => {
-              const name = chunks.map(chunk => {
-                const module = chunk.context.match(/[\/]node_modules[\/](.+?)(?:[\/]|$)/);
-                return module ? module[1].replace('@', '') : 'vendors';
-              })[0];
-              // Group small modules together
-              return name.length > 8 ? 'vendors-' + name.replace(/[^a-z0-9]/g, '-').substring(0, 8) : 'vendors-misc';
-            },
+            name: 'vendors',
+            reuseExistingChunk: true,
             priority: 20,
             chunks: 'all',
-            reuseExistingChunk: true,
           },
           // App components used on multiple pages
           commons: {
-            name: module => {
-              // Get module path relative to src directory
-              const modulePath = module.context.split('/src/')[1];
-              if (modulePath) {
-                // Group by top-level directory in src
-                const topDir = modulePath.split('/')[0];
-                return `common-${topDir}`;
-              }
-              return 'commons';
-            },
+            name: 'commons',
             minChunks: 2, // Used in at least 2 places
             priority: 10,
             reuseExistingChunk: true,
