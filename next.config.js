@@ -22,6 +22,55 @@ const nextConfig = {
     // serverMinification: true, // Removing unsupported option
   },
   
+  // Webpack configuration for optimal chunking
+  webpack: (config, { dev, isServer }) => {
+    // Only apply in production builds for client-side bundles
+    if (!dev && !isServer) {
+      // Modify chunking strategy
+      config.optimization.splitChunks = {
+        chunks: 'all',
+        maxInitialRequests: 25, // Increase from default 4
+        minSize: 20000, // 20KB min chunk size
+        maxSize: 90000, // Aim for ~90KB chunks for optimal loading
+        cacheGroups: {
+          // Create a separate vendor bundle for node_modules
+          vendors: {
+            test: /[\\/]node_modules[\\/]/,
+            name: 'vendors',
+            priority: 10,
+            enforce: true,
+            chunks: 'all',
+          },
+          // Bundle common components together
+          commons: {
+            name: 'commons',
+            minChunks: 2, // Used in at least 2 places
+            priority: 5,
+            reuseExistingChunk: true,
+          },
+          // Create route-specific bundles
+          routes: {
+            name: module => {
+              const routeName = getRouteNameFromModule(module);
+              return routeName ? `route-${routeName}` : false;
+            },
+            minChunks: 1,
+            priority: 3,
+          },
+        },
+      };
+      
+      // Helper function to extract route name from module path
+      function getRouteNameFromModule(module) {
+        if (!module.resource) return false;
+        // Match pages directory structure for route-based chunking
+        const routeMatch = module.resource.match(/[\\/]pages[\\/](.*?)[\\/][^\\/]+$/);
+        return routeMatch ? routeMatch[1].replace(/[\\/]/g, '-') : false;
+      }
+    }
+    return config;
+  },
+  
   // Image optimization settings
   images: {
     // Next.js image formats - prioritizing modern formats

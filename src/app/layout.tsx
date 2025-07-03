@@ -20,6 +20,7 @@ const ResourcePreloader = dynamic(() => import('@/components/ResourcePreloader')
 const StyleManager = dynamic(() => import('@/components/StyleManager'), { ssr: false });
 const NavigationObserver = dynamic(() => import('@/components/NavigationObserver'), { ssr: false });
 const PerformanceMonitor = dynamic(() => import('@/components/PerformanceMonitor'), { ssr: false });
+const ModulePreloader = dynamic(() => import('@/components/ModulePreloader'), { ssr: false });
 const GoogleAnalytics = dynamic(() => import('@/components/GoogleAnalytics'), { ssr: false });
 const CallRailScript = dynamic(() => import('@/components/CallRailScript'), { ssr: false });
 const SmartlookScript = dynamic(() => import('@/components/SmartlookScript'), { ssr: false });
