@@ -16,6 +16,13 @@ export default function Head() {
         type="image/webp" 
         fetchPriority="high"
       />
+      {/* Ensure mobile devices use the full screen including the notch area */}
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, viewport-fit=cover"
+      />
+      {/* Match the browser chrome color with the hero background */}
+      <meta name="theme-color" content="#1A3E68" />
     </>
   );
 }
