@@ -46,7 +46,13 @@ export default function LocationHeroSection({
   const phoneNumber = "(817) 304-7896";
 
   return (
-    <section className="relative overflow-hidden min-h-[80vh] w-full">
+    <section
+      className="relative overflow-hidden min-h-[80vh] w-full"
+      style={{
+        paddingTop: 'env(safe-area-inset-top)',
+        marginTop: 'calc(env(safe-area-inset-top) * -1)'
+      }}
+    >
       {/* Background Image with Enhanced Overlay */}
       <div className="absolute inset-0 z-0 w-full h-full">
         <div className="absolute inset-0 w-full h-full">

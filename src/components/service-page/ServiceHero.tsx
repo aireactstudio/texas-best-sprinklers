@@ -9,7 +9,13 @@ interface ServiceHeroProps {
 
 export default function ServiceHero({ serviceContent, location }: ServiceHeroProps) {
   return (
-    <div className="relative w-full h-[75vh] min-h-[500px]">
+    <div
+      className="relative w-full h-[75vh] min-h-[500px]"
+      style={{
+        paddingTop: 'env(safe-area-inset-top)',
+        marginTop: 'calc(env(safe-area-inset-top) * -1)'
+      }}
+    >
       <Image
         src="/assets/images/optimized/hero-background.webp"
         alt={serviceContent.title}
