@@ -23,6 +23,9 @@ export default function Head() {
       />
       {/* Match the browser chrome color with the hero background */}
       <meta name="theme-color" content="#1A3E68" />
+      {/* Allow content to extend into the iOS status bar area */}
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     </>
   );
 }

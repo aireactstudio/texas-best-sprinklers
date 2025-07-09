@@ -34,7 +34,13 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   cta,
 }) => {
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+    <section
+      className="relative min-h-[90vh] flex items-center justify-center overflow-hidden"
+      style={{
+        paddingTop: 'env(safe-area-inset-top)',
+        marginTop: 'calc(env(safe-area-inset-top) * -1)'
+      }}
+    >
       {/* Background Image with Overlay - Simple for reliable performance */}
       <div className="absolute inset-0 overflow-hidden z-0">
         <Image 

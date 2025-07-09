@@ -155,7 +155,13 @@ export default function ServicePageLayout({
   return (
     <>
       {/* Hero/Header */}
-      <div className="relative h-[75vh] min-h-[500px]">
+      <div
+        className="relative h-[75vh] min-h-[500px]"
+        style={{
+          paddingTop: 'env(safe-area-inset-top)',
+          marginTop: 'calc(env(safe-area-inset-top) * -1)'
+        }}
+      >
         <Image 
           src={image} 
           alt={title} 
