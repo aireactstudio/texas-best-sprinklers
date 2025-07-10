@@ -1,4 +1,5 @@
 import { ServiceContent } from '@/data/types/serviceTypes';
+import { formatServiceType } from '@/components/service-page/utils';
 import { FaCheckCircle } from 'react-icons/fa';
 import Image from 'next/image';
 
@@ -14,7 +15,7 @@ export default function ServiceIntroduction({ serviceContent, location }: Servic
         <div className="flex flex-col lg:flex-row gap-12">
           <div className="lg:w-7/12 relative">
             <h2 className="text-3xl font-bold mb-6 text-gray-800">
-              Professional {serviceContent.serviceType.charAt(0).toUpperCase() + serviceContent.serviceType.slice(1).replace('-', ' ')} in {location}
+              Professional {formatServiceType(serviceContent.serviceType)} in {location}
             </h2>
             <div className="prose prose-lg text-gray-600 max-w-none mb-6">
               <p>{serviceContent.intro}</p>

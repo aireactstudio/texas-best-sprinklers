@@ -11,6 +11,11 @@ export function generateDefaultServiceContent(location: string, serviceType: Ser
   const locationData = getLocationData(location);
   const locationName = locationData?.name || location.split('-').map(p => p.charAt(0).toUpperCase() + p.slice(1)).join(' ');
   
+  // Ensure we always have a valid city name
+  if (!locationName) {
+    console.warn(`No location name found for ${location}, using default`);
+  }
+  
   // Create readable service type name for display
   const serviceTypeStr = serviceType.toString();
   const readableServiceType = serviceTypeStr

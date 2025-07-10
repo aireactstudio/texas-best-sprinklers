@@ -390,13 +390,38 @@ export const locationData = {
 /**
  * Helper function to get location data
  * @param location - Location slug to lookup
- * @returns Location data object or null
+ * @returns Location data object with at least a name property
  */
 export const getLocationData = (location: string) => {
-  if (!location) return null;
+  if (!location) {
+    // Return a default object instead of null
+    return { 
+      name: 'Texas', 
+      nearestOffice: 'Fort Worth', 
+      distanceFromOffice: 0,
+      landmarks: ['Texas Best Sprinklers Office']
+    };
+  }
   
   const locationKey = location.toLowerCase();
-  return locationData[locationKey] || null;
+  
+  // If we have data for this location, return it
+  if (locationData[locationKey]) {
+    return locationData[locationKey];
+  }
+  
+  // Otherwise, create a default location object with name derived from the slug
+  const formattedName = location
+    .split('-')
+    .map(part => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(' ');
+    
+  return { 
+    name: formattedName, 
+    nearestOffice: 'Fort Worth',
+    distanceFromOffice: 30, // Default
+    landmarks: ['Local Parks', 'Community Center']
+  };
 };
 
 // Map of location slugs to their display names

@@ -3,15 +3,6 @@ import locationModule from '../locationData';
 import { ServiceType } from '../serviceTypes';
 import type { ServiceContent } from '../types/serviceTypes';
 
-// Import service-specific data
-import maintenanceServiceData from '../../data/services/maintenance';
-import irrigationRepairServiceData from '../../data/services/irrigation-repair';
-import drainageServiceData from '../../data/services/drainage';
-import lightingServiceData from '../../data/services/lighting';
-// import { fencingServiceData } from '../../data/services/fencingServiceData'; // File doesn't exist yet
-import sprinklerInstallationServiceData from '../../data/services/sprinkler-installation';
-import sprinklerRepairData from '../../data/services/sprinkler-repair';
-
 // Import default service data generator
 import { generateDefaultServiceContent } from './defaultServiceData';
 
@@ -42,106 +33,30 @@ export const getServiceLocationData = (location: string, serviceType: string | S
   }
 
   try {
-    // Determine which dataset to use based on service type
-    let serviceData: Record<string, ServiceContent>;
+    // Generate default content based on location and service type
+    // Since we don't have the actual service data files anymore, we'll use the default generator for all services
+    const serviceEnum = (typeof serviceType === 'string') ? 
+      Object.values(ServiceType).find(st => st.toString().toLowerCase() === serviceType.toLowerCase()) : 
+      serviceType;
     
-    switch (serviceTypeStr.toLowerCase()) {
-
-      case 'maintenance':
-      case ServiceType.MAINTENANCE.toString().toLowerCase():
-        serviceData = maintenanceServiceData;
-        break;
-      
-      case 'irrigation-repair':
-      case 'irrigation_repair':
-      case ServiceType.IRRIGATION_REPAIR.toString().toLowerCase():
-        serviceData = irrigationRepairServiceData;
-        break;
-      
-      case 'drainage-solutions':
-      case 'drainage':
-      case ServiceType.DRAINAGE.toString().toLowerCase():
-        serviceData = drainageServiceData;
-        break;
-      
-
-      case 'outdoor-lighting':
-      case ServiceType.OUTDOOR_LIGHTING.toString().toLowerCase():
-        serviceData = lightingServiceData;
-        break;
-      
-
-      case 'fencing':
-      case ServiceType.FENCING.toString().toLowerCase():
-        // Fencing service data not available yet
-        console.warn('Fencing service data not available yet');
-        return null;
-        // serviceData = fencingServiceData;
-        break;
-      
-      case 'sprinkler-installation':
-      case ServiceType.SPRINKLER_INSTALLATION.toString().toLowerCase():
-        serviceData = sprinklerInstallationServiceData;
-        break;
-        
-      case 'sprinkler-repair':
-      case ServiceType.SPRINKLER_REPAIR.toString().toLowerCase():
-        serviceData = { default: sprinklerRepairData };
-        break;
-      
-      default:
-        // Service type not recognized
-        console.warn(`Service type not recognized: ${serviceTypeStr}`);
-        return null;
+    if (serviceEnum) {
+      // Generate default content based on location and service type
+      return generateDefaultServiceContent(location, serviceEnum);
     }
     
-    // Try to find an exact match for the location
-    if (serviceData[location]) {
-      return serviceData[location];
-    }
-    
-    // Check if there's a mapping for this location slug
-    const mappedLocation = LOCATION_MAPPING[location];
-    if (mappedLocation && serviceData[mappedLocation]) {
-      return serviceData[mappedLocation];
-    }
-    
-    // Fall back to the main city if we have data for the parent city
-    // Extract parent city using heuristics (e.g., north-dallas → dallas)
-    const parentCity = location.split('-').pop();
-    if (parentCity && parentCity !== location && serviceData[parentCity]) {
-      return {
-        ...serviceData[parentCity],
-        title: serviceData[parentCity].title.replace(
-          parentCity.charAt(0).toUpperCase() + parentCity.slice(1),
-          location.split('-').map(part => part.charAt(0).toUpperCase() + part.slice(1)).join(' ')
-        )
-      };
-    }
-    
-    // Get the location service data if it exists
-    const serviceLocationData = serviceData[location];
-    
-    // If location-specific service data not found, debug and generate default content
-    if (!serviceLocationData) {
-      console.log(`No service data found for location: ${location} and service: ${serviceTypeStr}`);
-      // Instead of returning null, generate default content
-      const serviceEnum = (typeof serviceType === 'string') ? 
-        Object.values(ServiceType).find(st => st.toString().toLowerCase() === serviceTypeStr.toLowerCase()) : 
-        serviceType;
-      
-      if (serviceEnum) {
-        // Generate default content based on location and service type
-        return generateDefaultServiceContent(location, serviceEnum);
-      }
-      
-      return null;
-    }
-    
-    return serviceLocationData;
+    // If we couldn't determine a service enum, return null
+    return null;
     
   } catch (error) {
     console.error('Error fetching service location data:', error);
+    // Generate default content in case of error
+    const serviceEnum = (typeof serviceType === 'string') ? 
+      Object.values(ServiceType).find(st => st.toString().toLowerCase() === serviceType.toLowerCase()) : 
+      serviceType;
+    
+    if (serviceEnum) {
+      return generateDefaultServiceContent(location, serviceEnum);
+    }
     return null;
   }
 };
@@ -149,6 +64,6 @@ export const getServiceLocationData = (location: string, serviceType: string | S
 /**
  * Check if service data exists for a specific location and service type
  */
-export const hasServiceLocationData = (location: string, serviceType: string | ServiceType): boolean => {
+export function hasServiceLocationData(location: string, serviceType: string | ServiceType): boolean {
   return getServiceLocationData(location, serviceType) !== null;
-};
+}

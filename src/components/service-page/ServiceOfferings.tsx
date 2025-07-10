@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { ServiceContent, ServiceOffering } from '@/data/types/serviceTypes';
 import { FaCheck, FaArrowRight } from 'react-icons/fa';
-import { renderServiceIcon } from '@/components/service-page/utils';
+import { renderServiceIcon, formatServiceType } from '@/components/service-page/utils';
 
 interface ServiceOfferingsProps {
   serviceContent: ServiceContent;
@@ -161,8 +161,8 @@ function ServiceCta({ serviceContent, location }: ServiceOfferingsProps) {
   return (
     <div className="mt-20 text-center">
       <div className="inline-block mx-auto px-8 py-6 bg-green-50 rounded-xl border border-green-100 max-w-3xl">
-        <h3 className="text-xl font-bold text-gray-800 mb-2">Need a custom {serviceContent.serviceType.replace('-', ' ')} solution?</h3>
-        <p className="text-gray-600 mb-6">We design and implement custom {serviceContent.serviceType.replace('-', ' ')} systems tailored to your specific property needs in {location}.</p>
+        <h3 className="text-xl font-bold text-gray-800 mb-2">Need a custom {formatServiceType(serviceContent.serviceType)} solution?</h3>
+        <p className="text-gray-600 mb-6">We design and implement custom {formatServiceType(serviceContent.serviceType)} systems tailored to your specific property needs in {location}.</p>
         <Link
           href="/contact"
           className="inline-flex items-center px-6 py-3 bg-green-600 text-white rounded-md font-medium hover:bg-green-700 transition-colors shadow-md hover:shadow-lg"

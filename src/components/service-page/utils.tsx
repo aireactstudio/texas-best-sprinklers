@@ -28,7 +28,8 @@ export const renderServiceIcon = (iconName?: string) => {
  * @param serviceType The service type string to format
  * @returns The formatted service type
  */
-export const formatServiceType = (serviceType: string): string => {
+export const formatServiceType = (serviceType?: string): string => {
+  if (!serviceType) return 'Service';
   return serviceType.charAt(0).toUpperCase() + serviceType.slice(1).replace('-', ' ');
 };
 

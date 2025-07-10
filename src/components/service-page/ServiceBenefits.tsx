@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { ServiceContent } from '@/data/types/serviceTypes';
 import { FaLeaf } from 'react-icons/fa';
-import { renderServiceIcon } from '@/components/service-page/utils'; // Import from the absolute path
+import { renderServiceIcon, formatServiceType } from '@/components/service-page/utils'; // Import from the absolute path
 
 // Extended ServiceBenefit interface with additional properties
 interface ServiceBenefit {
@@ -100,7 +100,7 @@ function SectionHeader({ serviceContent, location }: ServiceBenefitsProps) {
       </div>
       
       <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800">
-        Benefits of Professional {location} {serviceContent.serviceType.charAt(0).toUpperCase() + serviceContent.serviceType.slice(1).replace('-', ' ')}
+        Benefits of Professional {location} {formatServiceType(serviceContent.serviceType)}
       </h2>
       
       <div className="h-1 w-24 bg-green-500 mx-auto mb-6"></div>

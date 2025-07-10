@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { ServiceContent, ServiceProcess, FAQ } from '@/data/types/serviceTypes';
 import Link from 'next/link';
-import { renderServiceIcon } from '@/components/service-page/utils';
+import { renderServiceIcon, formatServiceType } from '@/components/service-page/utils';
 import { FaLeaf } from 'react-icons/fa';
 
 interface SectionProps {
@@ -118,13 +118,13 @@ export function FAQSection({ serviceContent, location }: SectionProps) {
   if (combinedFAQs.length === 0) return null;
   
   // Split FAQs into two groups for tabs
-  const faqGroups = [
+  const faqGroups = combinedFAQs && combinedFAQs.length > 0 ? [
     combinedFAQs.slice(0, Math.ceil(combinedFAQs.length / 2)),
     combinedFAQs.slice(Math.ceil(combinedFAQs.length / 2))
-  ];
+  ] : [[], []];
   
   const tabTitles = [
-    `${serviceContent.serviceType.split('-').join(' ').replace(/\b\w/g, l => l.toUpperCase())} FAQs`,
+    `${serviceContent.serviceType ? serviceContent.serviceType.split('-').join(' ').replace(/\b\w/g, l => l.toUpperCase()) : 'Service'} FAQs`,
     `${location} Service Questions`
   ];
   
