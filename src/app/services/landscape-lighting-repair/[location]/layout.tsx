@@ -11,7 +11,7 @@ type LocationLayoutProps = {
 
 export async function generateMetadata({ params }: LocationLayoutProps): Promise<Metadata> {
   const { location } = params;
-  return generateServiceLocationMetadata(location, ServiceType.LIGHTING);
+  return generateServiceLocationMetadata(location, ServiceType.OUTDOOR_LIGHTING);
 }
 
 export default ServiceLocationLayout;
