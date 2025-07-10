@@ -15,6 +15,7 @@ interface ServiceCardProps {
   isSelected?: boolean;
   onSelect?: (index: number) => void;
   longDescription?: string;
+  formattedTitle?: string;
 }
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ 
@@ -27,7 +28,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   index,
   isSelected = false,
   onSelect,
-  longDescription
+  longDescription,
+  formattedTitle
 }) => {
   const fullLink = locationPrefix ? `/${locationPrefix}${link}` : link;
   
@@ -104,7 +106,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         <div className="h-14 w-14 rounded-full bg-irrigation-darkGreen bg-opacity-20 flex items-center justify-center text-irrigation-darkGreen mr-3">
           {icon}
         </div>
-        <h3 className="text-xl font-bold text-irrigation-darkBlue">{title}</h3>
+        <h3 className="text-xl font-bold text-irrigation-darkBlue">{formattedTitle || title}</h3>
       </div>
       
       {/* Extended description */}
@@ -161,7 +163,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         <div className="h-12 w-12 rounded-full bg-irrigation-darkGreen bg-opacity-20 flex items-center justify-center mr-3 text-irrigation-darkGreen">
           {icon}
         </div>
-        <h3 className="text-base font-bold text-irrigation-darkBlue">{title}</h3>
+        <h3 className="text-base font-bold text-irrigation-darkBlue">{formattedTitle || title}</h3>
       </div>
       
       <p className="text-gray-800 mb-3 text-sm">{description}</p>
@@ -321,24 +323,25 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName, routePrefix
             // Get the current scroll position
             const currentScrollY = window.scrollY;
             
-            // Get the position of the parent element relative to the document
-            const parentTop = parentCard.getBoundingClientRect().top + currentScrollY;
+            // Calculate the position we want to scroll to (align the card with top of viewport with some padding)
+            const cardTop = parentCard.getBoundingClientRect().top + window.pageYOffset;
+            const targetScrollPosition = cardTop - 20; // 20px padding from top
             
-            // Calculate a target scroll position that shows the top of the card plus a small buffer
-            const targetScrollPosition = parentTop - 120; // 120px from the top gives more context
-            
-            // Calculate how much we need to scroll from the current position
-            const scrollOffset = targetScrollPosition - currentScrollY;
-            
-            // Use window.scrollBy for a more controlled scroll
-            window.scrollBy({
-              top: scrollOffset,
+            // Scroll smoothly to that position
+            window.scrollTo({
+              top: targetScrollPosition,
               behavior: 'smooth'
             });
           }
         }
       }, 200); // Longer delay to ensure DOM is fully updated
     }
+  };
+  
+  // Format service title with location name if provided
+  const formatServiceTitle = (title: string) => {
+    if (!cityName) return title;
+    return `${title} in ${cityName}`;
   };
   
   const services = [
@@ -434,6 +437,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName, routePrefix
                   isSelected={true}
                   index={selectedServiceIndex}
                   onSelect={handleServiceSelect}
+                  formattedTitle={cityName ? formatServiceTitle(services[selectedServiceIndex].title) : undefined}
                 />
               </div>
               
@@ -449,6 +453,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName, routePrefix
                         isSelected={false}
                         index={index}
                         onSelect={handleServiceSelect}
+                        formattedTitle={cityName ? formatServiceTitle(service.title) : undefined}
                       />
                     )
                   ))}
@@ -461,7 +466,13 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName, routePrefix
           <div className="lg:hidden">
             {/* Service cards in a vertical scrollable list */}
             <div className="space-y-4 mb-6">
-              {services.map((service, index) => (
+              {services.map((service, index) => {
+                // Add formattedTitle to each service for mobile view
+                const serviceWithFormattedTitle = {
+                  ...service,
+                  formattedTitle: cityName ? formatServiceTitle(service.title) : undefined
+                };
+                return (
                 <div key={index} className="relative">
                   {/* Standard card that acts as a toggle button */}
                   <div 
@@ -470,9 +481,9 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName, routePrefix
                   >
                     <div className="flex items-center mb-3">
                       <div className="h-12 w-12 rounded-full bg-irrigation-darkGreen bg-opacity-20 flex items-center justify-center mr-3 text-irrigation-darkGreen">
-                        {service.icon}
+                        {serviceWithFormattedTitle.icon}
                       </div>
-                      <h3 className="text-base font-bold text-irrigation-darkBlue">{service.title}</h3>
+                      <h3 className="text-base font-bold text-irrigation-darkBlue">{serviceWithFormattedTitle.formattedTitle || serviceWithFormattedTitle.title}</h3>
                       
                       {/* Indicator if this card is selected */}
                       <div className="ml-auto">
@@ -488,7 +499,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName, routePrefix
                       </div>
                     </div>
                     
-                    <p className="text-gray-800 mb-3 text-sm">{service.description}</p>
+                    <p className="text-gray-800 mb-3 text-sm">{serviceWithFormattedTitle.description}</p>
                     
                     {/* Button container for mobile */}
                     {selectedServiceIndex !== index && (
@@ -509,7 +520,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName, routePrefix
                         
                         {/* View Page link */}
                         <Link 
-                          href={service.link}
+                          href={locationPrefix ? `/${locationPrefix}${serviceWithFormattedTitle.link}` : serviceWithFormattedTitle.link}
                           className="bg-irrigation-green text-white font-semibold hover:bg-irrigation-darkGreen transition-colors duration-300 inline-flex items-center text-sm flex-1 justify-center py-1 px-2 rounded"
                           onClick={(e) => e.stopPropagation()}
                         >
@@ -574,7 +585,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName, routePrefix
                     </div>
                   )}
                 </div>
-              ))}
+              );})}
             </div>
           </div>
         </div>

@@ -1,49 +1,40 @@
-// Main service locations
-export const MAIN_LOCATIONS = [
-  'weatherford',
-  'fort-worth',
-];
-
-// Mapping of locations to their primary service area
-export const LOCATION_MAPPING = {
-  'fort-worth': 'fort-worth',
-  'weatherford': 'weatherford',
-  'arlington': 'weatherford',
-  'keller': 'weatherford',
-  'southlake': 'weatherford',
-  'colleyville': 'weatherford',
-  'grapevine': 'weatherford',
-  'north-richland-hills': 'weatherford',
-  'bedford': 'weatherford',
-  'euless': 'weatherford',
-  'hurst': 'weatherford',
-  'mansfield': 'weatherford',
-  'grand-prairie': 'weatherford',
-  'haltom-city': 'weatherford',
-  'watauga': 'weatherford',
-  'benbrook': 'weatherford',
-  'flower-mound': 'weatherford',
-  'lewisville': 'weatherford',
-  'coppell': 'weatherford',
-  'irving': 'weatherford',
-  'trophy-club': 'weatherford',
-  'roanoke': 'weatherford',
-  'westlake': 'weatherford',
-  'azle': 'weatherford',
-  'mineral-wells': 'weatherford',
-  'annetta': 'weatherford',
-  'brock': 'weatherford',
-  'millsap': 'weatherford',
-  'peaster': 'weatherford',
-  'hudson-oaks': 'weatherford',
-  'aledo': 'weatherford',
-  'willow-park': 'weatherford',
-  'springtown': 'weatherford',
-  'cool': 'weatherford'
-};
-
 // List of all locations we serve
-export const CORE_LOCATIONS = Object.keys(LOCATION_MAPPING);
+export const LOCATIONS = [
+  'fort-worth',     // Main Office
+  'weatherford',
+  'arlington',
+  'keller',
+  'southlake',
+  'colleyville',
+  'grapevine',
+  'north-richland-hills',
+  'bedford',
+  'euless',
+  'hurst',
+  'mansfield',
+  'grand-prairie',
+  'haltom-city',
+  'watauga',
+  'benbrook',
+  'flower-mound',
+  'lewisville',
+  'coppell',
+  'irving',
+  'trophy-club',
+  'roanoke',
+  'westlake',
+  'azle',
+  'mineral-wells',
+  'annetta',
+  'brock',
+  'millsap',
+  'peaster',
+  'hudson-oaks',
+  'aledo',
+  'willow-park',
+  'springtown',
+  'cool'
+];
 
 /**
  * Function to check if a location is valid
@@ -51,7 +42,7 @@ export const CORE_LOCATIONS = Object.keys(LOCATION_MAPPING);
  * @returns boolean indicating if the location is valid
  */
 export function isValidLocation(location: string): boolean {
-  return MAIN_LOCATIONS.includes(location) || Object.keys(LOCATION_MAPPING).includes(location);
+  return LOCATIONS.includes(location);
 }
 
 // Detailed information about each location
@@ -410,9 +401,7 @@ export const getLocationData = (location: string) => {
 
 // Export a default object with all location-related data and functions
 const locationModule = {
-  MAIN_LOCATIONS,
-  LOCATION_MAPPING,
-  CORE_LOCATIONS,
+  LOCATIONS,
   isValidLocation,
   locationData,
   getLocationData

@@ -106,14 +106,39 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ cityFilter, m
   }, []);
 
   // Filter testimonials by location if cityFilter is provided
-  const filteredTestimonials = cityFilter 
-    ? testimonials.filter(testimonial => 
-        testimonial.location.toLowerCase().includes(cityFilter.toLowerCase())
-      )
-    : testimonials;
+  // For location pages, use a more relaxed filtering approach
+  // 1. If there's a direct city match in location field, prioritize those
+  // 2. Otherwise, also include reviews with relevant keywords in content
+  // 3. If still no matches or too few matches, include more general reviews
+  
+  let filteredTestimonials = testimonials;
+  
+  if (cityFilter) {
+    // First, try to find direct matches in location field
+    const directLocationMatches = testimonials.filter(testimonial => 
+      testimonial.location.toLowerCase().includes(cityFilter.toLowerCase())
+    );
     
-  // If no testimonials match the filter, use all testimonials
-  const displayTestimonials = filteredTestimonials.length > 0 ? filteredTestimonials : testimonials;
+    // If we have enough direct matches, use those
+    if (directLocationMatches.length >= 3) {
+      filteredTestimonials = directLocationMatches;
+    } else {
+      // Otherwise, also include reviews mentioning the city in content
+      const cityKeywordMatches = testimonials.filter(testimonial => 
+        testimonial.content.toLowerCase().includes(cityFilter.toLowerCase()) ||
+        testimonial.location.toLowerCase().includes(cityFilter.toLowerCase())
+      );
+      
+      // If we have enough matches with either approach, use those
+      if (cityKeywordMatches.length >= 3) {
+        filteredTestimonials = cityKeywordMatches;
+      }
+      // Otherwise we'll fall back to all testimonials
+    }
+  }
+  
+  // If we want to limit the max number of reviews to display
+  const displayTestimonials = maxDisplayCount ? filteredTestimonials.slice(0, maxDisplayCount) : filteredTestimonials;
 
   // Calculate total number of pages for carousel
   const totalPages = Math.ceil(displayTestimonials.length / reviewsPerPage);

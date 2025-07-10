@@ -5,7 +5,6 @@ import Image from 'next/image';
 import { Button } from './ui/button';
 import { ChevronRight } from 'lucide-react';
 import Link from 'next/link';
-import AnimatedWaterDrops from './AnimatedWaterDrops';
 import { Droplet } from 'lucide-react';
 
 interface HeroSectionProps {
@@ -51,8 +50,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         <div className="absolute inset-0 bg-black bg-opacity-80"></div>
       </div>
 
-      {/* Client-only Animated Water Drops */}
-      <AnimatedWaterDrops count={8} />
 
       {/* Content */}
       <div className="container-custom relative z-10 text-center text-white pt-20">

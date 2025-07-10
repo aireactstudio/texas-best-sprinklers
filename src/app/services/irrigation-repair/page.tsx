@@ -3,7 +3,7 @@
 import { Settings } from 'lucide-react';
 import { ServiceType } from '@/data/serviceTypes';
 import ServicePageLayout from '@/components/templates/ServicePageLayout';
-import ServiceAreas from '@/components/ServiceAreas';
+import ServiceAreaLocator from '@/components/ServiceAreaLocator';
 import CTA from '@/components/CTA';
 
 export default function IrrigationRepairPage() {
@@ -107,8 +107,9 @@ export default function IrrigationRepairPage() {
           <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center text-irrigation-darkGreen">
             Areas We Serve
           </h2>
-          <ServiceAreas 
-            serviceType={ServiceType.IRRIGATION_REPAIR}
+          <ServiceAreaLocator
+            title="Our Service Areas"
+            subtitle="Texas Best Sprinklers provides expert irrigation repair services throughout the Fort Worth metroplex"
           />
         </div>
       </section>

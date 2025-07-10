@@ -81,6 +81,7 @@ export default function LocationHeroSection({
         </div>
         {/* Gradient overlay for better text contrast */}
         <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-black/70 via-black/50 to-black/60" aria-hidden="true" />
+        
       </div>
 
       <div className="container mx-auto px-4 py-20 lg:py-32 relative z-10">

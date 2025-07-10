@@ -3,7 +3,7 @@
  * Helper functions for accessing service and location data
  */
 
-import { locationData, isValidLocation, CORE_LOCATIONS } from '../data/locationData';
+import { locationData, isValidLocation, LOCATIONS } from '../data/locationData';
 import { ServiceContent, ServiceType } from '../data/types/serviceTypes';
 import { getServiceLocationData } from '../data/utils/serviceUtils';
 
@@ -37,7 +37,7 @@ export function getAllServiceTypes(): string[] {
  * @returns Array of location slugs
  */
 export function getAllLocations(): string[] {
-  return CORE_LOCATIONS;
+  return LOCATIONS;
 }
 
 /**
@@ -90,7 +90,7 @@ export function getLocationsForService(serviceType: string | ServiceType): strin
   const availableLocations: string[] = [];
   
   // Check each location for service availability
-  CORE_LOCATIONS.forEach(location => {
+  LOCATIONS.forEach(location => {
     if (isServiceAvailableAtLocation(location, serviceType)) {
       availableLocations.push(location);
     }

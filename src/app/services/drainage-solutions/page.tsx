@@ -3,7 +3,7 @@
 import { CloudRain } from 'lucide-react';
 import { ServiceType } from '@/data/serviceTypes';
 import ServicePageLayout from '@/components/templates/ServicePageLayout';
-import ServiceAreas from '@/components/ServiceAreas';
+import ServiceAreaLocator from '@/components/ServiceAreaLocator';
 import CTA from '@/components/CTA';
 
 export default function DrainageSolutionsPage() {
@@ -13,7 +13,7 @@ export default function DrainageSolutionsPage() {
     title: "Drainage Solutions",
     description: "Prevent water damage to your property with our professional drainage systems designed to effectively manage water flow, redirect excess water, and protect your foundation.",
     icon: <CloudRain size={32} className="text-white" />,
-    image: "/assets/images/optimized/drainage-weatherford.png",
+    image: "/assets/images/optimized/hero-background.webp",
     features: [
       "Custom drainage system design",
       "French drain installation",
@@ -107,8 +107,9 @@ export default function DrainageSolutionsPage() {
           <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center text-irrigation-darkGreen">
             Areas We Serve
           </h2>
-          <ServiceAreas 
-            serviceType={ServiceType.DRAINAGE}
+          <ServiceAreaLocator
+            title="Our Service Areas"
+            subtitle="Texas Best Sprinklers provides expert drainage solutions throughout the Fort Worth metroplex"
           />
         </div>
       </section>

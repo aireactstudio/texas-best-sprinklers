@@ -1,15 +1,15 @@
 import { notFound } from 'next/navigation';
 import { getServiceLocationData } from '@/data/utils/serviceUtils';
 import { ServiceType } from '@/data/serviceTypes';
-import { getLocationData, LOCATION_MAPPING } from '@/data/locationData';
+import { getLocationData, LOCATIONS } from '@/data/locationData';
 import { isServiceAvailableAtLocation } from '@/utils/dataUtils';
 import { getArticleContent } from '@/utils/articleUtils';
 import LocationServicePageTemplate from '@/components/templates/LocationServicePageTemplate';
 
 // Generate static parameters for all locations
 export function generateStaticParams() {
-  // Get all locations from the LOCATION_MAPPING
-  const locations = Object.keys(LOCATION_MAPPING);
+  // Get all locations from the LOCATIONS array
+  const locations = LOCATIONS;
   
   // Return array of objects with location parameter
   return locations.map(location => ({

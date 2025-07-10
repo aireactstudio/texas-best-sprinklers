@@ -3,7 +3,7 @@
 import React from 'react';
 import LocationHeroSection from './LocationHeroSection';
 import ServicesSection from '@/components/ServicesSection';
-import LocationTestimonials from './LocationTestimonials';
+import TestimonialsSection from '@/components/TestimonialsSection';
 import LocationLocalInfo from './LocationLocalInfo';
 import { getLocationData } from '@/data/locationData';
 
@@ -62,8 +62,9 @@ export default function LocationHomepage({ locationSlug }: LocationHomepageProps
       />
 
       {/* Testimonials */}
-      <LocationTestimonials
-        locationName={locationName}
+      <TestimonialsSection
+        cityFilter={locationName}
+        maxDisplayCount={10}
       />
     </div>
   );

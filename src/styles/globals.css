@@ -120,6 +120,21 @@
     transform-origin: center;
   }
   
+  @keyframes water-drop {
+    0% {
+      transform: scale(0);
+      opacity: 0.7;
+    }
+    50% {
+      transform: scale(1);
+      opacity: 0.5;
+    }
+    100% {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+  
   .grow-animation {
     overflow: hidden;
     position: relative;

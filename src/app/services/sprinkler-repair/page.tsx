@@ -3,7 +3,7 @@
 import { Wrench } from 'lucide-react';
 import { ServiceType } from '@/data/serviceTypes';
 import ServicePageLayout from '@/components/templates/ServicePageLayout';
-import ServiceAreas from '@/components/ServiceAreas';
+import ServiceAreaLocator from '@/components/ServiceAreaLocator';
 import CTA from '@/components/CTA';
 
 export default function SprinklerRepairPage() {
@@ -146,7 +146,10 @@ export default function SprinklerRepairPage() {
         <p className="text-center text-gray-700 mb-8 max-w-3xl mx-auto">
           Our repair technicians serve homeowners and businesses in Fort Worth, Arlington, Keller, Southlake, Colleyville, Grapevine, and surrounding areas.
         </p>
-        <ServiceAreas serviceType="sprinkler-repair" />
+        <ServiceAreaLocator
+          title="Our Service Areas"
+          subtitle="Texas Best Sprinklers provides expert sprinkler repair services throughout the Fort Worth metroplex"
+        />
       </div>
       
       <div className="mt-16">

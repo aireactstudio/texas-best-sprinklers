@@ -2,50 +2,12 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { LOCATIONS, locationData } from '@/data/locationData';
 
 interface ServiceAreaLocatorProps {
   title?: string;
   subtitle?: string;
 }
-
-
-// Service area locations for Texas Best Sprinklers
-const SERVICE_LOCATIONS = [
-  { name: 'Fort Worth', lat: 32.7555, lng: -97.3308, radius: 15 },
-  { name: 'Arlington', lat: 32.7357, lng: -97.1081, radius: 10 },
-  { name: 'Keller', lat: 32.9343, lng: -97.2297, radius: 8 },
-  { name: 'Southlake', lat: 32.9412, lng: -97.1342, radius: 8 },
-  { name: 'Colleyville', lat: 32.8906, lng: -97.1467, radius: 8 },
-  { name: 'Grapevine', lat: 32.9343, lng: -97.0780, radius: 8 },
-  { name: 'North Richland Hills', lat: 32.8342, lng: -97.2289, radius: 10 },
-  { name: 'Bedford', lat: 32.8449, lng: -97.1433, radius: 8 },
-  { name: 'Euless', lat: 32.8370, lng: -97.0819, radius: 8 },
-  { name: 'Hurst', lat: 32.8234, lng: -97.1705, radius: 8 },
-  { name: 'Watauga', lat: 32.8776, lng: -97.2547, radius: 8 },
-  { name: 'Haltom City', lat: 32.7996, lng: -97.2691, radius: 8 },
-  { name: 'Mansfield', lat: 32.5632, lng: -97.1417, radius: 10 },
-  { name: 'Grand Prairie', lat: 32.7459, lng: -97.0077, radius: 10 },
-  { name: 'Benbrook', lat: 32.6732, lng: -97.4606, radius: 8 },
-  { name: 'Flower Mound', lat: 33.0145, lng: -97.0969, radius: 10 },
-  { name: 'Lewisville', lat: 33.0462, lng: -97.0103, radius: 10 },
-  { name: 'Coppell', lat: 32.9545, lng: -97.0150, radius: 8 },
-  { name: 'Irving', lat: 32.8140, lng: -96.9489, radius: 10 },
-  { name: 'Trophy Club', lat: 33.0015, lng: -97.1900, radius: 8 },
-  { name: 'Roanoke', lat: 33.0040, lng: -97.2258, radius: 8 },
-  { name: 'Westlake', lat: 33.0001, lng: -97.1950, radius: 8 },
-  { name: 'Weatherford', lat: 32.7593, lng: -97.7972, radius: 12 },
-  { name: 'Annetta', lat: 32.6865, lng: -97.6511, radius: 8 },
-  { name: 'Brock', lat: 32.6732, lng: -97.9383, radius: 8 },
-  { name: 'Millsap', lat: 32.7487, lng: -98.0092, radius: 8 },
-  { name: 'Peaster', lat: 32.8515, lng: -97.8661, radius: 8 },
-  { name: 'Hudson Oaks', lat: 32.7554, lng: -97.7114, radius: 8 },
-  { name: 'Aledo', lat: 32.6968, lng: -97.6006, radius: 8 },
-  { name: 'Willow Park', lat: 32.7632, lng: -97.6511, radius: 8 },
-  { name: 'Springtown', lat: 32.9679, lng: -97.6803, radius: 8 },
-  { name: 'Cool', lat: 32.8346, lng: -97.9972, radius: 8 },
-  { name: 'Azle', lat: 32.8954, lng: -97.5450, radius: 8 },
-  { name: 'Mineral Wells', lat: 32.8085, lng: -98.1128, radius: 10 },
-];
 
 const ServiceAreaLocator: React.FC<ServiceAreaLocatorProps> = ({ 
   title = "Our Service Areas",
@@ -53,14 +15,12 @@ const ServiceAreaLocator: React.FC<ServiceAreaLocatorProps> = ({
 }) => {
 
 
-  // Keep the apiKey prop even though we're not using it directly
-  // This prevents breaking other components that might depend on the prop structure
   const [activeLocation, setActiveLocation] = useState<string | null>(null);
   
-
-  // Helper function to convert location name to URL slug
-  const getLocationSlug = (name: string): string => {
-    return name.toLowerCase().replace(/\s+/g, '-');
+  // Helper function to get location name from slug
+  const getLocationName = (slug: string): string => {
+    const location = locationData[slug];
+    return location ? location.name : slug;
   };
 
   return (
@@ -87,21 +47,24 @@ const ServiceAreaLocator: React.FC<ServiceAreaLocatorProps> = ({
 
         <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-1 gap-y-0.5">
-            {SERVICE_LOCATIONS.map((location, index) => (
-              <Link 
-                href={`/${getLocationSlug(location.name)}`} 
-                key={index}
-                className={`px-3 py-2 hover:bg-green-50 transition-colors border-b border-r border-gray-100 ${activeLocation === location.name ? 'bg-green-50' : ''}`}
-                onClick={() => setActiveLocation(location.name)}
-              >
-                <div className="flex items-center">
-                  <span className="font-medium text-sm text-gray-800">{location.name}</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 ml-1 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
-              </Link>
-            ))}
+            {LOCATIONS.map((slug) => {
+              const name = getLocationName(slug);
+              return (
+                <Link 
+                  href={`/${slug}`} 
+                  key={slug}
+                  className={`px-3 py-2 hover:bg-green-50 transition-colors border-b border-r border-gray-100 ${activeLocation === name ? 'bg-green-50' : ''}`}
+                  onClick={() => setActiveLocation(name)}
+                >
+                  <div className="flex items-center">
+                    <span className="font-medium text-sm text-gray-800">{name}</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 ml-1 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </div>
 

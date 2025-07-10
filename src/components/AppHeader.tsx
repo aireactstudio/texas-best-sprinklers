@@ -7,6 +7,13 @@ import { Droplet, ChevronRight, Phone, Mail, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { AnimatePresence, motion } from 'framer-motion';
 
+// Define interfaces for navigation items
+interface NavItem {
+  name: string;
+  path: string;
+  submenu?: NavItem[];
+}
+
 const AppHeader = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -54,25 +61,48 @@ const AppHeader = () => {
     };
   }, [isMobileMenuOpen]);
 
-  const menuItems = [
+  const menuItems: NavItem[] = [
     { name: 'Home', path: '/' },
     { 
-      name: 'Services', 
+      name: 'Sprinklers & Irrigation', 
       path: '/services',
       submenu: [
-        { name: 'Sprinkler Installation', path: '/services/sprinkler-installation' },
-        { name: 'Irrigation Repair', path: '/services/irrigation-repair' },
-        { name: 'Sprinkler Repair', path: '/services/sprinkler-repair' },
-        { name: 'Drainage Solutions', path: '/services/drainage-solutions' },
-        { name: 'Outdoor Lighting', path: '/services/outdoor-lighting' },
-        { name: 'Maintenance', path: '/services/maintenance' },
+        { name: 'Sprinklers & Irrigation', path: '/services/sprinkler-installation' },
+        { name: 'Sprinkler System Repair', path: '/services/sprinkler-repair' },
+        { name: 'Sprinkler System Check-Up', path: '/services/sprinkler-system-check-up' },
+        { name: 'Sprinkler System Reroutes', path: '/services/sprinkler-system-reroutes' },
+        { name: 'Drip Irrigation', path: '/services/drip-irrigation' },
+      ]
+    },
+    { 
+      name: 'Drainage', 
+      path: '/services/drainage-solutions',
+      submenu: [
+        { name: 'French Drains', path: '/services/french-drains' },
+        { name: 'Channel Drains, Catch Basins & Grates', path: '/services/channel-drains' },
+        { name: 'Sump Pumps', path: '/services/sump-pumps' },
+        { name: 'Yard Drainage Systems', path: '/services/yard-drainage-systems' },
+      ]
+    },
+    { 
+      name: 'Lighting', 
+      path: '/services/outdoor-lighting',
+      submenu: [
+        { name: 'Lighting Design & Installation Services', path: '/services/outdoor-lighting' },
+        { name: 'Landscape Lighting Repair and Maintenance', path: '/services/landscape-lighting-repair' },
       ]
     },
     // Projects page not production ready - temporarily hidden
     // { name: 'Projects', path: '/projects' },
-    { name: 'About', path: '/about' },
-    { name: 'Blog', path: '/blog' },
-    { name: 'Contact', path: '/contact' }
+    { 
+      name: 'More', 
+      path: '/about',
+      submenu: [
+        { name: 'About', path: '/about' },
+        { name: 'Blog', path: '/blog' },
+        { name: 'Contact', path: '/contact' },
+      ]
+    }
   ];
 
   return (
@@ -114,13 +144,35 @@ const AppHeader = () => {
                   <div className="absolute left-0 mt-2 w-72 bg-white rounded-md shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50">
                     <div className="py-2">
                       {item.submenu.map((subitem) => (
-                        <div key={subitem.name}>
-                          <Link 
-                            href={subitem.path}
-                            className="block px-4 py-3 text-sm text-gray-800 hover:bg-irrigation-blue/5 hover:text-irrigation-blue transition-colors"
-                          >
-                            {subitem.name}
-                          </Link>
+                        <div key={subitem.name} className="relative group/nested">
+                          {subitem.submenu ? (
+                            <div className="flex items-center justify-between px-4 py-3 text-sm text-gray-800 hover:bg-irrigation-blue/5 hover:text-irrigation-blue transition-colors cursor-pointer">
+                              <span>{subitem.name}</span>
+                              <ChevronRight className="w-4 h-4" />
+                              
+                              {/* Nested Dropdown */}
+                              <div className="absolute top-0 left-full ml-2 w-72 bg-white rounded-md shadow-xl opacity-0 invisible group-hover/nested:opacity-100 group-hover/nested:visible transition-all duration-300 transform group-hover/nested:translate-y-0 translate-y-2">
+                                <div className="py-2">
+                                  {subitem.submenu.map((nestedItem) => (
+                                    <Link 
+                                      key={nestedItem.name}
+                                      href={nestedItem.path}
+                                      className="block px-4 py-3 text-sm text-gray-800 hover:bg-irrigation-blue/5 hover:text-irrigation-blue transition-colors"
+                                    >
+                                      {nestedItem.name}
+                                    </Link>
+                                  ))}
+                                </div>
+                              </div>
+                            </div>
+                          ) : (
+                            <Link 
+                              href={subitem.path}
+                              className="block px-4 py-3 text-sm text-gray-800 hover:bg-irrigation-blue/5 hover:text-irrigation-blue transition-colors"
+                            >
+                              {subitem.name}
+                            </Link>
+                          )}
                         </div>
                       ))}
                     </div>
@@ -192,7 +244,7 @@ const AppHeader = () => {
                   <ul className="space-y-1 px-2">
                     {menuItems.map((item) => (
                       <li key={item.name}>
-                        {item.submenu ? (
+                         {item.submenu ? (
                           <>
                             <button 
                               onClick={() => setActiveSubmenu(activeSubmenu === item.name ? null : item.name)}
@@ -215,13 +267,54 @@ const AppHeader = () => {
                                   <div className="pl-6 pr-2 py-2 space-y-1">
                                     {item.submenu.map((subitem) => (
                                       <div key={subitem.name}>
-                                        <Link 
-                                          href={subitem.path}
-                                          className={`block px-4 py-3 rounded-xl text-gray-600 hover:bg-irrigation-blue/5 hover:text-irrigation-blue transition-colors ${pathname === subitem.path ? 'text-irrigation-blue bg-irrigation-blue/5' : ''}`}
-                                          onClick={() => setIsMobileMenuOpen(false)}
-                                        >
-                                          {subitem.name}
-                                        </Link>
+                                        {subitem.submenu ? (
+                                          <>
+                                            <button 
+                                              onClick={(e) => {
+                                                e.stopPropagation();
+                                                setActiveSubmenu(activeSubmenu === subitem.name ? null : subitem.name);
+                                              }}
+                                              className={`flex items-center justify-between w-full px-4 py-3 text-left text-gray-600 hover:bg-irrigation-blue/5 hover:text-irrigation-blue rounded-xl transition-colors ${activeSubmenu === subitem.name ? 'bg-irrigation-blue/5 text-irrigation-blue' : ''}`}
+                                            >
+                                              <span>{subitem.name}</span>
+                                              <ChevronRight className={`w-4 h-4 transition-transform duration-300 ${activeSubmenu === subitem.name ? 'rotate-90 text-irrigation-blue' : 'text-gray-400'}`} />
+                                            </button>
+                                            
+                                            {/* Nested Submenu with animation */}
+                                            <AnimatePresence>
+                                              {activeSubmenu === subitem.name && (
+                                                <motion.div
+                                                  initial={{ height: 0, opacity: 0 }}
+                                                  animate={{ height: 'auto', opacity: 1 }}
+                                                  exit={{ height: 0, opacity: 0 }}
+                                                  transition={{ duration: 0.2 }}
+                                                  className="overflow-hidden"
+                                                >
+                                                  <div className="pl-6 pr-2 py-1 space-y-1">
+                                                    {subitem.submenu.map((nestedItem) => (
+                                                      <Link 
+                                                        key={nestedItem.name}
+                                                        href={nestedItem.path}
+                                                        className={`block px-4 py-2 rounded-xl text-gray-500 hover:bg-irrigation-blue/5 hover:text-irrigation-blue transition-colors ${pathname === nestedItem.path ? 'text-irrigation-blue bg-irrigation-blue/5' : ''}`}
+                                                        onClick={() => setIsMobileMenuOpen(false)}
+                                                      >
+                                                        {nestedItem.name}
+                                                      </Link>
+                                                    ))}
+                                                  </div>
+                                                </motion.div>
+                                              )}
+                                            </AnimatePresence>
+                                          </>
+                                        ) : (
+                                          <Link 
+                                            href={subitem.path}
+                                            className={`block px-4 py-3 rounded-xl text-gray-600 hover:bg-irrigation-blue/5 hover:text-irrigation-blue transition-colors ${pathname === subitem.path ? 'text-irrigation-blue bg-irrigation-blue/5' : ''}`}
+                                            onClick={() => setIsMobileMenuOpen(false)}
+                                          >
+                                            {subitem.name}
+                                          </Link>
+                                        )}
                                       </div>
                                     ))}
                                   </div>
