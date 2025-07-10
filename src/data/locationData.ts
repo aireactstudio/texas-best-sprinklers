@@ -399,12 +399,63 @@ export const getLocationData = (location: string) => {
   return locationData[locationKey] || null;
 };
 
+// Map of location slugs to their display names
+export const LOCATION_MAPPING: Record<string, string> = {
+  'fort-worth': 'Fort Worth',
+  'weatherford': 'Weatherford',
+  'arlington': 'Arlington',
+  'keller': 'Keller',
+  'southlake': 'Southlake',
+  'colleyville': 'Colleyville',
+  'grapevine': 'Grapevine',
+  'north-richland-hills': 'North Richland Hills',
+  'bedford': 'Bedford',
+  'euless': 'Euless',
+  'hurst': 'Hurst',
+  'mansfield': 'Mansfield',
+  'grand-prairie': 'Grand Prairie',
+  'haltom-city': 'Haltom City',
+  'watauga': 'Watauga',
+  'benbrook': 'Benbrook',
+  'flower-mound': 'Flower Mound',
+  'lewisville': 'Lewisville',
+  'coppell': 'Coppell',
+  'irving': 'Irving',
+  'trophy-club': 'Trophy Club',
+  'roanoke': 'Roanoke',
+  'westlake': 'Westlake',
+  'azle': 'Azle',
+  'mineral-wells': 'Mineral Wells',
+  'annetta': 'Annetta',
+  'brock': 'Brock',
+  'millsap': 'Millsap',
+  'peaster': 'Peaster',
+  'hudson-oaks': 'Hudson Oaks',
+  'aledo': 'Aledo',
+  'willow-park': 'Willow Park',
+  'springtown': 'Springtown',
+  'cool': 'Cool'
+};
+
+// Main locations with offices or primary service areas
+export const MAIN_LOCATIONS = [
+  'fort-worth',
+  'weatherford',
+  'arlington',
+  'keller',
+  'southlake',
+  'colleyville',
+  'grapevine'
+];
+
 // Export a default object with all location-related data and functions
 const locationModule = {
   LOCATIONS,
   isValidLocation,
   locationData,
-  getLocationData
+  getLocationData,
+  LOCATION_MAPPING,
+  MAIN_LOCATIONS
 };
 
 export default locationModule;
