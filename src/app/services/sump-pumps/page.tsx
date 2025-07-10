@@ -9,7 +9,7 @@ import CTA from '@/components/CTA';
 export default function SumpPumpsPage() {
   // Service data for the template
   const serviceProps = {
-    serviceType: ServiceType.DRAINAGE_SOLUTIONS,
+    serviceType: ServiceType.DRAINAGE,
     title: "Sump Pumps",
     description: "Our professional sump pump installation and maintenance services provide reliable basement and crawlspace flood protection for your home.",
     icon: <Waves size={32} className="text-white" />,
