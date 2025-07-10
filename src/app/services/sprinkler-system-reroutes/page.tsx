@@ -110,7 +110,7 @@ export default function SprinklerSystemReroutesPage() {
       <div className="mt-12 mb-20">
         <CTA 
           title="Need to Reroute Your Sprinkler System?" 
-          description="Contact our team today for a consultation on how we can adapt your irrigation system to your changing landscape needs."
+          subtitle="Contact our team today for a consultation on how we can adapt your irrigation system to your changing landscape needs."
         />
       </div>
     </ServicePageLayout>
