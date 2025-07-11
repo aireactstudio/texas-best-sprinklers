@@ -92,7 +92,7 @@ const Footer = () => {
               <li className="pt-2">
                 <p className="text-irrigation-a11y-light mb-2">Hours: 7AM-7PM Mon-Sat, Closed Sunday</p>
                 <Link href="/contact" className="bg-irrigation-darkGreen hover:bg-black text-white font-medium py-2 px-4 rounded transition-colors duration-300 inline-block">
-                  Get in Touch
+                  Contact Us
                 </Link>
               </li>
             </ul>
