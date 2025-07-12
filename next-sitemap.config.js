@@ -23,7 +23,13 @@ module.exports = {
     '/services/drainage-solutions/[location]',
     '/services/sprinkler-installation/[location]',
     // Exclude the dynamic location homepage template (but not the actual location pages)
-    '/locations/[location]',
+    '/[location]',
+    // Exclude utility pages and API routes
+    '/debug-images',
+    '/structured-data-preview',
+    '/blog/[slug]',
+    '/api/contact',
+    '/api/reviews',
   ],
   // Add additional paths for all location homepages
   additionalPaths: async (config) => {
@@ -34,12 +40,14 @@ module.exports = {
       'grand-prairie', 'haltom-city', 'watauga', 'benbrook', 'flower-mound', 'lewisville', 
       'coppell', 'irving', 'trophy-club', 'roanoke', 'westlake', 'azle', 'mineral-wells', 
       'annetta', 'brock', 'millsap', 'peaster', 'hudson-oaks', 'aledo', 'willow-park', 
-      'springtown', 'cool'
+      'springtown', 'cool',
+      // New locations added
+      'haslet', 'saginaw', 'northlake', 'argyle', 'blue-mound'
     ];
     
     // Generate paths for all location homepages
     const locationHomepages = CORE_LOCATIONS.map((location) => ({
-      loc: `/locations/${location}`,
+      loc: `/${location}`,
       changefreq: 'weekly',
       priority: 0.8,
       lastmod: new Date().toISOString(),

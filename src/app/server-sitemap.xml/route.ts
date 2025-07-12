@@ -1,5 +1,5 @@
 import { getServerSideSitemap } from 'next-sitemap'
-import { LOCATION_MAPPING, MAIN_LOCATIONS } from '@/data/locationData'
+import { LOCATIONS } from '@/data/locationData'
 import { ServiceType } from '@/data/types/serviceTypes'
 
 export async function GET() {
@@ -12,9 +12,18 @@ export async function GET() {
     { slug: 'sprinkler-installation', name: 'Sprinkler Installation', priority: 0.9, type: ServiceType.SPRINKLER_INSTALLATION }
   ]
 
-  // Get all locations from the LOCATION_MAPPING
-  const locations = Object.keys(LOCATION_MAPPING)
-  const mainLocations = MAIN_LOCATIONS
+  // Get all locations
+  const locations = LOCATIONS
+  // Define main locations (those with higher priority)
+  const mainLocations = [
+    'fort-worth',
+    'weatherford',
+    'arlington',
+    'keller',
+    'southlake',
+    'colleyville',
+    'grapevine'
+  ]
   
   // Current date for lastmod
   const currentDate = new Date().toISOString()

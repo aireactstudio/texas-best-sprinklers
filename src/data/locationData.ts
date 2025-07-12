@@ -1,39 +1,22 @@
-// List of all locations we serve
+// List of all locations we serve (based on user-provided list)
 export const LOCATIONS = [
   'fort-worth',     // Main Office
-  'weatherford',
-  'arlington',
   'keller',
-  'southlake',
-  'colleyville',
-  'grapevine',
-  'north-richland-hills',
-  'bedford',
-  'euless',
-  'hurst',
-  'mansfield',
-  'grand-prairie',
-  'haltom-city',
-  'watauga',
-  'benbrook',
-  'flower-mound',
-  'lewisville',
-  'coppell',
-  'irving',
-  'trophy-club',
   'roanoke',
+  'saginaw',
+  'watauga',
   'westlake',
+  'grapevine',
+  'northlake',
   'azle',
-  'mineral-wells',
-  'annetta',
-  'brock',
-  'millsap',
-  'peaster',
-  'hudson-oaks',
-  'aledo',
-  'willow-park',
-  'springtown',
-  'cool'
+  'haltom-city',
+  'weatherford',
+  'argyle',
+  'flower-mound',
+  'southlake',
+  'blue-mound',
+  'haslet',
+  'north-richland-hills'
 ];
 
 /**
@@ -45,20 +28,20 @@ export function isValidLocation(location: string): boolean {
   return LOCATIONS.includes(location);
 }
 
-// Detailed information about each location
+// Simplified location data with Fort Worth as the only office location
 export const locationData = {
   'fort-worth': {
     name: 'Fort Worth',
     nearestOffice: 'Fort Worth',
     distanceFromOffice: 0,
-    landmarks: ['Fort Worth Stockyards', 'Sundance Square', 'Fort Worth Water Gardens', 'Dickies Arena'],
-    neighborhoods: ['Downtown', 'Fairmount', 'Arlington Heights', 'Westover Hills', 'Rivercrest', 'Westcliff', 'TCU Area', 'Cultural District'],
+    landmarks: ['Fort Worth Water Gardens', 'Sundance Square', 'Fort Worth Stockyards'],
+    neighborhoods: ['Downtown Fort Worth', 'Cultural District', 'Fairmount', 'Arlington Heights', 'Wedgwood', 'Ridglea'],
     coordinates: {
       latitude: 32.7555,
       longitude: -97.3308
     },
     isOfficeLocation: true,
-    serviceRadius: 35
+    serviceRadius: 30
   },
   'weatherford': {
     name: 'Weatherford',
@@ -424,63 +407,14 @@ export const getLocationData = (location: string) => {
   };
 };
 
-// Map of location slugs to their display names
-export const LOCATION_MAPPING: Record<string, string> = {
-  'fort-worth': 'Fort Worth',
-  'weatherford': 'Weatherford',
-  'arlington': 'Arlington',
-  'keller': 'Keller',
-  'southlake': 'Southlake',
-  'colleyville': 'Colleyville',
-  'grapevine': 'Grapevine',
-  'north-richland-hills': 'North Richland Hills',
-  'bedford': 'Bedford',
-  'euless': 'Euless',
-  'hurst': 'Hurst',
-  'mansfield': 'Mansfield',
-  'grand-prairie': 'Grand Prairie',
-  'haltom-city': 'Haltom City',
-  'watauga': 'Watauga',
-  'benbrook': 'Benbrook',
-  'flower-mound': 'Flower Mound',
-  'lewisville': 'Lewisville',
-  'coppell': 'Coppell',
-  'irving': 'Irving',
-  'trophy-club': 'Trophy Club',
-  'roanoke': 'Roanoke',
-  'westlake': 'Westlake',
-  'azle': 'Azle',
-  'mineral-wells': 'Mineral Wells',
-  'annetta': 'Annetta',
-  'brock': 'Brock',
-  'millsap': 'Millsap',
-  'peaster': 'Peaster',
-  'hudson-oaks': 'Hudson Oaks',
-  'aledo': 'Aledo',
-  'willow-park': 'Willow Park',
-  'springtown': 'Springtown',
-  'cool': 'Cool'
-};
 
-// Main locations with offices or primary service areas
-export const MAIN_LOCATIONS = [
-  'fort-worth',
-  'weatherford',
-  'arlington',
-  'keller',
-  'southlake',
-  'colleyville',
-  'grapevine'
-];
 
 // Export a default object with all location-related data and functions
 const locationModule = {
   LOCATIONS,
   isValidLocation,
   locationData,
-  getLocationData,
-  LOCATION_MAPPING,
-  MAIN_LOCATIONS
+  getLocationData
 };
 
 export default locationModule;
