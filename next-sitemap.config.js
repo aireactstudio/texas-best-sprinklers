@@ -33,16 +33,25 @@ module.exports = {
   ],
   // Add additional paths for all location homepages
   additionalPaths: async (config) => {
-    // Core locations we serve - hardcoded to avoid import issues during sitemap generation
+    // Core locations we serve - hardcoded to match the LOCATIONS array in src/data/locationData.ts
     const CORE_LOCATIONS = [
-      'fort-worth', 'weatherford', 'arlington', 'keller', 'southlake', 'colleyville', 
-      'grapevine', 'north-richland-hills', 'bedford', 'euless', 'hurst', 'mansfield', 
-      'grand-prairie', 'haltom-city', 'watauga', 'benbrook', 'flower-mound', 'lewisville', 
-      'coppell', 'irving', 'trophy-club', 'roanoke', 'westlake', 'azle', 'mineral-wells', 
-      'annetta', 'brock', 'millsap', 'peaster', 'hudson-oaks', 'aledo', 'willow-park', 
-      'springtown', 'cool',
-      // New locations added
-      'haslet', 'saginaw', 'northlake', 'argyle', 'blue-mound'
+      'fort-worth',     // Main Office
+      'keller',
+      'roanoke',
+      'saginaw',
+      'watauga',
+      'westlake',
+      'grapevine',
+      'northlake',
+      'azle',
+      'haltom-city',
+      'weatherford',
+      'argyle',
+      'flower-mound',
+      'southlake',
+      'blue-mound',
+      'haslet',
+      'north-richland-hills'
     ];
     
     // Generate paths for all location homepages
