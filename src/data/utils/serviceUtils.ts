@@ -1,13 +1,12 @@
 // Import location data and types
-import locationModule from '../locationData';
+import { isValidLocation, LOCATIONS } from '../locationData';
 import { ServiceType } from '../serviceTypes';
 import type { ServiceContent } from '../types/serviceTypes';
 
 // Import default service data generator
 import { generateDefaultServiceContent } from './defaultServiceData';
 
-// Extract location data helpers
-const { isValidLocation, LOCATION_MAPPING } = locationModule;
+// No need to extract helpers, importing them directly above
 
 /**
  * Get service content for a specific location and service type

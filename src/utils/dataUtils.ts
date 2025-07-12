@@ -5,7 +5,8 @@
 
 import { locationData, isValidLocation, LOCATIONS } from '../data/locationData';
 import { ServiceContent, ServiceType } from '../data/types/serviceTypes';
-import { getServiceLocationData } from '../data/utils/serviceUtils';
+// Import directly from the service utility file
+import { getServiceLocationData } from '@/data/utils/serviceUtils';
 
 /**
  * Get detailed information for a specific location
