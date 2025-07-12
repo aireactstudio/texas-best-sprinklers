@@ -11,17 +11,45 @@ interface ServiceAreaLocatorProps {
 
 const ServiceAreaLocator: React.FC<ServiceAreaLocatorProps> = ({ 
   title = "Our Service Areas",
-  subtitle = "We provide expert irrigation and drainage services throughout the Fort Worth area"
+  subtitle = "Texas Best Sprinklers provides expert irrigation and drainage solutions throughout the Fort Worth metroplex"
 }) => {
 
 
   const [activeLocation, setActiveLocation] = useState<string | null>(null);
   
-  // Helper function to get location name from slug
+  // Helper function to get location name from slug with consistent formatting
   const getLocationName = (slug: string): string => {
     const location = locationData[slug];
-    return location ? location.name : slug;
+    
+    // If we have location data, use the name from there
+    if (location && location.name) {
+      // Ensure consistent capitalization and formatting
+      return location.name;
+    }
+    
+    // Fallback: Format the slug into a proper name
+    return slug
+      .split('-')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
   };
+  
+  // Create a balanced grid layout
+  const organizeLocationsIntoGrid = () => {
+    const allLocations = LOCATIONS.filter(slug => !!locationData[slug]);
+    const totalLocations = allLocations.length;
+    
+    // For 3 rows (5-5-4 distribution)
+    const grid = [
+      allLocations.slice(0, 5),  // First row: 5 items
+      allLocations.slice(5, 10), // Second row: 5 items
+      allLocations.slice(10)     // Third row: remaining items
+    ];
+    
+    return grid;
+  };
+  
+  const locationGrid = organizeLocationsIntoGrid();
 
   return (
     <section className="py-12 bg-gray-50 relative overflow-hidden">
@@ -46,26 +74,31 @@ const ServiceAreaLocator: React.FC<ServiceAreaLocatorProps> = ({
         </div>
 
         <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-1 gap-y-0.5">
-            {LOCATIONS.map((slug) => {
-              const name = getLocationName(slug);
-              return (
-                <Link 
-                  href={`/${slug}`} 
-                  key={slug}
-                  className={`px-3 py-2 hover:bg-green-50 transition-colors border-b border-r border-gray-100 ${activeLocation === name ? 'bg-green-50' : ''}`}
-                  onClick={() => setActiveLocation(name)}
-                >
-                  <div className="flex items-center">
-                    <span className="font-medium text-sm text-gray-800">{name}</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 ml-1 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
+          {locationGrid.map((row, rowIndex) => (
+            <div key={`row-${rowIndex}`} className="flex flex-wrap">
+              {row.map((slug) => {
+                const name = getLocationName(slug);
+                const itemWidth = `${100 / row.length}%`;
+                
+                return (
+                  <Link 
+                    href={`/${slug}`} 
+                    key={slug}
+                    className={`px-3 py-2 hover:bg-green-50 transition-colors border-b border-r border-gray-100 ${activeLocation === name ? 'bg-green-50' : ''}`}
+                    style={{ width: itemWidth }}
+                    onClick={() => setActiveLocation(name)}
+                  >
+                    <div className="flex items-center">
+                      <span className="font-medium text-sm text-gray-800">{name}</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 ml-1 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          ))}
         </div>
 
         <div className="mt-6 text-center">

@@ -26,8 +26,8 @@ const ServiceAreas: React.FC<ServiceAreasProps> = ({ serviceType }) => {
       return {
         name: info.name,
         slug: slug,
-        distance: info.distanceFromOffice,
-        isMainOffice: slug === 'fort-worth' // Only Fort Worth is main office
+        distance: info.distanceFromOffice || 0, // Ensure distance has a default
+        isMainOffice: info.isOfficeLocation === true // Use the isOfficeLocation property
       };
     });
 
@@ -46,9 +46,9 @@ const ServiceAreas: React.FC<ServiceAreasProps> = ({ serviceType }) => {
     >
       <LocationIcon className="text-green-600 mr-2" />
       <div className="flex flex-col">
-        <span className="font-medium">{location.name}{location.isMainOffice && ", TX"}</span>
+        <span className="font-medium">{location.name}</span>
         <div className="text-sm text-gray-500">
-          {location.isMainOffice ? 'Main Office' : `${location.distance} mi from Fort Worth`}
+          {location.isMainOffice ? 'Main Office' : `${location.distance} mi from office`}
         </div>
       </div>
     </Link>
