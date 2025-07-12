@@ -8,7 +8,7 @@
 
 import fs from 'fs';
 import path from 'path';
-import { LOCATION_MAPPING } from '../src/data/locationData';
+import { LOCATIONS, locationData } from '../src/data/locationData';
 import { ServiceType } from '../src/data/serviceTypes';
 
 // Set up paths for data files
@@ -25,7 +25,7 @@ const serviceTypes = [
 ];
 
 // Get all location slugs
-const locationSlugs = Object.keys(LOCATION_MAPPING);
+const locationSlugs = LOCATIONS;
 
 // Template for service data
 const generateServiceTemplate = (locSlug: string, serviceTypeName: string, serviceType: ServiceType) => {
