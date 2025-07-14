@@ -5,6 +5,7 @@ import LocationHeroSection from './LocationHeroSection';
 import ServicesSection from '@/components/ServicesSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import LocationLocalInfo from './LocationLocalInfo';
+import WaterRestrictionsLinks from './WaterRestrictionsLinks';
 import { getLocationData } from '@/data/locationData';
 
 interface LocationHomepageProps {
@@ -59,6 +60,12 @@ export default function LocationHomepage({ locationSlug }: LocationHomepageProps
         nearestOffice={nearestOffice}
         distanceFromOffice={distanceFromOffice}
         serviceAreas={serviceAreas}
+      />
+      
+      {/* Water Restrictions Links */}
+      <WaterRestrictionsLinks
+        locationName={locationName}
+        locationSlug={locationSlug}
       />
 
       {/* Testimonials */}
