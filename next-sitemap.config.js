@@ -9,21 +9,9 @@ module.exports = {
         allow: '/',
       },
     ],
-    additionalSitemaps: [
-      'https://sprinkleranddrains.com/server-sitemap.xml',
-    ],
+    // No additional sitemaps needed - using static generation only
   },
   exclude: [
-    '/server-sitemap.xml',
-    // Exclude the old dynamic service location pages that were causing doorway page issues
-    '/services/sprinkler-repair/[location]',
-    '/services/irrigation-repair/[location]',
-    '/services/maintenance/[location]',
-    '/services/lighting/[location]',
-    '/services/drainage-solutions/[location]',
-    '/services/sprinkler-installation/[location]',
-    // Exclude the dynamic location homepage template (but not the actual location pages)
-    '/[location]',
     // Exclude utility pages and API routes
     '/debug-images',
     '/structured-data-preview',

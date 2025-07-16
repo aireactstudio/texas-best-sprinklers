@@ -104,9 +104,6 @@ export default function MaintenancePage() {
       {/* Areas Served - Full width section */}
       <section className="py-16 bg-irrigation-gray mt-16">
         <div className="container-custom">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center text-irrigation-darkGreen">
-            Areas We Serve
-          </h2>
           <ServiceAreaLocator
             title="Our Service Areas"
             subtitle="Texas Best Sprinklers provides expert maintenance services throughout the Fort Worth metroplex"

@@ -7,6 +7,7 @@ import HeroImagePreload from '@/components/HeroImagePreload';
 import HeadPreload from './head-preload';
 import HeroPreloadScript from '@/components/HeroPreloadScript';
 import GoogleMapsProviderWrapper from '@/components/GoogleMapsProvider';
+import SchemaOrgData from '@/components/SchemaOrgData';
 
 // Critical CSS for above-the-fold content
 const criticalCSS = `
@@ -61,6 +62,28 @@ export function generateMetadata(): Metadata {
     icons: {
       icon: '/favicon.ico',
     },
+    // Open Graph / Facebook
+    openGraph: {
+      type: 'website',
+      siteName: 'Texas Best Sprinkler, Drainage and Lighting LLC',
+      title: 'Texas Best Sprinkler, Drainage and Lighting LLC | Fort Worth & Weatherford Irrigation Experts',
+      description: 'Professional sprinkler, drainage, and lighting services in Fort Worth and Weatherford, TX. Expert installation, repair, and maintenance for residential and commercial properties.',
+      images: [
+        {
+          url: 'https://imagedelivery.net/Hs1aBZ5UERW4OpkuLtKJ6A/b96197d9-8f69-4145-7b7b-0b5a7ba70900/public',
+          width: 1200,
+          height: 630,
+          alt: 'Texas Best Sprinkler, Drainage and Lighting LLC',
+        },
+      ],
+    },
+    // Twitter
+    twitter: {
+      card: 'summary_large_image',
+      title: 'Texas Best Sprinkler, Drainage and Lighting LLC',
+      description: 'Professional sprinkler, drainage, and lighting services in Fort Worth and Weatherford, TX.',
+      images: ['https://imagedelivery.net/Hs1aBZ5UERW4OpkuLtKJ6A/b96197d9-8f69-4145-7b7b-0b5a7ba70900/public'],
+    },
   };
 }
 
@@ -75,6 +98,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <HeadPreload />
+        <SchemaOrgData />
         {/* Critical init function for Google Maps */}
         <script
           dangerouslySetInnerHTML={{

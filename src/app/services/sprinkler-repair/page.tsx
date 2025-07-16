@@ -140,12 +140,6 @@ export default function SprinklerRepairPage() {
       
       {/* Outside of the ServicePageLayout grid */}
       <div className="mt-16">
-        <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center text-irrigation-blue">
-          We Provide Sprinkler Repair Throughout the Fort Worth Area
-        </h2>
-        <p className="text-center text-gray-700 mb-8 max-w-3xl mx-auto">
-          Our repair technicians serve homeowners and businesses in Fort Worth, Arlington, Keller, Southlake, Colleyville, Grapevine, and surrounding areas.
-        </p>
         <ServiceAreaLocator
           title="Our Service Areas"
           subtitle="Texas Best Sprinklers provides expert sprinkler repair services throughout the Fort Worth metroplex"
