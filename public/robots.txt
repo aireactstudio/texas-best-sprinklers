@@ -6,4 +6,4 @@ Allow: /
 Host: https://sprinkleranddrains.com
 
 # Sitemaps
-Sitemap: https://sprinkleranddrains.com/sitemap.xml
+Sitemap: https://sprinkleranddrains.com/sitemap-0.xml
