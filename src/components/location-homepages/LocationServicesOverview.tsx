@@ -104,7 +104,7 @@ export default function LocationServicesOverview({ locationName, locationSlug }:
                   <Button 
                     variant="outline" 
                     className="w-full justify-between group-hover:border-green-600 group-hover:text-green-600"
-                    onClick={() => window.location.href = service.localLink}
+                    onClick={() => window.location.href = service.link}
                   >
                     {service.title} in {locationName}
                     <ArrowRight className="w-4 h-4" />
