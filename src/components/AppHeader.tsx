@@ -111,7 +111,7 @@ const AppHeader = () => {
         isScrolled ? 'bg-black shadow-md py-2' : 'bg-transparent py-4'
       }`}
     >
-      <div className="container-custom flex justify-between items-center">
+      <div className="container-custom flex justify-between items-center max-w-full px-6 md:px-12 lg:px-16 xl:px-24">
         <Link href="/" className={`items-center space-x-2 z-[60] ${isMobileMenuOpen ? 'hidden lg:flex' : 'flex'}`}>
           <Droplet className="h-8 w-8 text-white" />
           <span className="font-bold text-xl md:text-2xl font-['Montserrat'] text-white">
@@ -135,7 +135,7 @@ const AppHeader = () => {
                 >
                   {item.name}
                   {item.submenu && (
-                    <span className="ml-1 inline-block">▾</span>
+                    <span className="ml-1">▾</span>
                   )}
                 </Link>
                 
