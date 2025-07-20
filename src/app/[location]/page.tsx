@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import LocationHomepage from '@/components/location-homepages/LocationHomepage';
 import { getLocationData, isValidLocation } from '@/data/locationData';
+import { SITE_CONFIG } from '@/config/site';
 
 interface LocationPageProps {
   params: { location: string };
@@ -36,10 +37,10 @@ export async function generateMetadata({ params }: LocationPageProps): Promise<M
       canonical: `https://sprinkleranddrains.com/${location}`
     },
     openGraph: {
-      title: `${locationName} Sprinkler & Irrigation Services | Texas Best Sprinklers`,
+      title: `${locationName} Sprinkler & Irrigation Services | ${SITE_CONFIG.fullName}`,
       description: `Professional sprinkler installation, repair & maintenance in ${locationName}, TX. Licensed & insured with 15+ years experience.`,
       url: `https://sprinkleranddrains.com/${location}`,
-      siteName: 'Texas Best Sprinklers',
+      siteName: SITE_CONFIG.fullName,
       images: [
         {
           url: 'https://sprinkleranddrains.com/assets/images/optimized/hero-background.webp',

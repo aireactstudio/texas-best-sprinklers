@@ -16,7 +16,8 @@ export const LOCATIONS = [
   'southlake',
   'blue-mound',
   'haslet',
-  'north-richland-hills'
+  'north-richland-hills',
+  'trophy-club'     // Added from user's list
 ];
 
 /**
@@ -56,18 +57,7 @@ export const locationData = {
     isOfficeLocation: true,
     serviceRadius: 30
   },
-  'arlington': {
-    name: 'Arlington',
-    nearestOffice: 'Weatherford',
-    distanceFromOffice: 35,
-    landmarks: ['AT&T Stadium', 'Globe Life Field', 'Six Flags Over Texas'],
-    neighborhoods: ['North Arlington', 'South Arlington', 'East Arlington', 'West Arlington', 'Central Arlington', 'Dalworthington Gardens', 'Pantego'],
-    coordinates: {
-      latitude: 32.7357,
-      longitude: -97.1081
-    },
-    serviceRadius: 15
-  },
+
   'keller': {
     name: 'Keller',
     nearestOffice: 'Weatherford',
@@ -92,18 +82,7 @@ export const locationData = {
     },
     serviceRadius: 12
   },
-  'colleyville': {
-    name: 'Colleyville',
-    nearestOffice: 'Weatherford',
-    distanceFromOffice: 29,
-    landmarks: ['Colleyville Center', 'Colleyville Nature Center', 'Pleasant Run Trail'],
-    neighborhoods: ['Oakmont', 'Whittier Estates', 'Cheek-Sparger Area', 'Villas at Caldwell Creek'],
-    coordinates: {
-      latitude: 32.8935,
-      longitude: -97.1487
-    },
-    serviceRadius: 10
-  },
+
   'grapevine': {
     name: 'Grapevine',
     nearestOffice: 'Weatherford',
@@ -128,66 +107,10 @@ export const locationData = {
     },
     serviceRadius: 8
   },
-  'bedford': {
-    name: 'Bedford',
-    nearestOffice: 'Weatherford',
-    distanceFromOffice: 30,
-    landmarks: ['Bedford Boys Ranch Park', 'Pennington Field', 'Old Bedford School'],
-    neighborhoods: ['Bedford Heights', 'Stonegate', 'Hickory Creek', 'Lake Ridge'],
-    coordinates: {
-      latitude: 32.8446,
-      longitude: -97.1434
-    },
-    serviceRadius: 8
-  },
-  'euless': {
-    name: 'Euless',
-    nearestOffice: 'Weatherford',
-    distanceFromOffice: 31,
-    landmarks: ['Texas Star Golf Course', 'Villages of Bear Creek Park', 'Mary Lib Saleh Euless Public Library'],
-    neighborhoods: ['Lakewood Village', 'The Parks at Texas Star', 'Oak Ridge', 'Founders Village'],
-    coordinates: {
-      latitude: 32.8370,
-      longitude: -97.0820
-    },
-    serviceRadius: 8
-  },
-  'hurst': {
-    name: 'Hurst',
-    nearestOffice: 'Weatherford',
-    distanceFromOffice: 28,
-    landmarks: ['North East Mall', 'Hurst Community Park', 'Chisholm Park'],
-    neighborhoods: ['Woodcrest', 'Meadow Park', 'Redbud Estates', 'Harrison Lane'],
-    coordinates: {
-      latitude: 32.8234,
-      longitude: -97.1702
-    },
-    serviceRadius: 8
-  },
-  'mansfield': {
-    name: 'Mansfield',
-    nearestOffice: 'Weatherford',
-    distanceFromOffice: 40,
-    landmarks: ['Hawaiian Falls Mansfield', 'Elmer W. Oliver Nature Park', 'Historic Downtown Mansfield'],
-    neighborhoods: ['Walnut Creek Valley', 'Twin Creeks', 'Woodland Estates', 'Kennedale Estates'],
-    coordinates: {
-      latitude: 32.5632,
-      longitude: -97.1417
-    },
-    serviceRadius: 10
-  },
-  'grand-prairie': {
-    name: 'Grand Prairie',
-    nearestOffice: 'Weatherford',
-    distanceFromOffice: 42,
-    landmarks: ['Lone Star Park', 'Verizon Theatre', 'Lynn Creek Park'],
-    neighborhoods: ['Lake Parks', 'Mira Lagos', 'Grand Peninsula', 'Westchester'],
-    coordinates: {
-      latitude: 32.7459,
-      longitude: -97.0047
-    },
-    serviceRadius: 12
-  },
+
+
+
+
   'haltom-city': {
     name: 'Haltom City',
     nearestOffice: 'Weatherford',
@@ -212,18 +135,7 @@ export const locationData = {
     },
     serviceRadius: 7
   },
-  'benbrook': {
-    name: 'Benbrook',
-    nearestOffice: 'Weatherford',
-    distanceFromOffice: 16,
-    landmarks: ['Benbrook Lake', 'Dutch Branch Park', 'Benbrook Community Center/YMCA'],
-    neighborhoods: ['Whitestone Ranch', 'Ridglea Country Club Estates', 'Benbrook Hills', 'Trinity Oaks'],
-    coordinates: {
-      latitude: 32.6732,
-      longitude: -97.4606
-    },
-    serviceRadius: 8
-  },
+
   'flower-mound': {
     name: 'Flower Mound',
     nearestOffice: 'Weatherford',
@@ -236,42 +148,9 @@ export const locationData = {
     },
     serviceRadius: 10
   },
-  'lewisville': {
-    name: 'Lewisville',
-    nearestOffice: 'Weatherford',
-    distanceFromOffice: 40,
-    landmarks: ['Lewisville Lake', 'Old Town Lewisville', 'Music City Mall'],
-    neighborhoods: ['Castle Hills', 'Valley Vista', 'Northwood Hills', 'The Colony'],
-    coordinates: {
-      latitude: 33.0461,
-      longitude: -97.0128
-    },
-    serviceRadius: 10
-  },
-  'coppell': {
-    name: 'Coppell',
-    nearestOffice: 'Weatherford',
-    distanceFromOffice: 36,
-    landmarks: ['Andrew Brown Park', 'Coppell Nature Park', 'Old Town Coppell'],
-    neighborhoods: ['Riverchase', 'Denton Creek', 'Vistas of Coppell', 'The Lakes'],
-    coordinates: {
-      latitude: 32.9545,
-      longitude: -97.0150
-    },
-    serviceRadius: 8
-  },
-  'irving': {
-    name: 'Irving',
-    nearestOffice: 'Weatherford',
-    distanceFromOffice: 38,
-    landmarks: ['Toyota Music Factory', 'Las Colinas Canals', 'Irving Convention Center'],
-    neighborhoods: ['Las Colinas', 'Valley Ranch', 'South Irving', 'MacArthur Park'],
-    coordinates: {
-      latitude: 32.8140,
-      longitude: -96.9489
-    },
-    serviceRadius: 10
-  },
+
+
+
   'trophy-club': {
     name: 'Trophy Club',
     nearestOffice: 'Weatherford',
@@ -320,51 +199,63 @@ export const locationData = {
     },
     serviceRadius: 15
   },
-  'mineral-wells': {
-    name: 'Mineral Wells',
-    nearestOffice: 'Weatherford',
-    distanceFromOffice: 21,
-    landmarks: ['Lake Mineral Wells State Park', 'Clark Gardens', 'Mineral Wells Fossil Park'],
-    neighborhoods: ['Downtown Mineral Wells', 'Woodland Park', 'Ram Boulevard'],
+  'saginaw': {
+    name: 'Saginaw',
+    nearestOffice: 'Fort Worth',
+    distanceFromOffice: 12,
+    landmarks: ['Saginaw Community Center', 'Saginaw Park', 'Trinity River'],
+    neighborhoods: ['Bluebonnet Hills', 'Saginaw Meadows', 'Trinity Oaks'],
     coordinates: {
-      latitude: 32.8084,
-      longitude: -98.1128
-    },
-    serviceRadius: 15
-  },
-  'annetta': {
-    name: 'Annetta',
-    nearestOffice: 'Weatherford',
-    distanceFromOffice: 15,
-    landmarks: ['Annetta Cemetery', 'Annettas Town Hall', 'Trinity River Basin'],
-    neighborhoods: ['Annetta North', 'Annetta South', 'Clear Fork Estates'],
-    coordinates: {
-      latitude: 32.6954,
-      longitude: -97.6418
+      latitude: 32.8735,
+      longitude: -97.3631
     },
     serviceRadius: 8
   },
-  'brock': {
-    name: 'Brock',
-    nearestOffice: 'Weatherford',
-    distanceFromOffice: 12,
-    landmarks: ['Brock City Park', 'Brock High School', 'Eagle Stadium'],
-    neighborhoods: ['McFall Ranch', 'Bearcreek Estates', 'Walsh Ranch'],
+  'northlake': {
+    name: 'Northlake',
+    nearestOffice: 'Fort Worth',
+    distanceFromOffice: 32,
+    landmarks: ['Northlake Town Hall', 'Robson Ranch Golf Club', 'Eagle Mountain Lake'],
+    neighborhoods: ['Robson Ranch', 'Eagle Mountain Estates', 'Northlake Meadows'],
     coordinates: {
-      latitude: 32.6726,
-      longitude: -97.7550
+      latitude: 33.1151,
+      longitude: -97.2497
     },
-    serviceRadius: 10
+    serviceRadius: 12
   },
-  'millsap': {
-    name: 'Millsap',
-    nearestOffice: 'Weatherford',
-    distanceFromOffice: 16,
-    landmarks: ['Millsap City Park', 'Millsap High School', 'Millsap Log Cabin Museum'],
-    neighborhoods: ['Downtown Millsap', 'Cool Junction', 'Adell'],
+  'argyle': {
+    name: 'Argyle',
+    nearestOffice: 'Fort Worth',
+    distanceFromOffice: 35,
+    landmarks: ['Argyle Town Square', 'Liberty Christian School', 'Cross Oaks Ranch'],
+    neighborhoods: ['Canyon Falls', 'Harvest', 'Argyle Meadows', 'Cross Oaks'],
     coordinates: {
-      latitude: 32.7460,
-      longitude: -97.9733
+      latitude: 33.1215,
+      longitude: -97.1836
+    },
+    serviceRadius: 15
+  },
+  'blue-mound': {
+    name: 'Blue Mound',
+    nearestOffice: 'Fort Worth',
+    distanceFromOffice: 10,
+    landmarks: ['Blue Mound City Hall', 'Saginaw Park', 'Trinity River Trail'],
+    neighborhoods: ['Blue Mound Estates', 'Trinity Meadows', 'River Oaks'],
+    coordinates: {
+      latitude: 32.8618,
+      longitude: -97.3364
+    },
+    serviceRadius: 6
+  },
+  'haslet': {
+    name: 'Haslet',
+    nearestOffice: 'Fort Worth',
+    distanceFromOffice: 22,
+    landmarks: ['Haslet City Hall', 'Alliance Airport', 'Texas Motor Speedway'],
+    neighborhoods: ['Alliance', 'Avondale-Haslet', 'Heritage Trace', 'Sendera Ranch'],
+    coordinates: {
+      latitude: 32.9715,
+      longitude: -97.3364
     },
     serviceRadius: 10
   }

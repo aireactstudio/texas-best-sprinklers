@@ -8,6 +8,7 @@ import HeadPreload from './head-preload';
 import HeroPreloadScript from '@/components/HeroPreloadScript';
 import GoogleMapsProviderWrapper from '@/components/GoogleMapsProvider';
 import SchemaOrgData from '@/components/SchemaOrgData';
+import { SITE_CONFIG } from '@/config/site';
 
 // Critical CSS for above-the-fold content
 const criticalCSS = `
@@ -24,7 +25,6 @@ const PerformanceMonitor = dynamic(() => import('@/components/PerformanceMonitor
 const ModulePreloader = dynamic(() => import('@/components/ModulePreloader'), { ssr: false });
 const LongTaskOptimizer = dynamic(() => import('@/components/LongTaskOptimizer'), { ssr: false });
 const GoogleAnalytics = dynamic(() => import('@/components/GoogleAnalytics'), { ssr: false, loading: () => null });
-const SmartlookScript = dynamic(() => import('@/components/SmartlookScript'), { ssr: false, loading: () => null });
 
 // Dynamically import non-critical components
 const Footer = dynamic(() => import('@/components/Footer'), {
@@ -64,15 +64,15 @@ export function generateMetadata(): Metadata {
     // Open Graph / Facebook
     openGraph: {
       type: 'website',
-      siteName: 'Texas Best Sprinkler, Drainage and Lighting LLC',
-      title: 'Texas Best Sprinkler, Drainage and Lighting LLC | Fort Worth & Weatherford Irrigation Experts',
+      siteName: SITE_CONFIG.fullName,
+      title: `${SITE_CONFIG.fullName} | Fort Worth & Weatherford Irrigation Experts`,
       description: 'Professional sprinkler, drainage, and lighting services in Fort Worth and Weatherford, TX. Expert installation, repair, and maintenance for residential and commercial properties.',
       images: [
         {
           url: 'https://imagedelivery.net/Hs1aBZ5UERW4OpkuLtKJ6A/b96197d9-8f69-4145-7b7b-0b5a7ba70900/public',
           width: 1200,
           height: 630,
-          alt: 'Texas Best Sprinkler, Drainage and Lighting LLC',
+          alt: SITE_CONFIG.fullName,
         },
       ],
     },
@@ -134,7 +134,6 @@ export default function RootLayout({
         <HeroImagePreload imagePath="/assets/images/optimized/hero-background.webp" />
         {/* Analytics tracking scripts */}
         <GoogleAnalytics />
-        <SmartlookScript />
         <GoogleMapsProviderWrapper>
           <AppHeader />
           <main>{children}</main>

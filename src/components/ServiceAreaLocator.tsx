@@ -39,11 +39,12 @@ const ServiceAreaLocator: React.FC<ServiceAreaLocatorProps> = ({
     const allLocations = LOCATIONS.filter(slug => !!locationData[slug]);
     const totalLocations = allLocations.length;
     
-    // For 3 rows (5-5-4 distribution)
+    // For 18 locations: 3 rows of 6 each
+    const itemsPerRow = Math.ceil(totalLocations / 3);
     const grid = [
-      allLocations.slice(0, 5),  // First row: 5 items
-      allLocations.slice(5, 10), // Second row: 5 items
-      allLocations.slice(10)     // Third row: remaining items
+      allLocations.slice(0, itemsPerRow),           // First row: 6 items
+      allLocations.slice(itemsPerRow, itemsPerRow * 2), // Second row: 6 items
+      allLocations.slice(itemsPerRow * 2)           // Third row: 6 items
     ];
     
     return grid;
