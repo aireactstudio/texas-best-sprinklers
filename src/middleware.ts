@@ -8,8 +8,31 @@ import type { NextRequest } from 'next/server';
  * - Permissions-Policy for better privacy
  */
 export function middleware(request: NextRequest) {
-  const response = NextResponse.next();
   const url = request.nextUrl.pathname;
+
+  // Redirect non-existent service pages to closest geographic location
+  const serviceRedirects = {
+    // Brock, TX -> Weatherford (closest location, ~15 miles)
+    '/services/irrigation-repair/brock': '/services/irrigation-repair/weatherford',
+    '/services/sprinkler-installation/brock': '/services/sprinkler-installation/weatherford', 
+    '/services/drainage-solutions/brock': '/services/drainage-solutions/weatherford',
+    '/services/outdoor-lighting/brock': '/services/outdoor-lighting/weatherford',
+    '/services/maintenance/brock': '/services/maintenance/weatherford',
+    
+    // Cool, TX -> Weatherford (closest location, ~20 miles)
+    '/services/irrigation-repair/cool': '/services/irrigation-repair/weatherford',
+    '/services/sprinkler-installation/cool': '/services/sprinkler-installation/weatherford',
+    '/services/drainage-solutions/cool': '/services/drainage-solutions/weatherford', 
+    '/services/outdoor-lighting/cool': '/services/outdoor-lighting/weatherford',
+    '/services/maintenance/cool': '/services/maintenance/weatherford',
+  };
+
+  // Check if current URL needs to be redirected
+  if (serviceRedirects[url]) {
+    return NextResponse.redirect(new URL(serviceRedirects[url], request.url), 301);
+  }
+
+  const response = NextResponse.next();
 
   // Append security headers to all responses
   response.headers.set('X-Content-Type-Options', 'nosniff');
