@@ -520,7 +520,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName, routePrefix
                         
                         {/* View Page link */}
                         <Link 
-                          href={locationPrefix ? `/${locationPrefix}${serviceWithFormattedTitle.link}` : serviceWithFormattedTitle.link}
+                          href={locationPrefix ? `/${locationPrefix}${serviceWithFormattedTitle.link}`.replace(/\/\/+/g, '/') : `/services${serviceWithFormattedTitle.link}`}
                           className="bg-irrigation-green text-white font-semibold hover:bg-irrigation-darkGreen transition-colors duration-300 inline-flex items-center text-sm flex-1 justify-center py-1 px-2 rounded"
                           onClick={(e) => e.stopPropagation()}
                         >
@@ -567,7 +567,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName, routePrefix
                       
                       <div className="mt-4 flex flex-col gap-2">
                         <Link 
-                          href={locationPrefix ? `/${locationPrefix}${service.link}` : service.link} 
+                          href={locationPrefix ? `/${locationPrefix}${service.link}`.replace(/\/\/+/g, '/') : `/services${service.link}`} 
                           className="text-white bg-irrigation-darkGreen hover:bg-irrigation-darkBlue transition-colors duration-300 inline-flex items-center justify-center py-2 px-4 rounded-md font-medium text-sm"
                           aria-label={`Learn more about ${service.title}`}>
                           <span>View Details</span>
