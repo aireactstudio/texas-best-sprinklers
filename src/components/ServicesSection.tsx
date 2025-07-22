@@ -349,49 +349,49 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName, routePrefix
       icon: <Sprout size={32} />,
       title: "Sprinkler Installation",
       description: "Custom-designed sprinkler systems that ensure even water distribution and maximum coverage for your landscape.",
-      link: "/sprinkler-installation",
+      link: "sprinkler-installation",
       longDescription: "Our professional sprinkler installation services create custom irrigation systems tailored to your specific landscape needs. We carefully analyze your yard's unique characteristics, including sun exposure, soil type, plant varieties, and water requirements to design the most efficient system possible. Our certified technicians use only premium components and follow industry best practices to ensure your new system provides years of reliable performance."
     },
     {
       icon: <Droplet size={32} />,
       title: "Irrigation Repair",
       description: "Expert repair services for all types of irrigation systems, fixing leaks, broken heads, and controller issues quickly and efficiently.",
-      link: "/irrigation-repair",
+      link: "irrigation-repair",
       longDescription: "Our irrigation repair services address all types of system issues, from minor leaks to major component failures. We use advanced diagnostic techniques to quickly identify problems and implement lasting solutions. Whether you're dealing with broken sprinkler heads, malfunctioning valves, controller issues, or mysterious leaks, our experienced technicians have the skills and tools to restore your system to optimal performance."
     },
     {
       icon: <Wrench size={32} />,
       title: "Sprinkler Repair",
       description: "Fast, reliable repair services for all types of sprinkler system issues, from broken heads and leaks to valve problems and controller malfunctions.",
-      link: "/sprinkler-repair",
+      link: "sprinkler-repair",
       longDescription: "Our expert sprinkler repair services provide fast, efficient solutions for all your system problems. We diagnose and fix broken heads, leaking pipes, malfunctioning valves, and controller issues with precision and care. Our experienced technicians use quality replacement parts and proper techniques to ensure lasting repairs, helping you save water and protect your landscape investment."
     },
     {
       icon: <Wrench size={32} />,
       title: "Maintenance",
       description: "Regular maintenance services to keep your irrigation system running at peak efficiency, including seasonal check-ups and adjustments.",
-      link: "/maintenance",
+      link: "maintenance",
       longDescription: "Our comprehensive maintenance services help extend the life of your irrigation system while maximizing water efficiency. We offer seasonal tune-ups, including spring start-up and winterization, along with regular inspections to catch small issues before they become costly problems. Our maintenance plans include adjusting sprinkler heads, checking for leaks, programming controllers, and ensuring your system is operating at peak efficiency throughout the year."
     },
     {
       icon: <CloudRain size={32} />,
       title: "Drainage Solutions",
       description: "Effective drainage systems to prevent water pooling and landscape damage, protecting your property from erosion and flooding.",
-      link: "/drainage-solutions",
+      link: "drainage-solutions",
       longDescription: "Our drainage solutions address water management issues that can damage your landscape and home foundation. We design and install comprehensive drainage systems including French drains, surface drains, channel drains, and downspout extensions to effectively move water away from problem areas. Our expert team will assess your property's specific needs and implement custom solutions that protect your landscape investment and prevent costly water damage."
     },
     {
       icon: <Lightbulb size={32} />,
       title: "Outdoor Lighting",
       description: "Professional landscape lighting that enhances your property's beauty, security, and value while extending outdoor living spaces.",
-      link: "/outdoor-lighting",
+      link: "outdoor-lighting",
       longDescription: "Our outdoor lighting services transform your landscape into a beautiful, functional space that can be enjoyed day and night. We design custom lighting solutions that highlight your property's best features, improve safety along walkways and stairs, and enhance security around your home. Using energy-efficient LED fixtures and smart control systems, we create stunning lighting effects that add value to your property while minimizing energy consumption."
     },
     {
       icon: <CloudRain size={32} />,
       title: "French Drain Installation",
       description: "Expert French drain installation to effectively manage water flow and protect your property from water damage, flooding, and erosion.",
-      link: "/drainage-solutions",
+      link: "drainage-solutions",
       longDescription: "Our professional French drain installation services provide long-lasting solutions for water management issues on your property. We expertly design and install French drains that effectively collect and redirect excess groundwater away from problem areas. Using high-quality materials including perforated pipes, proper gravel gradients, and geotextile fabric, our French drains provide superior drainage that protects your home's foundation, prevents erosion, eliminates standing water, and preserves your landscape investment."
     },
   ];
