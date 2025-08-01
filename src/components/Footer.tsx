@@ -112,6 +112,17 @@ const Footer = () => {
               <a href="#" className="text-irrigation-a11y-light hover:text-irrigation-a11y-light-green text-sm transition-colors duration-300">Sitemap</a>
             </div>
           </div>
+          <p className="text-irrigation-a11y-light text-xs text-center mt-4">
+            SEO &amp; Web Development by{' '}
+            <a
+              href="https://reactivlabs.com"
+              target="_blank"
+              rel="noopener"
+              className="underline hover:text-irrigation-a11y-light-green"
+            >
+              Reactive Labs
+            </a>
+          </p>
         </div>
       </div>
     </footer>
