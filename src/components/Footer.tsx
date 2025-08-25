@@ -1,41 +1,11 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
-import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Droplet, ChevronDown } from 'lucide-react';
+import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Droplet } from 'lucide-react';
 import { trackPhoneCall } from '@/utils/analytics';
 
 const Footer = () => {
-  const sections: { title: string; links: { name: string; path: string }[] }[] = [
-    {
-      title: 'Sprinklers & Irrigation',
-      links: [
-        { name: 'Sprinklers & Irrigation', path: '/services/sprinkler-installation' },
-        { name: 'Sprinkler System Repair', path: '/services/sprinkler-repair' },
-        { name: 'Sprinkler System Check-Up', path: '/services/sprinkler-system-check-up' },
-        { name: 'Sprinkler System Reroutes', path: '/services/sprinkler-system-reroutes' },
-        { name: 'Drip Irrigation', path: '/services/drip-irrigation' },
-      ],
-    },
-    {
-      title: 'Drainage',
-      links: [
-        { name: 'French Drains', path: '/services/french-drains' },
-        { name: 'Channel Drains, Catch Basins & Grates', path: '/services/channel-drains' },
-        { name: 'Sump Pumps', path: '/services/sump-pumps' },
-        { name: 'Yard Drainage Systems', path: '/services/yard-drainage-systems' },
-      ],
-    },
-    {
-      title: 'Lighting',
-      links: [
-        { name: 'Lighting Design & Installation Services', path: '/services/outdoor-lighting' },
-        { name: 'Landscape Lighting Repair and Maintenance', path: '/services/landscape-lighting-repair' },
-      ],
-    },
-  ];
-
-  const [openSection, setOpenSection] = useState<string | null>('Sprinklers & Irrigation');
   const handlePhoneClick = () => {
     trackPhoneCall('(817) 304-7896', window.location.pathname);
   };
@@ -70,58 +40,41 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-bold mb-4">Quick Links</h3>
             <ul className="space-y-3">
-              {[
-                { label: 'Home', href: '/' },
-                { label: 'Services', href: '/services' },
-                { label: 'Blog', href: '/blog' },
-                { label: 'Contact Us', href: '/contact' },
-              ].map((link) => (
-                <li key={link.label}>
+              {['Home', 'Services', 'Projects', 'Blog', 'Contact Us'].map((item) => (
+                <li key={item}>
                   <Link 
-                    href={link.href}
+                    href={item === 'Home' ? '/' : `/${item.toLowerCase().replace(' ', '-')}`} 
                     className="text-irrigation-a11y-light hover:text-irrigation-a11y-light-green transition-colors duration-300"
                   >
-                    {link.label}
+                    {item}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
           
-          {/* Services - compact accordion grouped by categories */}
+          {/* Services */}
           <div>
             <h3 className="text-lg font-bold mb-4">Our Services</h3>
-            <div className="space-y-3">
-              {sections.map((sec) => (
-                <div key={sec.title} className="bg-white/5 rounded-md">
-                  <button
-                    className="w-full flex items-center justify-between text-left px-3 py-2 text-white hover:text-irrigation-a11y-light-green"
-                    onClick={() => setOpenSection(openSection === sec.title ? null : sec.title)}
-                    aria-expanded={openSection === sec.title}
-                    aria-controls={`footer-sec-${sec.title.replace(/\s+/g, '-')}`}
+            <ul className="space-y-3">
+              {[
+                'Sprinkler Installation', 
+                'Drainage Solutions', 
+                'Outdoor Lighting', 
+                'System Maintenance',
+                'Sprinkler Repair',
+                'Commercial Solutions'
+              ].map((service) => (
+                <li key={service}>
+                  <Link 
+                    href={`/services#${service.toLowerCase().replace(/\s+/g, '-')}`} 
+                    className="text-gray-300 hover:text-irrigation-green transition-colors duration-300"
                   >
-                    <span className="font-medium">{sec.title}</span>
-                    <ChevronDown
-                      className={`w-4 h-4 transition-transform ${openSection === sec.title ? 'rotate-180' : ''}`}
-                    />
-                  </button>
-                  {openSection === sec.title && (
-                    <ul id={`footer-sec-${sec.title.replace(/\s+/g, '-')}`} className="px-3 pb-2 space-y-2">
-                      {sec.links.map((link) => (
-                        <li key={link.path}>
-                          <Link
-                            href={link.path}
-                            className="text-gray-300 hover:text-irrigation-green transition-colors duration-300"
-                          >
-                            {link.name}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
+                    {service}
+                  </Link>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
           
           {/* Contact Info */}
@@ -158,9 +111,9 @@ const Footer = () => {
               <p className="mt-1">Contractor License: <span className="font-medium">LI22462</span></p>
             </div>
             <div className="flex space-x-5">
-              <Link href="/privacy-policy" className="text-irrigation-a11y-light hover:text-irrigation-a11y-light-green text-sm transition-colors duration-300">Privacy Policy</Link>
-              <Link href="/terms-of-service" className="text-irrigation-a11y-light hover:text-irrigation-a11y-light-green text-sm transition-colors duration-300">Terms of Service</Link>
-              <Link href="/sitemap" className="text-irrigation-a11y-light hover:text-irrigation-a11y-light-green text-sm transition-colors duration-300">Sitemap</Link>
+              <a href="#" className="text-irrigation-a11y-light hover:text-irrigation-a11y-light-green text-sm transition-colors duration-300">Privacy Policy</a>
+              <a href="#" className="text-irrigation-a11y-light hover:text-irrigation-a11y-light-green text-sm transition-colors duration-300">Terms of Service</a>
+              <a href="#" className="text-irrigation-a11y-light hover:text-irrigation-a11y-light-green text-sm transition-colors duration-300">Sitemap</a>
             </div>
           </div>
           <p className="text-irrigation-a11y-light text-xs text-center mt-4">

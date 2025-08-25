@@ -16,6 +16,7 @@ interface ServiceCardProps {
   onSelect?: (index: number) => void;
   longDescription?: string;
   formattedTitle?: string;
+  resolvedLink?: string; // fully-resolved href to use when provided
 }
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ 
@@ -29,9 +30,12 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   isSelected = false,
   onSelect,
   longDescription,
-  formattedTitle
+  formattedTitle,
+  resolvedLink
 }) => {
-  const fullLink = locationPrefix ? `/${locationPrefix}${link}` : link;
+  const fullLink = resolvedLink
+    ? resolvedLink
+    : (locationPrefix ? `/${locationPrefix}${link}` : link);
   
   // Handle card selection
   const handleCardClick = () => {
@@ -200,7 +204,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         
         {/* View Page link - navigates to service page */}
         <Link 
-          href={`/services${link}`}
+          href={fullLink || `/services${link}`}
           className="bg-irrigation-green text-white font-semibold hover:bg-irrigation-darkGreen transition-colors duration-300 inline-flex items-center text-sm flex-1 justify-center py-1 px-2 rounded"
           onClick={(e) => e.stopPropagation()}
         >
@@ -344,12 +348,34 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName, routePrefix
     return `${title} in ${cityName}`;
   };
   
+  // Build location-specific service links when on a location page
+  const citySlug = (routePrefix || '').toLowerCase();
+  const slugFor = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+  const locationPathForService = (title: string): string | undefined => {
+    if (!citySlug) return undefined;
+    switch (title) {
+      case 'Sprinkler Installation':
+        return `/${citySlug}/sprinkler-installation-services-in-${citySlug}-tx`;
+      case 'Irrigation Repair':
+        return `/${citySlug}/irrigation-repair-services-in-${citySlug}-tx`;
+      case 'Sprinkler Repair':
+        return `/${citySlug}/sprinkler-repair-services-in-${citySlug}-tx`;
+      case 'Maintenance':
+        // Map Maintenance to seasonal check-up local page
+        return `/${citySlug}/sprinkler-system-check-up-services-in-${citySlug}-tx`;
+      // For services without location pages, return undefined to fall back
+      default:
+        return undefined;
+    }
+  };
+
   const services = [
     {
       icon: <Sprout size={32} />,
       title: "Sprinkler Installation",
       description: "Custom-designed sprinkler systems that ensure even water distribution and maximum coverage for your landscape.",
       link: "/sprinkler-installation",
+      resolvedLink: locationPathForService('Sprinkler Installation'),
       longDescription: "Our professional sprinkler installation services create custom irrigation systems tailored to your specific landscape needs. We carefully analyze your yard's unique characteristics, including sun exposure, soil type, plant varieties, and water requirements to design the most efficient system possible. Our certified technicians use only premium components and follow industry best practices to ensure your new system provides years of reliable performance."
     },
     {
@@ -357,6 +383,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName, routePrefix
       title: "Irrigation Repair",
       description: "Expert repair services for all types of irrigation systems, fixing leaks, broken heads, and controller issues quickly and efficiently.",
       link: "/irrigation-repair",
+      resolvedLink: locationPathForService('Irrigation Repair'),
       longDescription: "Our irrigation repair services address all types of system issues, from minor leaks to major component failures. We use advanced diagnostic techniques to quickly identify problems and implement lasting solutions. Whether you're dealing with broken sprinkler heads, malfunctioning valves, controller issues, or mysterious leaks, our experienced technicians have the skills and tools to restore your system to optimal performance."
     },
     {
@@ -364,6 +391,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName, routePrefix
       title: "Sprinkler Repair",
       description: "Fast, reliable repair services for all types of sprinkler system issues, from broken heads and leaks to valve problems and controller malfunctions.",
       link: "/sprinkler-repair",
+      resolvedLink: locationPathForService('Sprinkler Repair'),
       longDescription: "Our expert sprinkler repair services provide fast, efficient solutions for all your system problems. We diagnose and fix broken heads, leaking pipes, malfunctioning valves, and controller issues with precision and care. Our experienced technicians use quality replacement parts and proper techniques to ensure lasting repairs, helping you save water and protect your landscape investment."
     },
     {
@@ -371,6 +399,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName, routePrefix
       title: "Maintenance",
       description: "Regular maintenance services to keep your irrigation system running at peak efficiency, including seasonal check-ups and adjustments.",
       link: "/maintenance",
+      resolvedLink: locationPathForService('Maintenance'),
       longDescription: "Our comprehensive maintenance services help extend the life of your irrigation system while maximizing water efficiency. We offer seasonal tune-ups, including spring start-up and winterization, along with regular inspections to catch small issues before they become costly problems. Our maintenance plans include adjusting sprinkler heads, checking for leaks, programming controllers, and ensuring your system is operating at peak efficiency throughout the year."
     },
     {
@@ -520,7 +549,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName, routePrefix
                         
                         {/* View Page link */}
                         <Link 
-                          href={locationPrefix ? `/${locationPrefix}${serviceWithFormattedTitle.link}` : `/services${serviceWithFormattedTitle.link}`}
+                          href={serviceWithFormattedTitle.resolvedLink || (locationPrefix ? `/${locationPrefix}${serviceWithFormattedTitle.link}` : `/services${serviceWithFormattedTitle.link}`)}
                           className="bg-irrigation-green text-white font-semibold hover:bg-irrigation-darkGreen transition-colors duration-300 inline-flex items-center text-sm flex-1 justify-center py-1 px-2 rounded"
                           onClick={(e) => e.stopPropagation()}
                         >
@@ -567,7 +596,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName, routePrefix
                       
                       <div className="mt-4 flex flex-col gap-2">
                         <Link 
-                          href={locationPrefix ? `/${locationPrefix}${service.link}` : `/services${service.link}`} 
+                          href={serviceWithFormattedTitle.resolvedLink || (locationPrefix ? `/${locationPrefix}${service.link}` : `/services${service.link}`)} 
                           className="text-white bg-irrigation-darkGreen hover:bg-irrigation-darkBlue transition-colors duration-300 inline-flex items-center justify-center py-2 px-4 rounded-md font-medium text-sm"
                           aria-label={`Learn more about ${service.title}`}>
                           <span>View Details</span>

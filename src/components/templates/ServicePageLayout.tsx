@@ -42,10 +42,27 @@ export default function ServicePageLayout({
 
   // Split children into main content and full-width sections
   const childrenArray = React.Children.toArray(children);
-  // Main content is the first child (if it's a div)
-  const mainContent = childrenArray[0];
-  // Full-width sections are any remaining children
-  const fullWidthSections = childrenArray.slice(1);
+  // Find the first non-script element to use as main content
+  const mainIndex = childrenArray.findIndex((child: React.ReactNode) => {
+    if (!React.isValidElement(child)) return false;
+    const el = child as React.ReactElement<any>;
+    // If it's a plain DOM element, ensure it's not a script/style tag
+    if (typeof el.type === 'string') {
+      return el.type !== 'script' && el.type !== 'style';
+    }
+    // For React components (e.g., Next Script), try to skip known script-like nodes
+    const props: any = el.props ?? {};
+    const propsType = typeof props.type === 'string' ? props.type : '';
+    const id = typeof props.id === 'string' ? props.id : '';
+    const looksLikeJsonLd = propsType.includes('ld+json');
+    const looksLikeSeoId = id.startsWith('ld-');
+    return !(looksLikeJsonLd || looksLikeSeoId);
+  });
+  const mainContent = mainIndex >= 0 ? childrenArray[mainIndex] : null;
+  // Everything else (including scripts) will render after as full-width sections
+  const fullWidthSections = mainIndex >= 0
+    ? childrenArray.filter((_, idx) => idx !== mainIndex)
+    : childrenArray;
   // Format service type for URL
   const serviceSlug = typeof serviceType === 'string' 
     ? serviceType.toLowerCase().replace(/_/g, '-') 
