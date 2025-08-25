@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
 import { z } from 'zod';
 import { CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
+import { trackFormSubmission } from '@/utils/analytics';
 
 const contactSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters" }),
@@ -79,6 +80,14 @@ const ContactForm: React.FC = () => {
         console.error('Contact form submission error:', data);
         throw new Error(data.message || 'Something went wrong');
       }
+      
+      // Track successful form submission immediately
+      console.log('Form submitted successfully, tracking GA event');
+      trackFormSubmission(
+        'contact_form',
+        formData.service,
+        window.location.pathname
+      );
       
       // Set success status
       setFormStatus('success');

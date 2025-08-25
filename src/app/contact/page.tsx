@@ -18,6 +18,7 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useToast } from '@/hooks/use-toast';
+import { trackPhoneCall } from '@/utils/analytics';
 
 // Form schema - matching the API endpoint schema
 const formSchema = z.object({
@@ -118,7 +119,14 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="font-bold text-gray-900">Phone</h3>
-                  <p className="text-gray-700">(817) 304-7896</p>
+                  <a
+                    href="tel:+18173047896"
+                    onClick={() => trackPhoneCall('(817) 304-7896')}
+                    className="text-irrigation-blue hover:underline"
+                    aria-label="Call (817) 304-7896"
+                  >
+                    (817) 304-7896
+                  </a>
                 </div>
               </div>
               
@@ -128,7 +136,13 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="font-bold text-gray-900">Email</h3>
-                  <p className="text-gray-700">sprinkleranddrains@gmail.com</p>
+                  <a
+                    href="mailto:sprinkleranddrains@gmail.com"
+                    className="text-irrigation-blue hover:underline break-all"
+                    aria-label="Send email to sprinkleranddrains@gmail.com"
+                  >
+                    sprinkleranddrains@gmail.com
+                  </a>
                 </div>
               </div>
               

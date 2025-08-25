@@ -1,11 +1,15 @@
-
 'use client';
 
 import React from 'react';
 import Link from 'next/link';
-import { Droplet, Phone, Mail, MapPin, Facebook, Instagram, Twitter } from 'lucide-react';
+import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Droplet } from 'lucide-react';
+import { trackPhoneCall } from '@/utils/analytics';
 
 const Footer = () => {
+  const handlePhoneClick = () => {
+    trackPhoneCall('(817) 304-7896', window.location.pathname);
+  };
+
   return (
     <footer className="bg-irrigation-blue text-white">
       <div className="container-custom">
@@ -83,7 +87,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-irrigation-a11y-light-green" />
-                <a href="tel:+18173047896" className="text-irrigation-a11y-light hover:text-irrigation-a11y-light-green transition-colors duration-300">(817) 304-7896</a>
+                <a href="tel:+18173047896" onClick={handlePhoneClick} className="text-irrigation-a11y-light hover:text-irrigation-a11y-light-green transition-colors duration-300">(817) 304-7896</a>
               </li>
               <li className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-irrigation-a11y-light-green" />

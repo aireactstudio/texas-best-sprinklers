@@ -219,7 +219,15 @@ ${validatedData.message}
     }
     
     return NextResponse.json(
-      { success: true, message: 'Email sent successfully' },
+      { 
+        success: true, 
+        message: 'Email sent successfully',
+        trackingData: {
+          formType: 'contact_form',
+          serviceName: serviceType,
+          timestamp: new Date().toISOString()
+        }
+      },
       { status: 200 }
     );
     

@@ -1,9 +1,10 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { Phone, MapPin, Star, CheckCircle } from 'lucide-react';
+import { Phone, MapPin, Clock, Star, CheckCircle } from 'lucide-react';
+import { trackPhoneCall } from '@/utils/analytics';
 import LocationMap from '@/components/LocationMap';
 import ErrorBoundary from '@/components/ErrorBoundary';
 
@@ -44,6 +45,10 @@ export default function LocationHeroSection({
   serviceAreas
 }: LocationHeroSectionProps) {
   const phoneNumber = "(817) 304-7896";
+
+  const handlePhoneClick = () => {
+    trackPhoneCall(phoneNumber, window.location.pathname);
+  };
 
   return (
     <section
@@ -141,7 +146,7 @@ export default function LocationHeroSection({
                 className="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-2xl hover:shadow-green-500/25 transition-all duration-200 transform hover:scale-105"
                 asChild
               >
-                <a href={`tel:${phoneNumber}`}>
+                <a href={`tel:${phoneNumber}`} onClick={handlePhoneClick}>
                   <Phone className="w-5 h-5 mr-2" />
                   Call Now: {phoneNumber}
                 </a>
