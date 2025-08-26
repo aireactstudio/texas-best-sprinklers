@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Menu, X, Phone, Mail, MapPin, ChevronDown, Droplet, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { trackPhoneCall } from '@/utils/analytics';
+import { LOCATIONS, getLocationData } from '@/data/locationData';
 
 // Define interfaces for navigation items
 interface NavItem {
@@ -97,6 +98,24 @@ const AppHeader = () => {
         { name: 'Landscape Lighting Repair and Maintenance', path: '/services/landscape-lighting-repair' },
       ]
     },
+    {
+      name: 'Locations',
+      // Primary link points to a major city; submenu includes more locations
+      path: '/fort-worth',
+      submenu: [
+        { name: 'Fort Worth', path: '/fort-worth' },
+        { name: 'Keller', path: '/keller' },
+        { name: 'Southlake', path: '/southlake' },
+        { name: 'Colleyville', path: '/colleyville' },
+        { name: 'Grapevine', path: '/grapevine' },
+        { name: 'North Richland Hills', path: '/north-richland-hills' },
+        { name: 'Bedford', path: '/bedford' },
+        { name: 'Euless', path: '/euless' },
+        { name: 'Hurst', path: '/hurst' },
+        { name: 'Flower Mound', path: '/flower-mound' },
+      ]
+    },
+    { name: 'Contact', path: '/contact' },
     // Projects page not production ready - temporarily hidden
     // { name: 'Projects', path: '/projects' },
     { 
@@ -105,10 +124,20 @@ const AppHeader = () => {
       submenu: [
         { name: 'About', path: '/about' },
         { name: 'Blog', path: '/blog' },
-        { name: 'Contact', path: '/contact' },
       ]
     }
   ];
+
+  // Build dynamic locations list for mega menu
+  const allLocations = LOCATIONS.map(slug => {
+    const info = getLocationData(slug);
+    return { slug, name: info.name };
+  });
+  const locationColumnsCount = 3; // adjust to 3-4 if needed
+  const perCol = Math.ceil(allLocations.length / locationColumnsCount);
+  const locationCols = Array.from({ length: locationColumnsCount }, (_, i) =>
+    allLocations.slice(i * perCol, (i + 1) * perCol)
+  );
 
   return (
     <header 
@@ -146,42 +175,64 @@ const AppHeader = () => {
                 
                 {/* Desktop Dropdown */}
                 {item.submenu && (
-                  <div className="absolute left-0 mt-2 w-72 bg-white rounded-md shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50">
-                    <div className="py-2">
-                      {item.submenu.map((subitem) => (
-                        <div key={subitem.name} className="relative group/nested">
-                          {subitem.submenu ? (
-                            <div className="flex items-center justify-between px-4 py-3 text-sm text-gray-800 hover:bg-irrigation-blue/5 hover:text-irrigation-blue transition-colors cursor-pointer">
-                              <span>{subitem.name}</span>
-                              <ChevronRight className="w-4 h-4" />
-                              
-                              {/* Nested Dropdown */}
-                              <div className="absolute top-0 left-full ml-2 w-72 bg-white rounded-md shadow-xl opacity-0 invisible group-hover/nested:opacity-100 group-hover/nested:visible transition-all duration-300 transform group-hover/nested:translate-y-0 translate-y-2">
-                                <div className="py-2">
-                                  {subitem.submenu.map((nestedItem) => (
-                                    <Link 
-                                      key={nestedItem.name}
-                                      href={nestedItem.path}
-                                      className="block px-4 py-3 text-sm text-gray-800 hover:bg-irrigation-blue/5 hover:text-irrigation-blue transition-colors"
-                                    >
-                                      {nestedItem.name}
-                                    </Link>
-                                  ))}
+                  item.name === 'Locations' ? (
+                    // Mega menu for Locations (centered under trigger, constrained to viewport)
+                    <div className={`absolute mt-2 bg-white rounded-md shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 -translate-x-1/2 left-1/2 z-50 p-4 w-[640px] max-w-[90vw]`}>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                        {locationCols.map((col, ci) => (
+                          <ul key={ci} className="space-y-1">
+                            {col.map((loc) => (
+                              <li key={loc.slug}>
+                                <Link 
+                                  href={`/${loc.slug}`}
+                                  className="block px-2 py-2 text-sm text-gray-800 hover:bg-irrigation-blue/5 hover:text-irrigation-blue rounded-md transition-colors"
+                                >
+                                  {loc.name}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        ))}
+                      </div>
+                    </div>
+                  ) : (
+                    // Default dropdown for other items (constrained to viewport)
+                    <div className={`absolute mt-2 w-72 max-w-[90vw] bg-white rounded-md shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50 ${item.name === 'More' ? 'right-0' : 'left-0'}`}>
+                      <div className="py-2">
+                        {item.submenu.map((subitem) => (
+                          <div key={subitem.name} className="relative group/nested">
+                            {subitem.submenu ? (
+                              <div className="flex items-center justify-between px-4 py-3 text-sm text-gray-800 hover:bg-irrigation-blue/5 hover:text-irrigation-blue transition-colors cursor-pointer">
+                                <span>{subitem.name}</span>
+                                <ChevronRight className="w-4 h-4" />
+                                {/* Nested Dropdown */}
+                                <div className={`absolute top-0 w-72 bg-white rounded-md shadow-xl opacity-0 invisible group-hover/nested:opacity-100 group-hover/nested:visible transition-all duration-300 transform group-hover/nested:translate-y-0 translate-y-2 ${item.name === 'More' ? 'right-full mr-2' : 'left-full ml-2'}`}>
+                                  <div className="py-2">
+                                    {subitem.submenu.map((nestedItem) => (
+                                      <Link 
+                                        key={nestedItem.name}
+                                        href={nestedItem.path}
+                                        className="block px-4 py-3 text-sm text-gray-800 hover:bg-irrigation-blue/5 hover:text-irrigation-blue transition-colors"
+                                      >
+                                        {nestedItem.name}
+                                      </Link>
+                                    ))}
+                                  </div>
                                 </div>
                               </div>
-                            </div>
-                          ) : (
-                            <Link 
-                              href={subitem.path}
-                              className="block px-4 py-3 text-sm text-gray-800 hover:bg-irrigation-blue/5 hover:text-irrigation-blue transition-colors"
-                            >
-                              {subitem.name}
-                            </Link>
-                          )}
-                        </div>
-                      ))}
+                            ) : (
+                              <Link 
+                                href={subitem.path}
+                                className="block px-4 py-3 text-sm text-gray-800 hover:bg-irrigation-blue/5 hover:text-irrigation-blue transition-colors"
+                              >
+                                {subitem.name}
+                              </Link>
+                            )}
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                  </div>
+                  )
                 )}
               </li>
             ))}
@@ -270,7 +321,12 @@ const AppHeader = () => {
                                   className="overflow-hidden"
                                 >
                                   <div className="pl-6 pr-2 py-2 space-y-1">
-                                    {item.submenu.map((subitem) => (
+                                    {(
+                                      (item.name === 'Locations'
+                                        ? (allLocations.map(l => ({ name: l.name, path: `/${l.slug}` })) as NavItem[])
+                                        : (item.submenu ?? [])
+                                      )
+                                    ).map((subitem) => (
                                       <div key={subitem.name}>
                                         {subitem.submenu ? (
                                           <>
