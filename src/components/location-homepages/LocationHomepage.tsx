@@ -7,6 +7,8 @@ import TestimonialsSection from '@/components/TestimonialsSection';
 import LocationLocalInfo from './LocationLocalInfo';
 import WaterRestrictionsLinks from './WaterRestrictionsLinks';
 import { getLocationData } from '@/data/locationData';
+import LocationServicesAndAreas from './LocationServicesAndAreas';
+import LocationSEOArticle from './LocationSEOArticle';
 
 interface LocationHomepageProps {
   locationSlug: string;
@@ -52,6 +54,13 @@ export default function LocationHomepage({ locationSlug }: LocationHomepageProps
         routePrefix={locationSlug}
       />
 
+      {/* Services + Areas Served (compact lists) */}
+      <LocationServicesAndAreas
+        cityName={locationName}
+        routePrefix={locationSlug}
+        serviceAreas={serviceAreas}
+      />
+
       {/* Local Information & Expertise */}
       <LocationLocalInfo
         locationName={locationName}
@@ -72,6 +81,12 @@ export default function LocationHomepage({ locationSlug }: LocationHomepageProps
       <TestimonialsSection
         cityFilter={locationName}
         maxDisplayCount={10}
+      />
+
+      {/* SEO Article (Keller-specific) */}
+      <LocationSEOArticle
+        locationSlug={locationSlug}
+        locationName={locationName}
       />
     </div>
   );
