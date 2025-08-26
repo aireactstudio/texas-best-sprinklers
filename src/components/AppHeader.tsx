@@ -7,7 +7,6 @@ import { Button } from '@/components/ui/button';
 import { Menu, X, Phone, Mail, MapPin, ChevronDown, Droplet, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { trackPhoneCall } from '@/utils/analytics';
-import { LOCATIONS, locationData } from '@/data/locationData';
 
 // Define interfaces for navigation items
 interface NavItem {
@@ -67,30 +66,6 @@ const AppHeader = () => {
     };
   }, [isMobileMenuOpen]);
 
-  // Build Locations submenu dynamically from data set
-  const formatLocationName = (slug: string) =>
-    slug
-      .split('-')
-      .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-      .join(' ');
-
-  const locationsSubmenu: NavItem[] = LOCATIONS.map((slug) => ({
-    name: (locationData as Record<string, any>)[slug]?.name ?? formatLocationName(slug),
-    path: `/${slug}`,
-  }));
-
-  // Helper to split locations into columns for mega menu
-  const chunkArray = <T,>(arr: T[], columns: number): T[][] => {
-    const perCol = Math.ceil(arr.length / columns);
-    const result: T[][] = [];
-    for (let i = 0; i < columns; i++) {
-      result.push(arr.slice(i * perCol, (i + 1) * perCol));
-    }
-    return result;
-  };
-
-  const locationsColumns = chunkArray(locationsSubmenu, 3);
-
   const menuItems: NavItem[] = [
     { name: 'Home', path: '/' },
     { 
@@ -122,12 +97,6 @@ const AppHeader = () => {
         { name: 'Landscape Lighting Repair and Maintenance', path: '/services/landscape-lighting-repair' },
       ]
     },
-    {
-      name: 'Locations',
-      path: '#',
-      submenu: locationsSubmenu,
-    },
-    { name: 'Contact', path: '/contact' },
     // Projects page not production ready - temporarily hidden
     // { name: 'Projects', path: '/projects' },
     { 
@@ -136,6 +105,7 @@ const AppHeader = () => {
       submenu: [
         { name: 'About', path: '/about' },
         { name: 'Blog', path: '/blog' },
+        { name: 'Contact', path: '/contact' },
       ]
     }
   ];
@@ -176,63 +146,42 @@ const AppHeader = () => {
                 
                 {/* Desktop Dropdown */}
                 {item.submenu && (
-                  item.name === 'Locations' ? (
-                    // Mega menu for Locations (compact, no overflow)
-                    <div className="absolute right-0 mt-2 w-[600px] max-w-[95vw] bg-white rounded-md shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform group-hover:translate-y-0 translate-y-2 z-50">
-                      <div className="p-2 grid grid-cols-2 md:grid-cols-3 gap-1">
-                        {locationsColumns.map((col, idx) => (
-                          <div key={idx} className="space-y-0.5">
-                            {col.map((subitem) => (
-                              <Link
-                                key={subitem.name}
-                                href={subitem.path}
-                                className="block px-3 py-1.5 text-[13px] text-gray-800 rounded-md hover:bg-irrigation-blue/5 hover:text-irrigation-blue transition-colors"
-                              >
-                                {subitem.name}
-                              </Link>
-                            ))}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  ) : (
-                    // Default narrow dropdown for other items (align 'More' to right to avoid overflow)
-                    <div className={`absolute ${item.name === 'More' ? 'right-0 w-56' : 'left-0 w-72'} mt-2 bg-white rounded-md shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50`}>
-                      <div className={`${item.name === 'More' ? 'py-1' : 'py-2'}`}>
-                        {item.submenu.map((subitem) => (
-                          <div key={subitem.name} className="relative group/nested">
-                            {subitem.submenu ? (
-                              <div className={`flex items-center justify-between ${item.name === 'More' ? 'px-3 py-2 text-[14px]' : 'px-4 py-3 text-sm'} text-gray-800 hover:bg-irrigation-blue/5 hover:text-irrigation-blue transition-colors cursor-pointer`}>
-                                <span>{subitem.name}</span>
-                                <ChevronRight className="w-4 h-4" />
-                                {/* Nested Dropdown */}
-                                <div className="absolute top-0 left-full ml-2 w-72 bg-white rounded-md shadow-xl opacity-0 invisible group-hover/nested:opacity-100 group-hover/nested:visible transition-all duration-300 transform group-hover/nested:translate-y-0 translate-y-2">
-                                  <div className="py-2">
-                                    {subitem.submenu.map((nestedItem) => (
-                                      <Link 
-                                        key={nestedItem.name}
-                                        href={nestedItem.path}
-                                        className={`block ${item.name === 'More' ? 'px-3 py-2 text-[14px]' : 'px-4 py-3 text-sm'} text-gray-800 hover:bg-irrigation-blue/5 hover:text-irrigation-blue transition-colors`}
-                                      >
-                                        {nestedItem.name}
-                                      </Link>
-                                    ))}
-                                  </div>
+                  <div className="absolute left-0 mt-2 w-72 bg-white rounded-md shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50">
+                    <div className="py-2">
+                      {item.submenu.map((subitem) => (
+                        <div key={subitem.name} className="relative group/nested">
+                          {subitem.submenu ? (
+                            <div className="flex items-center justify-between px-4 py-3 text-sm text-gray-800 hover:bg-irrigation-blue/5 hover:text-irrigation-blue transition-colors cursor-pointer">
+                              <span>{subitem.name}</span>
+                              <ChevronRight className="w-4 h-4" />
+                              
+                              {/* Nested Dropdown */}
+                              <div className="absolute top-0 left-full ml-2 w-72 bg-white rounded-md shadow-xl opacity-0 invisible group-hover/nested:opacity-100 group-hover/nested:visible transition-all duration-300 transform group-hover/nested:translate-y-0 translate-y-2">
+                                <div className="py-2">
+                                  {subitem.submenu.map((nestedItem) => (
+                                    <Link 
+                                      key={nestedItem.name}
+                                      href={nestedItem.path}
+                                      className="block px-4 py-3 text-sm text-gray-800 hover:bg-irrigation-blue/5 hover:text-irrigation-blue transition-colors"
+                                    >
+                                      {nestedItem.name}
+                                    </Link>
+                                  ))}
                                 </div>
                               </div>
-                            ) : (
-                              <Link 
-                                href={subitem.path}
-                                className={`block ${item.name === 'More' ? 'px-3 py-2 text-[14px]' : 'px-4 py-3 text-sm'} text-gray-800 hover:bg-irrigation-blue/5 hover:text-irrigation-blue transition-colors`}
-                              >
-                                {subitem.name}
-                              </Link>
-                            )}
-                          </div>
-                        ))}
-                      </div>
+                            </div>
+                          ) : (
+                            <Link 
+                              href={subitem.path}
+                              className="block px-4 py-3 text-sm text-gray-800 hover:bg-irrigation-blue/5 hover:text-irrigation-blue transition-colors"
+                            >
+                              {subitem.name}
+                            </Link>
+                          )}
+                        </div>
+                      ))}
                     </div>
-                  )
+                  </div>
                 )}
               </li>
             ))}
