@@ -17,6 +17,22 @@ interface LocationHeroSectionProps {
   serviceAreas: string[];
 }
 
+// Determine radius per city: default 3 miles, Keller & Grapevine = 5 miles
+function getRadiusMiles(locationName: string, locationSlug?: string): number {
+  const normalize = (s: string) => s
+    .toLowerCase()
+    .replace(/,?\s*(tx|texas)\b/g, '')
+    .replace(/-/g, ' ')
+    .trim();
+
+  const nameKey = normalize(locationName);
+  const slugKey = locationSlug ? normalize(locationSlug) : '';
+  const key = nameKey || slugKey;
+
+  if (key === 'keller' || key === 'grapevine') return 5;
+  return 3;
+}
+
 // Helper function to get coordinates from location name/slug with robust normalization
 function getLocationCoordinates(locationName: string, locationSlug?: string): { lat: number, lng: number } {
   const locationCoords: Record<string, { lat: number, lng: number }> = {
@@ -26,9 +42,24 @@ function getLocationCoordinates(locationName: string, locationSlug?: string): { 
     'weatherford': { lat: 32.7593, lng: -97.7972 },
     'southlake': { lat: 32.9412, lng: -97.1342 },
     'colleyville': { lat: 32.8837, lng: -97.1481 },
-    'grapevine': { lat: 32.9342, lng: -97.0781 },
+    'grapevine': { lat: 32.9343, lng: -97.0781 },
     'north richland hills': { lat: 32.8343, lng: -97.2289 },
     'flower mound': { lat: 33.0145, lng: -97.0969 },
+    // Added cities
+    'roanoke': { lat: 33.0040, lng: -97.2256 },
+    'saginaw': { lat: 32.8601, lng: -97.3639 },
+    'westlake': { lat: 32.9830, lng: -97.1995 },
+    'watauga': { lat: 32.8715, lng: -97.2548 },
+    'northlake': { lat: 33.0846, lng: -97.2806 },
+    'azle': { lat: 32.8951, lng: -97.5459 },
+    'haltom city': { lat: 32.7996, lng: -97.2692 },
+    'argyle': { lat: 33.1215, lng: -97.1839 },
+    'blue mound': { lat: 32.8579, lng: -97.3403 },
+    'haslet': { lat: 32.9746, lng: -97.3478 },
+    'trophy club': { lat: 32.9979, lng: -97.1839 },
+    'bedford': { lat: 32.8440, lng: -97.1431 },
+    'euless': { lat: 32.8371, lng: -97.0819 },
+    'hurst': { lat: 32.8235, lng: -97.1706 },
   };
 
   const normalize = (s: string) => s
@@ -217,7 +248,7 @@ export default function LocationHeroSection({
                           longitude: getLocationCoordinates(locationName, locationSlug).lng
                         }
                       }}
-                      radiusMiles={3}
+                      radiusMiles={getRadiusMiles(locationName, locationSlug)}
                       height="350px"
                       width="100%"
                     />
