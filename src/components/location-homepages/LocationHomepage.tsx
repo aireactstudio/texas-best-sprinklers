@@ -4,11 +4,15 @@ import React from 'react';
 import LocationHeroSection from './LocationHeroSection';
 import ServicesSection from '@/components/ServicesSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
+import CTA from '@/components/CTA';
 import LocationLocalInfo from './LocationLocalInfo';
 import WaterRestrictionsLinks from './WaterRestrictionsLinks';
+import WaterRestrictions from './WaterRestrictions';
+import { DALLAS_AREA_WATER_RESTRICTIONS } from '@/data/waterRestrictions';
 import { getLocationData } from '@/data/locationData';
 import LocationServicesAndAreas from './LocationServicesAndAreas';
 import LocationSEOArticle from './LocationSEOArticle';
+import Script from 'next/script';
 
 interface LocationHomepageProps {
   locationSlug: string;
@@ -77,10 +81,25 @@ export default function LocationHomepage({ locationSlug }: LocationHomepageProps
         locationSlug={locationSlug}
       />
 
+      {/* Water Restrictions Directory (all DFW cities) */}
+      <WaterRestrictions
+        title={`Local Water Restrictions near ${locationName}`}
+        subtitle="Find official watering schedules, conservation plans, and drought-stage guidance."
+        links={DALLAS_AREA_WATER_RESTRICTIONS}
+      />
+
       {/* Testimonials */}
       <TestimonialsSection
         cityFilter={locationName}
         maxDisplayCount={10}
+      />
+
+      {/* Inserted block: Above the article and below the reviews */}
+      <CTA
+        title={`Ready for reliable sprinkler service in ${locationName}?`}
+        subtitle={`Fast, professional help for homes and businesses in ${locationName}. Get a free estimate today.`}
+        buttonText="Get Free Estimate"
+        buttonLink="/contact"
       />
 
       {/* SEO Article (Keller-specific) */}
@@ -88,6 +107,30 @@ export default function LocationHomepage({ locationSlug }: LocationHomepageProps
         locationSlug={locationSlug}
         locationName={locationName}
       />
+
+      {/* SEO: WebPage wrapper referencing the ItemLists emitted on this page */}
+      <Script id={`jsonld-webpage-${locationSlug}`} type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: `Sprinkler Services and Water Restrictions in ${locationName}`,
+          url: `https://sprinkleranddrains.com/${locationSlug}`,
+          about: {
+            "@type": "Place",
+            name: locationName,
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: locationName,
+              addressRegion: "TX",
+              addressCountry: "US"
+            }
+          },
+          mainEntity: [
+            { "@id": `#city-regulations-${locationSlug}` },
+            { "@id": "#dfw-water-restrictions" }
+          ]
+        })}
+      </Script>
     </div>
   );
 }

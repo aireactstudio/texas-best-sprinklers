@@ -1,5 +1,7 @@
 'use client';
 
+import { SITE_CONFIG } from '@/config/site';
+
 /**
  * SchemaOrgData component
  * This adds JSON-LD schema.org markup to improve search engine understanding of the business
@@ -9,8 +11,9 @@ const SchemaOrgData = () => {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     '@id': 'https://sprinkleranddrains.com',
-    'name': 'Texas Best Sprinkler, Drainage and Lighting LLC',
-    'alternateName': 'Texas Best Sprinklers',
+    'name': SITE_CONFIG.shortName,
+    'legalName': SITE_CONFIG.legalName,
+    'alternateName': SITE_CONFIG.shortName,
     'url': 'https://sprinkleranddrains.com',
     'logo': 'https://sprinkleranddrains.com/logo.png',
     'image': 'https://imagedelivery.net/Hs1aBZ5UERW4OpkuLtKJ6A/b96197d9-8f69-4145-7b7b-0b5a7ba70900/public',

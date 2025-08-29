@@ -14,6 +14,12 @@ interface ServicePageLayoutProps {
   image: string;
   features: string[];
   serviceType: string;
+  // Optional: override what renders in the right column and/or hide the default features card
+  rightColumnContent?: React.ReactNode;
+  showFeatures?: boolean;
+  // Optional: renders directly above the article content in the right column
+  // Useful for globally inserting elements "above the article and below reviews"
+  aboveArticleSlot?: React.ReactNode;
 }
 
 export default function ServicePageLayout({
@@ -23,7 +29,10 @@ export default function ServicePageLayout({
   icon,
   image,
   features,
-  serviceType
+  serviceType,
+  rightColumnContent,
+  showFeatures = true,
+  aboveArticleSlot
 }: ServicePageLayoutProps) {
   const { toast } = useToast();
   // Form state
@@ -358,23 +367,30 @@ export default function ServicePageLayout({
             
             {/* Right Main Content */}
             <div className="lg:col-span-2 order-1 lg:order-2">
-              {/* Features List */}
-              <div className="bg-white rounded-lg shadow-md p-8 mb-8">
-                <h2 className="text-2xl md:text-3xl font-bold mb-6 text-irrigation-blue">
-                  Our {title} Services
-                </h2>
-                <ul className="space-y-3">
-                  {features.map((feature, index) => (
-                    <li key={index} className="flex items-start">
-                      <Check className="h-6 w-6 text-irrigation-green mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-800">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              
-              {/* Main content - just the first child */}
-              {mainContent}
+              {/* Features List (optional) */}
+              {showFeatures && (
+                <div className="bg-white rounded-lg shadow-md p-8 mb-8">
+                  <h2 className="text-2xl md:text-3xl font-bold mb-6 text-irrigation-blue">
+                    Our {title} Services
+                  </h2>
+                  <ul className="space-y-3">
+                    {features.map((feature, index) => (
+                      <li key={index} className="flex items-start">
+                        <Check className="h-6 w-6 text-irrigation-green mr-3 mt-0.5 flex-shrink-0" />
+                        <span className="text-gray-800">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Global insertion point: renders just above the article content */}
+              {aboveArticleSlot ? (
+                <div className="mb-8">{aboveArticleSlot}</div>
+              ) : null}
+
+              {/* Main content - just the first child, or an override if provided */}
+              {rightColumnContent ?? mainContent}
             </div>
           </div>
         </div>

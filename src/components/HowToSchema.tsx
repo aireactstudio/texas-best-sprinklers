@@ -39,7 +39,7 @@ const HowToSchema: React.FC<HowToSchemaProps> = ({ steps }) => {
     ],
     "step": steps.map((step, index) => ({
       "@type": "HowToStep",
-      "url": `https://sprinklersanddrains.com/#step-${index + 1}`,
+      "url": `https://sprinkleranddrains.com/#step-${index + 1}`,
       "name": step.title,
       "itemListElement": {
         "@type": "HowToDirection",

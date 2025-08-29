@@ -38,9 +38,9 @@ const LocationStructuredData: React.FC<LocationDataProps> = ({
     "@graph": [
       {
         "@type": "LocalBusiness",
-        "@id": "https://sprinklersanddrains.com/#business",
+        "@id": "https://sprinkleranddrains.com/#business",
         "name": "Texas Best Sprinklers",
-        "url": "https://sprinklersanddrains.com/",
+        "url": "https://sprinkleranddrains.com/",
         "telephone": "(817) 304-7896",
         "address": {
           "@type": "PostalAddress",
@@ -64,7 +64,7 @@ const LocationStructuredData: React.FC<LocationDataProps> = ({
           }
         ],
         "priceRange": "$$",
-        "image": "https://sprinklersanddrains.com/images/logo.png",
+        "image": "https://sprinkleranddrains.com/images/logo.png",
         "sameAs": [
           "https://www.facebook.com/TexasBest1/",
           "https://www.instagram.com/texasbestoutdoorlighting/",
@@ -77,7 +77,7 @@ const LocationStructuredData: React.FC<LocationDataProps> = ({
         "name": `${serviceName} in ${city}`,
         "serviceType": serviceType,
         "provider": {
-          "@id": "https://sprinklersanddrains.com/#business"
+          "@id": "https://sprinkleranddrains.com/#business"
         },
         "areaServed": {
           "@type": "City",
@@ -137,25 +137,25 @@ const LocationStructuredData: React.FC<LocationDataProps> = ({
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://sprinklersanddrains.com/"
+            "item": "https://sprinkleranddrains.com/"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Services",
-            "item": "https://sprinklersanddrains.com/services"
+            "item": "https://sprinkleranddrains.com/services"
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": serviceName,
-            "item": `https://sprinklersanddrains.com/services/${serviceSlug}`
+            "item": `https://sprinkleranddrains.com/services/${serviceSlug}`
           },
           {
             "@type": "ListItem",
             "position": 4,
             "name": `${serviceName} in ${city}`,
-            "item": `https://sprinklersanddrains.com/services/${serviceSlug}/${locationSlug}`
+            "item": `https://sprinkleranddrains.com/services/${serviceSlug}/${locationSlug}`
           }
         ]
       }

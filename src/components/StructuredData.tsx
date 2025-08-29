@@ -67,7 +67,7 @@ export default function StructuredData({ businessInfo, reviews }: StructuredData
     "@type": "LocalBusiness",
     "name": businessInfo.name,
     "description": "Texas Best Sprinklers provides professional irrigation, drainage, and lighting services for residential and commercial properties in the Dallas-Fort Worth area.",
-    "url": "https://sprinklersanddrains.com",
+    "url": "https://sprinkleranddrains.com",
     "telephone": "+1-817-304-7896",
     "address": {
       "@type": "PostalAddress",
@@ -97,7 +97,7 @@ export default function StructuredData({ businessInfo, reviews }: StructuredData
       "https://www.thumbtack.com/tx/fort-worth/sprinkler-systems-repair/texas-best-sprinklers-drainage-lighting-llc/service/260748333748118695"
     ],
     "priceRange": "$$",
-    "image": "https://sprinklersanddrains.com/images/logo.png",
+    "image": "https://sprinkleranddrains.com/images/logo.png",
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": averageRating,
@@ -127,13 +127,13 @@ export default function StructuredData({ businessInfo, reviews }: StructuredData
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Texas Best Sprinklers",
-    "url": "https://sprinklersanddrains.com",
+    "url": "https://sprinkleranddrains.com",
     "potentialAction": [
       {
         "@type": "SearchAction",
         "target": {
           "@type": "EntryPoint",
-          "urlTemplate": "https://sprinklersanddrains.com/search?q={search_term_string}"
+          "urlTemplate": "https://sprinkleranddrains.com/search?q={search_term_string}"
         },
         "query-input": "required name=search_term_string"
       },
@@ -144,7 +144,7 @@ export default function StructuredData({ businessInfo, reviews }: StructuredData
         "name": "Request a Quote",
         "target": {
           "@type": "EntryPoint",
-          "urlTemplate": "https://sprinklersanddrains.com/contact",
+          "urlTemplate": "https://sprinkleranddrains.com/contact",
           "inLanguage": "en-US"
         }
       }
@@ -160,19 +160,19 @@ export default function StructuredData({ businessInfo, reviews }: StructuredData
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://sprinklersanddrains.com"
+        "item": "https://sprinkleranddrains.com"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Services",
-        "item": "https://sprinklersanddrains.com/services"
+        "item": "https://sprinkleranddrains.com/services"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "Contact",
-        "item": "https://sprinklersanddrains.com/contact"
+        "item": "https://sprinkleranddrains.com/contact"
       }
     ]
   };
@@ -182,8 +182,8 @@ export default function StructuredData({ businessInfo, reviews }: StructuredData
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": businessInfo.name,
-    "url": "https://sprinklersanddrains.com",
-    "logo": "https://sprinklersanddrains.com/images/logo.png",
+    "url": "https://sprinkleranddrains.com",
+    "logo": "https://sprinkleranddrains.com/images/logo.png",
     "sameAs": [
       "https://www.facebook.com/TexasBest1/",
       "https://www.instagram.com/texasbestoutdoorlighting/",
@@ -232,15 +232,15 @@ export default function StructuredData({ businessInfo, reviews }: StructuredData
             "name": "Texas Best Sprinklers",
             "logo": {
               "@type": "ImageObject",
-              "url": "https://sprinklersanddrains.com/images/logo.png"
+              "url": "https://sprinkleranddrains.com/images/logo.png"
             }
           },
           "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": `https://sprinklersanddrains.com/blog/${post.slug}`
+            "@id": `https://sprinkleranddrains.com/blog/${post.slug}`
           },
           "keywords": post.tags.join(", "),
-          "url": `https://sprinklersanddrains.com/blog/${post.slug}`
+          "url": `https://sprinkleranddrains.com/blog/${post.slug}`
         }
       }))
     }

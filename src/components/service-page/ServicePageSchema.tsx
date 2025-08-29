@@ -37,25 +37,25 @@ export default function ServicePageSchema({
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://sprinklersanddrains.com"
+        "item": "https://sprinkleranddrains.com"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Services",
-        "item": "https://sprinklersanddrains.com/services"
+        "item": "https://sprinkleranddrains.com/services"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": serviceName,
-        "item": `https://sprinklersanddrains.com/services/${serviceSlug}`
+        "item": `https://sprinkleranddrains.com/services/${serviceSlug}`
       },
       {
         "@type": "ListItem",
         "position": 4,
         "name": `${serviceName} in ${city}`,
-        "item": `https://sprinklersanddrains.com/services/${serviceSlug}/${locationSlug}`
+        "item": `https://sprinkleranddrains.com/services/${serviceSlug}/${locationSlug}`
       }
     ]
   };
@@ -88,8 +88,8 @@ export default function ServicePageSchema({
       "price": price,
       "priceCurrency": "USD"
     } : undefined,
-    "image": imageUrl || "https://sprinklersanddrains.com/images/logo.png",
-    "url": `https://sprinklersanddrains.com/services/${serviceSlug}/${locationSlug}`
+    "image": imageUrl || "https://sprinkleranddrains.com/images/logo.png",
+    "url": `https://sprinkleranddrains.com/services/${serviceSlug}/${locationSlug}`
   };
 
   return (

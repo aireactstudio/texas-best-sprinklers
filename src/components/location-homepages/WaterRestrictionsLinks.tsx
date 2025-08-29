@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { ExternalLink, Info, Droplets, FileText, Shield, AlertTriangle, Hammer, BookOpen } from 'lucide-react';
+import Script from 'next/script';
 
 interface WaterRestrictionsLinksProps {
   locationName: string;
@@ -282,75 +283,81 @@ export default function WaterRestrictionsLinks({ locationName, locationSlug }: W
   const { waterRestrictions, additionalLinks } = locationRegulations;
   
   return (
-    <section className="bg-blue-50 py-12 px-4">
+    <section className="bg-blue-50/50 py-6 px-3">
       <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">
-          <Droplets className="inline-block mr-2 mb-1 text-blue-600" />
-          Water & Irrigation Regulations in {locationName}
-        </h2>
-        
-        {/* Water Restrictions Card */}
-        <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
-          <div className="flex items-start">
-            <div className="bg-blue-100 p-3 rounded-full mr-4 flex-shrink-0">
-              <Info className="text-blue-700 w-6 h-6" />
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold mb-3">{locationName} Water Conservation Guidelines</h3>
-              <p className="mb-4 text-gray-700">
-                {locationName} has specific water conservation guidelines and restrictions that all residents and businesses must follow. 
-                These include designated watering days, time restrictions, and conservation measures to help preserve our water resources.
-              </p>
-              <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mb-4">
-                <p className="italic text-gray-700">"Water is a precious resource in Texas. Following local water restrictions helps ensure sufficient water supply for everyone in our community."</p>
-              </div>
-              <div className="mt-4">
+        {/* Compact header row with CTA */}
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mb-4">
+          <h2 className="text-2xl font-bold text-gray-800">
+            <Droplets className="inline-block mr-2 mb-1 text-blue-600 w-5 h-5" />
+            Water & Irrigation Regulations in {locationName}
+          </h2>
+          <a 
+            href={waterRestrictions} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-2.5 rounded-md transition-colors text-sm"
+          >
+            View {locationName} Water Restrictions <ExternalLink className="w-4 h-4 ml-2" />
+          </a>
+        </div>
+
+        {/* Dense list of additional links (icon + title) */}
+        <div>
+          <h3 className="text-base font-semibold mb-2 text-gray-800">Local Regulations & Guidelines</h3>
+          <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 mb-4">
+            {additionalLinks.map((link, index) => (
+              <li key={index} className="">
                 <a 
-                  href={waterRestrictions} 
-                  target="_blank" 
+                  href={link.url}
+                  target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-lg transition-colors"
+                  className="flex items-center gap-2 rounded-md px-3 py-2 bg-white border border-gray-200 hover:border-blue-300 hover:bg-blue-50/40 transition"
+                  title={link.description}
                 >
-                  View {locationName} Water Restrictions <ExternalLink className="w-4 h-4 ml-2" />
+                  <span className="shrink-0 bg-blue-50 p-1.5 rounded-full">{link.icon}</span>
+                  <span className="text-sm font-medium text-gray-800 flex-1">{link.title}</span>
+                  <ExternalLink className="w-3.5 h-3.5 text-blue-700" />
                 </a>
-              </div>
-            </div>
-          </div>
+              </li>
+            ))}
+          </ul>
         </div>
-        
-        {/* Additional Regulatory Links */}
-        <h3 className="text-2xl font-semibold mb-6 text-center">Local Regulations & Guidelines</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
-          {additionalLinks.map((link, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow p-5">
-              <div className="flex items-center mb-3">
-                <div className="bg-blue-50 p-2 rounded-full mr-3">
-                  {link.icon}
-                </div>
-                <h4 className="text-lg font-medium">{link.title}</h4>
-              </div>
-              <p className="text-gray-600 mb-4 text-sm">
-                {link.description}
-              </p>
-              <a 
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-600 hover:text-blue-800 flex items-center text-sm font-medium"
-              >
-                View Official Guidelines <ExternalLink className="w-3 h-3 ml-1" />
-              </a>
-            </div>
-          ))}
-        </div>
-        
-        <div className="text-center text-gray-600 max-w-3xl mx-auto">
-          <p>
-            Understanding local regulations is essential for compliant sprinkler and drainage installations.
-            For expert guidance navigating these requirements, contact <Link href="/contact" className="text-blue-600 hover:text-blue-800">Texas Best Sprinklers</Link>.
-          </p>
-        </div>
+
+        <p className="text-center text-gray-600 text-sm">
+          Need help navigating permits and compliance? Contact <Link href="/contact" className="text-blue-600 hover:text-blue-800">Texas Best Sprinklers</Link>.
+        </p>
       </div>
+      {/* SEO: JSON-LD for city-specific regulatory resources */}
+      <Script id={`jsonld-city-regulations-${locationSlug}`} type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "@id": `#city-regulations-${locationSlug}`,
+          name: `Water and Irrigation Regulations in ${locationName}`,
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              item: {
+                "@type": "WebPage",
+                name: `${locationName} Water Restrictions`,
+                url: waterRestrictions,
+                description: `Official water conservation and watering schedule information for ${locationName}.`
+              }
+            },
+            ...additionalLinks.map((l, i) => ({
+              "@type": "ListItem",
+              position: i + 2,
+              item: {
+                "@type": "WebPage",
+                name: l.title,
+                url: l.url,
+                description: l.description,
+              }
+            }))
+          ],
+        })}
+      </Script>
     </section>
   );
 }

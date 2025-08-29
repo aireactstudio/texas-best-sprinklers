@@ -54,10 +54,13 @@ const montserrat = Montserrat({
 export function generateMetadata(): Metadata {
   return {
     title: {
-      template: '%s | Texas Best Sprinkler, Drainage and Lighting LLC',
-      default: 'Texas Best Sprinkler, Drainage and Lighting LLC | Fort Worth & Weatherford Irrigation Experts',
+      template: `%s | ${SITE_CONFIG.shortName}`,
+      // SERP title (<= ~60 chars), no brand for brevity
+      default: 'Fort Worth Sprinkler & Drainage Experts',
     },
-    description: 'Professional sprinkler, drainage, and lighting services in Fort Worth and Weatherford, TX. Expert installation, repair, and maintenance for residential and commercial properties.',
+    metadataBase: new URL('https://sprinkleranddrains.com'),
+    // Meta description (~150-160 chars)
+    description: 'Fort Worth sprinkler & drainage experts. Repairs, installs, lighting, maintenance. Fast scheduling in surrounding areas. Call 817-304-7896 for a free estimate.',
     keywords: 'sprinklers, irrigation, drainage, outdoor lighting, lawn care, Fort Worth, Weatherford, Texas, lawn sprinklers, sprinkler repair, sprinkler installation',
     icons: {
       icon: '/favicon.ico',
@@ -65,23 +68,25 @@ export function generateMetadata(): Metadata {
     // Open Graph / Facebook
     openGraph: {
       type: 'website',
-      siteName: SITE_CONFIG.fullName,
-      title: `${SITE_CONFIG.fullName} | Fort Worth & Weatherford Irrigation Experts`,
-      description: 'Professional sprinkler, drainage, and lighting services in Fort Worth and Weatherford, TX. Expert installation, repair, and maintenance for residential and commercial properties.',
+      siteName: SITE_CONFIG.shortName,
+      // Social title with brand + CTA
+      title: 'Fort Worth Sprinkler & Drainage — Free Estimates | Texas Best Sprinklers',
+      description: 'Fort Worth sprinkler & drainage experts. Repairs, installs, lighting, maintenance. Fast scheduling in surrounding areas. Call 817-304-7896 for a free estimate.',
       images: [
         {
           url: 'https://imagedelivery.net/Hs1aBZ5UERW4OpkuLtKJ6A/b96197d9-8f69-4145-7b7b-0b5a7ba70900/public',
           width: 1200,
           height: 630,
-          alt: SITE_CONFIG.fullName,
+          alt: SITE_CONFIG.shortName,
         },
       ],
     },
     // Twitter
     twitter: {
       card: 'summary_large_image',
-      title: 'Texas Best Sprinkler, Drainage and Lighting LLC',
-      description: 'Professional sprinkler, drainage, and lighting services in Fort Worth and Weatherford, TX.',
+      // Match Open Graph
+      title: 'Fort Worth Sprinkler & Drainage — Free Estimates | Texas Best Sprinklers',
+      description: 'Fort Worth sprinkler & drainage experts. Repairs, installs, lighting, maintenance. Fast scheduling in surrounding areas. Call 817-304-7896 for a free estimate.',
       images: ['https://imagedelivery.net/Hs1aBZ5UERW4OpkuLtKJ6A/b96197d9-8f69-4145-7b7b-0b5a7ba70900/public'],
     },
   };

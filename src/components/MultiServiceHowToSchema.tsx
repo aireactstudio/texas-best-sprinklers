@@ -153,7 +153,7 @@ const MultiServiceHowToSchema: React.FC<MultiServiceHowToSchemaProps> = ({ activ
       ],
       "step": steps.map((step, index) => ({
         "@type": "HowToStep",
-        "url": `https://sprinklersanddrains.com/how-to-get-started#step-${service}-${index + 1}`,
+        "url": `https://sprinkleranddrains.com/how-to-get-started#step-${service}-${index + 1}`,
         "name": step.title,
         "itemListElement": {
           "@type": "HowToDirection",

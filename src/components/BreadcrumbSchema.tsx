@@ -32,7 +32,7 @@ export default function BreadcrumbSchema({ customPath }: BreadcrumbSchemaProps) 
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://sprinklersanddrains.com"
+      "item": "https://sprinkleranddrains.com"
     }
   ];
   
@@ -46,7 +46,7 @@ export default function BreadcrumbSchema({ customPath }: BreadcrumbSchemaProps) 
       "@type": "ListItem",
       "position": index + 2, // +2 because Home is position 1
       "name": segment,
-      "item": `https://sprinklersanddrains.com${currentPath}`
+      "item": `https://sprinkleranddrains.com${currentPath}`
     });
   });
   
