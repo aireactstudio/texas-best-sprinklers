@@ -17,9 +17,8 @@ interface LocationHeroSectionProps {
   serviceAreas: string[];
 }
 
-// Helper function to get coordinates from location name
-function getLocationCoordinates(locationName: string): { lat: number, lng: number } {
-  // Default to Fort Worth if the location is not found
+// Helper function to get coordinates from location name/slug with robust normalization
+function getLocationCoordinates(locationName: string, locationSlug?: string): { lat: number, lng: number } {
   const locationCoords: Record<string, { lat: number, lng: number }> = {
     'fort worth': { lat: 32.7555, lng: -97.3308 },
     'arlington': { lat: 32.7357, lng: -97.1081 },
@@ -31,9 +30,21 @@ function getLocationCoordinates(locationName: string): { lat: number, lng: numbe
     'north richland hills': { lat: 32.8343, lng: -97.2289 },
     'flower mound': { lat: 33.0145, lng: -97.0969 },
   };
-  
-  const normalizedLocation = locationName.toLowerCase();
-  return locationCoords[normalizedLocation] || { lat: 32.7555, lng: -97.3308 }; // Default to Fort Worth
+
+  const normalize = (s: string) => s
+    .toLowerCase()
+    .replace(/,?\s*(tx|texas)\b/g, '')
+    .replace(/-/g, ' ')
+    .trim();
+
+  const nameKey = normalize(locationName);
+  const slugKey = locationSlug ? normalize(locationSlug) : '';
+
+  if (locationCoords[nameKey]) return locationCoords[nameKey];
+  if (slugKey && locationCoords[slugKey]) return locationCoords[slugKey];
+
+  // Default to Fort Worth if the location is not found
+  return { lat: 32.7555, lng: -97.3308 };
 }
 
 export default function LocationHeroSection({
@@ -202,11 +213,11 @@ export default function LocationHeroSection({
                         distanceFromOffice: distanceFromOffice,
                         landmarks: landmarks,
                         coordinates: {
-                          latitude: getLocationCoordinates(locationName).lat,
-                          longitude: getLocationCoordinates(locationName).lng
+                          latitude: getLocationCoordinates(locationName, locationSlug).lat,
+                          longitude: getLocationCoordinates(locationName, locationSlug).lng
                         }
                       }}
-                      radiusMiles={8}
+                      radiusMiles={3}
                       height="350px"
                       width="100%"
                     />
