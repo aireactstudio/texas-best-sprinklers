@@ -141,10 +141,10 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       
       <div className="mt-auto flex flex-col sm:flex-row gap-2">
         <Link 
-          href={fullLink} 
+          href="/contact" 
           className="text-white bg-irrigation-darkGreen hover:bg-irrigation-darkBlue transition-colors duration-300 inline-flex items-center justify-center py-2 px-4 rounded-md font-medium text-sm"
-          aria-label={`Learn more about ${title}`}>
-          <span>View Details</span>
+          aria-label={`Contact us about ${title}`}>
+          <span>Contact Us</span>
           <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
           </svg>
@@ -204,11 +204,11 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         
         {/* View Page link - navigates to service page */}
         <Link 
-          href={fullLink || `/services${link}`}
+          href="/contact"
           className="bg-irrigation-green text-white font-semibold hover:bg-irrigation-darkGreen transition-colors duration-300 inline-flex items-center text-sm flex-1 justify-center py-1 px-2 rounded"
           onClick={(e) => e.stopPropagation()}
         >
-          <span>View Page</span>
+          <span>Contact Us</span>
           <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
           </svg>
@@ -549,11 +549,11 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName, routePrefix
                         
                         {/* View Page link */}
                         <Link 
-                          href={serviceWithFormattedTitle.resolvedLink || (locationPrefix ? `/${locationPrefix}${serviceWithFormattedTitle.link}` : `/services${serviceWithFormattedTitle.link}`)}
+                          href="/contact"
                           className="bg-irrigation-green text-white font-semibold hover:bg-irrigation-darkGreen transition-colors duration-300 inline-flex items-center text-sm flex-1 justify-center py-1 px-2 rounded"
                           onClick={(e) => e.stopPropagation()}
                         >
-                          <span>View Page</span>
+                          <span>Contact Us</span>
                           <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                           </svg>
@@ -596,10 +596,10 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName, routePrefix
                       
                       <div className="mt-4 flex flex-col gap-2">
                         <Link 
-                          href={serviceWithFormattedTitle.resolvedLink || (locationPrefix ? `/${locationPrefix}${service.link}` : `/services${service.link}`)} 
+                          href="/contact" 
                           className="text-white bg-irrigation-darkGreen hover:bg-irrigation-darkBlue transition-colors duration-300 inline-flex items-center justify-center py-2 px-4 rounded-md font-medium text-sm"
-                          aria-label={`Learn more about ${service.title}`}>
-                          <span>View Details</span>
+                          aria-label={`Contact us about ${service.title}`}>
+                          <span>Contact Us</span>
                           <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                           </svg>
@@ -620,8 +620,8 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName, routePrefix
         </div>
         
         <div className="text-center mt-12">
-          <Link href="/services" className="btn-secondary">
-            View All Services
+          <Link href="/contact" className="btn-secondary">
+            Contact Us
           </Link>
         </div>
       </div>

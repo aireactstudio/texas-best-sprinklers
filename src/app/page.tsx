@@ -14,6 +14,7 @@ import HowToGetStartedSection from '@/components/HowToGetStartedSection';
 import MultiServiceHowToSchema from '@/components/MultiServiceHowToSchema';
 import ServiceAreaLocator from '@/components/ServiceAreaLocator';
 import { curatedReviews } from '@/data/curated-reviews';
+import EndOfSummerSpecials from '@/components/EndOfSummerSpecials';
 
 export default function Home() {
   const [reviews, setReviews] = useState([]);
@@ -84,6 +85,10 @@ export default function Home() {
         distanceFromOffice={0}
         serviceAreas={[]}
       />
+      {/* End of Summer Specials - prominent and above the fold */}
+      <div className="px-4 sm:px-6 lg:px-8 mt-8">
+        <EndOfSummerSpecials />
+      </div>
       <ServicesSection />
       <FeaturesSection />
       <StatsSection />

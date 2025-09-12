@@ -81,6 +81,38 @@ const ContactForm: React.FC = () => {
         throw new Error(data.message || 'Something went wrong');
       }
       
+      // Also forward to external intake endpoint (non-blocking)
+      try {
+        const externalPayload = new URLSearchParams();
+        externalPayload.set('name', submissionData.name);
+        externalPayload.set('email', submissionData.email);
+        // Using service as subject; keep fields the same as requested
+        const subject = submissionData.service ? `Website Lead - ${submissionData.service}` : 'Website Lead';
+        externalPayload.set('subject', subject);
+        // Include phone and service inline for systems that only read message
+        const composedMessage = [
+          submissionData.message,
+          submissionData.phone ? `\nPhone: ${submissionData.phone}` : '',
+          submissionData.service ? `\nService: ${submissionData.service}` : ''
+        ].join('');
+        externalPayload.set('message', composedMessage);
+
+        // Fire-and-forget; do not block UX
+        fetch('https://tools.sprinkleranddrains.com/intake', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+          },
+          body: externalPayload.toString(),
+          // No-cors keeps this from failing the UI due to CORS; server will still receive it
+          mode: 'no-cors',
+        }).catch(err => {
+          console.warn('External intake forwarding failed (non-blocking):', err);
+        });
+      } catch (externalErr) {
+        console.warn('External intake forwarding encountered an error (non-blocking):', externalErr);
+      }
+      
       // Track successful form submission immediately
       console.log('Form submitted successfully, tracking GA event');
       trackFormSubmission(
