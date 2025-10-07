@@ -190,7 +190,7 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ cityFilter, m
   );
 
   return (
-    <section className="bg-white py-8">
+    <section className="py-12 md:py-16 bg-emerald-50">
       <div className="container mx-auto px-4">
         {/* Header with business stats */}
         <div className="text-center mb-6">

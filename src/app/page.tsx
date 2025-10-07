@@ -90,11 +90,12 @@ export default function Home() {
         <EndOfSummerSpecials />
       </div>
       <ServicesSection />
+      {/* Move reviews up: 1–2 sections below hero */}
+      <TestimonialsSection />
       <FeaturesSection />
       <StatsSection />
       <HowItWorksSection />
       <HowToGetStartedSection />
-      <TestimonialsSection />
       <BlogPreview />
       <ServiceAreaLocator 
         title="Our Service Areas"
