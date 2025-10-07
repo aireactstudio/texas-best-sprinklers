@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Droplet } from 'lucide-react';
 import { trackPhoneCall } from '@/utils/analytics';
+import { SITE_CONFIG } from '@/config/site';
 
 const Footer = () => {
   const handlePhoneClick = () => {
@@ -102,13 +103,12 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-
         {/* Bottom Bar */}
         <div className="border-t border-gray-700 pt-6 pb-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-irrigation-a11y-light text-sm mb-4 md:mb-0">
               <p>© {new Date().getFullYear()} Texas Best Sprinkler, Drainage and Lighting LLC. All rights reserved.</p>
-              <p className="mt-1">Contractor License: <span className="font-medium">LI22462</span></p>
+              <p className="mt-1">Contractor License: <span className="font-medium">LI{SITE_CONFIG.licenseNumber.replace(/^LI/i, '')}</span></p>
             </div>
             <div className="flex space-x-5">
               <a href="#" className="text-irrigation-a11y-light hover:text-irrigation-a11y-light-green text-sm transition-colors duration-300">Privacy Policy</a>

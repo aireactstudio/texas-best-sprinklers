@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import HeroSection from '@/components/HeroSection';
 import CTA from '@/components/CTA';
+import Breadcrumbs from '@/components/Breadcrumbs';
 import { Droplet, CloudRain, Settings, TreeDeciduous, CloudSun } from 'lucide-react';
 
 interface ServiceCardProps {
@@ -45,6 +46,9 @@ export default function Services() {
         title="Professional Irrigation Services" 
         subtitle="Expert sprinkler system solutions for Fort Worth and Weatherford properties"
       />
+      
+      {/* Breadcrumbs (always below hero) */}
+      <Breadcrumbs />
       
       {/* Services Overview */}
       <section className="py-16 md:py-24">

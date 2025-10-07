@@ -156,11 +156,11 @@ const AppHeader = () => {
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center space-x-8">
           <ul className="flex space-x-8 lg:space-x-10">
-            {menuItems.map((item) => (
+            {menuItems.filter(mi => mi.name !== 'Home').map((item) => (
               <li key={item.name} className="relative group">
                 <Link 
                   href={item.path} 
-                  className={`relative font-medium text-base lg:text-lg hover:text-irrigation-green transition-colors group-hover:text-irrigation-green ${
+                  className={`relative inline-flex items-center text-lg lg:text-xl px-2 py-1 font-medium after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-1 after:h-[2px] after:w-full after:scale-x-0 after:origin-center after:bg-current after:rounded-full after:transition-transform after:duration-300 hover:after:scale-x-100 hover:text-irrigation-green transition-colors group-hover:text-irrigation-green ${
                     (pathname === item.path ||
                     (item.path !== '/' && pathname?.startsWith(item.path)))
                       ? (isScrolled ? 'text-irrigation-green' : 'text-irrigation-green') 

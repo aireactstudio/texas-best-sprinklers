@@ -4,6 +4,7 @@ import Link from 'next/link';
 import HeroSection from '@/components/HeroSection';
 import CTA from '@/components/CTA';
 import { Calendar, User } from 'lucide-react';
+import Breadcrumbs from '@/components/Breadcrumbs';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { blogPosts } from '@/data/blogPosts';
@@ -16,6 +17,9 @@ export default function Blog() {
         title="Irrigation Insights Blog" 
         subtitle="Expert tips and advice for maintaining beautiful, water-efficient landscapes"
       />
+      
+      {/* Breadcrumbs (always below hero) */}
+      <Breadcrumbs />
       
       {/* Blog Post Grid */}
       <section className="py-16 md:py-24">

@@ -7,6 +7,7 @@ import { Phone, MapPin, Clock, Star, CheckCircle } from 'lucide-react';
 import { trackPhoneCall } from '@/utils/analytics';
 import LocationMap from '@/components/LocationMap';
 import ErrorBoundary from '@/components/ErrorBoundary';
+import LicenseBadge from '@/components/LicenseBadge';
 
 interface LocationHeroSectionProps {
   locationName: string;
@@ -94,7 +95,7 @@ export default function LocationHeroSection({
 
   return (
     <section
-      className="relative overflow-hidden min-h-[80vh] w-full"
+      className="relative overflow-hidden min-h-[72vh] w-full"
       style={{
         paddingTop: 'env(safe-area-inset-top)',
         marginTop: 'calc(env(safe-area-inset-top) * -1)'
@@ -137,10 +138,10 @@ export default function LocationHeroSection({
         
       </div>
 
-      <div className="container mx-auto px-4 py-20 lg:py-32 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center" style={{ minHeight: '480px' }}>
+      <div className="container mx-auto px-4 pt-20 pb-4 lg:pt-28 lg:pb-8 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-8 items-center" style={{ minHeight: '420px' }}>
           {/* Content Side */}
-          <div className="space-y-8">
+          <div className="space-y-4">
             {/* Location Badge */}
             <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-md rounded-full px-4 py-2 text-sm font-medium text-green-700 border border-green-200 shadow-lg">
               <MapPin className="w-4 h-4" />
@@ -163,10 +164,13 @@ export default function LocationHeroSection({
               >
                 Texas Best Sprinklers provides trusted irrigation solutions for {locationName} residents and businesses. As your local irrigation experts, we deliver top-quality sprinkler services throughout the {locationName} area.
               </p>
+              <div>
+                <LicenseBadge variant="light" />
+              </div>
             </div>
 
             {/* Key Features */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4" style={{ width: '100%', height: 'auto', aspectRatio: '3/1', minHeight: '120px' }}>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-2" style={{ width: '100%', height: 'auto', aspectRatio: '3/1', minHeight: '100px' }}>
               <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-lg p-4 border border-white/10 h-[60px]">
                 <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0" />
                 <span className="text-white font-medium">Licensed & Insured</span>
@@ -182,7 +186,7 @@ export default function LocationHeroSection({
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 mt-2">
               <Button
                 size="lg"
                 className="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-2xl hover:shadow-green-500/25 transition-all duration-200 transform hover:scale-105"
@@ -204,9 +208,10 @@ export default function LocationHeroSection({
                 </a>
               </Button>
             </div>
+            
 
             {/* Trust Indicators */}
-            <div className="flex items-center gap-6 pt-4">
+            <div className="flex items-center gap-6 pt-2">
               <div className="flex items-center gap-2">
                 <div className="flex">
                   {[1, 2, 3, 4, 5].map((star) => (
@@ -234,7 +239,7 @@ export default function LocationHeroSection({
               </div>
 
               {/* Google Map */}
-              <div className="relative h-[350px] w-full rounded-xl overflow-hidden">
+              <div className="relative h-[320px] w-full rounded-xl overflow-hidden">
                 {typeof window !== 'undefined' && (
                   <ErrorBoundary fallback={<div className="h-full w-full bg-gray-100 flex items-center justify-center"><span className="text-gray-500">Map unavailable</span></div>}>
                     <LocationMap 
@@ -257,7 +262,7 @@ export default function LocationHeroSection({
               </div>
               
               {/* Location Info Badge */}
-              <div className="bg-black/40 backdrop-blur-md rounded-lg p-4 shadow-lg mx-4 my-4 border border-white/10">
+              <div className="bg-black/40 backdrop-blur-md rounded-lg p-4 shadow-lg mx-4 my-2 border border-white/10">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <MapPin className="w-6 h-6 text-green-400" />

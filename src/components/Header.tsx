@@ -44,11 +44,14 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
+          {/** Base classes for animated underline and larger type */}
+          {/* eslint-disable-next-line @typescript-eslint/no-unused-vars */}
+          {(() => { const _ = null; return _ })()}
           <ul className="flex space-x-6">
             <li>
               <Link 
                 href="/" 
-                className={`font-medium ${
+                className={`relative inline-flex items-center text-base lg:text-lg px-2 py-1 font-medium after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-1 after:h-[2px] after:w-full after:scale-x-0 after:origin-center after:bg-current after:rounded-full after:transition-transform after:duration-300 hover:after:scale-x-100 ${
                   pathname === '/' ? 'text-irrigation-green' : 
                   isScrolled ? 'text-gray-700 hover:text-irrigation-green' : 'text-white hover:text-irrigation-lightBlue'
                 } transition-colors duration-300`}
@@ -59,7 +62,7 @@ const Header = () => {
             <li>
               <Link 
                 href="/about" 
-                className={`font-medium ${
+                className={`relative inline-flex items-center text-base lg:text-lg px-2 py-1 font-medium after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-1 after:h-[2px] after:w-full after:scale-x-0 after:origin-center after:bg-current after:rounded-full after:transition-transform after:duration-300 hover:after:scale-x-100 ${
                   pathname === '/about' ? 'text-irrigation-green' : 
                   isScrolled ? 'text-gray-700 hover:text-irrigation-green' : 'text-white hover:text-irrigation-lightBlue'
                 } transition-colors duration-300`}
@@ -71,7 +74,7 @@ const Header = () => {
               <button 
                 onClick={() => setServicesDropdownOpen(!servicesDropdownOpen)}
                 onMouseEnter={() => setServicesDropdownOpen(true)}
-                className={`flex items-center font-medium ${
+                className={`relative inline-flex items-center text-base lg:text-lg px-2 py-1 font-medium after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-1 after:h-[2px] after:w-full after:scale-x-0 after:origin-center after:bg-current after:rounded-full after:transition-transform after:duration-300 hover:after:scale-x-100 ${
                   pathname?.startsWith('/services') ? 'text-irrigation-green' : 
                   isScrolled ? 'text-gray-700 hover:text-irrigation-green' : 'text-white hover:text-irrigation-lightBlue'
                 } transition-colors duration-300`}
@@ -143,7 +146,7 @@ const Header = () => {
             <li>
               <Link 
                 href="/blog" 
-                className={`font-medium ${
+                className={`relative inline-flex items-center text-base lg:text-lg px-2 py-1 font-medium after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-1 after:h-[2px] after:w-full after:scale-x-0 after:origin-center after:bg-current after:rounded-full after:transition-transform after:duration-300 hover:after:scale-x-100 ${
                   pathname?.startsWith('/blog') ? 'text-irrigation-green' : 
                   isScrolled ? 'text-gray-700 hover:text-irrigation-green' : 'text-white hover:text-irrigation-lightBlue'
                 } transition-colors duration-300`}
@@ -154,7 +157,7 @@ const Header = () => {
             <li>
               <Link 
                 href="/contact" 
-                className={`font-medium ${
+                className={`relative inline-flex items-center text-base lg:text-lg px-2 py-1 font-medium after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-1 after:h-[2px] after:w-full after:scale-x-0 after:origin-center after:bg-current after:rounded-full after:transition-transform after:duration-300 hover:after:scale-x-100 ${
                   pathname === '/contact' ? 'text-irrigation-green' : 
                   isScrolled ? 'text-gray-700 hover:text-irrigation-green' : 'text-white hover:text-irrigation-lightBlue'
                 } transition-colors duration-300`}

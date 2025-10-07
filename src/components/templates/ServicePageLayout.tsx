@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { Check, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
 import Link from 'next/link';
 import { useToast } from '@/hooks/use-toast';
+import Breadcrumbs from '@/components/Breadcrumbs';
 
 interface ServicePageLayoutProps {
   children: React.ReactNode;
@@ -212,6 +213,9 @@ export default function ServicePageLayout({
         </div>
       </div>
       
+      {/* Breadcrumbs (always below hero) */}
+      <Breadcrumbs />
+
       {/* Main Content */}
       <section className="py-16 md:py-24">
         <div className="container-custom">

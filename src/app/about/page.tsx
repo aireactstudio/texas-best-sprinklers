@@ -3,6 +3,7 @@
 import HeroSection from '@/components/HeroSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import CTA from '@/components/CTA';
+import Breadcrumbs from '@/components/Breadcrumbs';
 
 export default function About() {
   return (
@@ -12,6 +13,9 @@ export default function About() {
         title="About Texas Best Sprinklers" 
         subtitle="Your trusted partner for water-efficient irrigation solutions since 2008"
       />
+      
+      {/* Breadcrumbs (always below hero) */}
+      <Breadcrumbs />
       
       {/* About Intro */}
       <section className="py-16 md:py-20">

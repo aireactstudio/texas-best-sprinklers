@@ -11,7 +11,6 @@ export enum ServiceType {
   IRRIGATION_REPAIR = 'irrigation-repair',
   SPRINKLER_REPAIR = 'sprinkler-repair',
   MAINTENANCE = 'maintenance',
-  BACKFLOW_TESTING = 'backflow-testing'
 }
 
 export default ServiceType;

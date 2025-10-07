@@ -6,6 +6,7 @@ import { Button } from './ui/button';
 import { ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 import { Droplet } from 'lucide-react';
+import LicenseBadge from '@/components/LicenseBadge';
 
 interface HeroSectionProps {
   title?: string;
@@ -85,6 +86,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           >
             Explore Services
           </Link>
+        </div>
+        <div className="flex justify-center mt-6">
+          <LicenseBadge variant="dark" />
         </div>
       </div>
     </section>

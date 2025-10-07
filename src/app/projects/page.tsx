@@ -4,6 +4,7 @@ import Link from 'next/link';
 import HeroSection from '@/components/HeroSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import CTA from '@/components/CTA';
+import Breadcrumbs from '@/components/Breadcrumbs';
 import { Droplet, CloudRain, CloudSun } from 'lucide-react';
 
 interface ProjectCardProps {
@@ -63,6 +64,9 @@ export default function Projects() {
         title="Featured Irrigation Projects" 
         subtitle="Explore our portfolio of successful installations and transformations"
       />
+      
+      {/* Breadcrumbs (always below hero) */}
+      <Breadcrumbs />
       
       {/* Projects Overview */}
       <section className="py-16 md:py-24">

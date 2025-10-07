@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ServiceContent } from '@/data/types/serviceTypes';
+import LicenseBadge from '@/components/LicenseBadge';
 
 interface ServiceHeroProps {
   serviceContent: ServiceContent;
@@ -61,6 +62,9 @@ export default function ServiceHero({ serviceContent, location }: ServiceHeroPro
             >
               View Services
             </Link>
+          </div>
+          <div className="flex justify-center mt-4">
+            <LicenseBadge variant="dark" />
           </div>
         </div>
       </div>

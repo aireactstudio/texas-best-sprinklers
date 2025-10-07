@@ -3,6 +3,7 @@
 import React from 'react';
 import LocationHeroSection from './LocationHeroSection';
 import ServicesSection from '@/components/ServicesSection';
+import Breadcrumbs from '@/components/Breadcrumbs';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import CTA from '@/components/CTA';
 import LocationLocalInfo from './LocationLocalInfo';
@@ -51,6 +52,9 @@ export default function LocationHomepage({ locationSlug }: LocationHomepageProps
         distanceFromOffice={distanceFromOffice}
         serviceAreas={serviceAreas}
       />
+
+      {/* Breadcrumbs (always below hero) */}
+      <Breadcrumbs />
 
       {/* Services Overview */}
       <ServicesSection

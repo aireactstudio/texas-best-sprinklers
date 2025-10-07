@@ -6,13 +6,12 @@ import dynamic from 'next/dynamic';
 import HeroImagePreload from '@/components/HeroImagePreload';
 import HeadPreload from './head-preload';
 import HeroPreloadScript from '@/components/HeroPreloadScript';
-import GoogleMapsProviderWrapper from '@/components/GoogleMapsProvider';
 import SchemaOrgData from '@/components/SchemaOrgData';
+import GoogleMapsProviderWrapper from '@/components/GoogleMapsProvider';
 import { SITE_CONFIG } from '@/config/site';
 
 // Critical CSS for above-the-fold content
 const criticalCSS = `
-  .hero-section { content-visibility: auto; contain: content; }
   .hero-image { backface-visibility: hidden; transform: translateZ(0); }
 `;
 

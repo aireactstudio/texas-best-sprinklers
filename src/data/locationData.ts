@@ -17,8 +17,7 @@ export const LOCATIONS = [
   'blue-mound',
   'haslet',
   'north-richland-hills',
-  'trophy-club',     // Added from user's list
-  // Added to reach full list for header mega menu
+  'trophy-club',    
   'bedford',
   'euless',
   'hurst'
