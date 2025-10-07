@@ -160,10 +160,10 @@ const AppHeader = () => {
               <li key={item.name} className="relative group">
                 <Link 
                   href={item.path} 
-                  className={`relative inline-flex items-center text-lg lg:text-xl px-2 py-1 font-medium after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-1 after:h-[2px] after:w-full after:scale-x-0 after:origin-center after:bg-current after:rounded-full after:transition-transform after:duration-300 hover:after:scale-x-100 hover:text-irrigation-green transition-colors group-hover:text-irrigation-green ${
+                  className={`relative inline-flex items-center text-lg lg:text-xl px-2 py-1 font-medium after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-1 after:h-[2px] after:w-full after:scale-x-0 after:origin-center after:bg-current after:rounded-full after:transition-transform after:duration-300 hover:after:scale-x-100 transition-all duration-200 hover:opacity-90 hover:-translate-y-0.5 ${
                     (pathname === item.path ||
                     (item.path !== '/' && pathname?.startsWith(item.path)))
-                      ? (isScrolled ? 'text-irrigation-green' : 'text-irrigation-green') 
+                      ? 'text-white after:scale-x-100' 
                       : 'text-white'
                   }`}
                 >
@@ -185,7 +185,7 @@ const AppHeader = () => {
                               <li key={loc.slug}>
                                 <Link 
                                   href={`/${loc.slug}`}
-                                  className="block px-2 py-2 text-sm text-gray-800 hover:bg-irrigation-blue/5 hover:text-irrigation-blue rounded-md transition-colors"
+                                  className="relative block px-2 py-2 pl-4 text-sm text-gray-800 hover:bg-irrigation-darkGreen/5 hover:text-irrigation-darkGreen rounded-md transition-all before:content-[''] before:absolute before:left-0 before:top-0 before:h-full before:w-[3px] before:bg-irrigation-darkGreen before:rounded-full before:origin-center before:scale-y-0 before:transition-transform before:duration-300 hover:before:scale-y-100"
                                 >
                                   {loc.name}
                                 </Link>
@@ -202,7 +202,7 @@ const AppHeader = () => {
                         {item.submenu.map((subitem) => (
                           <div key={subitem.name} className="relative group/nested">
                             {subitem.submenu ? (
-                              <div className="flex items-center justify-between px-4 py-3 text-sm text-gray-800 hover:bg-irrigation-blue/5 hover:text-irrigation-blue transition-colors cursor-pointer">
+                              <div className="flex items-center justify-between px-4 py-3 text-sm text-gray-800 hover:bg-irrigation-darkGreen/5 hover:text-irrigation-darkGreen transition-colors cursor-pointer">
                                 <span>{subitem.name}</span>
                                 <ChevronRight className="w-4 h-4" />
                                 {/* Nested Dropdown */}
@@ -212,7 +212,7 @@ const AppHeader = () => {
                                       <Link 
                                         key={nestedItem.name}
                                         href={nestedItem.path}
-                                        className="block px-4 py-3 text-sm text-gray-800 hover:bg-irrigation-blue/5 hover:text-irrigation-blue transition-colors"
+                                        className="relative block px-4 py-3 pl-6 text-sm text-gray-800 hover:bg-irrigation-darkGreen/5 hover:text-irrigation-darkGreen transition-all before:content-[''] before:absolute before:left-0 before:top-0 before:h-full before:w-[3px] before:bg-irrigation-darkGreen before:rounded-full before:origin-center before:scale-y-0 before:transition-transform before:duration-300 hover:before:scale-y-100"
                                       >
                                         {nestedItem.name}
                                       </Link>
@@ -223,7 +223,7 @@ const AppHeader = () => {
                             ) : (
                               <Link 
                                 href={subitem.path}
-                                className="block px-4 py-3 text-sm text-gray-800 hover:bg-irrigation-blue/5 hover:text-irrigation-blue transition-colors"
+                                className="relative block px-4 py-3 pl-6 text-sm text-gray-800 hover:bg-irrigation-darkGreen/5 hover:text-irrigation-darkGreen transition-all before:content-[''] before:absolute before:left-0 before:top-0 before:h-full before:w-[3px] before:bg-irrigation-darkGreen before:rounded-full before:origin-center before:scale-y-0 before:transition-transform before:duration-300 hover:before:scale-y-100"
                               >
                                 {subitem.name}
                               </Link>
