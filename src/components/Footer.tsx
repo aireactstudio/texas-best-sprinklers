@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Droplet } from 'lucide-react';
+import { Phone, Mail, MapPin, Facebook, Instagram, Droplet } from 'lucide-react';
 import { trackPhoneCall } from '@/utils/analytics';
 import { SITE_CONFIG } from '@/config/site';
 
@@ -25,14 +25,17 @@ const Footer = () => {
               Professional irrigation, drainage, and outdoor lighting solutions for residential and commercial properties in Fort Worth and Weatherford, Texas.
             </p>
             <div className="flex space-x-4">
-              <a href="#" aria-label="Facebook" className="text-white hover:text-irrigation-a11y-light-green transition-colors duration-300">
+              <a href="https://www.facebook.com/TexasBest1" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-white hover:text-irrigation-a11y-light-green transition-colors duration-300">
                 <Facebook size={20} />
               </a>
               <a href="#" aria-label="Instagram" className="text-white hover:text-irrigation-a11y-light-green transition-colors duration-300">
                 <Instagram size={20} />
               </a>
-              <a href="#" aria-label="Twitter" className="text-white hover:text-irrigation-a11y-light-green transition-colors duration-300">
-                <Twitter size={20} />
+              <a href="https://twitter.com/sprinklerdrains" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="text-white hover:text-irrigation-a11y-light-green transition-colors duration-300">
+                {/* X (formerly Twitter) official glyph */}
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M18.244 2H21.5l-7.882 8.994L22 22h-6.934l-5.02-6.616L4.4 22H1.044l8.61-9.835L0 2h6.934l4.654 6.16L18.244 2zm-1.21 18.237h1.86L7.35 3.65H5.49L17.034 20.237z"/>
+                </svg>
               </a>
             </div>
           </div>
@@ -41,10 +44,16 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-bold mb-4">Quick Links</h3>
             <ul className="space-y-3">
-              {['Home', 'Services', 'Projects', 'Blog', 'Contact Us'].map((item) => (
+              {['Home', 'Services', 'Blog', 'Contact Us'].map((item) => (
                 <li key={item}>
                   <Link 
-                    href={item === 'Home' ? '/' : `/${item.toLowerCase().replace(' ', '-')}`} 
+                    href={
+                      item === 'Home'
+                        ? '/'
+                        : item === 'Contact Us'
+                        ? '/contact'
+                        : `/${item.toLowerCase().replace(' ', '-')}`
+                    } 
                     className="text-irrigation-a11y-light hover:text-irrigation-a11y-light-green transition-colors duration-300"
                   >
                     {item}
@@ -59,22 +68,33 @@ const Footer = () => {
             <h3 className="text-lg font-bold mb-4">Our Services</h3>
             <ul className="space-y-3">
               {[
-                'Sprinkler Installation', 
-                'Drainage Solutions', 
-                'Outdoor Lighting', 
+                'Sprinkler Installation',
+                'Drainage Solutions',
+                'Outdoor Lighting',
                 'System Maintenance',
                 'Sprinkler Repair',
-                'Commercial Solutions'
-              ].map((service) => (
-                <li key={service}>
-                  <Link 
-                    href={`/services#${service.toLowerCase().replace(/\s+/g, '-')}`} 
-                    className="text-gray-300 hover:text-irrigation-green transition-colors duration-300"
-                  >
-                    {service}
-                  </Link>
-                </li>
-              ))}
+                'Commercial Solutions',
+              ].map((service) => {
+                const routeMap: Record<string, string> = {
+                  'Sprinkler Installation': '/services/sprinkler-installation',
+                  'Drainage Solutions': '/services/drainage-solutions',
+                  'Outdoor Lighting': '/services/lighting',
+                  'System Maintenance': '/services/maintenance',
+                  'Sprinkler Repair': '/services/irrigation-repair',
+                  'Commercial Solutions': '/services',
+                };
+                const href = routeMap[service] || '/services';
+                return (
+                  <li key={service}>
+                    <Link
+                      href={href}
+                      className="text-gray-300 hover:text-irrigation-green transition-colors duration-300"
+                    >
+                      {service}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
           
@@ -111,9 +131,9 @@ const Footer = () => {
               <p className="mt-1">Contractor License: <span className="font-medium">LI{SITE_CONFIG.licenseNumber.replace(/^LI/i, '')}</span></p>
             </div>
             <div className="flex space-x-5">
-              <a href="#" className="text-irrigation-a11y-light hover:text-irrigation-a11y-light-green text-sm transition-colors duration-300">Privacy Policy</a>
-              <a href="#" className="text-irrigation-a11y-light hover:text-irrigation-a11y-light-green text-sm transition-colors duration-300">Terms of Service</a>
-              <a href="#" className="text-irrigation-a11y-light hover:text-irrigation-a11y-light-green text-sm transition-colors duration-300">Sitemap</a>
+              <Link href="/privacy-policy" className="text-irrigation-a11y-light hover:text-irrigation-a11y-light-green text-sm transition-colors duration-300">Privacy Policy</Link>
+              <Link href="/terms-of-service" className="text-irrigation-a11y-light hover:text-irrigation-a11y-light-green text-sm transition-colors duration-300">Terms of Service</Link>
+              <Link href="/sitemap-0.xml" className="text-irrigation-a11y-light hover:text-irrigation-a11y-light-green text-sm transition-colors duration-300">Sitemap</Link>
             </div>
           </div>
           <p className="text-irrigation-a11y-light text-xs text-center mt-4">

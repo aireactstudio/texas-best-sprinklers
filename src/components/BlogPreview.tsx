@@ -32,6 +32,10 @@ const BlogPreview: React.FC<BlogPreviewProps> = ({
     slug: post.slug,
   }))
 }) => {
+  // Override the middle (second) card image
+  const postsWithOverride = posts.map((p, i) =>
+    i === 1 ? { ...p, image: '/assets/images/optimized/sprinkler.png' } : p
+  );
   return (
     <section className="section bg-white">
       <div className="container-custom">
@@ -48,7 +52,7 @@ const BlogPreview: React.FC<BlogPreviewProps> = ({
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {posts.map((post, index) => (
+          {postsWithOverride.map((post, index) => (
             <div key={post.id} className="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
               <Link href={`/blog/${post.slug}`} className="block">
                 <div className="relative aspect-video overflow-hidden rounded-lg mb-4">
