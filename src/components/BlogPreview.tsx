@@ -93,6 +93,30 @@ const BlogPreview: React.FC<BlogPreviewProps> = ({
             </div>
           ))}
         </div>
+        {/* BlogPosting Structured Data for preview items */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              postsWithOverride.map((post) => ({
+                "@context": "https://schema.org",
+                "@type": "BlogPosting",
+                headline: post.title,
+                description: post.excerpt,
+                datePublished: post.date,
+                author: {
+                  "@type": "Organization",
+                  name: "Texas Best Sprinklers",
+                },
+                image: `https://texasbestsprinklers.com${post.image}`,
+                mainEntityOfPage: {
+                  "@type": "WebPage",
+                  "@id": `https://texasbestsprinklers.com/blog/${post.slug}`,
+                },
+              }))
+            ),
+          }}
+        />
         
         <div className="text-center mt-12">
           <Link href="/blog" className="btn-secondary">

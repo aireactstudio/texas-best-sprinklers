@@ -16,6 +16,7 @@ import ServiceAreaLocator from '@/components/ServiceAreaLocator';
 import { curatedReviews } from '@/data/curated-reviews';
 import EndOfSummerSpecials from '@/components/EndOfSummerSpecials';
 import HomeFAQ from '@/components/HomeFAQ';
+import { LOCATIONS, locationData } from '@/data/locationData';
 
 export default function Home() {
   const [reviews, setReviews] = useState([]);
@@ -25,6 +26,34 @@ export default function Home() {
     userRatingsTotal: 100,
     googleUrl: 'https://g.page/r/CSwRGl0HZDGRChI/review'
   });
+  const baseUrl = typeof window !== 'undefined' ? window.location.origin : 'https://texasbestsprinklers.com';
+  const currentUrl = typeof window !== 'undefined' ? window.location.href : `${baseUrl}/`;
+
+  // Build explicit service areas (pretty names) from locationData
+  const serviceAreas: string[] = LOCATIONS.map((slug) => {
+    const data = (locationData as any)[slug];
+    if (data?.name) return `${data.name}, TX`;
+    // Fallback to title-cased slug
+    return `${slug.split('-').map(p => p.charAt(0).toUpperCase() + p.slice(1)).join(' ')}, TX`;
+  });
+
+  // Define all primary services with their canonical URLs
+  const allServices = [
+    { type: 'Irrigation Repair', url: `${baseUrl}/services/irrigation-repair` },
+    { type: 'Sprinkler Repair', url: `${baseUrl}/services/sprinkler-repair` },
+    { type: 'Sprinkler Installation', url: `${baseUrl}/services/sprinkler-installation` },
+    { type: 'Maintenance', url: `${baseUrl}/services/maintenance` },
+    { type: 'Outdoor Lighting', url: `${baseUrl}/services/outdoor-lighting` },
+    { type: 'Landscape Lighting Repair', url: `${baseUrl}/services/landscape-lighting-repair` },
+    { type: 'Drainage Solutions', url: `${baseUrl}/services/drainage-solutions` },
+    { type: 'French Drains', url: `${baseUrl}/services/french-drains` },
+    { type: 'Channel Drains', url: `${baseUrl}/services/channel-drains` },
+    { type: 'Yard Drainage Systems', url: `${baseUrl}/services/yard-drainage-systems` },
+    { type: 'Sump Pumps', url: `${baseUrl}/services/sump-pumps` },
+    { type: 'Drip Irrigation', url: `${baseUrl}/services/drip-irrigation` },
+    { type: 'Sprinkler System Check-Up', url: `${baseUrl}/services/sprinkler-system-check-up` },
+    { type: 'Sprinkler System Reroutes', url: `${baseUrl}/services/sprinkler-system-reroutes` },
+  ];
   
   // Define the steps for the HowTo schema (same as in HowItWorksSection)
   const howToSteps = [
@@ -207,6 +236,67 @@ export default function Home() {
         subtitle="Texas Best Sprinklers provides expert irrigation and drainage solutions throughout the Fort Worth metroplex"
       />
       <CTA />
+      {/* SEO: Structured Data - LocalBusiness, Services, Breadcrumbs */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "@id": `${baseUrl}#business`,
+            name: businessInfo.name,
+            url: baseUrl,
+            telephone: "+1-817-304-7896",
+            priceRange: "$$",
+            image: `${baseUrl}/assets/images/optimized/sprinkler.png`,
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: "10011 Harmon Rd suite 133",
+              addressLocality: "Fort Worth",
+              addressRegion: "TX",
+              postalCode: "76177",
+              addressCountry: "US",
+            },
+            geo: { "@type": "GeoCoordinates", latitude: 32.9205, longitude: -97.3336 },
+            openingHoursSpecification: [
+              { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], opens: "07:00", closes: "19:00" },
+            ],
+            sameAs: [
+              "https://www.facebook.com/TexasBest1",
+              "https://twitter.com/sprinklerdrains",
+            ],
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: baseUrl },
+            ],
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            itemListElement: allServices.map((s) => ({
+              "@type": "Service",
+              serviceType: s.type,
+              provider: { "@type": "LocalBusiness", "@id": `${baseUrl}#business` },
+              areaServed: serviceAreas.map((name) => ({ "@type": "Place", name })),
+              url: s.url,
+              offers: { "@type": "Offer", price: 0, priceCurrency: "USD", description: "Free estimate" }
+            }))
+          }),
+        }}
+      />
     </>
   );
 }
