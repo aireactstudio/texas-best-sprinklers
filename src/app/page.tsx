@@ -15,6 +15,7 @@ import MultiServiceHowToSchema from '@/components/MultiServiceHowToSchema';
 import ServiceAreaLocator from '@/components/ServiceAreaLocator';
 import { curatedReviews } from '@/data/curated-reviews';
 import EndOfSummerSpecials from '@/components/EndOfSummerSpecials';
+import HomeFAQ from '@/components/HomeFAQ';
 
 export default function Home() {
   const [reviews, setReviews] = useState([]);
@@ -47,6 +48,34 @@ export default function Home() {
       title: "Fine-Tuning & Education",
       description: "We adjust your system for optimal performance and teach you how to use your new irrigation system effectively.",
     },
+  ];
+
+  // Curated FAQs for homepage
+  const homeFaqs = [
+    {
+      question: 'Do you offer free estimates?',
+      answer: 'Yes. We provide free on-site estimates for irrigation repair, installation, drainage solutions, and lighting projects.'
+    },
+    {
+      question: 'Can you repair any brand of sprinkler system?',
+      answer: 'We service and repair all major brands including Rain Bird, Hunter, Toro, and more.'
+    },
+    {
+      question: 'How soon can you come out for a repair?',
+      answer: 'Most service calls are scheduled within 24–48 business hours. Emergency availability may be possible.'
+    },
+    {
+      question: 'Do you install smart controllers?',
+      answer: 'Absolutely. We install and configure smart Wi‑Fi controllers that optimize watering schedules and reduce water usage.'
+    },
+    {
+      question: 'Will a French drain solve standing water?',
+      answer: 'In many cases, yes. We assess grading, gutter discharge, and soil conditions to design the right drainage solution for your property.'
+    },
+    {
+      question: 'Are your installations warrantied?',
+      answer: 'Yes. Our workmanship is warrantied and product warranties are honored per manufacturer terms.'
+    }
   ];
 
   // Fetch reviews for structured data
@@ -96,6 +125,82 @@ export default function Home() {
       <StatsSection />
       <HowItWorksSection />
       <HowToGetStartedSection />
+      {/* New beautiful Home FAQ with categories per service */}
+      <HomeFAQ
+        categories={[
+          {
+            name: 'About the Company',
+            items: [
+              { question: 'Do you offer free estimates?', answer: 'Yes. We provide free on‑site estimates for new installs, repairs, drainage, and lighting projects.' },
+              { question: 'What areas do you serve?', answer: 'We serve Fort Worth, Weatherford, and surrounding DFW cities including Keller, Southlake, Colleyville, Grapevine, and more.' },
+              { question: 'What are your business hours?', answer: 'We’re available 7AM–7PM, Monday through Saturday. Closed on Sundays.' },
+              { question: 'Are you licensed and insured?', answer: 'Yes. We are fully insured and licensed in Texas. Contractor License: LI22462.'},
+              { question: 'What payments do you accept?', answer: 'We accept major credit cards and other common payment methods. Project warranties are included per workmanship and manufacturer terms.' },
+            ],
+          },
+          {
+            name: 'Irrigation Repair',
+            items: [
+              { question: 'What are signs my system needs repair?', answer: 'Uneven coverage, soggy spots, dry patches, high bills, or a controller that won’t run are common indicators.' },
+              { question: 'Do you fix leaks and broken heads?', answer: 'Yes. We diagnose and repair leaks, broken heads, nozzles, risers, valves, wiring, and controller issues.' },
+              { question: 'Can you find hidden leaks?', answer: 'We use pressure checks and zone isolation to locate underground leaks and prioritize the right fix.' },
+              { question: 'Will you reprogram my controller after repairs?', answer: 'Yes, we verify operation and set appropriate seasonal schedules before we leave.' },
+              { question: 'How fast can you schedule?', answer: 'Typically within 24–48 business hours. Emergency availability may be possible.' },
+            ],
+          },
+          {
+            name: 'Maintenance',
+            items: [
+              { question: 'What’s included in a seasonal check‑up?', answer: 'Head alignment, nozzle cleaning, leak inspection, valve tests, pressure checks, and schedule optimization.' },
+              { question: 'Do you offer winterization?', answer: 'Yes. We shut down water, blow out lines where needed, and protect components from freeze damage.' },
+              { question: 'Do you offer spring start‑ups?', answer: 'We pressurize, test each zone, fix small issues, and set a water‑saving schedule for the season.' },
+              { question: 'Can you reduce my water usage?', answer: 'We dial in runtimes, add smart cycles, and recommend upgrades like pressure‑regulated heads and smart controllers.' },
+              { question: 'How often should I service?', answer: 'At least twice per year—spring and fall—for best performance and efficiency.' },
+            ],
+          },
+          {
+            name: 'Outdoor Lighting',
+            items: [
+              { question: 'What lighting do you install?', answer: 'Path, spot, accent, uplighting, and architectural lighting using long‑life, low‑voltage LED fixtures.' },
+              { question: 'Can you design a custom layout?', answer: 'Yes. We design layered lighting to enhance safety, curb appeal, and outdoor living areas.' },
+              { question: 'Are systems smart‑enabled?', answer: 'We offer timers, photocells, and app‑controlled smart transformers for schedules and scenes.' },
+              { question: 'Do you retrofit halogen to LED?', answer: 'We can upgrade existing fixtures to efficient LED for better brightness and lower energy use.' },
+              { question: 'Is there a warranty?', answer: 'Installations include workmanship warranty; fixtures carry manufacturer warranties.' },
+            ],
+          },
+          {
+            name: 'Drainage Solutions',
+            items: [
+              { question: 'Which drainage options do you provide?', answer: 'French drains, surface/area drains, channel drains, downspout extensions, and grading improvements.' },
+              { question: 'Will a French drain fix standing water?', answer: 'Often, yes. We assess soil, slope, and water sources to design the right solution for your conditions.' },
+              { question: 'Do you handle erosion issues?', answer: 'We add collection points, regrade problem areas, and route water safely to discharge.' },
+              { question: 'How disruptive is installation?', answer: 'We minimize lawn disturbance and clean up thoroughly; sod restoration options available if needed.' },
+              { question: 'Do drains require maintenance?', answer: 'Occasional debris clearing and periodic inspections keep systems flowing freely.' },
+            ],
+          },
+          {
+            name: 'Sprinkler Installation',
+            items: [
+              { question: 'Do you design custom systems?', answer: 'Yes. We map zones by sun, slope, and plant type to achieve even coverage and efficiency.' },
+              { question: 'Which brands do you use?', answer: 'We install trusted components (e.g., Rain Bird, Hunter) chosen for performance and local conditions.' },
+              { question: 'Are smart controllers included?', answer: 'We recommend Wi‑Fi controllers with weather‑based adjustments to cut waste and protect plants.' },
+              { question: 'How long does install take?', answer: 'Most residential systems complete within 1–2 days, depending on yard size and complexity.' },
+              { question: 'Do you provide training?', answer: 'We walk you through controller setup, seasonal changes, and basic maintenance.' },
+            ],
+          },
+          {
+            name: 'Sprinkler Repair',
+            items: [
+              { question: 'Can you fix low pressure in a zone?', answer: 'We check leaks, clogged nozzles, valves, and supply lines to restore proper pressure and coverage.' },
+              { question: 'Heads not popping up?', answer: 'We clear debris, replace seals, and ensure adequate pressure and correct nozzles.' },
+              { question: 'Mixed head types in a zone?', answer: 'We correct mismatches (rotors vs. sprays) to prevent over/under‑watering and improve uniformity.' },
+              { question: 'Controller won’t start zones?', answer: 'We diagnose wiring, solenoids, transformer output, and the controller itself.' },
+              { question: 'Can you move heads for new landscaping?', answer: 'Yes. We reroute and add heads to accommodate new beds, patios, or hardscapes.' },
+            ],
+          },
+        ]}
+        faqs={homeFaqs}
+      />
       <BlogPreview />
       <ServiceAreaLocator 
         title="Our Service Areas"
