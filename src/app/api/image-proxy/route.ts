@@ -4,6 +4,7 @@ export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
     const imageUrl = searchParams.get('url');
+    const id = searchParams.get('id');
     
     if (!imageUrl) {
       return NextResponse.json({ error: 'No image URL provided' }, { status: 400 });
@@ -32,8 +33,9 @@ export async function GET(request: NextRequest) {
       status: 200,
       headers: {
         'Content-Type': response.headers.get('content-type') || 'image/jpeg',
-        'Cache-Control': 'public, max-age=86400', // Cache for 24 hours
+        'Cache-Control': 'public, max-age=86400, s-maxage=86400', // Cache for 24 hours
         'Access-Control-Allow-Origin': '*',
+        'ETag': `"${id || 'default'}"`, // Add ETag based on review ID
       },
     });
     

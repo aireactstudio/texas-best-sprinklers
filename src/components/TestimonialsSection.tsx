@@ -217,7 +217,7 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ cityFilter, m
                       <div className="flex items-center mb-3">
                         {testimonial.photo ? (
                           <img 
-                            src={`/api/image-proxy?url=${encodeURIComponent(testimonial.photo)}`}
+                            src={`/api/image-proxy?url=${encodeURIComponent(testimonial.photo)}&id=${testimonial.id}`}
                             alt={testimonial.name} 
                             className="h-8 w-8 rounded-full object-cover mr-2 border border-gray-200"
                             onError={(e) => {
