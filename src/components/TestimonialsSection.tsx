@@ -72,10 +72,7 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ cityFilter, m
   
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [autoplay, setAutoplay] = useState(false); // Disabled autoplay by default
   const carouselRef = useRef<HTMLDivElement>(null);
-  const reviewsPerPage = 3; // Number of reviews to show at once
 
   // Fetch reviews from our API
   useEffect(() => {
@@ -140,43 +137,8 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ cityFilter, m
   // If we want to limit the max number of reviews to display
   const displayTestimonials = maxDisplayCount ? filteredTestimonials.slice(0, maxDisplayCount) : filteredTestimonials;
 
-  // Calculate total number of pages for carousel
-  const totalPages = Math.ceil(displayTestimonials.length / reviewsPerPage);
-  
-  // Handle next/previous navigation
-  const goToNext = () => {
-    setActiveIndex((prevIndex) => (prevIndex + 1) % totalPages);
-  };
-  
-  const goToPrev = () => {
-    setActiveIndex((prevIndex) => (prevIndex === 0 ? totalPages - 1 : prevIndex - 1));
-  };
-  
-  // Handle dot navigation
-  const goToPage = (pageIndex: number) => {
-    setActiveIndex(pageIndex);
-  };
-  
-  // Autoplay functionality
-  useEffect(() => {
-    if (!autoplay) return;
-    
-    const interval = setInterval(() => {
-      goToNext();
-    }, 5000); // Change slide every 5 seconds
-    
-    return () => clearInterval(interval);
-  }, [autoplay, displayTestimonials.length]);
-  
-  // Pause autoplay on hover
-  const handleMouseEnter = () => setAutoplay(false);
-  const handleMouseLeave = () => setAutoplay(true);
-  
-  // Get current visible testimonials
-  const currentTestimonials = displayTestimonials.slice(
-    activeIndex * reviewsPerPage,
-    (activeIndex * reviewsPerPage) + reviewsPerPage
-  );
+  // Use all filtered testimonials
+  const currentTestimonials = displayTestimonials;
 
   // Generate star rating display
   const StarRating = ({ rating }: { rating: number }) => (
@@ -225,21 +187,16 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ cityFilter, m
           </div>
         ) : null}
         
-        {/* Testimonials Carousel */}
+        {/* Testimonials Grid */}
         <div 
           ref={carouselRef} 
-          className="relative max-w-5xl mx-auto" 
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
+          className="relative max-w-7xl mx-auto"
         >
-          {/* Carousel Content */}
-          <div className="overflow-hidden">
-            <div className="flex transition-transform duration-500 ease-in-out">
-              {/* Current testimonials */}
-              <div className="w-full flex flex-wrap">
-                {currentTestimonials.map((testimonial) => (
-                  <div key={testimonial.id} className="w-full md:w-1/3 p-2">
-                    <div className="bg-white rounded-lg border border-gray-200 h-full p-4 flex flex-col">
+          {/* Reviews Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+            {currentTestimonials.map((testimonial) => (
+              <div key={testimonial.id} className="flex">
+                <div className="bg-white rounded-lg border border-gray-200 h-full p-4 flex flex-col w-full">
                       {/* Google icon */}
                       <div className="flex justify-between items-center mb-3">
                         <svg className="h-5 w-5 text-gray-400" viewBox="0 0 24 24" fill="currentColor">
@@ -260,15 +217,32 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ cityFilter, m
                       <div className="flex items-center mb-3">
                         {testimonial.photo ? (
                           <img 
-                            src={testimonial.photo} 
+                            src={`/api/image-proxy?url=${encodeURIComponent(testimonial.photo)}`}
                             alt={testimonial.name} 
                             className="h-8 w-8 rounded-full object-cover mr-2 border border-gray-200"
+                            onError={(e) => {
+                              // Hide the image and show fallback on error
+                              e.currentTarget.style.display = 'none';
+                              const fallback = e.currentTarget.nextElementSibling as HTMLElement;
+                              if (fallback) {
+                                fallback.style.display = 'flex';
+                              }
+                            }}
+                            onLoad={(e) => {
+                              // Show the image and hide fallback on successful load
+                              const fallback = e.currentTarget.nextElementSibling as HTMLElement;
+                              if (fallback) {
+                                fallback.style.display = 'none';
+                              }
+                            }}
                           />
-                        ) : (
-                          <div className="h-8 w-8 rounded-full bg-irrigation-green text-white flex items-center justify-center font-bold text-xs mr-2">
-                            {testimonial.name.charAt(0)}
-                          </div>
-                        )}
+                        ) : null}
+                        <div 
+                          className={`h-8 w-8 rounded-full bg-irrigation-green text-white flex items-center justify-center font-bold text-xs mr-2 ${testimonial.photo ? 'hidden' : 'flex'}`}
+                          style={{ display: testimonial.photo ? 'none' : 'flex' }}
+                        >
+                          {testimonial.name.charAt(0)}
+                        </div>
                         <div>
                           <h3 className="font-medium text-gray-800 text-sm">{testimonial.name}</h3>
                           <div className="flex items-center">
@@ -292,45 +266,10 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ cityFilter, m
                           </button>
                         )}
                       </div>
-                    </div>
-                  </div>
-                ))}
+                </div>
               </div>
-            </div>
+            ))}
           </div>
-          
-          {/* Navigation Arrows */}
-          <button 
-            onClick={goToPrev}
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-1/2 bg-white rounded-full p-2 shadow-md text-gray-600 hover:bg-gray-100 transition-colors z-10"
-            aria-label="Previous review"
-          >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path>
-            </svg>
-          </button>
-          
-          <button 
-            onClick={goToNext}
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-1/2 bg-white rounded-full p-2 shadow-md text-gray-600 hover:bg-gray-100 transition-colors z-10"
-            aria-label="Next review"
-          >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
-            </svg>
-          </button>
-        </div>
-        
-        {/* Pagination Dots */}
-        <div className="flex justify-center mt-4 space-x-1.5">
-          {Array.from({ length: totalPages }).map((_, index) => (
-            <button
-              key={index}
-              onClick={() => goToPage(index)}
-              className={`w-2 h-2 rounded-full transition-colors ${index === activeIndex ? 'bg-blue-600' : 'bg-gray-300'}`}
-              aria-label={`Go to page ${index + 1}`}
-            />
-          ))}
         </div>
         
         {/* View All Reviews Button */}

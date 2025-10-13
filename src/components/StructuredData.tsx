@@ -263,28 +263,41 @@ export default function StructuredData({ businessInfo, reviews }: StructuredData
 function convertRelativeTimeToDate(relativeTime: string): string {
   const now = new Date();
   
-  if (relativeTime.includes('day')) {
-    const days = parseInt(relativeTime);
+  // Extract number from relative time string (e.g., "6 months ago" -> 6)
+  const match = relativeTime.match(/(\d+)/);
+  if (!match) {
+    // Default to 3 months ago if we can't parse
     const date = new Date(now);
-    date.setDate(now.getDate() - days);
+    date.setMonth(now.getMonth() - 3);
+    return date.toISOString().split('T')[0];
+  }
+  
+  const number = parseInt(match[1], 10);
+  if (isNaN(number)) {
+    // Default to 3 months ago if we can't parse
+    const date = new Date(now);
+    date.setMonth(now.getMonth() - 3);
+    return date.toISOString().split('T')[0];
+  }
+  
+  if (relativeTime.includes('day')) {
+    const date = new Date(now);
+    date.setDate(now.getDate() - number);
     return date.toISOString().split('T')[0];
   } 
   else if (relativeTime.includes('week')) {
-    const weeks = parseInt(relativeTime);
     const date = new Date(now);
-    date.setDate(now.getDate() - (weeks * 7));
+    date.setDate(now.getDate() - (number * 7));
     return date.toISOString().split('T')[0];
   }
   else if (relativeTime.includes('month')) {
-    const months = parseInt(relativeTime);
     const date = new Date(now);
-    date.setMonth(now.getMonth() - months);
+    date.setMonth(now.getMonth() - number);
     return date.toISOString().split('T')[0];
   }
   else if (relativeTime.includes('year')) {
-    const years = parseInt(relativeTime);
     const date = new Date(now);
-    date.setFullYear(now.getFullYear() - years);
+    date.setFullYear(now.getFullYear() - number);
     return date.toISOString().split('T')[0];
   }
   

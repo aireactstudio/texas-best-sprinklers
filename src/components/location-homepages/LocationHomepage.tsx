@@ -7,7 +7,6 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import CTA from '@/components/CTA';
 import LocationLocalInfo from './LocationLocalInfo';
-import WaterRestrictionsLinks from './WaterRestrictionsLinks';
 import WaterRestrictions from './WaterRestrictions';
 import { DALLAS_AREA_WATER_RESTRICTIONS } from '@/data/waterRestrictions';
 import { getLocationData } from '@/data/locationData';
@@ -79,17 +78,12 @@ export default function LocationHomepage({ locationSlug }: LocationHomepageProps
         serviceAreas={serviceAreas}
       />
       
-      {/* Water Restrictions Links */}
-      <WaterRestrictionsLinks
-        locationName={locationName}
-        locationSlug={locationSlug}
-      />
-
-      {/* Water Restrictions Directory (all DFW cities) */}
+      {/* Water Restrictions Directory (relevant cities only) */}
       <WaterRestrictions
         title={`Local Water Restrictions near ${locationName}`}
         subtitle="Find official watering schedules, conservation plans, and drought-stage guidance."
         links={DALLAS_AREA_WATER_RESTRICTIONS}
+        currentLocation={locationSlug}
       />
 
       {/* Testimonials */}

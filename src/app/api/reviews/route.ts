@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 // Define the structure for our API response
 interface ReviewsResponse {
   reviews: {
-    id: number;
+    id: string;
     name: string;
     role: string;
     location: string;
@@ -11,12 +11,17 @@ interface ReviewsResponse {
     stars: number;
     photo?: string;
     time?: string;
+    publishTime?: string;
+    authorUri?: string;
   }[];
   businessInfo: {
     name: string;
     rating: number;
     userRatingsTotal: number;
     googleUrl: string;
+    address?: string;
+    phone?: string;
+    website?: string;
   };
   error?: string;
 }
@@ -24,61 +29,100 @@ interface ReviewsResponse {
 export async function GET() {
   try {
     // Get the API key from environment variables
-    const apiKey = process.env.GOOGLE_MAPS_API_KEY;
+    const apiKey = process.env.NEXT_PUBLIC_GOOGLE_PLACES_API_KEY;
     
     if (!apiKey) {
-      console.error('API key not configured');
       throw new Error('API key not configured');
     }
 
     // Texas Best Sprinklers Place ID
     const placeId = 'ChIJSQAKM0rPTYYRLtwBoHZDGRY';
     
-    // Using the new Google Places API endpoint
-    // Updated to use Places API (New) format
-    const url = `https://places.googleapis.com/v1/places/${placeId}?fields=id,displayName,rating,userRatingCount,reviews,googleMapsUri&key=${apiKey}`;
-    
+    // Get business info with reviews
+    const url = `https://places.googleapis.com/v1/places/${placeId}`;
     const response = await fetch(url, { 
       cache: 'no-store',
       headers: {
         'X-Goog-Api-Key': apiKey,
-        'X-Goog-FieldMask': 'displayName,rating,userRatingCount,reviews,googleMapsUri'
+        'X-Goog-FieldMask': 'id,displayName,rating,userRatingCount,googleMapsUri,reviews'
       }
     });
     
     if (!response.ok) {
+      // If we get a 403 error, try without reviews
+      if (response.status === 403) {
+        console.log('403 error, trying without reviews field...');
+        const basicResponse = await fetch(url, { 
+          cache: 'no-store',
+          headers: {
+            'X-Goog-Api-Key': apiKey,
+            'X-Goog-FieldMask': 'id,displayName,rating,userRatingCount,googleMapsUri'
+          }
+        });
+        
+        if (!basicResponse.ok) {
+          throw new Error(`API responded with status: ${basicResponse.status}`);
+        }
+        
+        const basicData = await basicResponse.json();
+        if (basicData.error) {
+          throw new Error(`Google API error: ${basicData.error.code} - ${basicData.error.message || 'Unknown error'}`);
+        }
+        
+        // Return basic info without reviews
+        const businessInfo = {
+          name: basicData.displayName?.text || basicData.displayName || 'Texas Best Sprinklers, Drainage and Lighting LLC',
+          rating: basicData.rating || 5,
+          userRatingsTotal: basicData.userRatingCount || 0,
+          googleUrl: basicData.googleMapsUri || 'https://www.google.com/search?q=Texas+Best+Sprinklers,+Drainage+and+Lighting+LLC+Reviews',
+          address: '',
+          phone: '',
+          website: ''
+        };
+        
+        return NextResponse.json({ 
+          reviews: [],
+          businessInfo: businessInfo,
+          error: 'Reviews not available - API key may not have Places API reviews permission'
+        } as ReviewsResponse);
+      }
+      
       throw new Error(`API responded with status: ${response.status}`);
     }
     
     const data = await response.json();
     
-    // New Places API doesn't use status field
     if (data.error) {
       throw new Error(`Google API error: ${data.error.code} - ${data.error.message || 'Unknown error'}`);
     }
     
-    // In the new API, we get the data directly, not under a 'result' property
+    // Use the data as the result
     const result = data;
     
     // Format the reviews for our frontend and filter for only 5-star reviews
-    const formattedReviews = result.reviews?.map((review: any, index: number) => ({
-      id: index + 1,
+    const formattedReviews = (result.reviews || []).map((review: any, index: number) => ({
+      id: `google-${index + 1}`,
       name: review.authorAttribution?.displayName || 'Anonymous',
       role: 'Customer',
-      location: 'Fort Worth', // Default location
+      location: 'Fort Worth', // Default location - could be enhanced to extract from review content
       content: review.text?.text || '',
       stars: review.rating || 0,
       photo: review.authorAttribution?.photoUri,
-      time: review.relativePublishTimeDescription || ''
+      time: review.relativePublishTimeDescription || '',
+      publishTime: review.publishTime,
+      authorUri: review.authorAttribution?.uri
     }))
-    .filter((review: any) => review.stars === 5) || [];
+    .filter((review: any) => review.stars === 5);
     
-    // Format business information
+    // Format business information with additional details
     const businessInfo = {
-      name: result.displayName || 'Texas Best Sprinklers, Drainage and Lighting LLC',
+      name: result.displayName?.text || result.displayName || 'Texas Best Sprinklers, Drainage and Lighting LLC',
       rating: result.rating || 5,
       userRatingsTotal: result.userRatingCount || 0,
-      googleUrl: result.googleMapsUri || 'https://www.google.com/search?q=Texas+Best+Sprinklers,+Drainage+and+Lighting+LLC+Reviews'
+      googleUrl: result.googleMapsUri || 'https://www.google.com/search?q=Texas+Best+Sprinklers,+Drainage+and+Lighting+LLC+Reviews',
+      address: result.formattedAddress || '',
+      phone: result.phoneNumber || '',
+      website: result.websiteUri || ''
     };
     
     return NextResponse.json({ 
@@ -93,7 +137,7 @@ export async function GET() {
     return NextResponse.json({ 
       reviews: [
         {
-          id: 1,
+          id: "1",
           name: "Michael Thompson",
           role: "Homeowner",
           location: "Fort Worth",
@@ -102,7 +146,7 @@ export async function GET() {
           time: "2 months ago"
         },
         {
-          id: 2,
+          id: "2",
           name: "Sarah Johnson",
           role: "Property Manager",
           location: "Arlington",
@@ -111,7 +155,7 @@ export async function GET() {
           time: "3 months ago"
         },
         {
-          id: 3,
+          id: "3",
           name: "David Rodriguez",
           role: "Landscape Architect",
           location: "Keller",
@@ -120,7 +164,7 @@ export async function GET() {
           time: "4 months ago"
         },
         {
-          id: 4,
+          id: "4",
           name: "Jennifer Adams",
           role: "Homeowner",
           location: "Southlake",
@@ -129,7 +173,7 @@ export async function GET() {
           time: "5 months ago"
         },
         {
-          id: 5,
+          id: "5",
           name: "Robert Chen",
           role: "Business Owner",
           location: "Grapevine",
@@ -138,7 +182,7 @@ export async function GET() {
           time: "6 months ago"
         },
         {
-          id: 6,
+          id: "6",
           name: "Emily Wilson",
           role: "Homeowner",
           location: "Colleyville",
@@ -147,16 +191,16 @@ export async function GET() {
           time: "7 months ago"
         },
         {
-          id: 7,
+          id: "7",
           name: "Thomas Garcia",
           role: "HOA President",
           location: "North Richland Hills",
           content: "Our HOA has been using Texas Best Sprinklers for maintenance of our common areas for over 2 years. They're responsive, thorough, and provide excellent value. Highly recommended for commercial properties.",
-          stars: 5, // Updated to 5 stars
+          stars: 5,
           time: "8 months ago"
         },
         {
-          id: 8,
+          id: "8",
           name: "Lisa Patel",
           role: "Homeowner",
           location: "Bedford",
@@ -165,7 +209,7 @@ export async function GET() {
           time: "9 months ago"
         },
         {
-          id: 9,
+          id: "9",
           name: "Mark Williams",
           role: "Landscape Designer",
           location: "Euless",
@@ -174,7 +218,7 @@ export async function GET() {
           time: "10 months ago"
         },
         {
-          id: 10,
+          id: "10",
           name: "Amanda Torres",
           role: "Homeowner",
           location: "Fort Worth",
@@ -187,7 +231,10 @@ export async function GET() {
         name: 'Texas Best Sprinklers, Drainage and Lighting LLC',
         rating: 4.9,
         userRatingsTotal: 100,
-        googleUrl: 'https://www.google.com/search?q=Texas+Best+Sprinklers,+Drainage+and+Lighting+LLC+Reviews'
+        googleUrl: 'https://www.google.com/search?q=Texas+Best+Sprinklers,+Drainage+and+Lighting+LLC+Reviews',
+        address: 'Fort Worth, TX',
+        phone: '(817) 555-0123',
+        website: 'https://texasbestsprinklers.com'
       },
       error: error.message
     } as ReviewsResponse, { status: 200 }); // Return 200 even with error to show fallback data
