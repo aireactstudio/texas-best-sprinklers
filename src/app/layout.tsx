@@ -52,11 +52,7 @@ const montserrat = Montserrat({
 // This resolves the conflicting exports issue
 export function generateMetadata(): Metadata {
   return {
-    title: {
-      template: `%s | ${SITE_CONFIG.shortName}`,
-      // SERP title (<= ~60 chars), no brand for brevity
-      default: 'Fort Worth Sprinkler & Drainage Experts',
-    },
+    title: SITE_CONFIG.shortName,
     metadataBase: new URL('https://sprinkleranddrains.com'),
     // Meta description (~150-160 chars)
     description: 'Fort Worth sprinkler & drainage experts. Repairs, installs, lighting, maintenance. Fast scheduling in surrounding areas. Call 817-304-7896 for a free estimate.',

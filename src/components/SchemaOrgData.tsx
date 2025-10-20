@@ -1,10 +1,9 @@
-'use client';
-
 import { SITE_CONFIG } from '@/config/site';
 
 /**
  * SchemaOrgData component
  * This adds JSON-LD schema.org markup to improve search engine understanding of the business
+ * Server-side rendered for better SEO
  */
 const SchemaOrgData = () => {
   const schemaData = {

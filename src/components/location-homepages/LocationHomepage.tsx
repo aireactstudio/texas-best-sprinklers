@@ -12,6 +12,7 @@ import { DALLAS_AREA_WATER_RESTRICTIONS } from '@/data/waterRestrictions';
 import { getLocationData } from '@/data/locationData';
 import LocationServicesAndAreas from './LocationServicesAndAreas';
 import LocationSEOArticle from './LocationSEOArticle';
+import WeatherfordFAQ from './WeatherfordFAQ';
 import Script from 'next/script';
 
 interface LocationHomepageProps {
@@ -92,6 +93,9 @@ export default function LocationHomepage({ locationSlug }: LocationHomepageProps
         maxDisplayCount={10}
       />
 
+      {/* Weatherford-specific FAQ */}
+      {locationSlug === 'weatherford' && <WeatherfordFAQ />}
+
       {/* Inserted block: Above the article and below the reviews */}
       <CTA
         title={`Ready for reliable sprinkler service in ${locationName}?`}
@@ -125,7 +129,8 @@ export default function LocationHomepage({ locationSlug }: LocationHomepageProps
           },
           mainEntity: [
             { "@id": `#city-regulations-${locationSlug}` },
-            { "@id": "#dfw-water-restrictions" }
+            { "@id": "#dfw-water-restrictions" },
+            ...(locationSlug === 'weatherford' ? [{ "@id": "#weatherford-faq" }] : [])
           ]
         })}
       </Script>
