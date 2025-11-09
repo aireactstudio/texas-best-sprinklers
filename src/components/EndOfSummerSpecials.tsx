@@ -21,14 +21,14 @@ export default function EndOfSummerSpecials() {
 
         {/* Offers grid */}
         <div className="mx-auto mt-6 grid max-w-6xl grid-cols-1 gap-5 px-6 pb-6 sm:grid-cols-2 lg:grid-cols-3">
-          {/* $50 Sprinkler Inspection & Tune-Up */}
+          {/* $20 Sprinkler Inspection & Tune-Up */}
           <OfferCard
             icon={<Wrench className="h-5 w-5" />}
-            title="$50 Sprinkler Inspection & Tune‑Up"
+            title="$20 Sprinkler Inspection & Tune‑Up"
             desc="Experienced techs check coverage, leaks, heads, controller & scheduling."
             badge="Most Popular"
             href="/contact"
-            cta="Book $50 Inspection"
+            cta="Book $20 Inspection"
             accent="bg-emerald-600 hover:bg-emerald-700"
             iconClass="bg-emerald-100 text-emerald-800"
           />
@@ -89,7 +89,7 @@ export default function EndOfSummerSpecials() {
         <div className="mx-auto max-w-6xl px-6 pb-6 pt-4 text-xs text-gray-600 border-t border-gray-100">
           <p className="flex items-center gap-2">
             <Leaf className="h-4 w-4 text-emerald-600" />
-            Limited‑time fall sale offers. Cannot be combined with other promotions. Call for details.
+            Limited‑time fall sale offers. Ends Dec 31. Cannot be combined with other promotions. Call for details.
           </p>
         </div>
       </div>

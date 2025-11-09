@@ -19,6 +19,7 @@ interface NavItem {
 const AppHeader = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isFooterVisible, setIsFooterVisible] = useState(false);
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
   const pathname = usePathname();
   const mobileMenuRef = useRef<HTMLDivElement>(null);
@@ -46,6 +47,24 @@ const AppHeader = () => {
     
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Detect when the footer is visible to prevent bottom bar from covering links
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const footerEl = document.getElementById('site-footer');
+    if (!footerEl) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        setIsFooterVisible(entry.isIntersecting);
+      },
+      { root: null, threshold: 0.05 }
+    );
+
+    observer.observe(footerEl);
+    return () => observer.disconnect();
   }, []);
 
   // Close mobile menu when route changes
@@ -427,7 +446,7 @@ const AppHeader = () => {
       
       {/* Mobile Bottom CTA Bar - Only appears when scrolled on mobile */}
       <AnimatePresence>
-        {isScrolled && (
+        {isScrolled && !isFooterVisible && (
           <motion.div 
             initial={{ y: '100%' }}
             animate={{ y: 0 }}

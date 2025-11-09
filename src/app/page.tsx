@@ -17,6 +17,7 @@ import { curatedReviews } from '@/data/curated-reviews';
 import EndOfSummerSpecials from '@/components/EndOfSummerSpecials';
 import HomeFAQ from '@/components/HomeFAQ';
 import { LOCATIONS, locationData } from '@/data/locationData';
+import FallSaleSnapshot from '@/components/FallSaleSnapshot';
 
 export default function Home() {
   const [reviews, setReviews] = useState([]);
@@ -146,6 +147,10 @@ export default function Home() {
       {/* End of Summer Specials - prominent and above the fold */}
       <div className="px-4 sm:px-6 lg:px-8 mt-8">
         <EndOfSummerSpecials />
+      </div>
+      {/* TEMP: Static snapshot for email screenshot (no buttons) */}
+      <div className="px-4 sm:px-6 lg:px-8 mt-6">
+        <FallSaleSnapshot />
       </div>
       <ServicesSection />
       {/* Move reviews up: 1–2 sections below hero */}

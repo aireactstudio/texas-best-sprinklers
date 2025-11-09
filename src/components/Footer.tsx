@@ -12,7 +12,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-irrigation-blue text-white">
+    <footer id="site-footer" className="bg-irrigation-blue text-white">
       <div className="container-custom">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 py-16">
           {/* Company Info */}
