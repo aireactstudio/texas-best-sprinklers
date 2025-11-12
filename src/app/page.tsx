@@ -235,6 +235,49 @@ export default function Home() {
         title="Our Service Areas"
         subtitle="Texas Best Sprinklers provides expert irrigation and drainage solutions throughout the Fort Worth metroplex"
       />
+      <section className="px-4 sm:px-6 lg:px-8 py-12">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="text-2xl md:text-3xl font-bold text-irrigation-darkBlue tracking-tight">Fort Worth Sprinkler & Drainage Experts</h2>
+          <p className="mt-4 text-gray-700">
+            Keeping landscapes healthy in Fort Worth takes a reliable irrigation system and smart drainage. At Texas Best Sprinklers, we design, repair, and optimize systems for North Texas heat, clay soils, and sudden storms. If your yard needs dependable watering or a way to move water off the property, our team delivers practical solutions that improve curb appeal and protect your foundation.
+          </p>
+          <h3 className="mt-8 text-xl md:text-2xl font-semibold text-irrigation-darkBlue">Sprinklers and Irrigation, Done Right</h3>
+          <p className="mt-3 text-gray-700">
+            Whether you need fast fixes or a brand‑new system, we handle everything from diagnostics to smart controllers. Common service calls include broken heads, leaks, wiring issues, and low pressure. If you’re seeing dry patches or soggy zones, we’ll evaluate coverage and recalibrate your system for efficient watering across every bed and lawn area.
+          </p>
+          <p className="mt-3 text-gray-700">
+            Explore our most requested services: <a className="text-green-700 hover:text-green-800 underline" href="/services/irrigation-repair">Irrigation Repair</a>, <a className="text-green-700 hover:text-green-800 underline" href="/services/sprinkler-repair">Sprinkler Repair</a>, <a className="text-green-700 hover:text-green-800 underline" href="/services/sprinkler-installation">Sprinkler Installation</a>, <a className="text-green-700 hover:text-green-800 underline" href="/services/maintenance">Maintenance</a>, <a className="text-green-700 hover:text-green-800 underline" href="/services/drip-irrigation">Drip Irrigation</a>, <a className="text-green-700 hover:text-green-800 underline" href="/services/sprinkler-system-check-up">Sprinkler System Check‑Up</a>, and <a className="text-green-700 hover:text-green-800 underline" href="/services/sprinkler-system-reroutes">Sprinkler System Reroutes</a>.
+          </p>
+          <ul className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-2 text-gray-700">
+            <li>• Smart Wi‑Fi controller setup for seasonal schedules</li>
+            <li>• Nozzle upgrades for even coverage and water savings</li>
+            <li>• Pressure regulation and zone balancing</li>
+            <li>• Leak detection and rapid repairs</li>
+          </ul>
+          <h3 className="mt-8 text-xl md:text-2xl font-semibold text-irrigation-darkBlue">Drainage That Protects Your Home</h3>
+          <p className="mt-3 text-gray-700">
+            North Texas clay soils hold water, and heavy rains can overwhelm yards and flower beds. Proper drainage prevents standing water, erosion, mosquito activity, and foundation stress. We design systems that collect and route water away from structures and high‑traffic areas while preserving your landscape.
+          </p>
+          <p className="mt-3 text-gray-700">
+            Learn more about our solutions: <a className="text-green-700 hover:text-green-800 underline" href="/services/drainage-solutions">Drainage Solutions</a>, including <a className="text-green-700 hover:text-green-800 underline" href="/services/french-drains">French Drains</a>, <a className="text-green-700 hover:text-green-800 underline" href="/services/channel-drains">Channel Drains</a>, <a className="text-green-700 hover:text-green-800 underline" href="/services/yard-drainage-systems">Yard Drainage Systems</a>, and <a className="text-green-700 hover:text-green-800 underline" href="/services/sump-pumps">Sump Pumps</a> for challenging low spots.
+          </p>
+          <ul className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-2 text-gray-700">
+            <li>• Site grading assessments and downspout extensions</li>
+            <li>• Strategic collection points and discharge routing</li>
+            <li>• Minimal‑disruption trenching and clean installation</li>
+            <li>• Long‑term reliability with proper filtration</li>
+          </ul>
+          <h3 className="mt-8 text-xl md:text-2xl font-semibold text-irrigation-darkBlue">Proudly Serving Fort Worth and Nearby Cities</h3>
+          <p className="mt-3 text-gray-700">
+            We’re local to the Fort Worth area and serve homeowners across the Tarrant County metro. If you’re nearby, there’s a good chance we’re already in your neighborhood. Explore our city pages to see recent work and request a free estimate:
+            <span className="block mt-2" />
+            <a className="text-green-700 hover:text-green-800 underline" href="/fort-worth">Fort Worth</a>, <a className="text-green-700 hover:text-green-800 underline" href="/arlington">Arlington</a>, <a className="text-green-700 hover:text-green-800 underline" href="/keller">Keller</a>, <a className="text-green-700 hover:text-green-800 underline" href="/southlake">Southlake</a>, <a className="text-green-700 hover:text-green-800 underline" href="/colleyville">Colleyville</a>, <a className="text-green-700 hover:text-green-800 underline" href="/grapevine">Grapevine</a>, and <a className="text-green-700 hover:text-green-800 underline" href="/weatherford">Weatherford</a>.
+          </p>
+          <p className="mt-6 text-gray-700">
+            Ready to tune up your sprinklers, install a new system, or finally solve a drainage headache? Get started today—our team will assess your property and recommend the most efficient, long‑lasting solution for your landscape.
+          </p>
+        </div>
+      </section>
       <CTA />
       {/* SEO: Structured Data - LocalBusiness, Services, Breadcrumbs */}
       <script
