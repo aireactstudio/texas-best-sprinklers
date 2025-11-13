@@ -164,22 +164,22 @@ const AppHeader = () => {
         isScrolled ? 'bg-black shadow-md py-2' : 'bg-transparent py-4'
       }`}
     >
-      <div className="container-custom flex justify-between items-center max-w-none px-4 md:px-8 lg:px-12 xl:px-16">
+      <div className="container-custom flex justify-between items-center max-w-none px-4 md:px-8 lg:px-10 xl:px-14">
         <Link href="/" className={`items-center space-x-2 z-[60] ${isMobileMenuOpen ? 'hidden lg:flex' : 'flex'}`}>
-          <Droplet className="h-8 w-8 text-white" />
-          <span className="font-bold text-lg md:text-xl lg:text-2xl font-['Montserrat'] text-white">
+          <Droplet className="h-7 w-7 lg:h-6 lg:w-6 text-white" />
+          <span className="font-bold text-base md:text-lg lg:text-xl xl:text-2xl font-['Montserrat'] text-white tracking-tight">
             Texas Best Sprinkler, Drainage and Lighting
           </span>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center space-x-8">
-          <ul className="flex space-x-8 lg:space-x-10">
+        <nav className="hidden lg:flex items-center space-x-6">
+          <ul className="flex space-x-6 lg:space-x-8">
             {menuItems.filter(mi => mi.name !== 'Home').map((item) => (
               <li key={item.name} className="relative group">
                 <Link 
                   href={item.path} 
-                  className={`relative inline-flex items-center text-lg lg:text-xl px-2 py-1 font-medium after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-1 after:h-[2px] after:w-full after:scale-x-0 after:origin-center after:bg-current after:rounded-full after:transition-transform after:duration-300 hover:after:scale-x-100 transition-all duration-200 hover:opacity-90 hover:-translate-y-0.5 ${
+                  className={`relative inline-flex items-center whitespace-nowrap text-sm md:text-base lg:text-base xl:text-lg px-2 py-1 font-medium after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-1 after:h-[2px] after:w-full after:scale-x-0 after:origin-center after:bg-current after:rounded-full after:transition-transform after:duration-300 hover:after:scale-x-100 transition-all duration-200 hover:opacity-90 hover:-translate-y-0.5 ${
                     (pathname === item.path ||
                     (item.path !== '/' && pathname?.startsWith(item.path)))
                       ? 'text-white after:scale-x-100' 
@@ -258,9 +258,9 @@ const AppHeader = () => {
           </ul>
           <Button 
             variant="outline"
-            className="text-irrigation-blue border-irrigation-blue hover:bg-irrigation-blue hover:text-white"
+            className="text-irrigation-blue border-irrigation-blue hover:bg-irrigation-blue hover:text-white px-3 py-2 text-sm"
           >
-            <Link href="/contact" className="flex items-center">
+            <Link href="/contact" className="flex items-center whitespace-nowrap text-sm">
               <Phone className="w-4 h-4 mr-2" /> Get a Quote
             </Link>
           </Button>
