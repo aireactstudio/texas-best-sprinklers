@@ -18,7 +18,7 @@ interface LocationHeroSectionProps {
   serviceAreas: string[];
 }
 
-// Determine radius per city: default 3 miles, Keller & Grapevine = 5 miles
+// Determine radius per city: default 9 miles, Keller & Grapevine = 15 miles (3x increase)
 function getRadiusMiles(locationName: string, locationSlug?: string): number {
   const normalize = (s: string) => s
     .toLowerCase()
@@ -30,8 +30,8 @@ function getRadiusMiles(locationName: string, locationSlug?: string): number {
   const slugKey = locationSlug ? normalize(locationSlug) : '';
   const key = nameKey || slugKey;
 
-  if (key === 'keller' || key === 'grapevine') return 5;
-  return 3;
+  if (key === 'keller' || key === 'grapevine') return 15;
+  return 9;
 }
 
 // Helper function to get coordinates from location name/slug with robust normalization
@@ -170,23 +170,23 @@ export default function LocationHeroSection({
             </div>
 
             {/* Key Features */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-2" style={{ width: '100%', height: 'auto', aspectRatio: '3/1', minHeight: '100px' }}>
-              <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-lg p-4 border border-white/10 h-[60px]">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-3 w-full">
+              <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-lg p-4 border border-white/10 min-h-[56px]">
                 <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0" />
                 <span className="text-white font-medium">Licensed & Insured</span>
               </div>
-              <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-lg p-4 border border-white/10 h-[60px]">
+              <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-lg p-4 border border-white/10 min-h-[56px]">
                 <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0" />
                 <span className="text-white font-medium">15+ Years Experience</span>
               </div>
-              <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-lg p-4 border border-white/10 h-[60px]">
+              <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-lg p-4 border border-white/10 min-h-[56px]">
                 <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0" />
                 <span className="text-white font-medium">100% Satisfaction</span>
               </div>
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 mt-2">
+            <div className="flex flex-col sm:flex-row gap-4 mt-3">
               <Button
                 size="lg"
                 className="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-2xl hover:shadow-green-500/25 transition-all duration-200 transform hover:scale-105"
