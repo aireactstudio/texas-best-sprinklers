@@ -97,6 +97,13 @@ export default function Services() {
             />
             
             <ServiceCard 
+              title="Sprinkler Winterization"
+              description="Protect your irrigation system from freeze damage with professional winterization: safe blow out, backflow and valve protection, and controller prep for spring."
+              icon={<Settings size={32} />}
+              id="sprinkler-winterization"
+            />
+            
+            <ServiceCard 
               title="Commercial Irrigation"
               description="Specialized irrigation solutions for commercial properties, HOAs, municipal parks, and sports fields, focusing on water conservation and coverage."
               icon={<Droplet size={32} />}
