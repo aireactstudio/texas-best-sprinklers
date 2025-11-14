@@ -82,7 +82,7 @@ const LocationMap: React.FC<LocationMapProps> = ({
       <GoogleMap
         mapContainerStyle={{ width: '100%', height: '100%' }}
         center={center}
-        zoom={11}
+        zoom={10}
         options={mapOptions}
       >
         {/* Pin marker at the center location - Using marker created via Google Maps API directly to avoid deprecation */}
