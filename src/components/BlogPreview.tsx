@@ -32,10 +32,6 @@ const BlogPreview: React.FC<BlogPreviewProps> = ({
     slug: post.slug,
   }))
 }) => {
-  // Override the middle (second) card image
-  const postsWithOverride = posts.map((p, i) =>
-    i === 1 ? { ...p, image: '/assets/images/optimized/sprinkler.png' } : p
-  );
   return (
     <section className="section bg-white">
       <div className="container-custom">
@@ -52,7 +48,7 @@ const BlogPreview: React.FC<BlogPreviewProps> = ({
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {postsWithOverride.map((post, index) => (
+          {posts.map((post, index) => (
             <div key={post.id} className="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
               <Link href={`/blog/${post.slug}`} className="block">
                 <div className="relative aspect-video overflow-hidden rounded-lg mb-4">
@@ -98,7 +94,7 @@ const BlogPreview: React.FC<BlogPreviewProps> = ({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(
-              postsWithOverride.map((post) => ({
+              posts.map((post) => ({
                 "@context": "https://schema.org",
                 "@type": "BlogPosting",
                 headline: post.title,
@@ -108,7 +104,7 @@ const BlogPreview: React.FC<BlogPreviewProps> = ({
                   "@type": "Organization",
                   name: "Texas Best Sprinklers",
                 },
-                image: `https://texasbestsprinklers.com${post.image}`,
+                image: post.image,
                 mainEntityOfPage: {
                   "@type": "WebPage",
                   "@id": `https://texasbestsprinklers.com/blog/${post.slug}`,

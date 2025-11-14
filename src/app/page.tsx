@@ -13,6 +13,7 @@ import StructuredData from '@/components/StructuredData';
 import HowToGetStartedSection from '@/components/HowToGetStartedSection';
 import MultiServiceHowToSchema from '@/components/MultiServiceHowToSchema';
 import ServiceAreaLocator from '@/components/ServiceAreaLocator';
+import ScrollingCarousel from '@/components/ScrollingCarousel';
 import { curatedReviews } from '@/data/curated-reviews';
 import EndOfSummerSpecials from '@/components/EndOfSummerSpecials';
 import HomeFAQ from '@/components/HomeFAQ';
@@ -150,6 +151,7 @@ export default function Home() {
       <ServicesSection />
       {/* Move reviews up: 1–2 sections below hero */}
       <TestimonialsSection />
+      <ScrollingCarousel />
       <FeaturesSection />
       <StatsSection />
       <HowItWorksSection />
