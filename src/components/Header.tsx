@@ -122,10 +122,10 @@ const Header = () => {
                     Drainage Solutions
                   </Link>
                   <Link 
-                    href="/services/outdoor-lighting"
-                    className={`block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ${pathname?.startsWith('/services/outdoor-lighting') ? 'bg-gray-50 text-irrigation-blue font-medium' : ''}`}
+                    href="/services/sod-and-land-leveling"
+                    className={`block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ${pathname?.startsWith('/services/sod-and-land-leveling') ? 'bg-gray-50 text-irrigation-blue font-medium' : ''}`}
                   >
-                    Outdoor Lighting
+                    SOD Installation & Land Leveling
                   </Link>
                 </div>
               </div>
@@ -295,15 +295,15 @@ const Header = () => {
                   Drainage Solutions
                 </Link>
                 <Link 
-                  href="/services/outdoor-lighting" 
+                  href="/services/sod-and-land-leveling" 
                   className={`block text-sm ${
-                    pathname?.startsWith('/services/outdoor-lighting') 
+                    pathname?.startsWith('/services/sod-and-land-leveling') 
                     ? 'text-irrigation-blue font-medium' 
                     : 'text-gray-600'
                   }`}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  Outdoor Lighting
+                  SOD Installation & Land Leveling
                 </Link>
               </div>
             </li>

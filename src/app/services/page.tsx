@@ -83,6 +83,13 @@ export default function Services() {
             />
             
             <ServiceCard 
+              title="SOD Installation & Land Leveling"
+              description="Professional SOD installation, grading, and land leveling to fix low spots, improve drainage, and create an instantly green lawn."
+              icon={<Droplet size={32} />}
+              id="sod-and-land-leveling"
+            />
+            
+            <ServiceCard 
               title="Outdoor Lighting"
               description="Enhance your property's beauty, security, and functionality with our custom-designed outdoor lighting solutions for pathways, gardens, and architectural features."
               icon={<CloudSun size={32} />}

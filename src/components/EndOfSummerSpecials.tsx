@@ -71,6 +71,19 @@ export default function EndOfSummerSpecials() {
             wrapperClass="lg:col-start-1"
           />
 
+          {/* SOD & land leveling specials – winter-long offer */}
+          <OfferCard
+            icon={<Percent className="h-5 w-5" />}
+            title="SOD Installation & Land Leveling — 10% Off All Winter"
+            desc="Winter-long special on professional SOD install, sanding/topdressing, and grading to fix low spots, improve drainage, and give you an instantly green lawn before spring."
+            badge="Winter-Long Special"
+            href="/contact"
+            cta="Lock In Winter Pricing"
+            accent="bg-amber-700 hover:bg-amber-800"
+            iconClass="bg-amber-100 text-amber-800"
+            wrapperClass="border-amber-200 shadow-md shadow-amber-100"
+          />
+
           {/* Drainage solutions savings */}
           <OfferCard
             icon={<Droplets className="h-5 w-5" />}
@@ -89,7 +102,7 @@ export default function EndOfSummerSpecials() {
         <div className="mx-auto max-w-6xl px-6 pb-6 pt-4 text-xs text-gray-600 border-t border-gray-100">
           <p className="flex items-center gap-2">
             <Leaf className="h-4 w-4 text-emerald-600" />
-            Limited‑time fall sale offers. Ends Dec 31. Cannot be combined with other promotions. Call for details.
+            Limited‑time fall sale offers. Most specials end Dec 31. SOD Installation & Land Leveling pricing runs all winter. Cannot be combined with other promotions. Call for details.
           </p>
         </div>
       </div>

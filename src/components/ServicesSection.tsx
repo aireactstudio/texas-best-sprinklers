@@ -80,13 +80,13 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           'Downspout extensions',
           'Erosion control measures'
         ];
-      case 'Outdoor Lighting':
+      case 'SOD Installation & Land Leveling':
         return [
-          'Custom lighting design',
-          'Path and walkway lighting',
-          'Accent and spotlight installation',
-          'Security lighting solutions',
-          'Smart lighting controls'
+          'Professional SOD installation matched to North Texas conditions',
+          'Land leveling, sanding, and grading to fix low spots and pooling',
+          'Integration with existing or new irrigation systems',
+          'Drainage-friendly slopes away from the home',
+          'Clean edges around driveways, patios, and beds'
         ];
       default:
         return [];
@@ -141,7 +141,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       
       <div className="mt-auto flex flex-col sm:flex-row gap-2">
         <Link 
-          href="/contact" 
+          href={fullLink} 
           className="text-white bg-irrigation-darkGreen hover:bg-irrigation-darkBlue transition-colors duration-300 inline-flex items-center justify-center py-2 px-4 rounded-md font-medium text-sm"
           aria-label={`Contact us about ${title}`}>
           <span>Contact Us</span>
@@ -150,7 +150,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           </svg>
         </Link>
         <Link 
-          href="/contact" 
+          href={fullLink} 
           className="text-irrigation-darkGreen border border-irrigation-darkGreen hover:bg-irrigation-a11y-light-green transition-colors duration-300 inline-flex items-center justify-center py-2 px-4 rounded-md font-medium text-sm"
           aria-label={`Get a quote for ${title}`}>
           <span>Get a Quote</span>
@@ -204,7 +204,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         
         {/* View Page link - navigates to service page */}
         <Link 
-          href="/contact"
+          href={fullLink}
           className="bg-irrigation-green text-white font-semibold hover:bg-irrigation-darkGreen transition-colors duration-300 inline-flex items-center text-sm flex-1 justify-center py-1 px-2 rounded"
           onClick={(e) => e.stopPropagation()}
         >
@@ -410,11 +410,11 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName, routePrefix
       longDescription: "Our drainage solutions address water management issues that can damage your landscape and home foundation. We design and install comprehensive drainage systems including French drains, surface drains, channel drains, and downspout extensions to effectively move water away from problem areas. Our expert team will assess your property's specific needs and implement custom solutions that protect your landscape investment and prevent costly water damage."
     },
     {
-      icon: <Lightbulb size={32} />,
-      title: "Outdoor Lighting",
-      description: "Professional landscape lighting that enhances your property's beauty, security, and value while extending outdoor living spaces.",
-      link: "/outdoor-lighting",
-      longDescription: "Our outdoor lighting services transform your landscape into a beautiful, functional space that can be enjoyed day and night. We design custom lighting solutions that highlight your property's best features, improve safety along walkways and stairs, and enhance security around your home. Using energy-efficient LED fixtures and smart control systems, we create stunning lighting effects that add value to your property while minimizing energy consumption."
+      icon: <CloudRain size={32} />,
+      title: "SOD Installation & Land Leveling",
+      description: "SOD installation, sanding, grading, and land leveling to fix low spots, improve drainage, and give you an instantly green, even lawn.",
+      link: "/services/sod-and-land-leveling",
+      longDescription: "Our SOD installation and land-leveling services are designed to correct problem areas and create a smooth, healthy lawn. We handle tear-out, soil prep, grading, sanding/topdressing, and SOD installation while paying attention to drainage and irrigation coverage. The result is an instantly green yard that drains correctly, feels level underfoot, and is easier to maintain over time."
     },
     {
       icon: <CloudRain size={32} />,
@@ -549,7 +549,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName, routePrefix
                         
                         {/* View Page link */}
                         <Link 
-                          href="/contact"
+                          href={service.resolvedLink || service.link}
                           className="bg-irrigation-green text-white font-semibold hover:bg-irrigation-darkGreen transition-colors duration-300 inline-flex items-center text-sm flex-1 justify-center py-1 px-2 rounded"
                           onClick={(e) => e.stopPropagation()}
                         >
@@ -596,7 +596,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName, routePrefix
                       
                       <div className="mt-4 flex flex-col gap-2">
                         <Link 
-                          href="/contact" 
+                          href={service.resolvedLink || service.link} 
                           className="text-white bg-irrigation-darkGreen hover:bg-irrigation-darkBlue transition-colors duration-300 inline-flex items-center justify-center py-2 px-4 rounded-md font-medium text-sm"
                           aria-label={`Contact us about ${service.title}`}>
                           <span>Contact Us</span>
@@ -605,7 +605,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName, routePrefix
                           </svg>
                         </Link>
                         <Link 
-                          href="/contact" 
+                          href={service.resolvedLink || service.link} 
                           className="text-irrigation-darkGreen border border-irrigation-darkGreen hover:bg-irrigation-a11y-light-green transition-colors duration-300 inline-flex items-center justify-center py-2 px-4 rounded-md font-medium text-sm"
                           aria-label={`Get a quote for ${service.title}`}>
                           <span>Get a Quote</span>

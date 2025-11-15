@@ -97,6 +97,7 @@ const AppHeader = () => {
         { name: 'Sprinkler System Check-Up', path: '/services/sprinkler-system-check-up' },
         { name: 'Sprinkler System Reroutes', path: '/services/sprinkler-system-reroutes' },
         { name: 'Drip Irrigation', path: '/services/drip-irrigation' },
+        { name: 'SOD Installation & Land Leveling', path: '/services/sod-and-land-leveling' },
         { name: 'Sprinkler Blow Out', path: '/services/sprinkler-blow-out' },
         { name: 'Sprinkler Winterization', path: '/services/sprinkler-winterization' },
       ]

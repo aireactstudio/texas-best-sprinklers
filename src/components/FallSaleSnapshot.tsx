@@ -20,7 +20,7 @@ export default function FallSaleSnapshot() {
           </p>
         </div>
 
-        {/* Grid (3 / 2 centered) */}
+        {/* Grid (3 / 3 + 2 centered) */}
         <div className="mx-auto mt-6 grid max-w-5xl grid-cols-1 gap-6 px-8 pb-8 sm:grid-cols-2 lg:grid-cols-3">
           <SnapshotCard
             icon={<Wrench className="h-5 w-5" />}
@@ -53,6 +53,14 @@ export default function FallSaleSnapshot() {
             badge="Curb Appeal"
             desc="Path, accent & security lighting. Energy‑efficient, stunning at night."
             wrapperClass="lg:col-start-1"
+          />
+
+          <SnapshotCard
+            icon={<Percent className="h-5 w-5" />}
+            iconClass="bg-amber-100 text-amber-800"
+            title="SOD Installation & Land Leveling — 10% Off All Winter"
+            badge="Winter-Long Special"
+            desc="Winter-long special on professional SOD install, sanding/topdressing, and grading to fix low spots, improve drainage, and give you an instantly green lawn before spring."
           />
 
           <SnapshotCard
