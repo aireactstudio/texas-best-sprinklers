@@ -13,7 +13,7 @@ export default function LandscapeLightingRepairPage() {
     title: "Landscape Lighting Repair and Maintenance",
     description: "Our landscape lighting repair and maintenance services keep your outdoor lighting system performing beautifully year-round, with expert diagnostics and quality repairs.",
     icon: <Lightbulb size={32} className="text-white" />,
-    image: "/assets/images/optimized/Lighting.png",
+    image: "/assets/images/optimized/outdoor_lighting_2.webp",
     features: [
       "Complete system diagnostics",
       "Fixture repair and replacement",
