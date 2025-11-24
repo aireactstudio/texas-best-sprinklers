@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { Wrench } from 'lucide-react';
 import { ServiceType } from '@/data/serviceTypes';
 import ServicePageLayout from '@/components/templates/ServicePageLayout';
@@ -135,6 +136,55 @@ export default function SprinklerRepairPage() {
               </p>
             </div>
           </div>
+        </div>
+      </div>
+      
+      <div className="mt-16">
+        <h2 className="text-2xl md:text-3xl font-bold mb-4 text-irrigation-blue">
+          Sprinkler repair in your area
+        </h2>
+        <p className="text-gray-800 leading-relaxed mb-4">
+          We provide professional sprinkler repair across the Fort Worth metroplex. Select your city for details about local sprinkler repair services.
+        </p>
+        <div className="bg-white border border-gray-100 rounded-lg px-6 py-5 shadow-sm">
+          <ul className="divide-y divide-gray-100">
+            <li className="py-2 flex items-center justify-between">
+              <Link href="/fort-worth/sprinkler-repair-services-in-fort-worth-tx" className="text-irrigation-darkBlue hover:text-irrigation-blue font-medium">
+                Sprinkler repair in Fort Worth, TX
+              </Link>
+              <span className="text-sm text-gray-400">→</span>
+            </li>
+            <li className="py-2 flex items-center justify-between">
+              <Link href="/keller/sprinkler-repair-services-in-keller-tx" className="text-irrigation-darkBlue hover:text-irrigation-blue font-medium">
+                Sprinkler repair in Keller, TX
+              </Link>
+              <span className="text-sm text-gray-400">→</span>
+            </li>
+            <li className="py-2 flex items-center justify-between">
+              <Link href="/haslet/sprinkler-repair-services-in-haslet-tx" className="text-irrigation-darkBlue hover:text-irrigation-blue font-medium">
+                Sprinkler repair in Haslet, TX
+              </Link>
+              <span className="text-sm text-gray-400">→</span>
+            </li>
+            <li className="py-2 flex items-center justify-between">
+              <Link href="/westlake/sprinkler-repair-services-in-westlake-tx" className="text-irrigation-darkBlue hover:text-irrigation-blue font-medium">
+                Sprinkler repair in Westlake, TX
+              </Link>
+              <span className="text-sm text-gray-400">→</span>
+            </li>
+            <li className="py-2 flex items-center justify-between">
+              <Link href="/argyle/sprinkler-repair-services-in-argyle-tx" className="text-irrigation-darkBlue hover:text-irrigation-blue font-medium">
+                Sprinkler repair in Argyle, TX
+              </Link>
+              <span className="text-sm text-gray-400">→</span>
+            </li>
+            <li className="py-2 flex items-center justify-between">
+              <Link href="/weatherford/sprinkler-repair-services-in-weatherford-tx" className="text-irrigation-darkBlue hover:text-irrigation-blue font-medium">
+                Sprinkler repair in Weatherford, TX
+              </Link>
+              <span className="text-sm text-gray-400">→</span>
+            </li>
+          </ul>
         </div>
       </div>
       

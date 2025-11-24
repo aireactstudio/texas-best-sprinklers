@@ -16,7 +16,7 @@ export const SITE_CONFIG = {
   /**
    * Short name for space-constrained areas
    */
-  shortName: 'Texas Best Sprinklers',
+  shortName: 'Texas Best Sprinklers and Drainage',
 
   /**
    * State license number (LI) for irrigation contractor

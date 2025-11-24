@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { Sprout } from 'lucide-react';
 import ServicePageLayout from '@/components/templates/ServicePageLayout';
 import ServiceAreaLocator from '@/components/ServiceAreaLocator';
@@ -111,6 +112,55 @@ export default function SodAndLandLevelingPage() {
               </p>
             </div>
           </div>
+        </div>
+      </div>
+
+      <div className="mt-16">
+        <h2 className="text-2xl md:text-3xl font-bold mb-4 text-irrigation-blue">
+          SOD installation & land leveling in your area
+        </h2>
+        <p className="text-gray-800 leading-relaxed mb-4">
+          We provide professional SOD installation, land leveling, and sanding/topdressing in key North Texas communities. Select your city for details about local SOD and land leveling services.
+        </p>
+        <div className="bg-white border border-gray-100 rounded-lg px-6 py-5 shadow-sm">
+          <ul className="divide-y divide-gray-100">
+            <li className="py-2 flex items-center justify-between">
+              <Link href="/fort-worth/sod-installation-and-land-leveling-in-fort-worth-tx" className="text-irrigation-darkBlue hover:text-irrigation-blue font-medium">
+                SOD installation & land leveling in Fort Worth, TX
+              </Link>
+              <span className="text-sm text-gray-400">→</span>
+            </li>
+            <li className="py-2 flex items-center justify-between">
+              <Link href="/keller/sod-installation-and-land-leveling-in-keller-tx" className="text-irrigation-darkBlue hover:text-irrigation-blue font-medium">
+                SOD installation & land leveling in Keller, TX
+              </Link>
+              <span className="text-sm text-gray-400">→</span>
+            </li>
+            <li className="py-2 flex items-center justify-between">
+              <Link href="/haslet/sod-installation-and-land-leveling-in-haslet-tx" className="text-irrigation-darkBlue hover:text-irrigation-blue font-medium">
+                SOD installation & land leveling in Haslet, TX
+              </Link>
+              <span className="text-sm text-gray-400">→</span>
+            </li>
+            <li className="py-2 flex items-center justify-between">
+              <Link href="/westlake/sod-installation-and-land-leveling-in-westlake-tx" className="text-irrigation-darkBlue hover:text-irrigation-blue font-medium">
+                SOD installation & land leveling in Westlake, TX
+              </Link>
+              <span className="text-sm text-gray-400">→</span>
+            </li>
+            <li className="py-2 flex items-center justify-between">
+              <Link href="/argyle/sod-installation-and-land-leveling-in-argyle-tx" className="text-irrigation-darkBlue hover:text-irrigation-blue font-medium">
+                SOD installation & land leveling in Argyle, TX
+              </Link>
+              <span className="text-sm text-gray-400">→</span>
+            </li>
+            <li className="py-2 flex items-center justify-between">
+              <Link href="/weatherford/sod-installation-and-land-leveling-in-weatherford-tx" className="text-irrigation-darkBlue hover:text-irrigation-blue font-medium">
+                SOD installation & land leveling in Weatherford, TX
+              </Link>
+              <span className="text-sm text-gray-400">→</span>
+            </li>
+          </ul>
         </div>
       </div>
 

@@ -31,6 +31,8 @@ export default function EndOfSummerSpecials() {
             cta="Book $20 Inspection"
             accent="bg-emerald-600 hover:bg-emerald-700"
             iconClass="bg-emerald-100 text-emerald-800"
+            serviceHref="/services/sprinkler-system-check-up"
+            serviceLabel="View check-up service"
           />
 
           {/* Winterization Fall Offer */}
@@ -44,6 +46,8 @@ export default function EndOfSummerSpecials() {
             accent="bg-cyan-600 hover:bg-cyan-700"
             iconClass="bg-cyan-100 text-cyan-800"
             wrapperClass="border-cyan-200 shadow-md shadow-cyan-100"
+            serviceHref="/services/sprinkler-winterization"
+            serviceLabel="View winterization service"
           />
 
           {/* 10% off new sprinkler installations */}
@@ -56,6 +60,8 @@ export default function EndOfSummerSpecials() {
             cta="Get 10% Off Install"
             accent="bg-blue-600 hover:bg-blue-700"
             iconClass="bg-blue-100 text-blue-800"
+            serviceHref="/services/sprinkler-installation"
+            serviceLabel="View installation service"
           />
 
           {/* Outdoor lighting specials */}
@@ -69,6 +75,8 @@ export default function EndOfSummerSpecials() {
             accent="bg-amber-600 hover:bg-amber-700"
             iconClass="bg-amber-100 text-amber-800"
             wrapperClass="lg:col-start-1"
+            serviceHref="/services/outdoor-lighting"
+            serviceLabel="View lighting service"
           />
 
           {/* SOD & land leveling specials – winter-long offer */}
@@ -82,6 +90,8 @@ export default function EndOfSummerSpecials() {
             accent="bg-amber-700 hover:bg-amber-800"
             iconClass="bg-amber-100 text-amber-800"
             wrapperClass="border-amber-200 shadow-md shadow-amber-100"
+            serviceHref="/services/sod-and-land-leveling"
+            serviceLabel="View SOD service"
           />
 
           {/* Drainage solutions savings */}
@@ -95,6 +105,8 @@ export default function EndOfSummerSpecials() {
             accent="bg-indigo-600 hover:bg-indigo-700"
             iconClass="bg-indigo-100 text-indigo-800"
             wrapperClass="lg:col-start-3"
+            serviceHref="/services/drainage-solutions"
+            serviceLabel="View drainage service"
           />
         </div>
 
@@ -120,16 +132,20 @@ function OfferCard({
   accent,
   iconClass,
   wrapperClass,
+  serviceHref,
+  serviceLabel,
 }: {
   icon: React.ReactNode;
   title: string;
   desc: string;
   badge?: string;
-  href: string;
+  href: string; // primary CTA (usually contact)
   cta: string;
   accent: string;
   iconClass?: string;
   wrapperClass?: string;
+  serviceHref?: string; // optional deep link to service page
+  serviceLabel?: string; // optional label for service link
 }) {
   return (
     <div className={`group relative flex h-full flex-col overflow-hidden rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition hover:shadow ${wrapperClass ?? ""}`}> 
@@ -143,13 +159,21 @@ function OfferCard({
       </div>
       <h3 className="text-base font-bold text-gray-900">{title}</h3>
       <p className="mt-1 text-sm text-gray-600">{desc}</p>
-      <div className="mt-4 md:mt-auto">
+      <div className="mt-4 md:mt-auto flex flex-col gap-2">
         <Link
           href={href}
           className={`inline-flex items-center justify-center rounded-md px-3 py-2 text-sm font-semibold text-white ${accent}`}
         >
           {cta}
         </Link>
+        {serviceHref && (
+          <Link
+            href={serviceHref}
+            className="inline-flex items-center justify-center text-xs font-medium text-irrigation-darkGreen hover:text-irrigation-darkBlue underline-offset-2 hover:underline"
+          >
+            <span>{serviceLabel || 'View service details'}</span>
+          </Link>
+        )}
       </div>
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-emerald-400 via-emerald-500 to-emerald-600 opacity-0 transition group-hover:opacity-100" />
     </div>
