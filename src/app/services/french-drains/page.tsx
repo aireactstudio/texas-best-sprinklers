@@ -1,5 +1,6 @@
-'use client';
+"use client";
 
+import Link from 'next/link';
 import { CloudRain } from 'lucide-react';
 import { ServiceType } from '@/data/serviceTypes';
 import ServicePageLayout from '@/components/templates/ServicePageLayout';
@@ -62,6 +63,10 @@ export default function FrenchDrainsPage() {
           </h2>
           <p className="text-gray-800 leading-relaxed text-lg">
             French drains often work best as part of a comprehensive drainage system. We can integrate your French drain with other drainage solutions such as surface drains, channel drains, or dry wells to create a complete water management system for your property. Our experts will recommend the optimal combination of drainage solutions based on your specific needs and site conditions.
+            {" "}
+            <Link href="/services/drainage-solutions" className="text-irrigation-darkGreen hover:text-irrigation-darkBlue underline-offset-2 hover:underline">
+              Learn more about our full drainage correction services.
+            </Link>
           </p>
         </div>
         

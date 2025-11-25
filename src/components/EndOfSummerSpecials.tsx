@@ -38,7 +38,7 @@ export default function EndOfSummerSpecials() {
           {/* Winterization Fall Offer */}
           <OfferCard
             icon={<Snowflake className="h-5 w-5" />}
-            title="Winterization — $200"
+            title="Winterization — $120"
             desc="Shut down water, blow out lines where needed, and protect components from freeze damage."
             badge="Fall Offer"
             href="/contact"

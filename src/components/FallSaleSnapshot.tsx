@@ -33,7 +33,7 @@ export default function FallSaleSnapshot() {
           <SnapshotCard
             icon={<Snowflake className="h-5 w-5" />}
             iconClass="bg-cyan-100 text-cyan-800"
-            title="Winterization — $200"
+            title="Winterization — $120"
             badge="Fall Offer"
             desc="Shut down water, blow out lines where needed, and protect components from freeze damage."
           />

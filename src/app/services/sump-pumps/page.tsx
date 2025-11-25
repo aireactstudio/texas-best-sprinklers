@@ -1,5 +1,6 @@
-'use client';
+"use client";
 
+import Link from 'next/link';
 import { Waves } from 'lucide-react';
 import { ServiceType } from '@/data/serviceTypes';
 import ServicePageLayout from '@/components/templates/ServicePageLayout';
@@ -35,6 +36,10 @@ export default function SumpPumpsPage() {
           </h2>
           <p className="text-gray-800 leading-relaxed text-lg">
             Sump pump systems provide essential protection against basement and crawlspace flooding by automatically detecting and removing excess water before it can cause damage. Our professional sump pump installations include properly sized collection basins, reliable pump units, and effective discharge systems that direct water safely away from your foundation. With expert installation from Texas Best Sprinklers, you'll gain peace of mind knowing your home is protected from water damage.
+            {" "}
+            <Link href="/services/drainage-solutions" className="text-irrigation-darkGreen hover:text-irrigation-darkBlue underline-offset-2 hover:underline">
+              See how sump pumps fit into our broader drainage correction services.
+            </Link>
           </p>
         </div>
         

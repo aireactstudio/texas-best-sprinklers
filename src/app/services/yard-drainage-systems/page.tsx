@@ -1,5 +1,6 @@
-'use client';
+"use client";
 
+import Link from 'next/link';
 import { CloudRain } from 'lucide-react';
 import { ServiceType } from '@/data/serviceTypes';
 import ServicePageLayout from '@/components/templates/ServicePageLayout';
@@ -35,6 +36,10 @@ export default function YardDrainageSystemsPage() {
           </h2>
           <p className="text-gray-800 leading-relaxed text-lg">
             Poor drainage can ruin landscapes, damage structures, and create unusable areas in your yard. Our complete yard drainage systems address these issues with custom solutions that effectively manage water flow throughout your property. We begin with a thorough assessment of your site conditions, water flow patterns, and problem areas, then design a comprehensive drainage system that protects your landscape and structures.
+            {" "}
+            <Link href="/services/drainage-solutions" className="text-irrigation-darkGreen hover:text-irrigation-darkBlue underline-offset-2 hover:underline">
+              Explore our main drainage corrections & French drains service.
+            </Link>
           </p>
         </div>
         
@@ -72,7 +77,11 @@ export default function YardDrainageSystemsPage() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-white rounded-lg shadow-md p-6">
-              <h3 className="text-xl font-bold mb-3 text-irrigation-darkBlue">French Drains</h3>
+              <h3 className="text-xl font-bold mb-3 text-irrigation-darkBlue">
+                <Link href="/services/french-drains" className="hover:underline underline-offset-2 text-irrigation-darkBlue">
+                  French Drains
+                </Link>
+              </h3>
               <p className="text-gray-800">
                 Subsurface trenches filled with gravel and perforated pipe that collect and redirect groundwater away from problem areas, ideal for managing saturated soil conditions.
               </p>
