@@ -171,7 +171,7 @@ const AppHeader = () => {
         <Link href="/" className={`items-center space-x-2 z-[60] ${isMobileMenuOpen ? 'hidden lg:flex' : 'flex'}`}>
           <Droplet className="h-7 w-7 lg:h-6 lg:w-6 text-white" />
           <span className="font-bold text-base md:text-lg lg:text-xl xl:text-2xl font-['Montserrat'] text-white tracking-tight leading-tight max-w-[220px] sm:max-w-[260px] lg:max-w-[320px]">
-            Texas Best Sprinkler, Drainage and Lighting
+            Texas Best Sprinklers, Drainage and Lighting
           </span>
         </Link>
 

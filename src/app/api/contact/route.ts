@@ -14,7 +14,7 @@ const twilioClient = process.env.TWILIO_ACCOUNT_SID && process.env.TWILIO_AUTH_T
 // Email configuration
 const EMAIL_CONFIG = {
   // Use Resend's default domain which works without verification
-  from: 'chris@aireactstudio.com',
+  from: 'admin@reactivlabs.com',
   // Deliver form submissions to the business email
   primaryRecipient: 'sprinkleranddrains@gmail.com',
   // SMS notifications are now handled separately
