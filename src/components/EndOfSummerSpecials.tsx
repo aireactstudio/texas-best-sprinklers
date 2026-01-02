@@ -13,7 +13,7 @@ export default function EndOfSummerSpecials() {
         {/* Header */}
         <div className="px-6 pt-8 text-center sm:px-8">
           <div className="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-amber-800">
-            <Leaf className="h-4 w-4" /> Fall Sale
+            <Leaf className="h-4 w-4" /> Winter Sale
           </div>
           <h2 className="mt-3 text-2xl font-extrabold text-gray-900 sm:text-3xl">Seasonal savings on irrigation and installs</h2>
           <p className="mx-auto mt-1 max-w-2xl text-sm text-gray-600">Limited-time pricing on winterization, inspection, installations, lighting, and drainage services.</p>
@@ -40,7 +40,7 @@ export default function EndOfSummerSpecials() {
             icon={<Snowflake className="h-5 w-5" />}
             title="Winterization — $120"
             desc="Shut down water, blow out lines where needed, and protect components from freeze damage."
-            badge="Fall Offer"
+            badge="Winter Offer"
             href="/contact"
             cta="Book Winterization"
             accent="bg-cyan-600 hover:bg-cyan-700"
@@ -114,7 +114,7 @@ export default function EndOfSummerSpecials() {
         <div className="mx-auto max-w-6xl px-6 pb-6 pt-4 text-xs text-gray-600 border-t border-gray-100">
           <p className="flex items-center gap-2">
             <Leaf className="h-4 w-4 text-emerald-600" />
-            Limited‑time fall sale offers. Most specials end Dec 31. SOD Installation & Land Leveling pricing runs all winter. Cannot be combined with other promotions. Call for details.
+            Limited‑time winter sale offers. Most specials end Dec 31. SOD Installation & Land Leveling pricing runs all winter. Cannot be combined with other promotions. Call for details.
           </p>
         </div>
       </div>
