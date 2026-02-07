@@ -18,6 +18,7 @@ export const LOCATIONS = [
   'haslet',
   'north-richland-hills',
   'trophy-club',    
+  'arlington',
   'bedford',
   'euless',
   'hurst'
@@ -165,6 +166,18 @@ export const locationData = {
       longitude: -97.1900
     },
     serviceRadius: 8
+  },
+  'arlington': {
+    name: 'Arlington',
+    nearestOffice: 'Fort Worth',
+    distanceFromOffice: 15,
+    landmarks: ['AT&T Stadium', 'Globe Life Field', 'River Legacy Parks', 'UT Arlington'],
+    neighborhoods: ['Viridian', 'Pantego', 'Dalworthington Gardens', 'Interlochen', 'Tierney Road'],
+    coordinates: {
+      latitude: 32.7357,
+      longitude: -97.1081
+    },
+    serviceRadius: 20
   },
   'roanoke': {
     name: 'Roanoke',

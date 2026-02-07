@@ -134,6 +134,57 @@ export default function LocationHomepage({ locationSlug }: LocationHomepageProps
           ]
         })}
       </Script>
+
+      {/* LocalBusiness Schema for Arlington */}
+      {locationSlug === 'arlington' && (
+        <Script id="local-business-arlington" type="application/ld+json" strategy="afterInteractive">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "HomeAndConstructionBusiness",
+            "name": "Texas Best Sprinklers",
+            "image": "https://sprinkleranddrains.com/assets/images/optimized/hero-background.webp",
+            "url": "https://sprinkleranddrains.com/arlington",
+            "telephone": "(817) 304-7896",
+            "priceRange": "$$",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Fort Worth",
+              "addressRegion": "TX",
+              "addressCountry": "US"
+            },
+            "areaServed": {
+              "@type": "City",
+              "name": "Arlington",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Arlington",
+                "addressRegion": "TX",
+                "addressCountry": "US"
+              }
+            },
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "5.0",
+              "reviewCount": "500"
+            },
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday"
+                ],
+                "opens": "07:00",
+                "closes": "19:00"
+              }
+            ]
+          })}
+        </Script>
+      )}
     </div>
   );
 }

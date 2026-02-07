@@ -87,6 +87,10 @@ export default {
 				"grow": {
 					"0%": { height: "0", opacity: "0" },
 					"100%": { height: "100%", opacity: "1" }
+				},
+				"scroll": {
+					"0%": { transform: "translateX(0)" },
+					"100%": { transform: "translateX(-50%)" }
 				}
 			},
 			animation: {
@@ -94,7 +98,8 @@ export default {
 				"accordion-up": "accordion-up 0.2s ease-out",
 				"water-drop": "water-drop 2s ease-out infinite",
 				"float": "float 6s ease-in-out infinite",
-				"grow": "grow 2s ease-out"
+				"grow": "grow 2s ease-out",
+				"scroll": "scroll 40s linear infinite"
 			},
 		},
 	},

@@ -18,7 +18,7 @@ const services = [
 
 export default function LocationServicesAndAreas({ cityName, routePrefix, serviceAreas = [] }: LocationServicesAndAreasProps) {
   return (
-    <section className="py-16">
+    <section className="py-16 bg-white">
       <div className="container-custom">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* Services */}

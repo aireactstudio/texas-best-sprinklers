@@ -118,7 +118,7 @@ export default function WaterRestrictions({
   );
 
   return (
-    <section className={className ?? "py-8"}>
+    <section className={className ?? "py-12 bg-white"}>
       <div className="container-custom">
         <div className="mb-6 text-center">
           <h2 className="text-xl sm:text-2xl font-bold text-irrigation-blue">{title}</h2>
@@ -135,7 +135,7 @@ export default function WaterRestrictions({
                 href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-between gap-3 border border-gray-200 rounded-lg bg-white px-4 py-3 hover:shadow-md transition-all duration-200 hover:border-irrigation-blue"
+                className="flex items-center justify-between gap-3 border border-slate-200 rounded-lg bg-slate-50 px-4 py-3 hover:shadow-md transition-all duration-200 hover:border-irrigation-blue"
               >
                 <div className="min-w-0 flex-1">
                   <p className="text-sm font-semibold text-irrigation-darkBlue group-hover:text-irrigation-green truncate">

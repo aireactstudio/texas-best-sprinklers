@@ -33,9 +33,11 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   formattedTitle,
   resolvedLink
 }) => {
-  const fullLink = resolvedLink
-    ? resolvedLink
-    : (locationPrefix ? `/${locationPrefix}${link}` : link);
+  // If a resolvedLink is provided (from location mapping), use it.
+  // Otherwise, use the fallback 'link' (which should be a global /services/... link).
+  // We no longer automatically prepend locationPrefix to 'link', as that causes 404s
+  // when a specific location page doesn't exist.
+  const fullLink = resolvedLink || link;
   
   // Handle card selection
   const handleCardClick = () => {
@@ -120,7 +122,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       <div className="mb-4">
         <h4 className="text-base font-semibold text-irrigation-darkBlue mb-2">What's Included:</h4>
         <ul className="space-y-1 text-sm">
-          {getFeaturesList().map((feature, i) => (
+          {getFeaturesList(title).map((feature, i) => (
             <li key={i} className="flex items-start">
               <div className="text-irrigation-green mr-2 mt-1 flex-shrink-0">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -141,7 +143,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       
       <div className="mt-auto flex flex-col sm:flex-row gap-2">
         <Link 
-          href={fullLink} 
+          href="/contact" 
           className="text-white bg-irrigation-darkGreen hover:bg-irrigation-darkBlue transition-colors duration-300 inline-flex items-center justify-center py-2 px-4 rounded-md font-medium text-sm"
           aria-label={`Contact us about ${title}`}>
           <span>Contact Us</span>
@@ -150,7 +152,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           </svg>
         </Link>
         <Link 
-          href={fullLink} 
+          href="/contact" 
           className="text-irrigation-darkGreen border border-irrigation-darkGreen hover:bg-irrigation-a11y-light-green transition-colors duration-300 inline-flex items-center justify-center py-2 px-4 rounded-md font-medium text-sm"
           aria-label={`Get a quote for ${title}`}>
           <span>Get a Quote</span>
@@ -160,7 +162,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   ) : (
     // Standard service card - no longer clickable as a whole
     <div 
-      className="bg-white rounded-lg shadow-lg p-5 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 h-full border border-gray-200 group relative"
+      className="bg-slate-50 rounded-lg shadow-md p-5 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 h-full border border-gray-200 group relative"
     >
       
       <div className="flex items-center mb-3">
@@ -174,7 +176,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       
       {/* Quick features - just 2 key points */}
       <ul className="mb-3 space-y-1">
-        {getFeaturesList().slice(0, 2).map((feature, i) => (
+        {getFeaturesList(title).slice(0, 2).map((feature, i) => (
           <li key={i} className="flex items-start">
             <div className="text-irrigation-green mr-1.5 mt-0.5 flex-shrink-0">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -204,7 +206,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         
         {/* View Page link - navigates to service page */}
         <Link 
-          href={fullLink}
+          href="/contact"
           className="bg-irrigation-green text-white font-semibold hover:bg-irrigation-darkGreen transition-colors duration-300 inline-flex items-center text-sm flex-1 justify-center py-1 px-2 rounded"
           onClick={(e) => e.stopPropagation()}
         >
@@ -369,12 +371,15 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName, routePrefix
     }
   };
 
+  // We explicitly set the 'link' property to the GLOBAL service path (starting with /services).
+  // If a 'resolvedLink' exists (meaning there is a specific location page), that will take precedence in ServiceCard.
+  // If no 'resolvedLink' (e.g. Drainage in Keller), it will fallback to this global 'link'.
   const services = [
     {
       icon: <Sprout size={32} />,
       title: "Sprinkler Installation",
       description: "Custom-designed sprinkler systems that ensure even water distribution and maximum coverage for your landscape.",
-      link: "/sprinkler-installation",
+      link: "/services/sprinkler-installation",
       resolvedLink: locationPathForService('Sprinkler Installation'),
       longDescription: "Our professional sprinkler installation services create custom irrigation systems tailored to your specific landscape needs. We carefully analyze your yard's unique characteristics, including sun exposure, soil type, plant varieties, and water requirements to design the most efficient system possible. Our certified technicians use only premium components and follow industry best practices to ensure your new system provides years of reliable performance."
     },
@@ -382,7 +387,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName, routePrefix
       icon: <Droplet size={32} />,
       title: "Irrigation Repair",
       description: "Expert repair services for all types of irrigation systems, fixing leaks, broken heads, and controller issues quickly and efficiently.",
-      link: "/irrigation-repair",
+      link: "/services/irrigation-repair",
       resolvedLink: locationPathForService('Irrigation Repair'),
       longDescription: "Our irrigation repair services address all types of system issues, from minor leaks to major component failures. We use advanced diagnostic techniques to quickly identify problems and implement lasting solutions. Whether you're dealing with broken sprinkler heads, malfunctioning valves, controller issues, or mysterious leaks, our experienced technicians have the skills and tools to restore your system to optimal performance."
     },
@@ -390,7 +395,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName, routePrefix
       icon: <Wrench size={32} />,
       title: "Sprinkler Repair",
       description: "Fast, reliable repair services for all types of sprinkler system issues, from broken heads and leaks to valve problems and controller malfunctions.",
-      link: "/sprinkler-repair",
+      link: "/services/sprinkler-repair",
       resolvedLink: locationPathForService('Sprinkler Repair'),
       longDescription: "Our expert sprinkler repair services provide fast, efficient solutions for all your system problems. We diagnose and fix broken heads, leaking pipes, malfunctioning valves, and controller issues with precision and care. Our experienced technicians use quality replacement parts and proper techniques to ensure lasting repairs, helping you save water and protect your landscape investment."
     },
@@ -398,7 +403,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName, routePrefix
       icon: <Wrench size={32} />,
       title: "Maintenance",
       description: "Regular maintenance services to keep your irrigation system running at peak efficiency, including seasonal check-ups and adjustments.",
-      link: "/maintenance",
+      link: "/services/maintenance",
       resolvedLink: locationPathForService('Maintenance'),
       longDescription: "Our comprehensive maintenance services help extend the life of your irrigation system while maximizing water efficiency. We offer seasonal tune-ups, including spring start-up and winterization, along with regular inspections to catch small issues before they become costly problems. Our maintenance plans include adjusting sprinkler heads, checking for leaks, programming controllers, and ensuring your system is operating at peak efficiency throughout the year."
     },
@@ -406,7 +411,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName, routePrefix
       icon: <CloudRain size={32} />,
       title: "Drainage Solutions",
       description: "Effective drainage systems to prevent water pooling and landscape damage, protecting your property from erosion and flooding.",
-      link: "/drainage-solutions",
+      link: "/services/drainage-solutions",
       longDescription: "Our drainage solutions address water management issues that can damage your landscape and home foundation. We design and install comprehensive drainage systems including French drains, surface drains, channel drains, and downspout extensions to effectively move water away from problem areas. Our expert team will assess your property's specific needs and implement custom solutions that protect your landscape investment and prevent costly water damage."
     },
     {
@@ -420,7 +425,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName, routePrefix
       icon: <CloudRain size={32} />,
       title: "French Drain Installation",
       description: "Expert French drain installation to effectively manage water flow and protect your property from water damage, flooding, and erosion.",
-      link: "/drainage-solutions",
+      link: "/services/drainage-solutions",
       longDescription: "Our professional French drain installation services provide long-lasting solutions for water management issues on your property. We expertly design and install French drains that effectively collect and redirect excess groundwater away from problem areas. Using high-quality materials including perforated pipes, proper gravel gradients, and geotextile fabric, our French drains provide superior drainage that protects your home's foundation, prevents erosion, eliminates standing water, and preserves your landscape investment."
     },
   ];
@@ -436,7 +441,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName, routePrefix
   const locationPrefix = routePrefix || (cityName ? cityName.toLowerCase().replace(' ', '-') : '');
 
   return (
-    <section className="bg-gray-100 py-16">
+    <section className="bg-slate-100 py-16">
       <div className="container mx-auto px-4 max-w-[1440px] w-full">
         <div className="text-center mb-16">
           <div className="inline-block bg-irrigation-a11y-light-green text-irrigation-a11y-green px-4 py-2 rounded-full mb-4 font-medium">
@@ -505,7 +510,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName, routePrefix
                 <div key={index} className="relative">
                   {/* Standard card that acts as a toggle button */}
                   <div 
-                    className={`bg-white rounded-lg shadow-lg p-5 transition-all duration-300 
+                    className={`bg-slate-50 rounded-lg shadow-md p-5 transition-all duration-300 
                       border ${selectedServiceIndex === index ? 'border-irrigation-green border-2' : 'border-gray-200'}`}
                   >
                     <div className="flex items-center mb-3">
@@ -596,7 +601,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName, routePrefix
                       
                       <div className="mt-4 flex flex-col gap-2">
                         <Link 
-                          href={service.resolvedLink || service.link} 
+                          href="/contact" 
                           className="text-white bg-irrigation-darkGreen hover:bg-irrigation-darkBlue transition-colors duration-300 inline-flex items-center justify-center py-2 px-4 rounded-md font-medium text-sm"
                           aria-label={`Contact us about ${service.title}`}>
                           <span>Contact Us</span>
@@ -605,7 +610,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName, routePrefix
                           </svg>
                         </Link>
                         <Link 
-                          href={service.resolvedLink || service.link} 
+                          href="/contact" 
                           className="text-irrigation-darkGreen border border-irrigation-darkGreen hover:bg-irrigation-a11y-light-green transition-colors duration-300 inline-flex items-center justify-center py-2 px-4 rounded-md font-medium text-sm"
                           aria-label={`Get a quote for ${service.title}`}>
                           <span>Get a Quote</span>
