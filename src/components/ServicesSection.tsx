@@ -47,8 +47,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   };
   
   // Features list for featured cards
-  const getFeaturesList = function() {
-    const title = arguments[0];
+  const getFeaturesList = function(title: string) {
     switch(title) {
       case 'Sprinkler Installation':
         return [
