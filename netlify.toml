@@ -4,6 +4,9 @@
 
 [build.environment]
   NETLIFY_NEXT_PLUGIN_SKIP = "true"
+  # The Google Maps JS API key is intentionally client-side (required to render maps).
+  # It is restricted by HTTP referrer in the Google Cloud Console.
+  SECRETS_SCAN_SMART_DETECTION_ENABLED = "false"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"

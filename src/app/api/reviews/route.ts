@@ -29,7 +29,7 @@ interface ReviewsResponse {
 export async function GET() {
   try {
     // Get the API key from environment variables
-    const apiKey = process.env.NEXT_PUBLIC_GOOGLE_PLACES_API_KEY;
+    const apiKey = process.env.GOOGLE_PLACES_API_KEY || process.env.NEXT_PUBLIC_GOOGLE_PLACES_API_KEY;
     
     if (!apiKey) {
       throw new Error('API key not configured');

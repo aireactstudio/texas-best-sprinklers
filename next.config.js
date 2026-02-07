@@ -9,9 +9,10 @@ const nextConfig = {
   poweredByHeader: false,
   
   // Expose environment variables to the browser
+  // Note: Only the Maps key is needed client-side (for rendering maps).
+  // The Places API key stays server-only (used in /api/reviews route).
   env: {
     GOOGLE_MAPS_API_KEY: process.env.GOOGLE_MAPS_API_KEY,
-    GOOGLE_PLACES_API_KEY: process.env.GOOGLE_PLACES_API_KEY,
   },
   
   // Performance optimizations
