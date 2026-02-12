@@ -141,7 +141,7 @@ export default function AnniversaryBanner() {
   return (
     <div
       ref={containerRef}
-      className="relative bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 text-center py-1.5 px-4 border-b border-white/10"
+      className="relative bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 text-center py-1 sm:py-1.5 px-2 sm:px-4 border-b border-white/10"
     >
       <canvas
         ref={canvasRef}
@@ -149,12 +149,11 @@ export default function AnniversaryBanner() {
         style={{ zIndex: 9999 }}
         aria-hidden="true"
       />
-      <p className="relative z-10 text-xs sm:text-sm font-medium text-white/90 tracking-wide">
-        <span className="text-amber-400 mr-1">★</span>
-        Celebrating <span className="font-bold text-white">10 Years</span> of service this February
-        <span className="mx-2 text-white/30">|</span>
-        Thank you for a decade of trust
-        <span className="text-amber-400 ml-1">★</span>
+      <p className="relative z-10 text-[10px] sm:text-sm font-medium text-white/90 tracking-wide leading-tight">
+        <span className="text-amber-400 mr-0.5 sm:mr-1">★</span>
+        Celebrating <span className="font-bold text-white">10 Years</span> this February
+        <span className="hidden sm:inline"><span className="mx-2 text-white/30">|</span>Thank you for a decade of trust</span>
+        <span className="text-amber-400 ml-0.5 sm:ml-1">★</span>
       </p>
     </div>
   );
