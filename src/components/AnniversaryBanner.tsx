@@ -149,12 +149,16 @@ export default function AnniversaryBanner() {
         style={{ zIndex: 9999 }}
         aria-hidden="true"
       />
-      <p className="relative z-10 text-[10px] sm:text-sm font-medium text-white/90 tracking-wide leading-tight">
-        <span className="text-amber-400 mr-0.5 sm:mr-1">★</span>
-        Celebrating <span className="font-bold text-white">10 Years</span> this February
-        <span className="hidden sm:inline"><span className="mx-2 text-white/30">|</span>Thank you for a decade of trust</span>
-        <span className="text-amber-400 ml-0.5 sm:ml-1">★</span>
-      </p>
+      <div className="relative z-10 leading-tight">
+        <p className="text-xs sm:text-sm font-medium text-white/90 tracking-wide">
+          <span className="text-amber-400 mr-0.5 sm:mr-1">★</span>
+          Celebrating <span className="font-bold text-white">10 Years</span> this February
+          <span className="text-amber-400 ml-0.5 sm:ml-1">★</span>
+        </p>
+        <p className="text-[10px] sm:text-xs text-white/60 mt-0.5">
+          Thank you for a decade of trust
+        </p>
+      </div>
     </div>
   );
 }
