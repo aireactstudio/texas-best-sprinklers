@@ -165,7 +165,7 @@ const AppHeader = () => {
   return (
     <header className="fixed w-full z-50">
       {/* 10-Year Anniversary Banner */}
-      {!isScrolled && <AnniversaryBanner />}
+      {!isScrolled && <div className="hidden sm:block"><AnniversaryBanner /></div>}
       <div className={`w-full transition-all duration-500 ${
         isScrolled ? 'bg-black shadow-md py-2' : 'bg-transparent py-4'
       }`}>
