@@ -8,6 +8,7 @@ import { Menu, X, Phone, Mail, MapPin, ChevronDown, Droplet, ChevronRight } from
 import { motion, AnimatePresence } from 'framer-motion';
 import { trackPhoneCall } from '@/utils/analytics';
 import { LOCATIONS, getLocationData } from '@/data/locationData';
+import AnniversaryBanner from '@/components/AnniversaryBanner';
 
 // Define interfaces for navigation items
 interface NavItem {
@@ -162,11 +163,12 @@ const AppHeader = () => {
   );
 
   return (
-    <header 
-      className={`fixed w-full z-50 transition-all duration-500 ${
+    <header className="fixed w-full z-50">
+      {/* 10-Year Anniversary Banner */}
+      {!isScrolled && <AnniversaryBanner />}
+      <div className={`w-full transition-all duration-500 ${
         isScrolled ? 'bg-black shadow-md py-2' : 'bg-transparent py-4'
-      }`}
-    >
+      }`}>
       <div className="container-custom flex justify-between items-center max-w-none px-4 md:px-8 lg:px-10 xl:px-14">
         <Link href="/" className={`items-center space-x-2 z-[60] ${isMobileMenuOpen ? 'hidden lg:flex' : 'flex'}`}>
           <Droplet className="h-7 w-7 lg:h-6 lg:w-6 text-white" />
@@ -283,6 +285,7 @@ const AppHeader = () => {
           </div>
           </button>
         </div>
+      </div>
       </div>
 
       {/* Apple-style Mobile Menu */}
