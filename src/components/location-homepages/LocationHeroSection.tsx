@@ -138,7 +138,7 @@ export default function LocationHeroSection({
         
       </div>
 
-      <div className="container mx-auto px-4 pt-20 pb-4 lg:pt-28 lg:pb-8 relative z-10">
+      <div className="container mx-auto px-4 pt-28 pb-4 lg:pt-28 lg:pb-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 items-center" style={{ minHeight: '420px' }}>
           {/* Content Side */}
           <div className="space-y-4">
