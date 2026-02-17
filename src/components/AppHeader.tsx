@@ -162,7 +162,10 @@ const AppHeader = () => {
     allLocations.slice(i * perCol, (i + 1) * perCol)
   );
 
+  const bannerSpacerClass = isScrolled ? 'h-0' : 'h-[30px] sm:h-[34px]';
+
   return (
+    <>
     <header className="fixed w-full z-50">
       {/* 10-Year Anniversary Banner */}
       {!isScrolled && <AnniversaryBanner />}
@@ -482,6 +485,8 @@ const AppHeader = () => {
         )}
       </AnimatePresence>
     </header>
+    <div aria-hidden="true" className={bannerSpacerClass} />
+    </>
   );
 };
 
