@@ -167,7 +167,7 @@ const AppHeader = () => {
       {/* 10-Year Anniversary Banner */}
       {!isScrolled && <AnniversaryBanner />}
       <div className={`w-full transition-all duration-500 ${
-        isScrolled ? 'bg-black shadow-md py-2' : 'bg-transparent py-2 sm:py-4'
+        isScrolled ? 'bg-black shadow-md py-2' : 'bg-transparent py-0'
       }`}>
       <div className="container-custom flex justify-between items-center max-w-none px-4 md:px-8 lg:px-10 xl:px-14">
         <Link href="/" className={`items-center space-x-2 z-[60] ${isMobileMenuOpen ? 'hidden lg:flex' : 'flex'}`}>
