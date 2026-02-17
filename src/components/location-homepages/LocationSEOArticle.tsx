@@ -109,80 +109,93 @@ export default function LocationSEOArticle({ locationSlug, locationName }: Props
         <div className="container-custom relative">
           <div className="bg-white border border-gray-200 shadow-xl rounded-2xl overflow-hidden">
             <div className="px-6 sm:px-10 py-8 sm:py-10">
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-irrigation-blue mb-3">Arlington Service Area Experts</p>
               <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-gray-900 mb-4">
-                Top-Rated Sprinkler Repair & Installation in Arlington, TX
+                Arlington Sprinkler Repair & Smart Irrigation Installation—Built for North Texas Heat
               </h2>
               <p className="text-gray-700 leading-relaxed mb-4">
-                Home to the Cowboys, Rangers, and beautiful parks like River Legacy, Arlington is a vibrant community that takes pride in its outdoor spaces. 
-                At Texas Best Sprinklers, we help Arlington homeowners maintain lush, healthy lawns with expert irrigation services. From the established neighborhoods 
-                of Interlochen to the modern developments in Viridian, our licensed technicians provide reliable <Link href="/services/sprinkler-repair" className="text-irrigation-blue hover:underline font-semibold">sprinkler repair</Link> and 
-                <Link href="/services/sprinkler-installation" className="text-irrigation-blue hover:underline font-semibold"> new system installation</Link> tailored to local soil conditions.
+                Arlington homeowners see the same pain points every summer: dry patches in full sun, broken spray heads along sidewalks,
+                and water bills climbing because systems are outdated or poorly tuned. Texas Best Sprinklers delivers licensed,
+                detail-focused <Link href="/services/sprinkler-repair" className="text-irrigation-blue hover:underline font-semibold">sprinkler repair</Link>,
+                precision <Link href="/services/sprinkler-installation" className="text-irrigation-blue hover:underline font-semibold">irrigation installation</Link>,
+                and proactive maintenance designed specifically for Arlington’s clay soils, slope transitions, and long heat stretches.
               </p>
               <p className="text-gray-700 leading-relaxed mb-4">
-                Arlington's clay-heavy soil and hot summers can be tough on landscapes. We specialize in designing and maintaining systems that deliver 
-                precise water coverage, preventing runoff and ensuring deep root growth for drought resistance.
+                From established landscapes in Interlochen and Dalworthington Gardens to newer homes in Viridian and South Arlington,
+                we engineer systems that apply water evenly, reduce runoff, and protect both turf and plantings with smart scheduling,
+                pressure regulation, and matched precipitation rates.
               </p>
 
-              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mt-6 mb-3">Complete Irrigation Services for Arlington</h3>
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mt-6 mb-3">What Makes Our Arlington Page Different</h3>
               <p className="text-gray-700 leading-relaxed mb-3">
-                Whether you need a quick fix or a comprehensive upgrade, we have you covered:
+                Most service pages stop at generic promises. We focus on performance metrics and field-tested upgrades that matter in Arlington:
               </p>
               <ul className="list-disc pl-6 text-gray-700 space-y-2 mb-4">
-                <li>
-                  <Link href="/services/sprinkler-repair" className="text-irrigation-blue hover:underline font-semibold">Fast Sprinkler Repairs</Link>: We fix broken heads, leaking valves, and damaged pipes quickly to prevent water waste.
-                </li>
-                <li>
-                  <Link href="/services/sprinkler-system-check-up" className="text-irrigation-blue hover:underline font-semibold">System Tune-Ups</Link>: Comprehensive inspections to adjust heads, set controllers, and ensure optimal performance.
-                </li>
-                <li>
-                  <Link href="/services/sprinkler-installation" className="text-irrigation-blue hover:underline font-semibold">Smart System Installation</Link>: Water-efficient designs featuring Wi-Fi controllers and rain sensors.
-                </li>
-                <li>
-                  <Link href="/services/drainage-solutions" className="text-irrigation-blue hover:underline font-semibold">Drainage Solutions</Link>: French drains and catch basins to solve standing water issues common in Arlington yards.
-                </li>
-                 <li>
-                  <Link href="/services/sprinkler-system-reroutes" className="text-irrigation-blue hover:underline font-semibold">System Reroutes</Link>: Expert adjustments for pool installations, patio expansions, or landscaping changes.
-                </li>
+                <li>Coverage first: we tune arc, radius, and nozzle selection to eliminate common "green by the head, brown between heads" patterns.</li>
+                <li>Water-smart controls: Wi-Fi scheduling tied to weather data, plus seasonal runtime adjustments that prevent overwatering.</li>
+                <li>Code-aware work: installs and repairs aligned with local backflow, controller, and watering-guideline expectations.</li>
+                <li>Durability upgrades: Schedule 40 swing assemblies, waterproof splices, and high-quality components from Hunter, Rain Bird, and Toro.</li>
               </ul>
 
-              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mt-6 mb-3">Why Arlington Homeowners Choose Us</h3>
-              <p className="text-gray-700 leading-relaxed mb-4">
-                We are committed to delivering exceptional service and lasting results. Our team uses only high-quality parts from trusted brands 
-                like Rain Bird, Hunter, and Toro. We understand local watering restrictions and help you stay compliant while keeping your lawn green.
-              </p>
-
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mt-6 mb-3">Complete Irrigation Services for Arlington Properties</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
                 <div className="bg-irrigation-gray/40 rounded-lg p-5">
-                  <h4 className="font-semibold text-gray-900 mb-2">Our Arlington Service Promise</h4>
+                  <h4 className="font-semibold text-gray-900 mb-2">Repair & Optimization</h4>
                   <ul className="list-disc pl-5 text-gray-700 space-y-1">
-                    <li>Prompt, reliable scheduling</li>
-                    <li>Upfront, transparent pricing</li>
-                    <li>Licensed and insured professionals</li>
-                    <li>3-year warranty on new installations</li>
+                    <li><Link href="/services/sprinkler-repair" className="text-irrigation-blue hover:underline font-semibold">Sprinkler repair</Link> for leaks, broken heads, stuck valves, and controller faults</li>
+                    <li><Link href="/services/sprinkler-system-check-up" className="text-irrigation-blue hover:underline font-semibold">System check-ups</Link> with zone-by-zone audits and runtime calibration</li>
+                    <li><Link href="/services/sprinkler-system-reroutes" className="text-irrigation-blue hover:underline font-semibold">Sprinkler reroutes</Link> for pools, patios, hardscape expansions, and add-ons</li>
+                    <li>Pressure and head-spacing corrections to stop misting, overspray, and runoff</li>
                   </ul>
                 </div>
                 <div className="bg-irrigation-gray/40 rounded-lg p-5">
-                  <h4 className="font-semibold text-gray-900 mb-2">Serving All Arlington Neighborhoods</h4>
+                  <h4 className="font-semibold text-gray-900 mb-2">Install & Upgrade</h4>
                   <ul className="list-disc pl-5 text-gray-700 space-y-1">
-                    <li>Viridian & North Arlington</li>
-                    <li>Dalworthington Gardens & Pantego</li>
-                    <li>Interlochen & Lake Arlington</li>
-                    <li>South Arlington & Mansfield Border</li>
-                    <li>Downtown & UT Arlington Area</li>
+                    <li><Link href="/services/sprinkler-installation" className="text-irrigation-blue hover:underline font-semibold">New sprinkler installation</Link> with hydraulic zoning and future expansion planning</li>
+                    <li><Link href="/services/drip-irrigation" className="text-irrigation-blue hover:underline font-semibold">Drip irrigation conversions</Link> for beds, foundations, and tree rings</li>
+                    <li><Link href="/services/drainage-solutions" className="text-irrigation-blue hover:underline font-semibold">Drainage improvements</Link> for low spots and pooling after storms</li>
+                    <li>Smart controller upgrades with rain/freeze protection and leak-alert flow monitoring</li>
                   </ul>
                 </div>
               </div>
 
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mt-6 mb-3">Neighborhood-Focused Service Across Arlington</h3>
               <p className="text-gray-700 leading-relaxed mb-4">
-                Ready to upgrade your irrigation system or need a repair? Contact Texas Best Sprinklers today for expert service in Arlington.
+                We actively serve North Arlington, Viridian, Interlochen, Dalworthington Gardens, Pantego, the UT Arlington corridor,
+                and South Arlington neighborhoods near Mansfield. Each area has different irrigation demands based on lot layout, tree
+                density, and sun exposure—and our zone design reflects those differences.
+              </p>
+
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mt-6 mb-3">Our 5-Step Arlington Irrigation Process</h3>
+              <ol className="list-decimal pl-6 text-gray-700 space-y-2 mb-4">
+                <li><span className="font-semibold">On-site diagnosis:</span> Full controller, valve, wiring, and head performance review.</li>
+                <li><span className="font-semibold">Pressure + coverage mapping:</span> We identify weak zones, shadowed areas, and overwatered turf.</li>
+                <li><span className="font-semibold">Clear recommendations:</span> Options are prioritized by impact, efficiency, and budget.</li>
+                <li><span className="font-semibold">Professional execution:</span> Clean trenching, durable fittings, and precise nozzle alignment.</li>
+                <li><span className="font-semibold">Smart programming:</span> Seasonal schedules and homeowner walkthrough before we wrap.</li>
+              </ol>
+
+              <div className="bg-irrigation-blue/5 border border-irrigation-blue/20 rounded-xl p-5 mt-6">
+                <h4 className="font-semibold text-gray-900 mb-2">Why Arlington Homeowners Choose Texas Best Sprinklers</h4>
+                <ul className="list-disc pl-5 text-gray-700 space-y-1">
+                  <li>Licensed, insured local team with rapid scheduling windows</li>
+                  <li>Upfront estimates and practical repair-vs-replace guidance</li>
+                  <li>Workmanship-backed installations and premium component standards</li>
+                  <li>Water-efficiency mindset that helps cut waste without sacrificing curb appeal</li>
+                </ul>
+              </div>
+
+              <p className="text-gray-700 leading-relaxed mt-6 mb-4">
+                If your Arlington system is wasting water, leaving dry spots, or struggling to keep up in peak summer, we can fix it.
+                Book a service call or request a design quote and get an irrigation plan built for long-term performance.
               </p>
 
               <div className="mt-6 flex flex-wrap items-center gap-3">
                 <Link href="/contact" className="inline-flex items-center rounded-md bg-irrigation-blue px-4 py-2 text-white font-semibold shadow hover:bg-irrigation-darkBlue transition">
-                  Book Service
+                  Book Arlington Service
                 </Link>
                 <Link href="/contact" className="inline-flex items-center rounded-md bg-white px-4 py-2 text-irrigation-blue font-semibold border border-irrigation-blue hover:bg-irrigation-gray/40 transition">
-                  Get a Quote
+                  Request Irrigation Quote
                 </Link>
               </div>
             </div>
