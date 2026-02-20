@@ -150,6 +150,7 @@ export default function Home() {
         <EndOfSummerSpecials />
       </div>
       <ServicesSection />
+      <GrassGuideSection />
       {/* Move reviews up: 1–2 sections below hero */}
       <TestimonialsSection />
       <ScrollingCarousel />
@@ -233,7 +234,6 @@ export default function Home() {
         ]}
         faqs={homeFaqs}
       />
-      <GrassGuideSection />
       <BlogPreview />
       <ServiceAreaLocator 
         title="Our Service Areas"
