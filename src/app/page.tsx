@@ -17,6 +17,7 @@ import ScrollingCarousel from '@/components/ScrollingCarousel';
 import { curatedReviews } from '@/data/curated-reviews';
 import EndOfSummerSpecials from '@/components/EndOfSummerSpecials';
 import HomeFAQ from '@/components/HomeFAQ';
+import GrassGuideSection from '@/components/GrassGuideSection';
 import { LOCATIONS, locationData } from '@/data/locationData';
 
 export default function Home() {
@@ -232,6 +233,7 @@ export default function Home() {
         ]}
         faqs={homeFaqs}
       />
+      <GrassGuideSection />
       <BlogPreview />
       <ServiceAreaLocator 
         title="Our Service Areas"
