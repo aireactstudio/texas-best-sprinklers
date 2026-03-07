@@ -24,6 +24,7 @@ const PerformanceMonitor = dynamic(() => import('@/components/PerformanceMonitor
 const ModulePreloader = dynamic(() => import('@/components/ModulePreloader'), { ssr: false });
 const LongTaskOptimizer = dynamic(() => import('@/components/LongTaskOptimizer'), { ssr: false });
 const GoogleAnalytics = dynamic(() => import('@/components/GoogleAnalytics'), { ssr: false, loading: () => null });
+const SmartlookScript = dynamic(() => import('@/components/SmartlookScript'), { ssr: false, loading: () => null });
 
 // Dynamically import non-critical components
 const Footer = dynamic(() => import('@/components/Footer'), {
@@ -134,6 +135,7 @@ export default function RootLayout({
         <HeroImagePreload imagePath="/assets/images/optimized/hero-background.webp" />
         {/* Analytics tracking scripts */}
         <GoogleAnalytics />
+        <SmartlookScript />
         <GoogleMapsProviderWrapper>
           <AppHeader />
           <main>{children}</main>
