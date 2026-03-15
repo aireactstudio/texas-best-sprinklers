@@ -130,7 +130,15 @@ export default function SprinklerWinterizationPage() {
             ],
             provider: {
               "@type": "LocalBusiness",
-              name: "Texas Best Sprinklers"
+              name: "Texas Best Sprinklers",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "10011 Harmon Rd suite 133",
+                addressLocality: "Fort Worth",
+                addressRegion: "TX",
+                postalCode: "76177",
+                addressCountry: "US"
+              }
             },
             brand: {
               "@type": "Brand",

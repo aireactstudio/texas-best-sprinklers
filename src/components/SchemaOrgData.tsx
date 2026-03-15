@@ -55,14 +55,6 @@ const SchemaOrgData = () => {
       'Grapevine',
       'North Richland Hills',
       'Weatherford'
-    ],
-    'serviceType': [
-      'Irrigation Repair',
-      'Sprinkler Installation',
-      'Drainage Solutions',
-      'Outdoor Lighting',
-      'Landscape Lighting',
-      'Maintenance'
     ]
   };
 

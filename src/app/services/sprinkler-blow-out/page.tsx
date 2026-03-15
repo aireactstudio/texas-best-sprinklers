@@ -121,7 +121,18 @@ export default function SprinklerBlowOutPage() {
               "Grapevine",
               "Weatherford"
             ],
-            provider: { "@type": "LocalBusiness", name: "Texas Best Sprinklers" },
+            provider: {
+              "@type": "LocalBusiness",
+              name: "Texas Best Sprinklers",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "10011 Harmon Rd suite 133",
+                addressLocality: "Fort Worth",
+                addressRegion: "TX",
+                postalCode: "76177",
+                addressCountry: "US"
+              }
+            },
             brand: { "@type": "Brand", name: "Texas Best Sprinklers" },
             offers: { "@type": "Offer", availability: "https://schema.org/InStock" },
             category: "HomeAndConstructionBusiness"
