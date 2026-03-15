@@ -1,11 +1,13 @@
-'use client';
-
 import Link from 'next/link';
 import Image from 'next/image';
 import HeroSection from '@/components/HeroSection';
 import CTA from '@/components/CTA';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { Droplet, CloudRain, Settings, TreeDeciduous, CloudSun } from 'lucide-react';
+
+export const metadata = {
+  title: 'Irrigation & Drainage Services | Texas Best Sprinklers',
+};
 
 interface ServiceCardProps {
   title: string;

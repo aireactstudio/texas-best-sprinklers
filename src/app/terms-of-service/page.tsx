@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Texas Best Sprinklers',
+  title: 'Terms of Service | Texas Best Sprinklers',
   description: 'Terms governing use of the Texas Best Sprinklers, Drainage and Lighting LLC website and services.',
   robots: { index: true, follow: true },
 };

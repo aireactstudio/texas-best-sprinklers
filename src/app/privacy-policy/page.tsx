@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Texas Best Sprinklers',
+  title: 'Privacy Policy | Texas Best Sprinklers',
   description:
     'Learn how Texas Best Sprinklers, Drainage and Lighting LLC collects, uses, and protects your information.',
   robots: {

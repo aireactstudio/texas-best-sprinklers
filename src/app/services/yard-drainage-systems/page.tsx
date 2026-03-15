@@ -1,11 +1,13 @@
-"use client";
-
 import Link from 'next/link';
 import { CloudRain } from 'lucide-react';
 import { ServiceType } from '@/data/serviceTypes';
 import ServicePageLayout from '@/components/templates/ServicePageLayout';
 import ServiceAreaLocator from '@/components/ServiceAreaLocator';
 import CTA from '@/components/CTA';
+
+export const metadata = {
+  title: 'Yard Drainage System Installation | Texas Best Sprinklers',
+};
 
 export default function YardDrainageSystemsPage() {
   // Service data for the template

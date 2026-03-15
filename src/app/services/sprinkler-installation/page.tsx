@@ -1,10 +1,12 @@
-'use client';
-
 import { Droplet } from 'lucide-react';
 import { ServiceType } from '@/data/serviceTypes';
 import ServicePageLayout from '@/components/templates/ServicePageLayout';
 import ServiceAreaLocator from '@/components/ServiceAreaLocator';
 import CTA from '@/components/CTA';
+
+export const metadata = {
+  title: 'Sprinkler System Installation | Texas Best Sprinklers',
+};
 
 export default function SprinklerInstallationPage() {
   // Service data for the template

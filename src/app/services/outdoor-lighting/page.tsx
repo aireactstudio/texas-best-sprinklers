@@ -1,10 +1,12 @@
-'use client';
-
 import { CloudSun } from 'lucide-react';
 import { ServiceType } from '@/data/serviceTypes';
 import ServicePageLayout from '@/components/templates/ServicePageLayout';
 import ServiceAreaLocator from '@/components/ServiceAreaLocator';
 import CTA from '@/components/CTA';
+
+export const metadata = {
+  title: 'Outdoor Lighting Services | Texas Best Sprinklers',
+};
 
 export default function OutdoorLightingPage() {
   // Service data for the template

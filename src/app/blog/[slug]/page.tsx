@@ -1,14 +1,30 @@
-'use client';
-
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { Calendar, User, ArrowLeft, ArrowRight } from 'lucide-react';
 import CTA from '@/components/CTA';
+import type { Metadata } from 'next';
 
 // Import blog data
 import { blogPosts } from '@/data/blogPosts';
 
-export default function BlogPost({ params }: { params: { slug: string } }) {
+type BlogPostPageProps = { params: { slug: string } };
+
+export function generateMetadata({ params }: BlogPostPageProps): Metadata {
+  const post = blogPosts.find((item) => item.slug === params.slug);
+
+  if (!post) {
+    return {
+      title: 'Blog Article | Texas Best Sprinklers',
+    };
+  }
+
+  return {
+    title: `${post.title} | Texas Best Sprinklers Blog`,
+    description: post.excerpt,
+  };
+}
+
+export default function BlogPost({ params }: BlogPostPageProps) {
   const { slug } = params;
   
   // Find the current post

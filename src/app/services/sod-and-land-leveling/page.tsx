@@ -1,10 +1,12 @@
-'use client';
-
 import Link from 'next/link';
 import { Sprout } from 'lucide-react';
 import ServicePageLayout from '@/components/templates/ServicePageLayout';
 import ServiceAreaLocator from '@/components/ServiceAreaLocator';
 import CTA from '@/components/CTA';
+
+export const metadata = {
+  title: 'SOD Installation & Land Leveling | Texas Best Sprinklers',
+};
 
 export default function SodAndLandLevelingPage() {
   const serviceProps = {

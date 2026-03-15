@@ -1,10 +1,12 @@
-'use client';
-
 import { Settings } from 'lucide-react';
 import ServicePageLayout from '@/components/templates/ServicePageLayout';
 import ServiceAreaLocator from '@/components/ServiceAreaLocator';
 import CTA from '@/components/CTA';
 import Link from 'next/link';
+
+export const metadata = {
+  title: 'Sprinkler Blow Out Service | Texas Best Sprinklers',
+};
 
 export default function SprinklerBlowOutPage() {
   const serviceProps = {

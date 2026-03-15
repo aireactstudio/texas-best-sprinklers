@@ -1,10 +1,12 @@
-'use client';
-
 import { Waves } from 'lucide-react';
 import { ServiceType } from '@/data/serviceTypes';
 import ServicePageLayout from '@/components/templates/ServicePageLayout';
 import ServiceAreaLocator from '@/components/ServiceAreaLocator';
 import CTA from '@/components/CTA';
+
+export const metadata = {
+  title: 'Channel Drains & Catch Basins | Texas Best Sprinklers',
+};
 
 export default function ChannelDrainsPage() {
   // Service data for the template

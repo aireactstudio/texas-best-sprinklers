@@ -1,10 +1,12 @@
-'use client';
-
 import { Settings } from 'lucide-react';
 import { ServiceType } from '@/data/serviceTypes';
 import ServicePageLayout from '@/components/templates/ServicePageLayout';
 import ServiceAreaLocator from '@/components/ServiceAreaLocator';
 import CTA from '@/components/CTA';
+
+export const metadata = {
+  title: 'Irrigation System Maintenance | Texas Best Sprinklers',
+};
 
 export default function MaintenancePage() {
   // Service data for the template

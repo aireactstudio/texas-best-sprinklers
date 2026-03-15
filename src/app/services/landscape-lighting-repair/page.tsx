@@ -1,10 +1,12 @@
-'use client';
-
 import { Lightbulb } from 'lucide-react';
 import { ServiceType } from '@/data/serviceTypes';
 import ServicePageLayout from '@/components/templates/ServicePageLayout';
 import ServiceAreaLocator from '@/components/ServiceAreaLocator';
 import CTA from '@/components/CTA';
+
+export const metadata = {
+  title: 'Landscape Lighting Repair | Texas Best Sprinklers',
+};
 
 export default function LandscapeLightingRepairPage() {
   // Service data for the template
