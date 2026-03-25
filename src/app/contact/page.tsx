@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Phone, Mail, MapPin, Clock, Check } from 'lucide-react';
+import Link from 'next/link';
+import { Phone, Mail, MapPin, Clock, Check, Lightbulb, Layers } from 'lucide-react';
 import { 
   Form, 
   FormControl, 
@@ -96,8 +97,8 @@ export default function Contact() {
         <div className="container-custom text-white">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Contact Us</h1>
           <p className="text-xl opacity-90 max-w-2xl">
-            Have questions about our irrigation, drainage, or outdoor lighting services? 
-            We're here to help and look forward to hearing from you.
+            Have questions about sprinklers, irrigation, drainage, outdoor lighting, or hardscaping?
+            We handle the full outdoor scope—so you can keep one team instead of juggling multiple contractors.
           </p>
         </div>
       </section>
@@ -107,8 +108,8 @@ export default function Contact() {
           <div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Get In Touch</h2>
             <p className="text-gray-700 mb-8">
-              Complete the form below and one of our irrigation specialists will respond 
-              to your inquiry as soon as possible.
+              Complete the form below and our team will respond as soon as possible—whether you need irrigation,
+              drainage, lighting, hardscaping, or several of the above on one property.
             </p>
             
             <div className="space-y-6">
@@ -172,6 +173,35 @@ export default function Contact() {
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 md:space-y-6">
                   <h2 className="text-2xl font-bold text-gray-900 mb-4">Request a Free Quote</h2>
+
+                  <div
+                    className="rounded-xl border-2 border-irrigation-blue/25 bg-irrigation-blue/5 p-4 md:p-5"
+                    role="region"
+                    aria-label="Additional services we offer"
+                  >
+                    <p className="text-sm font-bold uppercase tracking-wide text-irrigation-darkBlue">
+                      More than sprinklers—we do it in-house
+                    </p>
+                    <p className="mt-2 text-sm text-gray-800 leading-relaxed">
+                      Planning irrigation or repairs? Ask us about{' '}
+                      <strong className="font-semibold text-gray-900">outdoor lighting</strong> and{' '}
+                      <strong className="font-semibold text-gray-900">hardscaping</strong> too. One call covers
+                      patios, paths, lighting design, and your sprinkler system—no need to hire separate companies.
+                    </p>
+                    <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+                      <Link
+                        href="/services/outdoor-lighting"
+                        className="inline-flex items-center gap-2 rounded-lg bg-white px-3 py-2 text-sm font-semibold text-irrigation-darkBlue shadow-sm ring-1 ring-gray-200 transition hover:bg-irrigation-blue/10 hover:ring-irrigation-blue/30"
+                      >
+                        <Lightbulb className="h-4 w-4 shrink-0 text-amber-600" aria-hidden />
+                        Outdoor lighting services
+                      </Link>
+                      <span className="inline-flex items-center gap-2 rounded-lg bg-white px-3 py-2 text-sm font-semibold text-irrigation-darkBlue shadow-sm ring-1 ring-gray-200">
+                        <Layers className="h-4 w-4 shrink-0 text-stone-600" aria-hidden />
+                        Hardscaping — note it in your message or choose below
+                      </span>
+                    </div>
+                  </div>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                     <FormField
@@ -233,6 +263,8 @@ export default function Contact() {
                             <option value="sprinkler-repair">Sprinkler Repair & Maintenance</option>
                             <option value="drainage">Drainage Solutions</option>
                             <option value="lighting">Outdoor Lighting</option>
+                            <option value="hardscaping">Hardscaping (patios, paths, walls, etc.)</option>
+                            <option value="multiple">Multiple services (irrigation + lighting / hardscape)</option>
                             <option value="other">Other</option>
                           </select>
                         </FormControl>
