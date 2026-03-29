@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { Leaf, Wrench, Percent, Lightbulb, Droplets, Snowflake } from "lucide-react";
+import { Sprout, Wrench, Percent, Lightbulb, Droplets, Sun } from "lucide-react";
 
 export default function EndOfSummerSpecials() {
   return (
@@ -12,42 +12,42 @@ export default function EndOfSummerSpecials() {
 
         {/* Header */}
         <div className="px-6 pt-8 text-center sm:px-8">
-          <div className="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-amber-800">
-            <Leaf className="h-4 w-4" /> Winter Sale
+          <div className="inline-flex items-center gap-2 rounded-full border border-green-200 bg-green-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-green-800">
+            <Sprout className="h-4 w-4" /> Spring Special
           </div>
-          <h2 className="mt-3 text-2xl font-extrabold text-gray-900 sm:text-3xl">Seasonal savings on irrigation and installs</h2>
-          <p className="mx-auto mt-1 max-w-2xl text-sm text-gray-600">Limited-time pricing on winterization, inspection, installations, lighting, and drainage services.</p>
+          <h2 className="mt-3 text-2xl font-extrabold text-gray-900 sm:text-3xl">Spring savings on irrigation and installs</h2>
+          <p className="mx-auto mt-1 max-w-2xl text-sm text-gray-600">Limited-time spring pricing on inspections, start-ups, installations, lighting, and drainage services.</p>
         </div>
 
         {/* Offers grid */}
         <div className="mx-auto mt-6 grid max-w-6xl grid-cols-1 gap-5 px-6 pb-6 sm:grid-cols-2 lg:grid-cols-3">
-          {/* $20 Sprinkler Inspection & Tune-Up */}
+          {/* $60 Sprinkler Inspection & Tune-Up */}
           <OfferCard
             icon={<Wrench className="h-5 w-5" />}
-            title="$20 Sprinkler Inspection & Tune‑Up"
-            desc="Experienced techs check coverage, leaks, heads, controller & scheduling."
+            title="$60 Sprinkler Inspection & Tune‑Up"
+            desc="Experienced techs perform a full system check — includes: (1) head coverage & alignment inspection, (2) leak detection & valve testing, and (3) controller programming & schedule optimization for spring watering."
             badge="Most Popular"
             href="/contact"
-            cta="Book $20 Inspection"
+            cta="Book $60 Inspection"
             accent="bg-emerald-600 hover:bg-emerald-700"
             iconClass="bg-emerald-100 text-emerald-800"
             serviceHref="/services/sprinkler-system-check-up"
             serviceLabel="View check-up service"
           />
 
-          {/* Winterization Fall Offer */}
+          {/* Spring Start-Up Offer */}
           <OfferCard
-            icon={<Snowflake className="h-5 w-5" />}
-            title="Winterization — $120"
-            desc="Shut down water, blow out lines where needed, and protect components from freeze damage."
-            badge="Winter Offer"
+            icon={<Sun className="h-5 w-5" />}
+            title="Spring Start‑Up — $99"
+            desc="Pressurize your system after winter, test each zone, adjust heads for even coverage, and set a water-saving schedule ready for the season."
+            badge="Spring Offer"
             href="/contact"
-            cta="Book Winterization"
-            accent="bg-cyan-600 hover:bg-cyan-700"
-            iconClass="bg-cyan-100 text-cyan-800"
-            wrapperClass="border-cyan-200 shadow-md shadow-cyan-100"
-            serviceHref="/services/sprinkler-winterization"
-            serviceLabel="View winterization service"
+            cta="Book Spring Start‑Up"
+            accent="bg-sky-600 hover:bg-sky-700"
+            iconClass="bg-sky-100 text-sky-800"
+            wrapperClass="border-sky-200 shadow-md shadow-sky-100"
+            serviceHref="/services/maintenance"
+            serviceLabel="View maintenance service"
           />
 
           {/* 10% off new sprinkler installations */}
@@ -79,14 +79,14 @@ export default function EndOfSummerSpecials() {
             serviceLabel="View lighting service"
           />
 
-          {/* SOD & land leveling specials – winter-long offer */}
+          {/* SOD & land leveling specials – spring offer */}
           <OfferCard
-            icon={<Percent className="h-5 w-5" />}
-            title="SOD Installation & Land Leveling — 10% Off All Winter"
-            desc="Winter-long special on professional SOD install, sanding/topdressing, and grading to fix low spots, improve drainage, and give you an instantly green lawn before spring."
-            badge="Winter-Long Special"
+            icon={<Sprout className="h-5 w-5" />}
+            title="SOD Installation & Land Leveling — 10% Off This Spring"
+            desc="Spring special on professional SOD install, sanding/topdressing, and grading to fix low spots, improve drainage, and give you an instantly green lawn this season."
+            badge="Spring Special"
             href="/contact"
-            cta="Lock In Winter Pricing"
+            cta="Lock In Spring Pricing"
             accent="bg-amber-700 hover:bg-amber-800"
             iconClass="bg-amber-100 text-amber-800"
             wrapperClass="border-amber-200 shadow-md shadow-amber-100"
@@ -113,8 +113,8 @@ export default function EndOfSummerSpecials() {
         {/* Disclaimer */}
         <div className="mx-auto max-w-6xl px-6 pb-6 pt-4 text-xs text-gray-600 border-t border-gray-100">
           <p className="flex items-center gap-2">
-            <Leaf className="h-4 w-4 text-emerald-600" />
-            Limited‑time winter sale offers. Most specials end Dec 31. SOD Installation & Land Leveling pricing runs all winter. Cannot be combined with other promotions. Call for details.
+            <Sprout className="h-4 w-4 text-emerald-600" />
+            Limited‑time spring sale offers. <span className="font-semibold text-gray-700">Mention this ad on our website when you call or book to redeem.</span> Most specials run through the spring season. Cannot be combined with other promotions. Call for details.
           </p>
         </div>
       </div>

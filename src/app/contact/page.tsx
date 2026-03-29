@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Phone, Mail, MapPin, Clock, Check, Lightbulb, Layers } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Check, Lightbulb, Layers, Sparkles } from 'lucide-react';
 import { 
   Form, 
   FormControl, 
@@ -172,36 +172,53 @@ export default function Contact() {
             ) : (
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 md:space-y-6">
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4">Request a Free Quote</h2>
-
+                  {/* High-visibility: shown first so visitors see lighting + hardscape before fields */}
                   <div
-                    className="rounded-xl border-2 border-irrigation-blue/25 bg-irrigation-blue/5 p-4 md:p-5"
+                    className="relative overflow-hidden rounded-2xl shadow-lg ring-2 ring-amber-400/70 ring-offset-2 ring-offset-gray-50"
                     role="region"
                     aria-label="Additional services we offer"
                   >
-                    <p className="text-sm font-bold uppercase tracking-wide text-irrigation-darkBlue">
-                      More than sprinklers—we do it in-house
-                    </p>
-                    <p className="mt-2 text-sm text-gray-800 leading-relaxed">
-                      Planning irrigation or repairs? Ask us about{' '}
-                      <strong className="font-semibold text-gray-900">outdoor lighting</strong> and{' '}
-                      <strong className="font-semibold text-gray-900">hardscaping</strong> too. One call covers
-                      patios, paths, lighting design, and your sprinkler system—no need to hire separate companies.
-                    </p>
-                    <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
-                      <Link
-                        href="/services/outdoor-lighting"
-                        className="inline-flex items-center gap-2 rounded-lg bg-white px-3 py-2 text-sm font-semibold text-irrigation-darkBlue shadow-sm ring-1 ring-gray-200 transition hover:bg-irrigation-blue/10 hover:ring-irrigation-blue/30"
-                      >
-                        <Lightbulb className="h-4 w-4 shrink-0 text-amber-600" aria-hidden />
-                        Outdoor lighting services
-                      </Link>
-                      <span className="inline-flex items-center gap-2 rounded-lg bg-white px-3 py-2 text-sm font-semibold text-irrigation-darkBlue shadow-sm ring-1 ring-gray-200">
-                        <Layers className="h-4 w-4 shrink-0 text-stone-600" aria-hidden />
-                        Hardscaping — note it in your message or choose below
-                      </span>
+                    <div
+                      className="pointer-events-none absolute inset-0 bg-gradient-to-br from-amber-200/90 via-amber-50 to-emerald-100/90"
+                      aria-hidden
+                    />
+                    <div
+                      className="pointer-events-none absolute left-0 top-0 h-full w-1.5 bg-gradient-to-b from-amber-500 via-amber-600 to-emerald-600"
+                      aria-hidden
+                    />
+                    <div className="relative border border-amber-300/80 p-5 md:p-6 pl-6 md:pl-8">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-500 px-3 py-1 text-xs font-extrabold uppercase tracking-wider text-white shadow-sm">
+                          <Sparkles className="h-3.5 w-3.5" aria-hidden />
+                          Also from our crew
+                        </span>
+                      </div>
+                      <h3 className="mt-3 text-xl font-extrabold leading-tight text-gray-900 md:text-2xl">
+                        Outdoor lighting &amp; hardscaping—same team, one project
+                      </h3>
+                      <p className="mt-2 text-base font-medium text-gray-800 leading-relaxed">
+                        Here for sprinklers or drainage? You don’t need another contractor for{' '}
+                        <span className="text-amber-900">landscape lighting</span> or{' '}
+                        <span className="text-emerald-900">patios, paths, and hardscape</span>. Tell us what you’re
+                        imagining—we’ll fold it into your quote.
+                      </p>
+                      <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                        <Link
+                          href="/services/outdoor-lighting"
+                          className="inline-flex flex-1 min-w-[200px] items-center justify-center gap-2 rounded-xl bg-amber-600 px-4 py-3 text-sm font-bold text-white shadow-md transition hover:bg-amber-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-700 sm:flex-none sm:justify-start"
+                        >
+                          <Lightbulb className="h-5 w-5 shrink-0 opacity-95" aria-hidden />
+                          See outdoor lighting
+                        </Link>
+                        <span className="inline-flex flex-1 min-w-[200px] items-center justify-center gap-2 rounded-xl border-2 border-emerald-700/40 bg-white/90 px-4 py-3 text-sm font-bold text-emerald-950 shadow-sm sm:flex-none sm:justify-start">
+                          <Layers className="h-5 w-5 shrink-0 text-emerald-700" aria-hidden />
+                          Hardscaping — pick it in the dropdown or write it below
+                        </span>
+                      </div>
                     </div>
                   </div>
+
+                  <h2 className="text-2xl font-bold text-gray-900 pt-1">Request a Free Quote</h2>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                     <FormField

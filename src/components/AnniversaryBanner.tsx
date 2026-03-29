@@ -152,7 +152,7 @@ export default function AnniversaryBanner() {
       <div className="relative z-10 leading-tight">
         <p className="text-xs sm:text-sm font-medium text-white/90 tracking-wide">
           <span className="text-amber-400 mr-0.5 sm:mr-1">★</span>
-          Celebrating <span className="font-bold text-white">10 Years</span> this February
+          Celebrating <span className="font-bold text-white">10 Years</span> of Service
           <span className="text-amber-400 ml-0.5 sm:ml-1">★</span>
         </p>
         <p className="text-[10px] sm:text-xs text-white/60 mt-0.5">
