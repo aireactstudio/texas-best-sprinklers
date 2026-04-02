@@ -3,7 +3,7 @@ import Image from 'next/image';
 import HeroSection from '@/components/HeroSection';
 import CTA from '@/components/CTA';
 import Breadcrumbs from '@/components/Breadcrumbs';
-import { Droplet, CloudRain, Settings, TreeDeciduous, CloudSun } from 'lucide-react';
+import { Droplet, CloudRain, Settings, TreeDeciduous, CloudSun, Hammer } from 'lucide-react';
 
 export const metadata = {
   title: 'Irrigation & Drainage Services | Texas Best Sprinklers',
@@ -117,6 +117,13 @@ export default function Services() {
               description="Specialized irrigation solutions for commercial properties, HOAs, municipal parks, and sports fields, focusing on water conservation and coverage."
               icon={<Droplet size={32} />}
               id="commercial-irrigation"
+            />
+
+            <ServiceCard 
+              title="Hardscaping"
+              description="Concrete slabs, patios, retaining walls, walkways, steps, and landscape borders. We coordinate every project with your existing irrigation and drainage systems."
+              icon={<Hammer size={32} />}
+              id="hardscaping"
             />
           </div>
         </div>

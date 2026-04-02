@@ -56,6 +56,7 @@ export default function Home() {
     { type: 'Drip Irrigation', url: `${baseUrl}/services/drip-irrigation` },
     { type: 'Sprinkler System Check-Up', url: `${baseUrl}/services/sprinkler-system-check-up` },
     { type: 'Sprinkler System Reroutes', url: `${baseUrl}/services/sprinkler-system-reroutes` },
+    { type: 'Hardscaping', url: `${baseUrl}/services/hardscaping` },
   ];
   
   // Define the steps for the HowTo schema (same as in HowItWorksSection)
@@ -233,6 +234,16 @@ export default function Home() {
               { question: 'Can you move heads for new landscaping?', answer: 'Yes. We reroute and add heads to accommodate new beds, patios, or hardscapes.' },
             ],
           },
+          {
+            name: 'Hardscaping',
+            items: [
+              { question: 'What hardscaping services do you offer?', answer: 'We install concrete slabs, patios, retaining walls, walkways, steps, stairways, landscape borders, and concrete curbing.' },
+              { question: 'Do you handle drainage with retaining walls?', answer: 'Yes. We include drainage aggregate and perforated pipe where needed to manage water pressure behind every retaining wall we build.' },
+              { question: 'Will a new patio affect my sprinkler system?', answer: 'New hardscape often requires rerouting or capping heads. Since we specialize in irrigation, we handle those adjustments as part of the hardscaping project.' },
+              { question: 'What types of concrete finishes are available?', answer: 'We offer broom finish, exposed aggregate, and stamped concrete textures to match your home and landscape style.' },
+              { question: 'Do you offer free hardscaping estimates?', answer: 'Yes. We provide free on‑site estimates for all concrete and masonry hardscaping projects.' },
+            ],
+          },
         ]}
         faqs={homeFaqs}
       />
@@ -252,7 +263,7 @@ export default function Home() {
             Whether you need fast fixes or a brand‑new system, we handle everything from diagnostics to smart controllers. Common service calls include broken heads, leaks, wiring issues, and low pressure. If you’re seeing dry patches or soggy zones, we’ll evaluate coverage and recalibrate your system for efficient watering across every bed and lawn area.
           </p>
           <p className="mt-3 text-gray-700">
-            Explore our most requested services: <a className="text-green-700 hover:text-green-800 underline" href="/services/irrigation-repair">Irrigation Repair</a>, <a className="text-green-700 hover:text-green-800 underline" href="/services/sprinkler-repair">Sprinkler Repair</a>, <a className="text-green-700 hover:text-green-800 underline" href="/services/sprinkler-installation">Sprinkler Installation</a>, <a className="text-green-700 hover:text-green-800 underline" href="/services/maintenance">Maintenance</a>, <a className="text-green-700 hover:text-green-800 underline" href="/services/drip-irrigation">Drip Irrigation</a>, <a className="text-green-700 hover:text-green-800 underline" href="/services/sprinkler-system-check-up">Sprinkler System Check‑Up</a>, and <a className="text-green-700 hover:text-green-800 underline" href="/services/sprinkler-system-reroutes">Sprinkler System Reroutes</a>.
+            Explore our most requested services: <a className="text-green-700 hover:text-green-800 underline" href="/services/irrigation-repair">Irrigation Repair</a>, <a className="text-green-700 hover:text-green-800 underline" href="/services/sprinkler-repair">Sprinkler Repair</a>, <a className="text-green-700 hover:text-green-800 underline" href="/services/sprinkler-installation">Sprinkler Installation</a>, <a className="text-green-700 hover:text-green-800 underline" href="/services/maintenance">Maintenance</a>, <a className="text-green-700 hover:text-green-800 underline" href="/services/drip-irrigation">Drip Irrigation</a>, <a className="text-green-700 hover:text-green-800 underline" href="/services/sprinkler-system-check-up">Sprinkler System Check‑Up</a>, <a className="text-green-700 hover:text-green-800 underline" href="/services/sprinkler-system-reroutes">Sprinkler System Reroutes</a>, and <a className="text-green-700 hover:text-green-800 underline" href="/services/hardscaping">Hardscaping</a>.
           </p>
           <ul className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-2 text-gray-700">
             <li>• Smart Wi‑Fi controller setup for seasonal schedules</li>

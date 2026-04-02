@@ -2,7 +2,7 @@
 
 import React, { useRef, useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Droplet, Wrench, Sprout, Lightbulb, CloudRain } from 'lucide-react';
+import { Droplet, Wrench, Sprout, Lightbulb, CloudRain, Hammer } from 'lucide-react';
 
 interface ServiceCardProps {
   icon: React.ReactNode;
@@ -88,6 +88,14 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           'Integration with existing or new irrigation systems',
           'Drainage-friendly slopes away from the home',
           'Clean edges around driveways, patios, and beds'
+        ];
+      case 'Hardscaping':
+        return [
+          'Concrete slabs, patios, and utility pads',
+          'Retaining walls — block, concrete, and stone',
+          'Walkways, steps, and stairways',
+          'Landscape borders and concrete curbing',
+          'Coordination with existing irrigation systems'
         ];
       default:
         return [];
@@ -287,6 +295,14 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName, routePrefix
           'Security lighting solutions',
           'Smart lighting controls'
         ];
+      case 'Hardscaping':
+        return [
+          'Concrete slabs, patios, and utility pads',
+          'Retaining walls — block, concrete, and stone',
+          'Walkways, steps, and stairways',
+          'Landscape borders and concrete curbing',
+          'Coordination with existing irrigation systems'
+        ];
       default:
         return [];
     }
@@ -426,6 +442,13 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName, routePrefix
       description: "Expert French drain installation to effectively manage water flow and protect your property from water damage, flooding, and erosion.",
       link: "/services/drainage-solutions",
       longDescription: "Our professional French drain installation services provide long-lasting solutions for water management issues on your property. We expertly design and install French drains that effectively collect and redirect excess groundwater away from problem areas. Using high-quality materials including perforated pipes, proper gravel gradients, and geotextile fabric, our French drains provide superior drainage that protects your home's foundation, prevents erosion, eliminates standing water, and preserves your landscape investment."
+    },
+    {
+      icon: <Hammer size={32} />,
+      title: "Hardscaping",
+      description: "Professional concrete and masonry work — slabs, patios, retaining walls, walkways, steps, and landscape borders that add structure and curb appeal.",
+      link: "/services/hardscaping",
+      longDescription: "Our hardscaping services bring structure, function, and lasting value to your outdoor spaces. We install concrete slabs and patios, retaining walls in block or stone, walkways and steps, raised planter beds, and concrete landscape curbing. Because we specialize in irrigation and drainage, we coordinate every hardscaping project with your existing systems so heads get rerouted, drainage stays correct, and nothing has to be redone later."
     },
   ];
 
