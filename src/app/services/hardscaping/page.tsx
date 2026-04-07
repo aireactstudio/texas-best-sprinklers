@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Hammer } from 'lucide-react';
 import ServicePageLayout from '@/components/templates/ServicePageLayout';
 import ServiceAreaLocator from '@/components/ServiceAreaLocator';
@@ -17,7 +18,7 @@ export default function HardscapingPage() {
     description:
       'Professional concrete and masonry hardscaping for Fort Worth and surrounding North Texas properties. We install concrete slabs, patios, retaining walls, walkways, steps, and landscape borders that add structure, curb appeal, and lasting value to your outdoor space.',
     icon: <Hammer size={32} className="text-white" />,
-    image: '/assets/images/optimized/hero-background.webp',
+    image: '/assets/images/optimized/hardscaping1.jpeg',
     features: [
       'Concrete slabs — patios, garage pads, utility areas',
       'Retaining walls — block, concrete, and natural stone',
@@ -31,6 +32,44 @@ export default function HardscapingPage() {
   return (
     <ServicePageLayout {...serviceProps}>
       <div>
+        <div className="mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4 text-irrigation-blue">Recent hardscaping work</h2>
+          <p className="text-gray-800 leading-relaxed text-lg mb-6">
+            Stone tree rings, raised bed borders, and landscape masonry that ties your yard together—built to match your home
+            and hold up in North Texas weather.
+          </p>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
+            <figure className="overflow-hidden rounded-xl border border-gray-200 bg-gray-100 shadow-md">
+              <div className="relative aspect-[4/3] w-full">
+                <Image
+                  src="/assets/images/optimized/hardscaping1.jpeg"
+                  alt="Residential hardscaping: circular stone tree ring and curved garden bed border along a brick home"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+              <figcaption className="px-4 py-3 text-sm text-gray-600">
+                Circular stone planter and matching foundation bed border
+              </figcaption>
+            </figure>
+            <figure className="overflow-hidden rounded-xl border border-gray-200 bg-gray-100 shadow-md">
+              <div className="relative aspect-[4/3] w-full">
+                <Image
+                  src="/assets/images/optimized/hardscaping2.jpeg"
+                  alt="Residential hardscaping: stone retaining borders and mulched beds in a front yard"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+              <figcaption className="px-4 py-3 text-sm text-gray-600">
+                Coordinated stonework with mulch beds and clean lawn transitions
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+
         <div className="mb-10">
           <h2 className="text-2xl md:text-3xl font-bold mb-4 text-irrigation-blue">Concrete Slabs & Patios</h2>
           <p className="text-gray-800 leading-relaxed text-lg">
@@ -238,6 +277,10 @@ export default function HardscapingPage() {
               availability: 'https://schema.org/InStock',
             },
             category: 'HomeAndConstructionBusiness',
+            image: [
+              'https://sprinkleranddrains.com/assets/images/optimized/hardscaping1.jpeg',
+              'https://sprinkleranddrains.com/assets/images/optimized/hardscaping2.jpeg',
+            ],
           }),
         }}
       />
