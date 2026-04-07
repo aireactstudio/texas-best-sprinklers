@@ -1,14 +1,38 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import type { Metadata } from 'next';
 import { Hammer } from 'lucide-react';
 import ServicePageLayout from '@/components/templates/ServicePageLayout';
 import ServiceAreaLocator from '@/components/ServiceAreaLocator';
 import CTA from '@/components/CTA';
 
-export const metadata = {
+const OG_IMAGE =
+  'https://sprinkleranddrains.com/assets/images/optimized/hardscaping1.jpeg';
+
+export const metadata: Metadata = {
   title: 'Hardscaping — Concrete Slabs, Retaining Walls & More | Texas Best Sprinklers',
   description:
     'Professional hardscaping services in Fort Worth and surrounding DFW cities. Concrete patios, slabs, retaining walls, walkways, steps, and more.',
+  openGraph: {
+    title: 'Hardscaping — Concrete Slabs, Retaining Walls & More | Texas Best Sprinklers',
+    description:
+      'Hardscaping is the built part of your yard—concrete, stone, and block for patios, retaining walls, walks, and bed borders. Learn how proper grading, drainage, and materials matter in North Texas, and how we coordinate hardscape with irrigation.',
+    url: 'https://sprinkleranddrains.com/services/hardscaping',
+    type: 'website',
+    images: [
+      {
+        url: OG_IMAGE,
+        alt: 'Professional hardscaping: stone tree ring and landscape borders at a North Texas home',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Hardscaping — Concrete Slabs, Retaining Walls & More | Texas Best Sprinklers',
+    description:
+      'Hardscaping is the built part of your yard—concrete, stone, and block for patios, retaining walls, walks, and bed borders. How grading, drainage, and irrigation work together in DFW.',
+    images: [OG_IMAGE],
+  },
 };
 
 export default function HardscapingPage() {
