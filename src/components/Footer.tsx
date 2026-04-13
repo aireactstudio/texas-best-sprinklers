@@ -73,6 +73,7 @@ const Footer = () => {
                 'Outdoor Lighting',
                 'System Maintenance',
                 'Sprinkler Repair',
+                'Landscaping Installation',
                 'Commercial Solutions',
               ].map((service) => {
                 const routeMap: Record<string, string> = {
@@ -81,6 +82,7 @@ const Footer = () => {
                   'Outdoor Lighting': '/services/lighting',
                   'System Maintenance': '/services/maintenance',
                   'Sprinkler Repair': '/services/irrigation-repair',
+                  'Landscaping Installation': '/services/landscaping-installation',
                   'Commercial Solutions': '/services',
                 };
                 const href = routeMap[service] || '/services';
