@@ -127,6 +127,12 @@ const Header = () => {
                   >
                     SOD Installation & Land Leveling
                   </Link>
+                  <Link 
+                    href="/services/landscaping-installation"
+                    className={`block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ${pathname?.startsWith('/services/landscaping-installation') ? 'bg-gray-50 text-irrigation-blue font-medium' : ''}`}
+                  >
+                    Landscaping Installation
+                  </Link>
                 </div>
               </div>
             </li>
@@ -304,6 +310,17 @@ const Header = () => {
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   SOD Installation & Land Leveling
+                </Link>
+                <Link 
+                  href="/services/landscaping-installation" 
+                  className={`block text-sm ${
+                    pathname?.startsWith('/services/landscaping-installation') 
+                    ? 'text-irrigation-blue font-medium' 
+                    : 'text-gray-600'
+                  }`}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Landscaping Installation
                 </Link>
               </div>
             </li>

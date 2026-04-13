@@ -90,6 +90,13 @@ export default function Services() {
               icon={<Droplet size={32} />}
               id="sod-and-land-leveling"
             />
+
+            <ServiceCard
+              title="Landscaping Installation"
+              description="Complete landscaping installations including hardscape construction, retaining walls, sod installation, softscape design, and custom water features."
+              icon={<TreeDeciduous size={32} />}
+              id="landscaping-installation"
+            />
             
             <ServiceCard 
               title="Outdoor Lighting"
