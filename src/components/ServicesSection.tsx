@@ -97,6 +97,22 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           'Landscape borders and concrete curbing',
           'Coordination with existing irrigation systems'
         ];
+      case 'Sprinkler Repair':
+        return [
+          'Fast response times',
+          'Broken sprinkler head repair and replacement',
+          'Leak detection and repair',
+          'Valve and solenoid troubleshooting',
+          'Control box programming and repair'
+        ];
+      case 'French Drain Installation':
+        return [
+          'Site assessment and slope planning',
+          'Perforated pipe and clean gravel envelope',
+          'Geotextile fabric to limit soil intrusion',
+          'Tie-in to surface drainage where appropriate',
+          'Discharge routed away from the foundation'
+        ];
       default:
         return [];
     }
@@ -211,13 +227,13 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           </svg>
         </button>
         
-        {/* View Page link - navigates to service page */}
-        <Link 
-          href="/contact"
+        {/* Service page (matches mobile: opens full service URL) */}
+        <Link
+          href={fullLink}
           className="bg-irrigation-green text-white font-semibold hover:bg-irrigation-darkGreen transition-colors duration-300 inline-flex items-center text-sm flex-1 justify-center py-1 px-2 rounded"
           onClick={(e) => e.stopPropagation()}
         >
-          <span>Contact Us</span>
+          <span>Service page</span>
           <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
           </svg>
@@ -236,6 +252,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName, routePrefix
   const [selectedServiceIndex, setSelectedServiceIndex] = useState(0);
   // Reference to the expanded details section for scrolling on mobile
   const expandedDetailsRef = useRef<HTMLDivElement>(null);
+  const featuredPanelRef = useRef<HTMLDivElement>(null);
   // Track if we're in mobile view
   const [isMobileView, setIsMobileView] = useState(false);
   
@@ -303,6 +320,22 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName, routePrefix
           'Landscape borders and concrete curbing',
           'Coordination with existing irrigation systems'
         ];
+      case 'SOD Installation & Land Leveling':
+        return [
+          'Professional SOD installation matched to North Texas conditions',
+          'Land leveling, sanding, and grading to fix low spots and pooling',
+          'Integration with existing or new irrigation systems',
+          'Drainage-friendly slopes away from the home',
+          'Clean edges around driveways, patios, and beds'
+        ];
+      case 'French Drain Installation':
+        return [
+          'Site assessment and slope planning',
+          'Perforated pipe and clean gravel envelope',
+          'Geotextile fabric to limit soil intrusion',
+          'Tie-in to surface drainage where appropriate',
+          'Discharge routed away from the foundation'
+        ];
       default:
         return [];
     }
@@ -332,6 +365,13 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName, routePrefix
     }
     
     setSelectedServiceIndex(index);
+
+    // Desktop: bring the detail panel into view when picking from the grid or tabs
+    if (!isMobileView && typeof window !== 'undefined' && window.innerWidth >= 1024) {
+      requestAnimationFrame(() => {
+        featuredPanelRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      });
+    }
     
     // On mobile, adjust scroll position to show the expanded content with more context
     if (isMobileView) {
@@ -481,39 +521,89 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName, routePrefix
         </div>
         
         <div className="mb-6">
-          {/* Interactive service layout with selectable cards */}
-          {/* Desktop Layout - Hidden on mobile */}
-          <div className="hidden lg:block py-4">
-            <div className="grid grid-cols-12 gap-6">
-              {/* Featured service - currently selected service */}
-              <div className="col-span-6 xl:col-span-5">
-                <ServiceCard 
-                  {...services[selectedServiceIndex]} 
-                  locationPrefix={locationPrefix} 
-                  isSelected={true}
-                  index={selectedServiceIndex}
-                  onSelect={handleServiceSelect}
-                  formattedTitle={cityName ? formatServiceTitle(services[selectedServiceIndex].title) : undefined}
-                />
+          {/* Desktop: picker strip + full-width detail + multi-column grid (scales with many services) */}
+          <div className="hidden lg:block py-4 space-y-10">
+            <div>
+              <p className="text-center text-sm font-semibold uppercase tracking-wide text-irrigation-darkBlue mb-3">
+                Jump to a service
+              </p>
+              <div
+                className="flex flex-wrap justify-center gap-2"
+                role="tablist"
+                aria-label="Select a service to view full details"
+              >
+                {services.map((service, index) => {
+                  const selected = selectedServiceIndex === index;
+                  return (
+                    <button
+                      key={index}
+                      type="button"
+                      role="tab"
+                      aria-selected={selected}
+                      aria-controls="services-section-detail-panel"
+                      id={`services-section-tab-${index}`}
+                      onClick={() => handleServiceSelect(index)}
+                      className={`inline-flex items-center gap-2 rounded-full border-2 px-3 py-2 text-left text-sm font-bold shadow-sm transition-all duration-200 ${
+                        selected
+                          ? 'border-irrigation-green bg-irrigation-green text-white'
+                          : 'border-gray-200 bg-white text-irrigation-darkBlue hover:border-irrigation-green/60 hover:shadow-md'
+                      }`}
+                    >
+                      <span
+                        className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full ${
+                          selected ? 'bg-white/20 text-white' : 'bg-irrigation-darkGreen/15 text-irrigation-darkGreen'
+                        } [&_svg]:h-4 [&_svg]:w-4`}
+                      >
+                        {service.icon}
+                      </span>
+                      <span className="pr-1">{service.title}</span>
+                    </button>
+                  );
+                })}
               </div>
-              
-              {/* Secondary services grid */}
-              <div className="col-span-6 xl:col-span-7">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 h-full">
-                  {services.map((service, index) => (
-                    index !== selectedServiceIndex && (
-                      <ServiceCard 
-                        key={index} 
-                        {...service} 
-                        locationPrefix={locationPrefix} 
-                        isSelected={false}
-                        index={index}
-                        onSelect={handleServiceSelect}
-                        formattedTitle={cityName ? formatServiceTitle(service.title) : undefined}
-                      />
-                    )
-                  ))}
-                </div>
+              {cityName ? (
+                <p className="text-center text-xs text-gray-500 mt-3 max-w-2xl mx-auto">
+                  Full titles with “in {cityName}” appear in the detail card and service links below.
+                </p>
+              ) : null}
+            </div>
+
+            <div
+              ref={featuredPanelRef}
+              id="services-section-detail-panel"
+              role="tabpanel"
+              aria-labelledby={`services-section-tab-${selectedServiceIndex}`}
+              className="max-w-4xl mx-auto w-full"
+            >
+              <ServiceCard
+                {...services[selectedServiceIndex]}
+                locationPrefix={locationPrefix}
+                isSelected={true}
+                index={selectedServiceIndex}
+                onSelect={handleServiceSelect}
+                formattedTitle={cityName ? formatServiceTitle(services[selectedServiceIndex].title) : undefined}
+              />
+            </div>
+
+            <div>
+              <h3 className="text-center text-xl font-bold text-irrigation-darkBlue mb-2">All services</h3>
+              <p className="text-center text-gray-600 text-sm max-w-2xl mx-auto mb-8">
+                Same details, links, and contact options on every card—switch the highlighted service above or open any service page directly.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                {services.map((service, index) =>
+                  index !== selectedServiceIndex ? (
+                    <ServiceCard
+                      key={index}
+                      {...service}
+                      locationPrefix={locationPrefix}
+                      isSelected={false}
+                      index={index}
+                      onSelect={handleServiceSelect}
+                      formattedTitle={cityName ? formatServiceTitle(service.title) : undefined}
+                    />
+                  ) : null
+                )}
               </div>
             </div>
           </div>
@@ -580,7 +670,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName, routePrefix
                           className="bg-irrigation-green text-white font-semibold hover:bg-irrigation-darkGreen transition-colors duration-300 inline-flex items-center text-sm flex-1 justify-center py-1 px-2 rounded"
                           onClick={(e) => e.stopPropagation()}
                         >
-                          <span>Contact Us</span>
+                          <span>Service page</span>
                           <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                           </svg>

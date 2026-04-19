@@ -4,6 +4,7 @@ import { ServiceType } from '@/data/serviceTypes';
 import ServicePageLayout from '@/components/templates/ServicePageLayout';
 import ServiceAreaLocator from '@/components/ServiceAreaLocator';
 import CTA from '@/components/CTA';
+import DrainPromo from '@/components/DrainPromo';
 
 export const metadata = {
   title: 'Drainage Solutions & French Drains | Texas Best Sprinklers',
@@ -31,6 +32,8 @@ export default function DrainageSolutionsPage() {
     <ServicePageLayout {...serviceProps}>
       {/* Content Sections */}
       <div>
+        <DrainPromo />
+
         <div className="mb-10">
           <h2 className="text-2xl md:text-3xl font-bold mb-4 text-irrigation-blue">
             Custom Drainage Solutions
