@@ -31,7 +31,8 @@ const contactSchema = z.object({
   phone: z.string().optional().nullable(),
   location: z.string().optional().nullable(),
   message: z.string().min(1, { message: "Message is required" }),
-  service: z.string().optional().default('other'), // Accept any string for service type with default
+  service: z.string().optional().default('other'),
+  offer: z.string().optional().nullable(),
 });
 
 // Define type for the validated data
@@ -113,6 +114,11 @@ export async function POST(request: Request) {
     };
     
     const serviceType = serviceTypes[validatedData.service] || validatedData.service;
+
+    const offerLabels: Record<string, string> = {
+      'free-sprinkler-inspection': 'Free Sprinkler Inspection with Drain Job',
+    };
+    const offerLabel = validatedData.offer ? (offerLabels[validatedData.offer] || validatedData.offer) : null;
     
     // Store form data in server logs for backup
     console.log('CONTACT FORM SUBMISSION:', {
@@ -121,6 +127,7 @@ export async function POST(request: Request) {
       phone: validatedData.phone,
       location: validatedData.location,
       service: serviceType,
+      offer: offerLabel,
       message: validatedData.message,
       timestamp: new Date().toISOString()
     });
@@ -131,7 +138,7 @@ Name: ${validatedData.name}
 Email: ${validatedData.email}
 Phone: ${validatedData.phone || 'Not provided'}
 ${validatedData.location ? `Location: ${validatedData.location}\n` : ''}Service Needed: ${serviceType}
-Message:
+${offerLabel ? `Offer: ${offerLabel}\n` : ''}Message:
 ${validatedData.message}
 `;
 
@@ -139,6 +146,7 @@ ${validatedData.message}
 <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
   <h2 style="color: #0c4b33;">New Contact Form Submission</h2>
   <p><strong>Service Requested:</strong> ${serviceType}</p>
+  ${offerLabel ? `<p style="background-color: #e6f4ea; padding: 8px 12px; border-radius: 6px; border: 1px solid #2b602d;"><strong>Offer Applied:</strong> ${offerLabel}</p>` : ''}
   <hr style="border: 1px solid #eee; margin: 20px 0;" />
   
   <h3 style="color: #0c4b33;">Contact Information</h3>
@@ -165,7 +173,9 @@ ${validatedData.message}
       from: EMAIL_CONFIG.from,
       to: [EMAIL_CONFIG.primaryRecipient], // Send only to the main email address
       replyTo: validatedData.email,
-      subject: `New Contact Form Submission: ${serviceType}`,
+      subject: offerLabel
+        ? `New Contact Form Submission: ${serviceType} [${offerLabel}]`
+        : `New Contact Form Submission: ${serviceType}`,
       text: emailText,
       html: emailHtml,
     });
@@ -182,7 +192,7 @@ ${validatedData.message}
 
     // --- Step 2: Send SMS notifications via Twilio (non-blocking) ---
     // Construct SMS message body
-    const smsBody = `New Lead: ${validatedData.name} (${validatedData.phone || 'No phone'}). Service: ${serviceType}. Email: ${validatedData.email}`;
+    const smsBody = `New Lead: ${validatedData.name} (${validatedData.phone || 'No phone'}). Service: ${serviceType}.${offerLabel ? ` OFFER: ${offerLabel}.` : ''} Email: ${validatedData.email}`;
     
     // Send to first recipient
     if (process.env.SMS_RECIPIENT_1) {

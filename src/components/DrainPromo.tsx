@@ -27,7 +27,7 @@ export default function DrainPromo() {
         </p>
 
         <Link
-          href="/contact"
+          href="/contact?offer=free-sprinkler-inspection"
           className="inline-flex items-center gap-2 mt-5 bg-irrigation-darkGreen hover:bg-irrigation-darkBlue text-white font-bold text-base sm:text-lg px-6 py-3 rounded-lg transition-colors shadow-md"
         >
           Claim Your Free Inspection

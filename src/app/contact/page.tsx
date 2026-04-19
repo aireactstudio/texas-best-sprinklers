@@ -1,8 +1,9 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import Link from 'next/link';
-import { Phone, Mail, MapPin, Clock, Check, Lightbulb, Layers, Sparkles } from 'lucide-react';
+import { useSearchParams } from 'next/navigation';
+import { Phone, Mail, MapPin, Clock, Check, Lightbulb, Layers, Sparkles, Gift } from 'lucide-react';
 import { 
   Form, 
   FormControl, 
@@ -20,6 +21,10 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useToast } from '@/hooks/use-toast';
 
+const OFFER_LABELS: Record<string, string> = {
+  'free-sprinkler-inspection': 'Free Sprinkler Inspection with Drain Job',
+};
+
 // Form schema - matching the API endpoint schema
 const formSchema = z.object({
   name: z.string().min(1, { message: "Name is required" }),
@@ -27,15 +32,27 @@ const formSchema = z.object({
   phone: z.string().optional(),
   location: z.string().optional().default(''),
   message: z.string().min(1, { message: "Message is required" }),
-  service: z.string().default('General Inquiry')
+  service: z.string().default('General Inquiry'),
+  offer: z.string().optional(),
 });
 
 type FormValues = z.infer<typeof formSchema>;
 
 export default function Contact() {
+  return (
+    <Suspense>
+      <ContactContent />
+    </Suspense>
+  );
+}
+
+function ContactContent() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const { toast } = useToast();
+  const searchParams = useSearchParams();
+  const offerParam = searchParams.get('offer') || '';
+  const offerLabel = OFFER_LABELS[offerParam] || '';
   
   // Form setup
   const form = useForm<FormValues>({
@@ -44,8 +61,9 @@ export default function Contact() {
       name: "",
       email: "",
       phone: "",
-      service: "",
-      message: ""
+      service: offerParam === 'free-sprinkler-inspection' ? 'drainage' : "",
+      message: "",
+      offer: offerParam,
     }
   });
 
@@ -172,6 +190,20 @@ export default function Contact() {
             ) : (
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 md:space-y-6">
+                  {/* Offer applied banner */}
+                  {offerLabel && (
+                    <div className="flex items-center gap-3 rounded-lg border-2 border-irrigation-darkGreen bg-irrigation-darkGreen/10 p-4">
+                      <Gift className="h-6 w-6 shrink-0 text-irrigation-darkGreen" />
+                      <div>
+                        <p className="font-bold text-irrigation-darkGreen">{offerLabel}</p>
+                        <p className="text-sm text-gray-600">This offer has been applied to your inquiry.</p>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Hidden field for offer tracking */}
+                  <input type="hidden" {...form.register('offer')} />
+
                   {/* High-visibility: shown first so visitors see lighting + hardscape before fields */}
                   <div
                     className="relative overflow-hidden rounded-2xl shadow-lg ring-2 ring-amber-400/70 ring-offset-2 ring-offset-gray-50"
