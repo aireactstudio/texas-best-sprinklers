@@ -153,6 +153,25 @@ const AppHeader = () => {
     }
   ];
 
+  const mobileMenuItems: NavItem[] = (() => {
+    const sprinklerMenu = menuItems.find((item) => item.name === 'Sprinklers & Irrigation');
+    const filteredSprinklerSubmenu = (sprinklerMenu?.submenu ?? []).filter(
+      (subitem) => subitem.name !== 'Landscaping Installation' && subitem.name !== 'Hardscaping'
+    );
+
+    return menuItems.flatMap((item) => {
+      if (item.name !== 'Sprinklers & Irrigation') {
+        return [item];
+      }
+
+      return [
+        { ...item, submenu: filteredSprinklerSubmenu },
+        { name: 'Landscaping Installation', path: '/services/landscaping-installation' },
+        { name: 'Hardscaping', path: '/services/hardscaping' },
+      ];
+    });
+  })();
+
   // Build dynamic locations list for mega menu
   const allLocations = LOCATIONS.map(slug => {
     const info = getLocationData(slug);
@@ -328,7 +347,7 @@ const AppHeader = () => {
                 {/* Menu Items */}
                 <div className="flex-grow overflow-y-auto py-4">
                   <ul className="space-y-1 px-2">
-                    {menuItems.map((item) => (
+                    {mobileMenuItems.map((item) => (
                       <li key={item.name}>
                          {item.submenu ? (
                           <>
