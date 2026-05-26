@@ -4,140 +4,129 @@ import NeighborhoodPageTemplate from '@/components/templates/NeighborhoodPageTem
 export default function RidgewoodPage() {
   return (
     <NeighborhoodPageTemplate
-      cityName="Keller"
-      citySlug="keller"
-      neighborhoodName="Ridgewood"
-      canonicalUrl="https://sprinkleranddrains.com/keller/ridgewood"
-      pageTitle="Ridgewood Sprinkler Services in Keller, TX"
-      metaDescription="Sprinkler repair, irrigation tune-ups, and drainage services for Ridgewood homes in Keller, TX with licensed local technicians."
-      heroTitle="Ridgewood Sprinkler Repair & Irrigation Services in Keller"
-      heroDescription="Licensed sprinkler, irrigation, and drainage help for Ridgewood homeowners who want dependable coverage, cleaner runoff control, and efficient watering through North Texas heat."
-      introHeading="Practical Irrigation Support for Ridgewood Homes"
-      intro="Ridgewood properties in Keller often need irrigation systems that can handle established lawns, mature landscape beds, shifting clay soil, and quick weather changes. Texas Best Sprinklers, Drainage and Lighting helps homeowners diagnose sprinkler problems, correct uneven coverage, improve controller programming, and plan drainage improvements that protect curb appeal without wasting water. Our team focuses on clear recommendations, clean work areas, and system adjustments that make sense for the way Ridgewood yards are actually used."
+      cityName='Keller'
+      citySlug='keller'
+      neighborhoodName='Ridgewood'
+      canonicalUrl='https://sprinkleranddrains.com/keller/ridgewood'
+      pageTitle='Ridgewood Sprinkler Services in Keller, TX'
+      metaDescription='Sprinkler repair, irrigation tune-ups, and drainage planning for Ridgewood homes in Keller, TX with licensed local technicians.'
+      heroTitle='Ridgewood Sprinkler Services in Keller, TX'
+      heroDescription='Licensed sprinkler repair, irrigation diagnostics, controller programming, and drainage planning for Ridgewood homeowners in Keller.'
+      introHeading='Irrigation Service for Ridgewood Homes'
+      intro='Ridgewood properties in Keller often need sprinkler systems that can handle established lawns, mature landscape beds, North Texas clay soil, and changing seasonal watering needs. Texas Best Sprinklers, Drainage and Lighting helps Ridgewood homeowners solve coverage gaps, leaking valves, controller issues, low pressure, runoff, and drainage concerns with practical recommendations and clean workmanship. Our team focuses on finding the real cause of irrigation problems before recommending repairs, upgrades, or drainage improvements.'
       highlights={[
-        'Licensed irrigator service for Keller homeowners, including sprinkler repair, irrigation repair, and drainage planning.',
-        'Zone-by-zone inspections that look for broken heads, valve issues, wiring faults, pressure problems, and overspray.',
-        'Water-conscious scheduling recommendations for North Texas clay soil, summer heat, and local watering expectations.',
-        'Repair and upgrade options for established lawns, planting beds, side yards, and areas with recurring runoff.'
+        'Licensed irrigator service for Ridgewood homeowners who need reliable sprinkler repair, irrigation troubleshooting, and clear recommendations.',
+        'Coverage adjustments for established Keller lawns, landscape beds, shaded areas, and sunny turf that dry out at different rates.',
+        'Drainage planning for low spots, downspout discharge, and runoff patterns that can affect patios, walkways, and turf edges.',
+        'Controller programming and seasonal runtime guidance that supports Keller watering schedules and reduces wasted water.'
       ]}
       serviceFocus={[
-        'Sprinkler Diagnostics: We trace coverage gaps, stuck valves, leaking heads, low-pressure zones, and controller issues so repairs solve the real cause instead of only the most visible symptom.',
-        'Coverage and Efficiency Improvements: Nozzle changes, head adjustments, pressure checks, and smart scheduling help Ridgewood lawns receive more even watering with less overspray onto sidewalks and driveways.',
-        'Drainage Planning: For low spots, side-yard pooling, and runoff near patios or beds, we recommend practical drainage improvements based on grade, soil, and where water naturally collects.'
+        'Sprinkler repair and nozzle optimization for uneven coverage, broken heads, leaking zones, and overspray near sidewalks or drives.',
+        'Irrigation diagnostics for valve problems, wiring faults, pressure changes, controller errors, and zones that fail to run correctly.',
+        'Smart controller setup and seasonal schedule adjustments for more efficient watering during North Texas heat and cooler months.',
+        'Drainage solutions for standing water, soggy turf, and runoff concerns around Ridgewood yards and landscape beds.'
       ]}
       localTips={[
-        'Use shorter cycle-and-soak watering windows when Keller clay soil starts shedding water before it can soak into the root zone.',
-        'Check spray patterns after mowing or edging because tilted heads can quickly create dry strips along sidewalks and driveways.',
-        'Adjust shaded zones separately from full-sun turf so mature trees and protected beds are not watered on the same schedule as hot open areas.',
-        'Schedule seasonal inspections before peak summer heat to catch small leaks, clogged nozzles, and controller programming issues early.'
+        'Use shorter cycle-and-soak watering windows on clay soil so water has time to absorb instead of running into the street or low areas.',
+        'Check spray patterns after mowing or landscape work because tilted heads can quickly create dry spots or overspray onto hard surfaces.',
+        'Inspect valve boxes and controller settings before peak summer heat so small leaks or missed zones do not become lawn stress problems.',
+        'Consider drip irrigation in shrub beds where spray heads are wasting water or leaving mulch and edging constantly wet.'
       ]}
       reviews={[
         {
-          reviewer: 'Ridgewood homeowner in Keller',
+          reviewer: 'Ridgewood homeowner',
           date: 'March 2026',
           quote:
-            'They walked every zone, explained exactly why two areas were staying dry, and made the repairs without leaving a mess in the yard.'
+            'They walked every zone, explained the pressure issue clearly, and fixed several heads that were missing the dry areas in our front yard.'
         },
         {
           reviewer: 'Keller resident near Ridgewood',
           date: 'February 2026',
           quote:
-            'The team adjusted our controller and fixed several heads that were spraying the driveway. The system is much more consistent now.'
+            'The technician corrected our controller schedule and repaired a leaking valve without trying to sell a full replacement.'
         },
         {
-          reviewer: 'Homeowner in Ridgewood',
+          reviewer: 'Ridgewood property owner',
           date: 'January 2026',
           quote:
-            'Clear pricing, fast diagnostics, and helpful advice on how to avoid runoff during the summer. We would call them again.'
+            'Clean work, clear pricing, and helpful advice for reducing runoff near our driveway and landscape beds.'
         }
       ]}
       considerations={[
         {
-          title: 'Established Keller Landscapes',
+          title: 'Established Lawn Coverage',
           description:
-            'Ridgewood homes may have mature turf, older beds, and irrigation layouts that have been changed over time. A zone-by-zone check helps confirm each area is still matched to current landscaping.'
+            'Ridgewood lawns can develop coverage gaps as heads settle, landscaping changes, or pressure shifts. A zone-by-zone evaluation helps restore even watering without overwatering healthy areas.'
         },
         {
-          title: 'North Texas Clay Soil',
+          title: 'Clay Soil Runoff',
           description:
-            'Clay soil can expand, contract, and shed water during long cycles. Cycle-and-soak programming and drainage review help reduce puddling and improve root-zone absorption.'
+            'Keller clay soil often needs shorter watering cycles with soak time between starts. This approach reduces runoff and helps water reach the root zone more effectively.'
         },
         {
-          title: 'Side-Yard and Foundation Runoff',
+          title: 'Landscape Bed Protection',
           description:
-            'Narrow side yards and grade transitions can move water toward hardscapes or foundations. Drainage solutions should be planned around the actual flow path, not just the lowest visible spot.'
+            'Shrub beds, mulch lines, and edging can be damaged by misdirected spray. Drip conversions or nozzle changes can provide better plant watering with less waste.'
         },
         {
-          title: 'Seasonal Heat and Freeze Swings',
+          title: 'Drainage Around Hardscapes',
           description:
-            'Keller irrigation systems need seasonal adjustments for summer heat, storm periods, and freeze risk. Preventive inspections can catch damaged heads, exposed pipe, and controller settings before they become larger issues.'
+            'Low areas near patios, sidewalks, and driveways can hold water after irrigation or storms. Targeted drainage improvements help move water away from problem spots.'
         }
       ]}
       pricing={[
         { label: 'Sprinkler Repair Visit', range: '$175-$450 typical scope' },
-        { label: 'Controller or Zone Optimization', range: '$250-$950 based on system needs' },
+        { label: 'Controller or Zone Tune-Up', range: '$250-$750 based on system needs' },
         { label: 'Drainage Improvement', range: '$1,500-$6,500 based on layout' }
       ]}
       processSteps={[
-        'Ridgewood property walkthrough and irrigation concern review',
-        'Full-zone test for heads, valves, pressure, controller settings, and coverage',
-        'Clear repair or improvement recommendations before work begins',
-        'Clean sprinkler, irrigation, or drainage work using durable components',
-        'Final controller calibration and homeowner walkthrough'
+        'Schedule a Ridgewood site assessment',
+        'Walk each zone and identify coverage, pressure, leak, or controller issues',
+        'Review repair options and confirm the scope before work begins',
+        'Complete clean repairs, upgrades, or drainage improvements with quality components',
+        'Test the system, calibrate runtimes, and review maintenance recommendations'
       ]}
       faqs={[
         {
-          question: 'Do you service older sprinkler systems in Ridgewood?',
+          question: 'Can you repair older sprinkler systems in Ridgewood?',
           answer:
-            'Yes. We inspect older systems for worn heads, valve leaks, wiring faults, low pressure, outdated controller settings, and coverage gaps, then recommend repairs or upgrades based on the condition of the system.'
+            'Yes. We diagnose older systems for head damage, valve leaks, wiring problems, controller failures, and pressure issues before recommending practical repairs or upgrades.'
         },
         {
-          question: 'Can you help reduce runoff from my sprinkler zones?',
+          question: 'Do you help reduce runoff from sprinkler zones?',
           answer:
-            'Yes. We look at nozzle type, head alignment, pressure, slope, and controller runtimes. In many cases, cycle-and-soak programming and targeted head adjustments can reduce runoff without sacrificing lawn health.'
+            'Yes. We can adjust nozzles, repair tilted heads, tune pressure, and set cycle-and-soak schedules that work better with Keller clay soil.'
         },
         {
-          question: 'Do Ridgewood homes need drainage work or sprinkler repair first?',
+          question: 'Can you add drainage work if my yard has standing water?',
           answer:
-            'It depends on the cause of the water problem. We test the sprinkler system first to rule out leaks or overspray, then evaluate grade, soil, and flow paths if the issue is stormwater or persistent pooling.'
+            'Yes. We evaluate the slope, low spots, downspouts, and discharge options before recommending drainage improvements such as collection, routing, or French drain solutions.'
         },
         {
-          question: 'Can you update my controller for Keller watering schedules?',
+          question: 'What should I check before calling for sprinkler service?',
           answer:
-            'Yes. We can review your controller programming, recommend efficient runtimes, and help set schedules that are easier to adjust as local watering guidance or seasonal conditions change.'
+            'Note which zones are not working, where water is pooling, whether the controller shows an error, and any heads that are broken, tilted, or spraying pavement.'
         }
       ]}
       relatedAreas={[
-        {
-          name: 'Hidden Lakes',
-          description: 'Sprinkler repair, irrigation upgrades, and drainage support for larger Keller lots.',
-          link: '/keller/hidden-lakes'
-        },
-        {
-          name: 'Marshall Ridge',
-          description: 'HOA-focused irrigation tuning, leak repairs, and smart-controller optimization.',
-          link: '/keller/marshall-ridge'
-        },
-        {
-          name: 'Oakmont',
-          description: 'Targeted sprinkler repairs and drainage strategies for clay-heavy Keller soil.',
-          link: '/keller/oakmont'
-        }
+        { name: 'Hidden Lakes', description: 'Sprinkler repair, irrigation upgrades, and drainage solutions for larger Keller lots.', link: '/keller/hidden-lakes' },
+        { name: 'Marshall Ridge', description: 'Efficient system tune-ups and smart-controller optimization for HOA-focused landscapes.', link: '/keller/marshall-ridge' },
+        { name: 'Oakmont', description: 'Targeted repairs and drainage upgrades for clay-heavy soil and seasonal heat stress.', link: '/keller/oakmont' }
       ]}
       popularServices={[
         {
           title: 'Sprinkler Repair',
-          description: 'Broken heads, leaking valves, controller issues, wiring problems, and uneven coverage corrections for Keller homes.',
+          description: 'Broken heads, valve leaks, wiring issues, pressure problems, and uneven coverage corrections.',
           link: '/keller/sprinkler-repair-services-in-keller-tx'
         },
         {
           title: 'Irrigation Repair',
-          description: 'System-level diagnostics for zone performance, pressure balance, controller setup, and efficient watering.',
+          description: 'System-level diagnostics for controller performance, zone control, and efficient watering.',
           link: '/keller/irrigation-repair-services-in-keller-tx'
         },
         {
           title: 'Drainage Solutions',
-          description: 'Drainage planning for low spots, side-yard runoff, patio pooling, and water movement after storms.',
+          description: 'Practical drainage planning for low spots, runoff paths, and standing water concerns.',
           link: '/services/drainage-solutions'
         }
       ]}
@@ -145,71 +134,71 @@ export default function RidgewoodPage() {
         {
           name: 'The Keller Pointe',
           url: 'https://www.thekellerpointe.com/',
-          description: 'A well-used Keller recreation center with fitness, aquatics, and community amenities close to Ridgewood homes.'
+          description: 'A community recreation destination with indoor and outdoor amenities close to Ridgewood and central Keller.'
         },
         {
           name: 'Bear Creek Park',
           url: 'https://www.cityofkeller.com/services-and-amenities/parks-trails/park-and-trail-directory/bear-creek-park',
-          description: 'A large local park with trails and open space that reflects the outdoor lifestyle many Keller residents value.'
+          description: 'A well-used Keller park with trails, open space, and recreation areas that highlight the citys outdoor lifestyle.'
         },
         {
           name: 'Keller Town Center',
           url: 'https://www.cityofkeller.com/government/departments/economic-development',
-          description: 'A central Keller destination for everyday dining, shopping, and community activity near surrounding neighborhoods.'
+          description: 'A central shopping and dining district that gives Ridgewood residents convenient access to everyday errands and local restaurants.'
         }
       ]}
       localLivingContent={
         <>
           <p>
-            Ridgewood homeowners are part of the broader Keller community served by the{' '}
+            Ridgewood homeowners are served by the{' '}
             <a
-              href="https://www.kellerisd.net/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-semibold text-emerald-200 hover:text-emerald-100 underline decoration-2 underline-offset-4"
+              href='https://www.kellerisd.net/'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='font-semibold text-emerald-200 hover:text-emerald-100 underline decoration-2 underline-offset-4'
             >
               Keller Independent School District
             </a>{' '}
-            and supported by nearby parks, trails, and recreation resources from the{' '}
+            and benefit from city parks, trails, and community amenities managed by the{' '}
             <a
-              href="https://www.cityofkeller.com/services-and-amenities/parks-trails"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-semibold text-emerald-200 hover:text-emerald-100 underline decoration-2 underline-offset-4"
+              href='https://www.cityofkeller.com/services-and-amenities/parks-trails'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='font-semibold text-emerald-200 hover:text-emerald-100 underline decoration-2 underline-offset-4'
             >
               Keller Parks and Recreation Department
             </a>
-            . That mix of established neighborhoods and outdoor amenities makes reliable irrigation especially important for healthy lawns and usable yards.
+            .
           </p>
           <p>
-            Daily life in Keller also includes convenient access to the{' '}
+            Everyday living is convenient with access to the{' '}
             <a
-              href="https://www.cityofkeller.com/services-and-amenities/library"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-semibold text-emerald-200 hover:text-emerald-100 underline decoration-2 underline-offset-4"
+              href='https://www.cityofkeller.com/services-and-amenities/library'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='font-semibold text-emerald-200 hover:text-emerald-100 underline decoration-2 underline-offset-4'
             >
               Keller Public Library
             </a>{' '}
             and local dining such as{' '}
             <a
-              href="https://www.decadentdessertbar.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-semibold text-emerald-200 hover:text-emerald-100 underline decoration-2 underline-offset-4"
+              href='https://www.decadentdessertbar.com/'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='font-semibold text-emerald-200 hover:text-emerald-100 underline decoration-2 underline-offset-4'
             >
               Decadent Dessert Bar
             </a>{' '}
             and{' '}
             <a
-              href="https://www.devlivoak.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-semibold text-emerald-200 hover:text-emerald-100 underline decoration-2 underline-offset-4"
+              href='https://www.devlivoak.com/'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='font-semibold text-emerald-200 hover:text-emerald-100 underline decoration-2 underline-offset-4'
             >
               DeVivo Bros. Eatery
-            </a>
-            , keeping errands, family plans, and weekend routines close to home.
+            </a>{' '}
+            near the Keller Town Center area.
           </p>
         </>
       }
