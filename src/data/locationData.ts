@@ -134,13 +134,10 @@ export const locationData = {
     serviceRadius: 8
   },
 
-
-
-
   'haltom-city': {
     name: 'Haltom City',
     nearestOffice: 'Weatherford',
-    distanceFromOffice: 25,  
+    distanceFromOffice: 25,
     landmarks: ['Haltom City Library', 'Haltom Road Park', 'Buffalo Ridge Park'],
     neighborhoods: ['Garden Acres', 'East View', 'Western Hills', 'Buffalo Ridge'],
     coordinates: {
@@ -174,8 +171,6 @@ export const locationData = {
     },
     serviceRadius: 10
   },
-
-
 
   'trophy-club': {
     name: 'Trophy Club',
@@ -306,39 +301,33 @@ export const locationData = {
  */
 export const getLocationData = (location: string) => {
   if (!location) {
-    // Return a default object instead of null
-    return { 
-      name: 'Texas', 
-      nearestOffice: 'Fort Worth', 
+    return {
+      name: 'Texas',
+      nearestOffice: 'Fort Worth',
       distanceFromOffice: 0,
       landmarks: ['Texas Best Sprinklers Office']
     };
   }
-  
+
   const locationKey = location.toLowerCase();
-  
-  // If we have data for this location, return it
+
   if (locationData[locationKey]) {
     return locationData[locationKey];
   }
-  
-  // Otherwise, create a default location object with name derived from the slug
+
   const formattedName = location
     .split('-')
     .map(part => part.charAt(0).toUpperCase() + part.slice(1))
     .join(' ');
-    
-  return { 
-    name: formattedName, 
+
+  return {
+    name: formattedName,
     nearestOffice: 'Fort Worth',
-    distanceFromOffice: 30, // Default
+    distanceFromOffice: 30,
     landmarks: ['Local Parks', 'Community Center']
   };
 };
 
-
-
-// Export a default object with all location-related data and functions
 const locationModule = {
   LOCATIONS,
   isValidLocation,
