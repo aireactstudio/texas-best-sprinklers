@@ -151,11 +151,11 @@ export default function Home() {
       <div className="px-4 sm:px-6 lg:px-8 mt-8">
         <EndOfSummerSpecials />
       </div>
+      <ScrollingCarousel />
       <ServicesSection />
       <GrassGuideSection />
       {/* Move reviews up: 1–2 sections below hero */}
       <TestimonialsSection />
-      <ScrollingCarousel />
       <FeaturesSection />
       <InHouseFinancingSection />
       <StatsSection />

@@ -63,7 +63,7 @@ export default function LocationHomepage({ locationSlug }: LocationHomepageProps
         routePrefix={locationSlug}
       />
 
-      {/* Services + Areas Served (compact lists) */}
+      {/* Neighborhoods + Areas Served */}
       <LocationServicesAndAreas
         cityName={locationName}
         routePrefix={locationSlug}

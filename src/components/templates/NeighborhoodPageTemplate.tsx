@@ -234,11 +234,7 @@ export default function NeighborhoodPageTemplate({
           <div className="grid grid-cols-1 lg:grid-cols-[1.3fr_0.9fr] gap-8 items-start">
             <div className="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm">
               <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">{introHeading}</h2>
-              <p className="text-slate-700 leading-relaxed mb-4">{intro}</p>
-              <p className="text-slate-700 leading-relaxed">
-                Our team serves this area with sprinkler repair, irrigation upgrades, drainage planning, and clear recommendations designed for
-                North Texas soil and climate conditions.
-              </p>
+              <p className="text-slate-700 leading-relaxed">{intro}</p>
             </div>
             <div className="rounded-2xl border border-emerald-100 bg-emerald-50/70 p-6">
               <p className="text-xs uppercase tracking-[0.2em] font-semibold text-emerald-700 mb-2">Fast Response</p>
@@ -299,20 +295,27 @@ export default function NeighborhoodPageTemplate({
           </div>
 
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">What {neighborhoodName} Homeowners Say</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {reviews.map((review) => (
-              <div key={review.reviewer} className="rounded-2xl border border-slate-200 p-6 bg-white shadow-sm hover:shadow-md transition-shadow">
-                <Quote className="h-6 w-6 text-irrigation-blue/40 mb-3" />
-                <div className="flex items-center gap-1 text-amber-500 mb-2">
-                  {[1, 2, 3, 4, 5].map((star) => (
-                    <Star key={`${review.reviewer}-${star}`} className="h-4 w-4 fill-current" />
-                  ))}
+          <div className="relative overflow-hidden">
+            <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-10 bg-gradient-to-r from-white to-transparent" />
+            <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-10 bg-gradient-to-l from-white to-transparent" />
+            <div className="flex w-max gap-5 animate-neighborhood-reviews hover:[animation-play-state:paused]">
+              {[...reviews, ...reviews].map((review, idx) => (
+                <div
+                  key={`${review.reviewer}-${review.date}-${idx}`}
+                  className="w-[320px] md:w-[360px] rounded-2xl border border-slate-200 p-6 bg-white shadow-sm hover:shadow-md transition-shadow"
+                >
+                  <Quote className="h-6 w-6 text-irrigation-blue/40 mb-3" />
+                  <div className="flex items-center gap-1 text-amber-500 mb-2">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <Star key={`${review.reviewer}-${idx}-${star}`} className="h-4 w-4 fill-current" />
+                    ))}
+                  </div>
+                  <p className="text-sm text-slate-700 leading-relaxed">{review.quote}</p>
+                  <p className="mt-4 text-sm font-semibold text-slate-900">{review.reviewer}</p>
+                  <p className="text-xs text-slate-500">{review.date}</p>
                 </div>
-                <p className="text-sm text-slate-700 leading-relaxed">{review.quote}</p>
-                <p className="mt-4 text-sm font-semibold text-slate-900">{review.reviewer}</p>
-                <p className="text-xs text-slate-500">{review.date}</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -450,6 +453,20 @@ export default function NeighborhoodPageTemplate({
         buttonText="Get Free Estimate"
         buttonLink="/contact"
       />
+
+      <style jsx>{`
+        @keyframes neighborhood-review-marquee {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        .animate-neighborhood-reviews {
+          animation: neighborhood-review-marquee 34s linear infinite;
+        }
+      `}</style>
     </div>
   );
 }

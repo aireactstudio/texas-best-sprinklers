@@ -584,28 +584,6 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName, routePrefix
                 formattedTitle={cityName ? formatServiceTitle(services[selectedServiceIndex].title) : undefined}
               />
             </div>
-
-            <div>
-              <h3 className="text-center text-xl font-bold text-irrigation-darkBlue mb-2">All services</h3>
-              <p className="text-center text-gray-600 text-sm max-w-2xl mx-auto mb-8">
-                Same details, links, and contact options on every card—switch the highlighted service above or open any service page directly.
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-                {services.map((service, index) =>
-                  index !== selectedServiceIndex ? (
-                    <ServiceCard
-                      key={index}
-                      {...service}
-                      locationPrefix={locationPrefix}
-                      isSelected={false}
-                      index={index}
-                      onSelect={handleServiceSelect}
-                      formattedTitle={cityName ? formatServiceTitle(service.title) : undefined}
-                    />
-                  ) : null
-                )}
-              </div>
-            </div>
           </div>
           
           {/* Mobile Layout - Hidden on desktop */}
