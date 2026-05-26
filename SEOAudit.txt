@@ -1,0 +1,697 @@
+
+
+Yes. Here’s the real audit.
+
+**Important:** I’m in Ask mode, so I can’t create the report file directly. If you switch to Code mode, I’ll create `docs/seo-performance-audit.md` with this report and can start applying fixes.
+
+# SEO & Performance Audit Report
+
+Recommended file path:
+
+```txt
+docs/seo-performance-audit.md
+```
+
+## Executive Summary
+
+The site has strong local-service SEO potential, but there are several **critical technical SEO problems** that should be fixed before deeper content optimization.
+
+The biggest issues are:
+
+- **Sitemap is broken/incomplete** — currently only 17 location pages are listed.
+- **Canonical/domain mismatch** — code uses both `sprinkleranddrains.com` and `texasbestsprinklers.com`.
+- **Homepage is a client component** — hurts performance and limits ideal metadata/schema behavior.
+- **Conflicting LocalBusiness schema** — phone number, hours, address, and `@id` are inconsistent.
+- **Many service pages only have title metadata** — missing descriptions, canonical URLs, OG/Twitter metadata.
+- **Global scripts are too heavy** — Google Maps, Smartlook, performance observers, preloading helpers, and manual prefetch logic run globally.
+- **Image strategy is inconsistent** — duplicate hero preloads, raw `<img>` usage, local PNG/JPEG assets, and hardcoded global LCP preload regardless of route.
+
+If fixed, the site would be in much better shape for local SEO, crawlability, Core Web Vitals, and Google Business/local pack support.
+
+---
+
+# Critical Findings
+
+## 1. Sitemap is severely incomplete
+
+**Severity:** Critical  
+**Files:**
+
+- [public/sitemap.xml](cci:7://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/public/sitemap.xml:0:0-0:0)
+- [public/sitemap-0.xml](cci:7://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/public/sitemap-0.xml:0:0-0:0)
+- [next-sitemap.config.js](cci:7://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/next-sitemap.config.js:0:0-0:0)
+
+Current [public/sitemap-0.xml](cci:7://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/public/sitemap-0.xml:0:0-0:0) only contains 17 location homepages:
+
+```txt
+/fort-worth
+/keller
+/roanoke
+...
+/north-richland-hills
+```
+
+It does **not** include:
+
+- `/`
+- `/services`
+- `/services/hardscaping`
+- Any core service pages
+- `/contact`
+- `/about`
+- `/projects`
+- `/blog`
+- `/blog/[slug]`
+- Several valid locations from `LOCATIONS`
+
+This is a major SEO issue. Google can still discover pages through links, but sitemap coverage is foundational for indexing and recrawl priority.
+
+### Recommended Fix
+
+Update [next-sitemap.config.js](cci:7://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/next-sitemap.config.js:0:0-0:0) to explicitly include:
+
+- Static top-level pages
+- All service pages
+- All `LOCATIONS` from [src/data/locationData.ts](cci:7://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/src/data/locationData.ts:0:0-0:0)
+- All blog posts from [src/data/blogPosts.ts](cci:7://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/src/data/blogPosts.ts:0:0-0:0)
+- Location/service combo pages if those are meant to be indexed
+
+Also remove hardcoded duplicate location lists. Import from source data or maintain a single shared config.
+
+---
+
+## 2. Canonical domain mismatch
+
+**Severity:** Critical  
+**Files:**
+
+- [src/app/page.tsx](cci:7://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/src/app/page.tsx:0:0-0:0)
+- [src/components/BlogPreview.tsx](cci:7://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/src/components/BlogPreview.tsx:0:0-0:0)
+- [src/app/layout.tsx](cci:7://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/src/app/layout.tsx:0:0-0:0)
+- [next-sitemap.config.js](cci:7://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/next-sitemap.config.js:0:0-0:0)
+
+The official domain appears to be:
+
+```txt
+https://sprinkleranddrains.com
+```
+
+But the homepage uses this fallback:
+
+```tsx
+const baseUrl = typeof window !== 'undefined' ? window.location.origin : 'https://texasbestsprinklers.com';
+```
+
+And [BlogPreview](cci:1://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/src/components/BlogPreview.tsx:22:0-124:2) uses:
+
+```tsx
+"@id": `https://texasbestsprinklers.com/blog/${post.slug}`
+```
+
+This creates mixed signals across schema, canonicals, and sitemaps.
+
+### Why this matters
+
+Google may treat these as separate entities/domains, causing:
+
+- Diluted entity authority
+- Duplicate content/canonical confusion
+- Bad structured-data entity merging
+- Incorrect rich result references
+
+### Recommended Fix
+
+Add a single canonical site URL to `SITE_CONFIG`:
+
+```ts
+siteUrl: 'https://sprinkleranddrains.com'
+```
+
+Then replace all hardcoded domain references with that.
+
+---
+
+## 3. Homepage is fully client-side
+
+**Severity:** Critical/High  
+**File:**
+
+- [src/app/page.tsx](cci:7://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/src/app/page.tsx:0:0-0:0)
+
+The homepage starts with:
+
+```tsx
+'use client';
+```
+
+This means the entire homepage component is a client component.
+
+### Why this is bad
+
+The homepage imports many heavy sections:
+
+- `ServicesSection`
+- `TestimonialsSection`
+- [BlogPreview](cci:1://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/src/components/BlogPreview.tsx:22:0-124:2)
+- `StatsSection`
+- `ServiceAreaLocator`
+- `ScrollingCarousel`
+- `HomeFAQ`
+- `GrassGuideSection`
+- `InHouseFinancingSection`
+
+That increases hydration cost and JavaScript shipped to mobile users.
+
+It also forces schema and dynamic URL generation into client behavior. For best-in-class SEO, the homepage should be a server component with only interactive parts split into smaller client components.
+
+### Recommended Fix
+
+Convert [src/app/page.tsx](cci:7://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/src/app/page.tsx:0:0-0:0) back to a server component.
+
+Move only review fetching or interactive UI into client children.
+
+---
+
+## 4. Conflicting LocalBusiness schema
+
+**Severity:** Critical  
+**Files:**
+
+- [src/components/SchemaOrgData.tsx](cci:7://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/src/components/SchemaOrgData.tsx:0:0-0:0)
+- [src/components/StructuredData.tsx](cci:7://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/src/components/StructuredData.tsx:0:0-0:0)
+- [src/components/LocationStructuredData.tsx](cci:7://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/src/components/LocationStructuredData.tsx:0:0-0:0)
+- [src/app/page.tsx](cci:7://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/src/app/page.tsx:0:0-0:0)
+
+There are multiple LocalBusiness schemas with inconsistent data.
+
+Examples:
+
+[SchemaOrgData.tsx](cci:7://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/src/components/SchemaOrgData.tsx:0:0-0:0) has:
+
+```tsx
+'telephone': '+1-817-405-9411'
+```
+
+But most of the site uses:
+
+```txt
+(817) 304-7896
+```
+
+[SchemaOrgData.tsx](cci:7://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/src/components/SchemaOrgData.tsx:0:0-0:0) says:
+
+```txt
+Monday-Friday 08:00-17:00
+```
+
+Other schema/content says:
+
+```txt
+Monday-Saturday 07:00-19:00
+```
+
+There are also different `@id` values:
+
+```txt
+https://sprinkleranddrains.com
+https://sprinkleranddrains.com/#business
+https://sprinkleranddrains.com#business
+```
+
+### Recommended Fix
+
+Create one authoritative business schema source.
+
+Use one consistent `@id` everywhere:
+
+```txt
+https://sprinkleranddrains.com/#business
+```
+
+Use consistent:
+
+- Phone
+- Address
+- Hours
+- Logo URL
+- Image URL
+- Social profiles
+- Area served
+- License number
+
+---
+
+# High-Priority SEO Findings
+
+## 5. Many service pages lack meta descriptions
+
+**Severity:** High  
+**Files include:**
+
+- [src/app/services/sprinkler-installation/page.tsx](cci:7://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/src/app/services/sprinkler-installation/page.tsx:0:0-0:0)
+- [src/app/services/sprinkler-repair/page.tsx](cci:7://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/src/app/services/sprinkler-repair/page.tsx:0:0-0:0)
+- [src/app/services/maintenance/page.tsx](cci:7://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/src/app/services/maintenance/page.tsx:0:0-0:0)
+- [src/app/services/drip-irrigation/page.tsx](cci:7://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/src/app/services/drip-irrigation/page.tsx:0:0-0:0)
+- [src/app/services/french-drains/page.tsx](cci:7://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/src/app/services/french-drains/page.tsx:0:0-0:0)
+- [src/app/services/drainage-solutions/page.tsx](cci:7://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/src/app/services/drainage-solutions/page.tsx:0:0-0:0)
+- [src/app/services/outdoor-lighting/page.tsx](cci:7://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/src/app/services/outdoor-lighting/page.tsx:0:0-0:0)
+- [src/app/services/page.tsx](cci:7://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/src/app/services/page.tsx:0:0-0:0)
+
+Many service pages define only:
+
+```tsx
+export const metadata = {
+  title: '...'
+};
+```
+
+### Recommended Fix
+
+Every indexable page should have:
+
+- Unique title
+- Unique description
+- Canonical URL
+- OpenGraph title/description/url/image
+- Twitter metadata
+
+Example:
+
+```tsx
+export const metadata: Metadata = {
+  title: 'Sprinkler Repair in Fort Worth, TX | Texas Best Sprinklers',
+  description: 'Fast sprinkler repair in Fort Worth and nearby DFW cities. We fix broken heads, leaks, valves, wiring, controllers, and low-pressure zones.',
+  alternates: {
+    canonical: 'https://sprinkleranddrains.com/services/sprinkler-repair',
+  },
+  openGraph: {
+    title: 'Sprinkler Repair in Fort Worth, TX',
+    description: 'Fast sprinkler repair for leaks, valves, wiring, controllers, and broken heads.',
+    url: 'https://sprinkleranddrains.com/services/sprinkler-repair',
+    type: 'website',
+  },
+};
+```
+
+---
+
+## 6. Broken internal service link
+
+**Severity:** High  
+**File:**
+
+- [src/app/services/page.tsx](cci:7://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/src/app/services/page.tsx:0:0-0:0)
+
+The services index links to:
+
+```txt
+/services/commercial-irrigation
+```
+
+But I did not find a matching route:
+
+```txt
+src/app/services/commercial-irrigation/page.tsx
+```
+
+### Recommended Fix
+
+Either:
+
+- Create `/services/commercial-irrigation`, or
+- Remove the card, or
+- Redirect it to `/services/sprinkler-installation` or a commercial section.
+
+Broken service links hurt crawl quality and user trust.
+
+---
+
+## 7. Location lists are inconsistent
+
+**Severity:** High  
+**Files:**
+
+- [src/data/locationData.ts](cci:7://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/src/data/locationData.ts:0:0-0:0)
+- `src/app/[location]/page.tsx`
+- [next-sitemap.config.js](cci:7://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/next-sitemap.config.js:0:0-0:0)
+
+`LOCATIONS` includes 22+ locations, but:
+
+- [next-sitemap.config.js](cci:7://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/next-sitemap.config.js:0:0-0:0) only includes 17
+- [generateStaticParams()](cci:1://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/src/app/%5Blocation%5D/page.tsx:84:0-95:1) includes some locations not in `LOCATIONS`, like `dallas`, `coppell`, `irving`
+- Some valid locations like `trophy-club`, `arlington`, `bedford`, `euless`, and `hurst` are missing from the sitemap config
+
+### Recommended Fix
+
+Use `LOCATIONS` as the single source of truth.
+
+---
+
+## 8. Blog structured data uses wrong domain
+
+**Severity:** High  
+**File:**
+
+- [src/components/BlogPreview.tsx](cci:7://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/src/components/BlogPreview.tsx:0:0-0:0)
+
+Current:
+
+```tsx
+"@id": `https://texasbestsprinklers.com/blog/${post.slug}`
+```
+
+Should be:
+
+```tsx
+"@id": `https://sprinkleranddrains.com/blog/${post.slug}`
+```
+
+---
+
+## 9. Blog pages use raw `<img>` tags
+
+**Severity:** High for performance  
+**File:**
+
+- `src/app/blog/[slug]/page.tsx`
+
+Raw images are used for hero and related posts:
+
+```tsx
+<img src={post.image} ... />
+```
+
+These do not get Next.js image optimization, sizing, lazy loading, or CLS protection.
+
+### Recommended Fix
+
+Replace with `next/image`.
+
+Also add explicit dimensions or `fill` with stable container dimensions.
+
+---
+
+# Performance Findings
+
+## 10. Too many global performance/helper scripts
+
+**Severity:** High  
+**File:**
+
+- [src/app/layout.tsx](cci:7://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/src/app/layout.tsx:0:0-0:0)
+
+Global client components loaded on every page include:
+
+```tsx
+<ResourcePreloader />
+<StyleManager />
+<NavigationObserver />
+<PerformanceMonitor />
+<LongTaskOptimizer />
+<ModulePreloader />
+<HeroImagePreload />
+<GoogleAnalytics />
+<SmartlookScript />
+<GoogleMapsProviderWrapper>
+```
+
+Some of these are intended to help performance but likely add JavaScript, observers, DOM mutations, prefetching, and idle work.
+
+### Recommended Fix
+
+Remove or restrict:
+
+- [ResourcePreloader](cci:1://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/src/components/ResourcePreloader.tsx:4:0-80:1)
+- [HeroPreloadScript](cci:1://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/src/components/HeroPreloadScript.tsx:2:0-31:2)
+- `HeroImagePreload`
+- [PerformanceMonitor](cci:1://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/src/components/PerformanceMonitor.tsx:5:0-51:1)
+- [LongTaskOptimizer](cci:1://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/src/components/LongTaskOptimizer.tsx:14:0-88:2)
+- [ModulePreloader](cci:1://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/src/components/ModulePreloader.tsx:5:0-65:2)
+- [NavigationObserver](cci:1://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/src/components/NavigationObserver.tsx:6:0-71:1)
+
+Then rely on:
+
+- `next/image priority`
+- route-specific preloads
+- Next.js automatic prefetching
+- real Lighthouse/Web Vitals measurement
+
+---
+
+## 11. Duplicate hero image preloading
+
+**Severity:** High  
+**Files:**
+
+- [src/app/layout.tsx](cci:7://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/src/app/layout.tsx:0:0-0:0)
+- [src/app/head-preload.tsx](cci:7://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/src/app/head-preload.tsx:0:0-0:0)
+- [src/components/HeroPreloadScript.tsx](cci:7://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/src/components/HeroPreloadScript.tsx:0:0-0:0)
+- [src/components/ResourcePreloader.tsx](cci:7://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/src/components/ResourcePreloader.tsx:0:0-0:0)
+- [src/components/HeroImagePreload.tsx](cci:7://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/src/components/HeroImagePreload.tsx:0:0-0:0)
+
+The site preloads hero images multiple ways:
+
+- Static preload in layout
+- [HeadPreload](cci:1://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/src/app/head-preload.tsx:2:0-20:2)
+- [HeroPreloadScript](cci:1://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/src/components/HeroPreloadScript.tsx:2:0-31:2)
+- [ResourcePreloader](cci:1://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/src/components/ResourcePreloader.tsx:4:0-80:1)
+- `HeroImagePreload`
+- `next/image priority`
+
+This can waste bandwidth and compete with the actual route’s LCP image.
+
+### Recommended Fix
+
+Use **one** approach:
+
+- For route hero images: `next/image priority fetchPriority="high"`
+- Remove global hardcoded preload scripts
+- Only preload the actual image used on that route
+
+---
+
+## 12. Google Maps loads globally
+
+**Severity:** High  
+**Files:**
+
+- [src/app/layout.tsx](cci:7://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/src/app/layout.tsx:0:0-0:0)
+- [src/components/GoogleMapsProvider.tsx](cci:7://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/src/components/GoogleMapsProvider.tsx:0:0-0:0)
+- [src/components/GoogleMapsLoader.tsx](cci:7://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/src/components/GoogleMapsLoader.tsx:0:0-0:0)
+
+The Google Maps provider wraps the whole app. Even with `lazyOnload`, it loads Maps/Places globally after page load.
+
+This is expensive and can hurt mobile INP/TBT.
+
+### Recommended Fix
+
+Load Google Maps only on pages/components that render a map.
+
+Do not wrap the entire site in [GoogleMapsProviderWrapper](cci:1://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/src/components/GoogleMapsProvider.tsx:5:0-14:1).
+
+---
+
+## 13. Smartlook loads globally
+
+**Severity:** High  
+**File:**
+
+- [src/components/SmartlookScript.tsx](cci:7://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/src/components/SmartlookScript.tsx:0:0-0:0)
+
+Smartlook session recording is heavy and runs on every page:
+
+```tsx
+c.src='https://web-sdk.smartlook.com/recorder.js'
+```
+
+### Recommended Fix
+
+For best performance:
+
+- Remove Smartlook from production, or
+- Load only after consent, or
+- Load after long delay, or
+- Load only for limited sampling
+
+This is likely one of the biggest third-party performance costs.
+
+---
+
+## 14. Manual route prefetching duplicates Next behavior
+
+**Severity:** Medium/High  
+**File:**
+
+- [src/components/NavigationObserver.tsx](cci:7://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/src/components/NavigationObserver.tsx:0:0-0:0)
+
+This observes all internal links and manually prefetches routes:
+
+```tsx
+const navLinks = document.querySelectorAll('a[href^="/"]');
+```
+
+Next `<Link>` already prefetches visible links by default in production.
+
+### Recommended Fix
+
+Remove [NavigationObserver](cci:1://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/src/components/NavigationObserver.tsx:6:0-71:1) unless Lighthouse proves it improves real-world navigation without hurting initial load.
+
+---
+
+## 15. Custom webpack chunking may be counterproductive
+
+**Severity:** Medium  
+**File:**
+
+- [next.config.js](cci:7://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/next.config.js:0:0-0:0)
+
+Custom `splitChunks` creates many small chunks and includes a route chunk strategy that looks for `/pages/`, but this is an App Router project.
+
+```js
+const routeMatch = module.resource.match(/[\\/]pages[\\/](.*?)[\\/][^\\/]+$/);
+```
+
+This likely does not work for `src/app`.
+
+### Recommended Fix
+
+Prefer Next.js default chunking unless bundle analyzer proves this custom setup helps.
+
+---
+
+# Technical SEO / Indexing Findings
+
+## 16. Debug/preview pages should be noindexed
+
+**Severity:** Medium  
+**Files:**
+
+- [src/app/debug-images/page.tsx](cci:7://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/src/app/debug-images/page.tsx:0:0-0:0)
+- [src/app/structured-data-preview/page.tsx](cci:7://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/src/app/structured-data-preview/page.tsx:0:0-0:0)
+
+These are excluded from the sitemap but can still be indexed if discovered.
+
+### Recommended Fix
+
+Add:
+
+```tsx
+export const metadata = {
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
+```
+
+Or block in robots.
+
+---
+
+## 17. Blog dates are not ISO formatted
+
+**Severity:** Medium  
+**File:**
+
+- [src/data/blogPosts.ts](cci:7://file:///Users/christopherhancock/Desktop/dev/repos/texas-best-sprinklers/src/data/blogPosts.ts:0:0-0:0)
+
+Example:
+
+```txt
+June 12, 2023
+```
+
+Structured data should use ISO dates:
+
+```txt
+2023-06-12
+```
+
+### Recommended Fix
+
+Store blog dates as ISO strings and format them visually in UI.
+
+---
+
+## 18. Blog article content appears thin/template-like
+
+**Severity:** Medium  
+**File:**
+
+- `src/app/blog/[slug]/page.tsx`
+
+Each blog post shows `post.content`, then repeats generic paragraphs for all posts.
+
+That can create low-value duplicated content.
+
+### Recommended Fix
+
+Give every blog post unique long-form content, ideally:
+
+- 900–1,800 words
+- Local examples
+- Service links
+- FAQ schema
+- Author/expert attribution
+- Internal links to service/location pages
+
+---
+
+# Best-in-Class SEO Roadmap
+
+## Phase 1 — Must Fix First
+
+- **Fix sitemap generation**
+- **Unify canonical domain**
+- **Fix business schema conflicts**
+- **Add metadata to all service pages**
+- **Fix broken `/services/commercial-irrigation` link**
+- **Noindex debug/preview pages**
+
+## Phase 2 — Performance Cleanup
+
+- **Convert homepage to server component**
+- **Remove duplicate preloading scripts**
+- **Load Google Maps only where needed**
+- **Remove or delay Smartlook**
+- **Replace raw blog images with `next/image`**
+- **Simplify global performance helper components**
+
+## Phase 3 — Local SEO Dominance
+
+- **Add canonical metadata to all location pages**
+- **Generate location/service sitemap entries**
+- **Create unique service-location content for high-value pages**
+- **Standardize Service schema per service page**
+- **Add FAQ schema only where FAQ is visible**
+- **Strengthen internal linking from homepage to top service/location pairs**
+
+## Phase 4 — Content Expansion
+
+Priority pages to build or strengthen:
+
+- `/services/commercial-irrigation`
+- `/services/hardscaping`
+- `/fort-worth/hardscaping-services-in-fort-worth-tx`
+- `/keller/hardscaping-services-in-keller-tx`
+- `/weatherford/hardscaping-services-in-weatherford-tx`
+- `/fort-worth/drainage-solutions-in-fort-worth-tx`
+- `/weatherford/sprinkler-repair-services-in-weatherford-tx`
+
+---
+
+# Highest-Impact Immediate Fixes
+
+If you only do five things, do these:
+
+1. **Regenerate/fix sitemap so every important URL is included**
+2. **Replace every `texasbestsprinklers.com` reference with `sprinkleranddrains.com`**
+3. **Fix LocalBusiness schema phone/hours/address conflicts**
+4. **Add descriptions/canonicals to all service pages**
+5. **Remove global Smartlook/Maps/preload bloat from initial sitewide load**
+
+---
+
+# Completion Status
+
+I completed the audit and found multiple high-priority SEO/performance issues. I can create `docs/seo-performance-audit.md` and begin implementing the fixes if you switch to **Code mode**.

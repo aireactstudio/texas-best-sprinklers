@@ -38,6 +38,7 @@ export default function LocationHomepage({ locationSlug }: LocationHomepageProps
     nearestOffice,
     distanceFromOffice,
     landmarks,
+    neighborhoods,
     serviceAreas
   } = locationData;
 
@@ -66,6 +67,7 @@ export default function LocationHomepage({ locationSlug }: LocationHomepageProps
       <LocationServicesAndAreas
         cityName={locationName}
         routePrefix={locationSlug}
+        neighborhoods={neighborhoods}
         serviceAreas={serviceAreas}
       />
 

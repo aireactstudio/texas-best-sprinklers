@@ -67,7 +67,25 @@ export const locationData = {
     nearestOffice: 'Weatherford',
     distanceFromOffice: 25,
     landmarks: ['Keller Town Center', 'The Keller Pointe', 'Bear Creek Park'],
-    neighborhoods: ['Hidden Lakes', 'Marshall Ridge', 'Oakmont', 'Ridgewood'],
+    neighborhoods: [
+      {
+        name: 'Hidden Lakes',
+        description: 'Full-service sprinkler, irrigation, and drainage support for larger lots with mature landscaping and varied watering zones.',
+        link: '/keller/hidden-lakes'
+      },
+      {
+        name: 'Marshall Ridge',
+        description: 'Efficient system tune-ups, leak repairs, and smart-controller optimization for HOA-driven landscape standards.',
+        link: '/keller/marshall-ridge'
+      },
+      {
+        name: 'Oakmont',
+        description: 'Targeted repairs and drainage upgrades for clay-heavy soil conditions and seasonal heat stress.',
+        link: '/keller/oakmont'
+      },
+      'Ridgewood'
+    ],
+    serviceAreas: ['Southlake', 'Colleyville', 'Watauga', 'North Richland Hills'],
     coordinates: {
       latitude: 32.9343,
       longitude: -97.2297
