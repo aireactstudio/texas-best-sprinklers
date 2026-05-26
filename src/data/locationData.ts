@@ -83,7 +83,11 @@ export const locationData = {
         description: 'Targeted repairs and drainage upgrades for clay-heavy soil conditions and seasonal heat stress.',
         link: '/keller/oakmont'
       },
-      'Ridgewood'
+      {
+        name: 'Ridgewood',
+        description: 'Prompt sprinkler diagnostics, coverage improvements, and drainage planning for established Keller lawns and landscape beds.',
+        link: '/keller/ridgewood'
+      }
     ],
     serviceAreas: ['Southlake', 'Colleyville', 'Watauga', 'North Richland Hills'],
     coordinates: {
