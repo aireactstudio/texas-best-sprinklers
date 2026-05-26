@@ -21,21 +21,9 @@ export default function RidgewoodPage() {
         'Repair and upgrade options for established lawns, planting beds, side yards, and areas with recurring runoff.'
       ]}
       serviceFocus={[
-        {
-          title: 'Sprinkler Diagnostics',
-          description:
-            'We trace coverage gaps, stuck valves, leaking heads, low-pressure zones, and controller issues so repairs solve the real cause instead of only the most visible symptom.'
-        },
-        {
-          title: 'Coverage and Efficiency Improvements',
-          description:
-            'Nozzle changes, head adjustments, pressure checks, and smart scheduling help Ridgewood lawns receive more even watering with less overspray onto sidewalks and driveways.'
-        },
-        {
-          title: 'Drainage Planning',
-          description:
-            'For low spots, side-yard pooling, and runoff near patios or beds, we recommend practical drainage improvements based on grade, soil, and where water naturally collects.'
-        }
+        'Sprinkler Diagnostics: We trace coverage gaps, stuck valves, leaking heads, low-pressure zones, and controller issues so repairs solve the real cause instead of only the most visible symptom.',
+        'Coverage and Efficiency Improvements: Nozzle changes, head adjustments, pressure checks, and smart scheduling help Ridgewood lawns receive more even watering with less overspray onto sidewalks and driveways.',
+        'Drainage Planning: For low spots, side-yard pooling, and runoff near patios or beds, we recommend practical drainage improvements based on grade, soil, and where water naturally collects.'
       ]}
       localTips={[
         'Use shorter cycle-and-soak watering windows when Keller clay soil starts shedding water before it can soak into the root zone.',
