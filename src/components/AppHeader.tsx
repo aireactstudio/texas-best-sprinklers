@@ -183,15 +183,15 @@ const AppHeader = () => {
     allLocations.slice(i * perCol, (i + 1) * perCol)
   );
 
-  const bannerSpacerClass = isScrolled ? 'h-0' : 'h-[30px] sm:h-[34px]';
+  const bannerSpacerClass = isScrolled ? 'h-0' : 'h-[36px] sm:h-[40px]';
 
   return (
     <>
     <header className="fixed w-full z-50">
       {/* 10-Year Anniversary Banner */}
-      {!isScrolled && <AnniversaryBanner />}
+      {!isScrolled && <div className="mb-[6px]"><AnniversaryBanner /></div>}
       <div className={`w-full transition-all duration-500 ${
-        isScrolled ? 'bg-black shadow-md py-2' : 'bg-transparent py-0'
+        isScrolled ? 'bg-black shadow-md py-2' : 'bg-transparent pt-[10px] pb-0'
       }`}>
       <div className="container-custom flex justify-between items-center max-w-none px-4 md:px-8 lg:px-10 xl:px-14">
         <Link href="/" className={`items-center space-x-2 z-[60] ${isMobileMenuOpen ? 'hidden lg:flex' : 'flex'}`}>

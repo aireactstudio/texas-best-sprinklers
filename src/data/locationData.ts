@@ -83,11 +83,8 @@ export const locationData = {
         description: 'Targeted repairs and drainage upgrades for clay-heavy soil conditions and seasonal heat stress.',
         link: '/keller/oakmont'
       },
-      {
-        name: 'Ridgewood',
-        description: 'Prompt sprinkler diagnostics, coverage improvements, and drainage planning for established Keller lawns and landscape beds.',
-        link: '/keller/ridgewood'
-      }
+      'Ridgewood',
+      'Highland Oaks'
     ],
     serviceAreas: ['Southlake', 'Colleyville', 'Watauga', 'North Richland Hills'],
     coordinates: {
@@ -101,7 +98,7 @@ export const locationData = {
     nearestOffice: 'Weatherford',
     distanceFromOffice: 28,
     landmarks: ['Southlake Town Square', 'Bob Jones Park', 'The Marq Southlake'],
-    neighborhoods: ['Carillon', 'Coventry Manor', 'Timber Lake', 'Southlake Meadows'],
+    neighborhoods: ['Carillon', 'Coventry Manor', 'Timber Lake', 'Southlake Meadows', 'Kirkwood Hollow'],
     coordinates: {
       latitude: 32.9414,
       longitude: -97.1342
@@ -114,7 +111,7 @@ export const locationData = {
     nearestOffice: 'Weatherford',
     distanceFromOffice: 32,
     landmarks: ['Grapevine Lake', 'Historic Downtown Grapevine', 'Gaylord Texan Resort'],
-    neighborhoods: ['Historic Township', 'Meadowmere Park', 'Silver Lake', 'Stone Bridge Oaks'],
+    neighborhoods: ['Historic Township', 'Meadowmere Park', 'Silver Lake', 'Stone Bridge Oaks', 'Dove Crossing'],
     coordinates: {
       latitude: 32.9343,
       longitude: -97.0780
@@ -126,7 +123,7 @@ export const locationData = {
     nearestOffice: 'Weatherford',
     distanceFromOffice: 27,
     landmarks: ['NRH2O Family Water Park', 'Iron Horse Golf Course', 'NYTEX Sports Centre'],
-    neighborhoods: ['Smithfield', 'Chapman Heights', 'Meadow Ridge', 'Vista Ridge'],
+    neighborhoods: ['Smithfield', 'Chapman Heights', 'Meadow Ridge', 'Vista Ridge', 'Home Town'],
     coordinates: {
       latitude: 32.8342,
       longitude: -97.2289
@@ -139,7 +136,7 @@ export const locationData = {
     nearestOffice: 'Weatherford',
     distanceFromOffice: 25,
     landmarks: ['Haltom City Library', 'Haltom Road Park', 'Buffalo Ridge Park'],
-    neighborhoods: ['Garden Acres', 'East View', 'Western Hills', 'Buffalo Ridge'],
+    neighborhoods: ['Garden Acres', 'East View', 'Western Hills', 'Buffalo Ridge', 'Fossil Springs'],
     coordinates: {
       latitude: 32.7995,
       longitude: -97.2690
@@ -151,7 +148,7 @@ export const locationData = {
     nearestOffice: 'Weatherford',
     distanceFromOffice: 26,
     landmarks: ['Capp Smith Park', 'Watauga Public Library', 'Foster Village Park'],
-    neighborhoods: ['Highland Meadow', 'Parkview', 'Whitener', 'Valley View'],
+    neighborhoods: ['Highland Meadow', 'Parkview', 'Whitener', 'Valley View', 'Park Vista'],
     coordinates: {
       latitude: 32.8627,
       longitude: -97.2547
@@ -164,7 +161,7 @@ export const locationData = {
     nearestOffice: 'Weatherford',
     distanceFromOffice: 38,
     landmarks: ['Grapevine Lake', 'Heritage Park', 'Flower Mound Community Activity Center'],
-    neighborhoods: ['Bridlewood', 'Wellington', 'Lakeside', 'Highland Village'],
+    neighborhoods: ['Bridlewood', 'Wellington', 'Lakeside', 'Highland Village', 'Canyon Falls'],
     coordinates: {
       latitude: 33.0145,
       longitude: -97.0969
@@ -177,7 +174,7 @@ export const locationData = {
     nearestOffice: 'Weatherford',
     distanceFromOffice: 32,
     landmarks: ['Trophy Club Country Club', 'Trophy Club Park', 'Independence Park'],
-    neighborhoods: ['The Highlands', 'Old Town', 'The Vineyards', 'Trophy Wood'],
+    neighborhoods: ['The Highlands', 'Old Town', 'The Vineyards', 'Trophy Wood', 'Hogan\'s Glen'],
     coordinates: {
       latitude: 33.0011,
       longitude: -97.1900
@@ -201,7 +198,7 @@ export const locationData = {
     nearestOffice: 'Weatherford',
     distanceFromOffice: 33,
     landmarks: ['Historic Downtown Roanoke', 'Roanoke Recreation Center', 'Oak Street'],
-    neighborhoods: ['Marshall Creek', 'Fairway Ranch', 'The Highlands', 'Woodcreek'],
+    neighborhoods: ['Marshall Creek', 'Fairway Ranch', 'The Highlands', 'Woodcreek', 'Briarwyck'],
     coordinates: {
       latitude: 33.0040,
       longitude: -97.2253
@@ -213,7 +210,7 @@ export const locationData = {
     nearestOffice: 'Weatherford',
     distanceFromOffice: 31,
     landmarks: ['Solana Business Park', 'Westlake Academy', 'Vaquero Golf Club'],
-    neighborhoods: ['Vaquero', 'Granada', 'Terra Bella', 'Glenwyck Farms'],
+    neighborhoods: ['Vaquero', 'Granada', 'Terra Bella', 'Glenwyck Farms', 'Entrada'],
     coordinates: {
       latitude: 32.9918,
       longitude: -97.1967
@@ -225,7 +222,7 @@ export const locationData = {
     nearestOffice: 'Weatherford',
     distanceFromOffice: 14,
     landmarks: ['Eagle Mountain Lake', 'Azle Memorial Library', 'Central Park'],
-    neighborhoods: ['Lakeridge Estates', 'Eagle Mountain', 'Cross Timbers', 'Ashwood Estates'],
+    neighborhoods: ['Lakeridge Estates', 'Eagle Mountain', 'Cross Timbers', 'Ashwood Estates', 'Stribling Square'],
     coordinates: {
       latitude: 32.8954,
       longitude: -97.5453
@@ -237,7 +234,7 @@ export const locationData = {
     nearestOffice: 'Fort Worth',
     distanceFromOffice: 12,
     landmarks: ['Saginaw Community Center', 'Saginaw Park', 'Trinity River'],
-    neighborhoods: ['Bluebonnet Hills', 'Saginaw Meadows', 'Trinity Oaks'],
+    neighborhoods: ['Bluebonnet Hills', 'Saginaw Meadows', 'Trinity Oaks', 'Rancho North', 'Willow Vista Estates'],
     coordinates: {
       latitude: 32.8735,
       longitude: -97.3631
@@ -249,7 +246,7 @@ export const locationData = {
     nearestOffice: 'Fort Worth',
     distanceFromOffice: 32,
     landmarks: ['Northlake Town Hall', 'Robson Ranch Golf Club', 'Eagle Mountain Lake'],
-    neighborhoods: ['Robson Ranch', 'Eagle Mountain Estates', 'Northlake Meadows'],
+    neighborhoods: ['Robson Ranch', 'Eagle Mountain Estates', 'Northlake Meadows', 'Pecan Square', 'Harvest'],
     coordinates: {
       latitude: 33.1151,
       longitude: -97.2497
@@ -261,7 +258,7 @@ export const locationData = {
     nearestOffice: 'Fort Worth',
     distanceFromOffice: 35,
     landmarks: ['Argyle Town Square', 'Liberty Christian School', 'Cross Oaks Ranch'],
-    neighborhoods: ['Canyon Falls', 'Harvest', 'Argyle Meadows', 'Cross Oaks'],
+    neighborhoods: ['Canyon Falls', 'Harvest', 'Argyle Meadows', 'Cross Oaks', '5T Ranch'],
     coordinates: {
       latitude: 33.1215,
       longitude: -97.1836
@@ -273,7 +270,7 @@ export const locationData = {
     nearestOffice: 'Fort Worth',
     distanceFromOffice: 10,
     landmarks: ['Blue Mound City Hall', 'Saginaw Park', 'Trinity River Trail'],
-    neighborhoods: ['Blue Mound Estates', 'Trinity Meadows', 'River Oaks'],
+    neighborhoods: ['Blue Mound Estates', 'Trinity Meadows', 'River Oaks', 'Blue Mound West', 'Shady Oaks'],
     coordinates: {
       latitude: 32.8618,
       longitude: -97.3364
@@ -285,12 +282,48 @@ export const locationData = {
     nearestOffice: 'Fort Worth',
     distanceFromOffice: 22,
     landmarks: ['Haslet City Hall', 'Alliance Airport', 'Texas Motor Speedway'],
-    neighborhoods: ['Alliance', 'Avondale-Haslet', 'Heritage Trace', 'Sendera Ranch'],
+    neighborhoods: ['Alliance', 'Avondale-Haslet', 'Heritage Trace', 'Sendera Ranch', 'Willow Springs'],
     coordinates: {
       latitude: 32.9715,
       longitude: -97.3364
     },
     serviceRadius: 10
+  },
+  'bedford': {
+    name: 'Bedford',
+    nearestOffice: 'Fort Worth',
+    distanceFromOffice: 18,
+    landmarks: ['Boys Ranch Park', 'Bedford Public Library', 'Old Bedford School'],
+    neighborhoods: ['Bedford Heights', 'Bell Manor', 'Mayfair Hills', 'Bedford Meadows', 'Stonegate'],
+    coordinates: {
+      latitude: 32.8440,
+      longitude: -97.1431
+    },
+    serviceRadius: 8
+  },
+  'euless': {
+    name: 'Euless',
+    nearestOffice: 'Fort Worth',
+    distanceFromOffice: 20,
+    landmarks: ['Bob Eden Park', 'Euless Family Life Center', 'Heritage Park'],
+    neighborhoods: ['Morningside', 'Oakwood Terrace', 'Bear Creek', 'Timber Ridge', 'Wilshire Village'],
+    coordinates: {
+      latitude: 32.8371,
+      longitude: -97.0819
+    },
+    serviceRadius: 8
+  },
+  'hurst': {
+    name: 'Hurst',
+    nearestOffice: 'Fort Worth',
+    distanceFromOffice: 19,
+    landmarks: ['Chisholm Park', 'Northeast Mall', 'Hurst Public Library'],
+    neighborhoods: ['Mayfair North', 'Hurst Hills', 'Shady Oaks', 'Bellaire Park North', 'Wintergreen Acres'],
+    coordinates: {
+      latitude: 32.8235,
+      longitude: -97.1706
+    },
+    serviceRadius: 8
   }
 };
 

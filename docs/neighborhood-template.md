@@ -6,6 +6,33 @@ Reference for creating neighborhood pages under city routes (example: `/keller/h
 
 ---
 
+## Agent Runbook (Required)
+
+Follow this exact sequence when adding a new neighborhood page.
+
+1. **Read context first**
+   - `src/data/locationData.ts`
+   - `src/components/location-homepages/LocationServicesAndAreas.tsx`
+   - One existing neighborhood page in `src/components/neighborhoods/` (for structure and style)
+2. **Create the implementation file first**, then the route wrapper.
+3. **Wire the new neighborhood into the parent city** in `locationData.ts` with `name`, `description`, and `link`.
+4. **Do not create long route files**; `page.tsx` should only hold `metadata` and `<Component />`.
+5. **Verify all three touchpoints**:
+   - Direct URL works
+   - Parent city shows clickable neighborhood card
+   - No lints/build errors
+
+### Quick hook-up checklist
+
+- [ ] `src/components/neighborhoods/{Name}Page.tsx` created
+- [ ] `src/app/{city-slug}/{neighborhood-slug}/page.tsx` created (thin wrapper)
+- [ ] Canonical URL matches route path
+- [ ] `locationData.ts` neighborhood entry added with `link`
+- [ ] Neighborhood appears under `/{city-slug}` in "Neighborhoods We Serve"
+- [ ] `npm run build` passes (or known env-only failure documented)
+
+---
+
 ## Architecture and wire-up
 
 ### Universal pattern
@@ -44,6 +71,13 @@ Create: `src/components/neighborhoods/{Name}Page.tsx`
 - Import `NeighborhoodPageTemplate`
 - Provide neighborhood-specific arrays/content
 - Keep this file as single source of page implementation
+- Include these required props at minimum:
+  - `canonicalUrl`
+  - `pageTitle`
+  - `metaDescription`
+  - `heroTitle`, `heroDescription`, `introHeading`, `intro`
+  - `reviews`, `considerations`, `pricing`, `processSteps`, `faqs`
+  - `relatedAreas`, `popularServices`, `attractions`, `localLivingContent`
 
 ### 3) Create thin route wrapper
 
@@ -72,6 +106,7 @@ Rules:
 - no large JSX in wrapper
 - include canonical URL
 - proper capitalization in title/description
+- wrapper function name must differ from imported component name
 
 ### 4) Wire parent city links
 
@@ -83,11 +118,22 @@ Update `locationData.ts` neighborhood entries to include:
 
 `LocationServicesAndAreas` renders clickable neighborhood cards when `link` exists.
 
+If the city currently has string-only neighborhoods, convert at least the new item to object format so it can link:
+
+```ts
+neighborhoods: [
+  'Existing Neighborhood',
+  { name: 'New Neighborhood', description: '...', link: '/city/new-neighborhood' }
+]
+```
+
 ### 5) Verify locally
 
 - `/keller/hidden-lakes` loads
 - `/keller` shows linked neighborhood card
 - page has canonical tag and JSON-LD script
+- no React/Next runtime errors in dev console
+- run `npm run build` before commit when possible
 
 ---
 
@@ -122,6 +168,10 @@ It generates:
 - `WebPage`
 - `Service`
 - `FAQPage` (when FAQ items exist)
+
+Important:
+- `NeighborhoodPageTemplate` is a Client Component (`"use client"`) because it uses `styled-jsx`.
+- Do not remove this unless you also remove the `styled-jsx` block or replace it with another styling approach.
 
 ---
 

@@ -130,10 +130,10 @@ export default function NeighborhoodPageTemplate({
             sizes="100vw"
             style={{ objectFit: 'cover' }}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-900/70 to-irrigation-blue/70" />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/85 via-slate-900/78 to-slate-950/72" />
         </div>
 
-        <div className="container-custom relative z-10 py-20 lg:py-24">
+        <div className="container-custom relative z-10 pt-36 pb-20 lg:pt-40 lg:pb-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div>
               <div className="text-sm mb-5 text-white/90 flex flex-wrap items-center gap-2">
@@ -178,10 +178,10 @@ export default function NeighborhoodPageTemplate({
               </div>
             </div>
 
-            <div className="rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md p-6 md:p-8 shadow-2xl">
+            <div className="rounded-2xl border border-white/15 bg-slate-950/65 backdrop-blur-md p-6 md:p-8 shadow-2xl">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-200 mb-3">Neighborhood Snapshot</p>
               <h2 className="text-2xl font-bold mb-4">Built for {neighborhoodName} Properties</h2>
-              <p className="text-white/90 text-sm mb-6">
+              <p className="text-slate-100 text-sm mb-6">
                 Localized sprinkler, irrigation, and drainage support designed for North Texas heat, clay soil performance, and neighborhood
                 curb appeal standards.
               </p>
