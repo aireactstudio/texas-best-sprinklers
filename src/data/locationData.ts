@@ -17,7 +17,7 @@ export const LOCATIONS = [
   'blue-mound',
   'haslet',
   'north-richland-hills',
-  'trophy-club',    
+  'trophy-club',
   'arlington',
   'bedford',
   'euless',
@@ -258,7 +258,17 @@ export const locationData = {
     nearestOffice: 'Fort Worth',
     distanceFromOffice: 35,
     landmarks: ['Argyle Town Square', 'Liberty Christian School', 'Cross Oaks Ranch'],
-    neighborhoods: ['Canyon Falls', 'Harvest', 'Argyle Meadows', 'Cross Oaks', '5T Ranch'],
+    neighborhoods: [
+      'Canyon Falls',
+      'Harvest',
+      {
+        name: 'Argyle Meadows',
+        description: 'Sprinkler repair, irrigation tuning, drainage planning, and lighting support for Argyle Meadows homes and landscape beds.',
+        link: '/argyle/argyle-meadows'
+      },
+      'Cross Oaks',
+      '5T Ranch'
+    ],
     coordinates: {
       latitude: 33.1215,
       longitude: -97.1836
