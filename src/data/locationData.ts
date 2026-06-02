@@ -316,7 +316,17 @@ export const locationData = {
     nearestOffice: 'Fort Worth',
     distanceFromOffice: 20,
     landmarks: ['Bob Eden Park', 'Euless Family Life Center', 'Heritage Park'],
-    neighborhoods: ['Morningside', 'Oakwood Terrace', 'Bear Creek', 'Timber Ridge', 'Wilshire Village'],
+    neighborhoods: [
+      'Morningside',
+      'Oakwood Terrace',
+      'Bear Creek',
+      'Timber Ridge',
+      {
+        name: 'Wilshire Village',
+        description: 'Sprinkler repair, irrigation tuning, drainage planning, and outdoor lighting support for Wilshire Village homeowners in Euless, TX.',
+        link: '/euless/wilshire-village'
+      }
+    ],
     coordinates: {
       latitude: 32.8371,
       longitude: -97.0819
