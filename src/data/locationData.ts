@@ -256,58 +256,48 @@ export const locationData = {
   'argyle': {
     name: 'Argyle',
     nearestOffice: 'Fort Worth',
-    distanceFromOffice: 35,
-    landmarks: ['Argyle Town Square', 'Liberty Christian School', 'Cross Oaks Ranch'],
-    neighborhoods: [
-      'Canyon Falls',
-      'Harvest',
-      {
-        name: 'Argyle Meadows',
-        description: 'Sprinkler repair, irrigation tuning, drainage planning, and lighting support for Argyle Meadows homes and landscape beds.',
-        link: '/argyle/argyle-meadows'
-      },
-      'Cross Oaks',
-      '5T Ranch'
-    ],
+    distanceFromOffice: 30,
+    landmarks: ['Argyle Town Hall', 'Harvest Bend Park', 'Cross Timbers Wilderness Park'],
+    neighborhoods: ['Harvest', 'Canyon Falls', 'Argyle Downs', 'Clearwater Estates', 'Lantana'],
     coordinates: {
-      latitude: 33.1215,
-      longitude: -97.1836
+      latitude: 33.1218,
+      longitude: -97.1786
     },
-    serviceRadius: 15
+    serviceRadius: 10
   },
   'blue-mound': {
     name: 'Blue Mound',
     nearestOffice: 'Fort Worth',
     distanceFromOffice: 10,
-    landmarks: ['Blue Mound City Hall', 'Saginaw Park', 'Trinity River Trail'],
-    neighborhoods: ['Blue Mound Estates', 'Trinity Meadows', 'River Oaks', 'Blue Mound West', 'Shady Oaks'],
+    landmarks: ['Blue Mound City Hall', 'Blue Mound Park', 'Marine Creek'],
+    neighborhoods: ['Marine Creek Estates', 'Lakeview', 'Parkwood', 'Creekside', 'Blue Mound Acres'],
     coordinates: {
-      latitude: 32.8618,
-      longitude: -97.3364
+      latitude: 32.8893,
+      longitude: -97.3467
     },
     serviceRadius: 6
   },
   'haslet': {
     name: 'Haslet',
     nearestOffice: 'Fort Worth',
-    distanceFromOffice: 22,
-    landmarks: ['Haslet City Hall', 'Alliance Airport', 'Texas Motor Speedway'],
-    neighborhoods: ['Alliance', 'Avondale-Haslet', 'Heritage Trace', 'Sendera Ranch', 'Willow Springs'],
+    distanceFromOffice: 20,
+    landmarks: ['Haslet City Park', 'Alliance Town Center', 'Eagle Mountain Lake'],
+    neighborhoods: ['Avondale', 'Presidio Village', 'Haslet Estates', 'Willow Springs', 'Cross Oak Ranch'],
     coordinates: {
-      latitude: 32.9715,
-      longitude: -97.3364
+      latitude: 32.9682,
+      longitude: -97.3397
     },
     serviceRadius: 10
   },
   'bedford': {
     name: 'Bedford',
     nearestOffice: 'Fort Worth',
-    distanceFromOffice: 18,
-    landmarks: ['Boys Ranch Park', 'Bedford Public Library', 'Old Bedford School'],
-    neighborhoods: ['Bedford Heights', 'Bell Manor', 'Mayfair Hills', 'Bedford Meadows', 'Stonegate'],
+    distanceFromOffice: 22,
+    landmarks: ['Bedford Boys Ranch', 'Central Park', 'Bedford Public Library'],
+    neighborhoods: ['Meadowbrook Estates', 'Stonegate', 'Forest Hills', 'Bedford Heights', 'Shady Oaks'],
     coordinates: {
       latitude: 32.8440,
-      longitude: -97.1431
+      longitude: -97.1436
     },
     serviceRadius: 8
   },
@@ -315,8 +305,14 @@ export const locationData = {
     name: 'Euless',
     nearestOffice: 'Fort Worth',
     distanceFromOffice: 20,
-    landmarks: ['Bob Eden Park', 'Euless Family Life Center', 'Heritage Park'],
-    neighborhoods: ['Morningside', 'Oakwood Terrace', 'Bear Creek', 'Timber Ridge', 'Wilshire Village'],
+    landmarks: ['Texas Star Golf Course', 'Midtown Park', 'Euless Public Library'],
+    neighborhoods: [
+      {
+        name: 'Wilshire Village',
+        description: 'Sprinkler repair, drainage, and irrigation service for Wilshire Village homeowners in Euless, TX.',
+        link: '/euless/wilshire-village'
+      }
+    ],
     coordinates: {
       latitude: 32.8371,
       longitude: -97.0819
@@ -326,56 +322,13 @@ export const locationData = {
   'hurst': {
     name: 'Hurst',
     nearestOffice: 'Fort Worth',
-    distanceFromOffice: 19,
-    landmarks: ['Chisholm Park', 'Northeast Mall', 'Hurst Public Library'],
-    neighborhoods: ['Mayfair North', 'Hurst Hills', 'Shady Oaks', 'Bellaire Park North', 'Wintergreen Acres'],
+    distanceFromOffice: 18,
+    landmarks: ['North East Mall', 'Hurst Community Park', 'Redbud Park'],
+    neighborhoods: ['Bellaire', 'Hurst Hills', 'Trinity Oaks', 'Mayfair', 'Precinct Line'],
     coordinates: {
-      latitude: 32.8235,
-      longitude: -97.1706
+      latitude: 32.8232,
+      longitude: -97.1883
     },
     serviceRadius: 8
   }
 };
-
-/**
- * Helper function to get location data
- * @param location - Location slug to lookup
- * @returns Location data object with at least a name property
- */
-export const getLocationData = (location: string) => {
-  if (!location) {
-    return {
-      name: 'Texas',
-      nearestOffice: 'Fort Worth',
-      distanceFromOffice: 0,
-      landmarks: ['Texas Best Sprinklers Office']
-    };
-  }
-
-  const locationKey = location.toLowerCase();
-
-  if (locationData[locationKey]) {
-    return locationData[locationKey];
-  }
-
-  const formattedName = location
-    .split('-')
-    .map(part => part.charAt(0).toUpperCase() + part.slice(1))
-    .join(' ');
-
-  return {
-    name: formattedName,
-    nearestOffice: 'Fort Worth',
-    distanceFromOffice: 30,
-    landmarks: ['Local Parks', 'Community Center']
-  };
-};
-
-const locationModule = {
-  LOCATIONS,
-  isValidLocation,
-  locationData,
-  getLocationData
-};
-
-export default locationModule;
