@@ -186,7 +186,17 @@ export const locationData = {
     nearestOffice: 'Fort Worth',
     distanceFromOffice: 15,
     landmarks: ['AT&T Stadium', 'Globe Life Field', 'River Legacy Parks', 'UT Arlington'],
-    neighborhoods: ['Viridian', 'Pantego', 'Dalworthington Gardens', 'Interlochen', 'Tierney Road'],
+    neighborhoods: [
+      {
+        name: 'Viridian',
+        description: 'Sprinkler repair, irrigation tuning, drainage planning, and lighting support for Viridian homeowners in Arlington, TX.',
+        link: '/arlington/viridian'
+      },
+      'Pantego',
+      'Dalworthington Gardens',
+      'Interlochen',
+      'Tierney Road'
+    ],
     coordinates: {
       latitude: 32.7357,
       longitude: -97.1081
