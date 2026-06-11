@@ -5,10 +5,29 @@ import React, { useMemo, useState } from 'react';
 export type FAQItem = { question: string; answer: string };
 export type FAQCategory = { name: string; items: FAQItem[] };
 
+interface HomeFAQProps {
+  faqs?: FAQItem[];
+  categories?: FAQCategory[];
+  title?: string;
+  subtitle?: string;
+  badgeText?: string;
+  sidebarTitle?: string;
+  sidebarSubtitle?: string;
+  contactButtonText?: string;
+  includeSchema?: boolean;
+  schemaId?: string;
+}
+
 // Beautiful, self-contained homepage FAQ with animated accordions and SEO schema
-const HomeFAQ: React.FC<{ faqs?: FAQItem[]; categories?: FAQCategory[]; title?: string; subtitle?: string }> = ({
+const HomeFAQ: React.FC<HomeFAQProps> = ({
   title = "Frequently Asked Questions",
   subtitle = "Quick answers about irrigation, drainage, and lighting",
+  badgeText = "Answers you'll actually use",
+  sidebarTitle = "Browse by Category",
+  sidebarSubtitle = "Pick a topic to filter the questions",
+  contactButtonText = "Contact Us",
+  includeSchema = true,
+  schemaId,
   faqs = [
     {
       question: "Do you offer free estimates?",
@@ -68,7 +87,7 @@ const HomeFAQ: React.FC<{ faqs?: FAQItem[]; categories?: FAQCategory[]; title?: 
         <div className="mx-auto max-w-3xl text-center mb-10 md:mb-14">
           <div className="inline-flex items-center gap-2 rounded-full bg-irrigation-a11y-light-green/30 text-irrigation-darkGreen px-4 py-2 text-sm font-medium mb-4">
             <span className="inline-block h-2 w-2 rounded-full bg-irrigation-darkGreen" />
-            Answers you’ll actually use
+            {badgeText}
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-irrigation-darkBlue tracking-tight">{title}</h2>
           <p className="mt-3 text-irrigation-a11y-gray-dark">{subtitle}</p>
@@ -80,8 +99,8 @@ const HomeFAQ: React.FC<{ faqs?: FAQItem[]; categories?: FAQCategory[]; title?: 
           <aside className="lg:col-span-4">
             <div className="rounded-2xl bg-white/80 backdrop-blur-sm border border-emerald-100 shadow-[0_10px_30px_-15px_rgba(0,0,0,0.25)] overflow-hidden">
               <div className="px-6 pt-5 pb-3 border-b border-emerald-100">
-                <h3 className="text-base md:text-lg font-semibold text-irrigation-blue">Browse by Category</h3>
-                <p className="text-xs text-gray-500 mt-0.5">Pick a topic to filter the questions</p>
+                <h3 className="text-base md:text-lg font-semibold text-irrigation-blue">{sidebarTitle}</h3>
+                <p className="text-xs text-gray-500 mt-0.5">{sidebarSubtitle}</p>
               </div>
               <ul className="py-2">
                 {normalizedCategories.map((cat, i) => (
@@ -98,7 +117,7 @@ const HomeFAQ: React.FC<{ faqs?: FAQItem[]; categories?: FAQCategory[]; title?: 
                 ))}
               </ul>
               <div className="px-5 pb-5 pt-2 border-t border-emerald-100">
-                <a href="/contact" className="inline-flex items-center gap-2 text-white bg-irrigation-darkGreen hover:bg-irrigation-darkBlue transition-colors px-4 py-2.5 rounded-md text-sm font-medium w-full justify-center">Contact Us</a>
+                <a href="/contact" className="inline-flex items-center gap-2 text-white bg-irrigation-darkGreen hover:bg-irrigation-darkBlue transition-colors px-4 py-2.5 rounded-md text-sm font-medium w-full justify-center">{contactButtonText}</a>
               </div>
             </div>
           </aside>
@@ -137,20 +156,24 @@ const HomeFAQ: React.FC<{ faqs?: FAQItem[]; categories?: FAQCategory[]; title?: 
         </div>
 
         {/* SEO Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "FAQPage",
-              mainEntity: normalizedCategories.flatMap((cat) => cat.items).map((f) => ({
-                "@type": "Question",
-                name: f.question,
-                acceptedAnswer: { "@type": "Answer", text: f.answer },
-              })),
-            }),
-          }}
-        />
+        {includeSchema && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                ...(schemaId ? { "@id": schemaId } : {}),
+                ...(title ? { name: title } : {}),
+                mainEntity: normalizedCategories.flatMap((cat) => cat.items).map((f) => ({
+                  "@type": "Question",
+                  name: f.question,
+                  acceptedAnswer: { "@type": "Answer", text: f.answer },
+                })),
+              }),
+            }}
+          />
+        )}
       </div>
     </section>
   );

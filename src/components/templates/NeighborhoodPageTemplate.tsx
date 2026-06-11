@@ -17,10 +17,10 @@ import {
   ArrowRight,
   Quote,
   BadgeDollarSign,
-  CalendarClock,
-  CircleCheckBig
+  CalendarClock
 } from 'lucide-react';
 import CTA from '@/components/CTA';
+import HomeFAQ from '@/components/HomeFAQ';
 import AboutTheArea, { LocalAttraction } from '@/components/AboutTheArea';
 import { buildNeighborhoodStructuredData } from '@/components/neighborhoods/structuredData';
 
@@ -401,22 +401,18 @@ export default function NeighborhoodPageTemplate({
         </div>
       </section>
 
-      <section className="py-16 bg-slate-100 border-y border-slate-200">
-        <div className="container-custom">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">{neighborhoodName} FAQs</h2>
-          <div className="space-y-4">
-            {faqs.map((faq) => (
-              <div key={faq.question} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-                <h3 className="font-semibold text-slate-900 mb-2 inline-flex items-start gap-2">
-                  <CircleCheckBig className="h-4 w-4 text-emerald-600 mt-0.5" />
-                  <span>{faq.question}</span>
-                </h3>
-                <p className="text-sm text-slate-700">{faq.answer}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {faqs.length > 0 && (
+        <HomeFAQ
+          title={`${neighborhoodName} FAQs`}
+          subtitle={`Common sprinkler and irrigation questions for homeowners in ${neighborhoodName}, ${cityName}`}
+          badgeText={`${neighborhoodName} answers`}
+          sidebarTitle="Neighborhood Topics"
+          sidebarSubtitle={`Questions specific to ${neighborhoodName}`}
+          contactButtonText={`Get Help in ${neighborhoodName}`}
+          faqs={faqs}
+          includeSchema={false}
+        />
+      )}
 
       <AboutTheArea
         cityName={cityName}
