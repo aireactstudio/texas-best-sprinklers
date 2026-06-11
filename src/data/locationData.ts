@@ -194,7 +194,11 @@ export const locationData = {
       },
       'Pantego',
       'Dalworthington Gardens',
-      'Interlochen',
+      {
+        name: 'Interlochen',
+        description: 'Sprinkler repair, irrigation tuning, drainage planning, and lighting support for Interlochen homeowners in Arlington, TX.',
+        link: '/arlington/interlochen'
+      },
       'Tierney Road'
     ],
     coordinates: {
