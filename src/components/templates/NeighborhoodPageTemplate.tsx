@@ -80,6 +80,8 @@ interface NeighborhoodPageTemplateProps {
   popularServices: PopularServiceItem[];
   attractions: LocalAttraction[];
   localLivingContent: React.ReactNode;
+  /** Optional long-form local SEO article rendered as the last section of the page. */
+  articleContent?: React.ReactNode;
 }
 
 export default function NeighborhoodPageTemplate({
@@ -104,7 +106,8 @@ export default function NeighborhoodPageTemplate({
   relatedAreas,
   popularServices,
   attractions,
-  localLivingContent
+  localLivingContent,
+  articleContent
 }: NeighborhoodPageTemplateProps) {
   const structuredData = buildNeighborhoodStructuredData({
     canonical: canonicalUrl,
@@ -451,6 +454,8 @@ export default function NeighborhoodPageTemplate({
         buttonText="Get Free Estimate"
         buttonLink="/contact"
       />
+
+      {articleContent}
 
       <style jsx>{`
         @keyframes neighborhood-review-marquee {
