@@ -197,7 +197,11 @@ export const locationData = {
         description: 'Sprinkler repair, irrigation tuning, drainage planning, and lighting support for Pantego homeowners in Arlington, TX.',
         link: '/arlington/pantego'
       },
-      'Dalworthington Gardens',
+      {
+        name: 'Dalworthington Gardens',
+        description: 'Sprinkler repair, irrigation tuning, drainage planning, and lighting support for Dalworthington Gardens homeowners in Arlington, TX.',
+        link: '/arlington/dalworthington-gardens'
+      },
       {
         name: 'Interlochen',
         description: 'Sprinkler repair, irrigation tuning, drainage planning, and lighting support for Interlochen homeowners in Arlington, TX.',
