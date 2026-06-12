@@ -199,7 +199,11 @@ export const locationData = {
         description: 'Sprinkler repair, irrigation tuning, drainage planning, and lighting support for Interlochen homeowners in Arlington, TX.',
         link: '/arlington/interlochen'
       },
-      'Tierney Road'
+      {
+        name: 'Tierney Road',
+        description: 'Sprinkler repair, irrigation tuning, drainage planning, and lighting support for Tierney Road homeowners in Arlington, TX.',
+        link: '/arlington/tierney-road'
+      }
     ],
     coordinates: {
       latitude: 32.7357,
