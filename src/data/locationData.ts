@@ -236,7 +236,17 @@ export const locationData = {
     nearestOffice: 'Weatherford',
     distanceFromOffice: 31,
     landmarks: ['Solana Business Park', 'Westlake Academy', 'Vaquero Golf Club'],
-    neighborhoods: ['Vaquero', 'Granada', 'Terra Bella', 'Glenwyck Farms', 'Entrada'],
+    neighborhoods: [
+      'Vaquero',
+      'Granada',
+      'Terra Bella',
+      'Glenwyck Farms',
+      {
+        name: 'Entrada',
+        description: 'Sprinkler repair, irrigation tuning, drainage planning, and lighting support for Entrada homeowners in Westlake, TX.',
+        link: '/westlake/entrada'
+      }
+    ],
     coordinates: {
       latitude: 32.9918,
       longitude: -97.1967
