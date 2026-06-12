@@ -76,10 +76,10 @@ export default function EntradaPage() {
         }
       ]}
       pricing={[
-        { label: 'Sprinkler Repair Visit', range: '$175–$475 typical scope', note: 'Most common repairs completed same visit when parts are on hand' },
-        { label: 'Smart Controller Upgrade', range: '$475–$1,100 installed', note: 'Includes setup, zone programming, and seasonal calibration' },
-        { label: 'Drainage Improvement', range: '$1,800–$8,500 based on scope', note: 'French drains, grading corrections, and courtyard runoff management' },
-        { label: 'Outdoor Lighting Service', range: '$150–$600 for diagnostics and repair', note: 'Fixture replacement, transformer checks, and zone testing' }
+        { label: 'Sprinkler Repair Visit', range: '$175–$475 typical scope' },
+        { label: 'Smart Controller Upgrade', range: '$475–$1,100 installed' },
+        { label: 'Drainage Improvement', range: '$1,800–$8,500 based on scope' },
+        { label: 'Outdoor Lighting Service', range: '$150–$600 for diagnostics and repair' }
       ]}
       processSteps={[
         'Schedule an Entrada site assessment at a time that works around your household or business schedule',
