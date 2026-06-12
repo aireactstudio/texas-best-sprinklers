@@ -192,7 +192,11 @@ export const locationData = {
         description: 'Sprinkler repair, irrigation tuning, drainage planning, and lighting support for Viridian homeowners in Arlington, TX.',
         link: '/arlington/viridian'
       },
-      'Pantego',
+      {
+        name: 'Pantego',
+        description: 'Sprinkler repair, irrigation tuning, drainage planning, and lighting support for Pantego homeowners in Arlington, TX.',
+        link: '/arlington/pantego'
+      },
       'Dalworthington Gardens',
       {
         name: 'Interlochen',
