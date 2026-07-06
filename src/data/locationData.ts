@@ -174,7 +174,11 @@ export const locationData = {
     nearestOffice: 'Weatherford',
     distanceFromOffice: 32,
     landmarks: ['Trophy Club Country Club', 'Trophy Club Park', 'Independence Park'],
-    neighborhoods: ['The Highlands', 'Old Town', 'The Vineyards', 'Trophy Wood', 'Hogan\'s Glen'],
+    neighborhoods: ['The Highlands', {
+      name: 'Old Town',
+      description: 'Sprinkler repair, irrigation tuning, drainage planning, and lighting support for Old Town homeowners in Trophy Club, TX.',
+      link: '/trophy-club/old-town'
+    }, 'The Vineyards', 'Trophy Wood', 'Hogan\'s Glen'],
     coordinates: {
       latitude: 33.0011,
       longitude: -97.1900
