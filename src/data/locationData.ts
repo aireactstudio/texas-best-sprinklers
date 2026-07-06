@@ -340,7 +340,17 @@ export const locationData = {
     nearestOffice: 'Fort Worth',
     distanceFromOffice: 18,
     landmarks: ['Boys Ranch Park', 'Bedford Public Library', 'Old Bedford School'],
-    neighborhoods: ['Bedford Heights', 'Bell Manor', 'Mayfair Hills', 'Bedford Meadows', 'Stonegate'],
+    neighborhoods: [
+      {
+        name: 'Bedford Heights',
+        description: 'Sprinkler repair, irrigation tuning, drainage planning, and lighting support for Bedford Heights homeowners in Bedford, TX.',
+        link: '/bedford/bedford-heights'
+      },
+      'Bell Manor',
+      'Mayfair Hills',
+      'Bedford Meadows',
+      'Stonegate'
+    ],
     coordinates: {
       latitude: 32.8440,
       longitude: -97.1431
