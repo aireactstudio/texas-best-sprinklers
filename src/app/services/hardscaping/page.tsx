@@ -104,6 +104,58 @@ export default function HardscapingPage() {
           </p>
         </div>
 
+        <div className="mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4 text-irrigation-blue">Recent concrete pours</h2>
+          <p className="text-gray-800 leading-relaxed text-lg mb-6">
+            From backyard patios to walkways, here's a look at concrete slabs we've formed, poured, and finished for North Texas homeowners.
+          </p>
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-5">
+            {[
+              {
+                src: '/assets/images/optimized/tb-1/2885.jpg',
+                alt: 'Freshly poured concrete walkway alongside a brick home',
+                caption: 'Finished walkway with clean curved edge',
+              },
+              {
+                src: '/assets/images/optimized/tb-1/2886.jpg',
+                alt: 'New concrete patio slab curing in a backyard',
+                caption: 'Backyard patio slab, freshly formed',
+              },
+              {
+                src: '/assets/images/optimized/tb-1/2888.jpg',
+                alt: 'Finished concrete patio with clean curved edge along a garden bed',
+                caption: 'Completed patio pour along the bed line',
+              },
+              {
+                src: '/assets/images/optimized/tb-1/2890.jpg',
+                alt: 'Crew hand-finishing a wet concrete slab next to a home',
+                caption: 'Hand-finishing the surface for a smooth cure',
+              },
+              {
+                src: '/assets/images/optimized/tb-1/2892.jpg',
+                alt: 'Newly poured concrete patio slab with wood forms still in place',
+                caption: 'Wet pour with forms still staked in place',
+              },
+            ].map((photo) => (
+              <figure
+                key={photo.src}
+                className="overflow-hidden rounded-xl border border-gray-200 bg-gray-100 shadow-md"
+              >
+                <div className="relative aspect-[3/4] w-full">
+                  <Image
+                    src={photo.src}
+                    alt={photo.alt}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                  />
+                </div>
+                <figcaption className="px-3 py-2 text-xs text-gray-600">{photo.caption}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+
         <div className="mb-10">
           <h2 className="text-2xl md:text-3xl font-bold mb-4 text-irrigation-blue">Retaining Walls</h2>
           <p className="text-gray-800 leading-relaxed text-lg">
@@ -304,6 +356,11 @@ export default function HardscapingPage() {
             image: [
               'https://sprinkleranddrains.com/assets/images/optimized/hardscaping1.jpeg',
               'https://sprinkleranddrains.com/assets/images/optimized/hardscaping2.jpeg',
+              'https://sprinkleranddrains.com/assets/images/optimized/tb-1/2885.jpg',
+              'https://sprinkleranddrains.com/assets/images/optimized/tb-1/2886.jpg',
+              'https://sprinkleranddrains.com/assets/images/optimized/tb-1/2888.jpg',
+              'https://sprinkleranddrains.com/assets/images/optimized/tb-1/2890.jpg',
+              'https://sprinkleranddrains.com/assets/images/optimized/tb-1/2892.jpg',
             ],
           }),
         }}

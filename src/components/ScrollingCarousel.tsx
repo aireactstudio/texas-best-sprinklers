@@ -42,6 +42,31 @@ const images = [
     desktop: "https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/sprinkler-head-rotating.webp?updatedAt=1763144537912",
     alt: "Sprinkler head rotating"
   },
+  {
+    mobile: "/assets/images/optimized/tb-1/2885.jpg",
+    desktop: "/assets/images/optimized/tb-1/2885.jpg",
+    alt: "Freshly poured concrete walkway alongside a brick home"
+  },
+  {
+    mobile: "/assets/images/optimized/tb-1/2886.jpg",
+    desktop: "/assets/images/optimized/tb-1/2886.jpg",
+    alt: "New concrete patio slab curing in a backyard"
+  },
+  {
+    mobile: "/assets/images/optimized/tb-1/2888.jpg",
+    desktop: "/assets/images/optimized/tb-1/2888.jpg",
+    alt: "Finished concrete patio with clean curved edge along a garden bed"
+  },
+  {
+    mobile: "/assets/images/optimized/tb-1/2890.jpg",
+    desktop: "/assets/images/optimized/tb-1/2890.jpg",
+    alt: "Crew hand-finishing a wet concrete slab next to a home"
+  },
+  {
+    mobile: "/assets/images/optimized/tb-1/2892.jpg",
+    desktop: "/assets/images/optimized/tb-1/2892.jpg",
+    alt: "Newly poured concrete patio slab with wood forms still in place"
+  },
 ];
 
 export const ScrollingCarousel = () => {
@@ -108,7 +133,7 @@ export const ScrollingCarousel = () => {
       <div className="container-custom px-4 mb-8">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-irrigation-darkBlue mb-4">Recent Projects Gallery</h2>
         <p className="text-lg text-gray-600 text-center max-w-3xl mx-auto">
-          A look at our irrigation and drainage work across Fort Worth and nearby cities.
+          A look at our irrigation, drainage, and concrete work across Fort Worth and nearby cities.
         </p>
 
         <div className="flex justify-center items-center gap-3 mt-6">

@@ -15,7 +15,7 @@ import MultiServiceHowToSchema from '@/components/MultiServiceHowToSchema';
 import ServiceAreaLocator from '@/components/ServiceAreaLocator';
 import ScrollingCarousel from '@/components/ScrollingCarousel';
 import { curatedReviews } from '@/data/curated-reviews';
-import EndOfSummerSpecials from '@/components/EndOfSummerSpecials';
+// import EndOfSummerSpecials from '@/components/EndOfSummerSpecials'; // Spring Special component temporarily disabled
 import HomeFAQ from '@/components/HomeFAQ';
 import GrassGuideSection from '@/components/GrassGuideSection';
 import InHouseFinancingSection from '@/components/InHouseFinancingSection';
@@ -147,10 +147,11 @@ export default function Home() {
         distanceFromOffice={0}
         serviceAreas={[]}
       />
-      {/* End of Summer Specials - prominent and above the fold */}
+      {/* Spring Special component temporarily disabled
       <div className="px-4 sm:px-6 lg:px-8 mt-8">
         <EndOfSummerSpecials />
       </div>
+      */}
       <ScrollingCarousel />
       <ServicesSection />
       <GrassGuideSection />
