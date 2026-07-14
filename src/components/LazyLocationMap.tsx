@@ -46,37 +46,28 @@ const LazyLocationMap: React.FC<LazyLocationMapProps> = ({
     ? `https://maps.googleapis.com/maps/api/staticmap?center=${lat},${lng}&zoom=10&size=640x350&scale=1&maptype=roadmap&markers=color:0x22c55e%7C${lat},${lng}&key=${apiKey}`
     : null;
 
+  // Hydrate the interactive map only after the user actually interacts with
+  // the page (scroll, tap, key, mouse). Static placeholder is shown until
+  // then, so the Maps JS bundle (~900ms CPU) never runs during initial load.
   useEffect(() => {
-    let idleId: number | undefined;
-    let timeoutId: ReturnType<typeof setTimeout> | undefined;
-    let cancelled = false;
+    let done = false;
+    const events = ['pointerdown', 'pointermove', 'scroll', 'keydown', 'touchstart'] as const;
 
     const activate = () => {
-      if (cancelled) return;
+      if (done) return;
+      done = true;
+      events.forEach((e) => window.removeEventListener(e, activate));
       setActivated(true);
     };
 
-    const scheduleActivate = () => {
-      if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
-        idleId = window.requestIdleCallback(() => activate(), { timeout: 2500 });
-      } else {
-        timeoutId = setTimeout(activate, 1500);
-      }
-    };
-
-    if (document.readyState === 'complete') {
-      scheduleActivate();
-    } else {
-      window.addEventListener('load', scheduleActivate, { once: true });
-    }
+    events.forEach((e) => window.addEventListener(e, activate, { once: true, passive: true }));
+    // Fallback for users who never interact
+    const fallback = setTimeout(activate, 12000);
 
     return () => {
-      cancelled = true;
-      window.removeEventListener('load', scheduleActivate);
-      if (idleId !== undefined && 'cancelIdleCallback' in window) {
-        window.cancelIdleCallback(idleId);
-      }
-      if (timeoutId !== undefined) clearTimeout(timeoutId);
+      done = true;
+      clearTimeout(fallback);
+      events.forEach((e) => window.removeEventListener(e, activate));
     };
   }, []);
 

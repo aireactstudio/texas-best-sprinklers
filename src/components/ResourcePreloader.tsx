@@ -1,21 +1,14 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 
 /**
- * Preloads the same hero asset used by LocationHeroSection so LCP isn't
- * competing with a mismatched Cloudflare URL.
+ * Adds the CSS gate classes (js-loaded / lcp-complete) that critical.css
+ * relies on to enable animations after load. The hero image preload itself
+ * lives in the <head> (see layout.tsx / head-preload.tsx).
  */
 export default function ResourcePreloader() {
   useEffect(() => {
-    const link = document.createElement('link');
-    link.rel = 'preload';
-    link.href = '/assets/images/optimized/hero-background.webp';
-    link.as = 'image';
-    link.type = 'image/webp';
-    link.setAttribute('fetchpriority', 'high');
-    document.head.appendChild(link);
-
     document.documentElement.classList.add('js-loaded');
 
     if ('PerformanceObserver' in window) {

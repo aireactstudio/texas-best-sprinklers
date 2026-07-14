@@ -3,9 +3,7 @@ import '../styles/critical.css';
 import { Inter, Montserrat } from 'next/font/google';
 import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
-import HeroImagePreload from '@/components/HeroImagePreload';
 import HeadPreload from './head-preload';
-import HeroPreloadScript from '@/components/HeroPreloadScript';
 import SchemaOrgData from '@/components/SchemaOrgData';
 import GoogleMapsProviderWrapper from '@/components/GoogleMapsProvider';
 import { SITE_CONFIG } from '@/config/site';
@@ -20,9 +18,7 @@ const AppHeader = dynamic(() => import('@/components/AppHeader'), { ssr: true })
 const ResourcePreloader = dynamic(() => import('@/components/ResourcePreloader'), { ssr: false });
 const StyleManager = dynamic(() => import('@/components/StyleManager'), { ssr: false });
 const NavigationObserver = dynamic(() => import('@/components/NavigationObserver'), { ssr: false });
-const PerformanceMonitor = dynamic(() => import('@/components/PerformanceMonitor'), { ssr: false });
 const ModulePreloader = dynamic(() => import('@/components/ModulePreloader'), { ssr: false });
-const LongTaskOptimizer = dynamic(() => import('@/components/LongTaskOptimizer'), { ssr: false });
 const GoogleAnalytics = dynamic(() => import('@/components/GoogleAnalytics'), { ssr: false, loading: () => null });
 const SmartlookScript = dynamic(() => import('@/components/SmartlookScript'), { ssr: false, loading: () => null });
 
@@ -111,16 +107,10 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.className} font-sans`}>
-        {/* Ultra-high priority hero image preload script - runs first */}
-        <HeroPreloadScript />
         <ResourcePreloader />
         <StyleManager />
         <NavigationObserver />
-        <PerformanceMonitor />
-        <LongTaskOptimizer />
         <ModulePreloader />
-        {/* Preload hero image to fix LCP issues */}
-        <HeroImagePreload imagePath="/assets/images/optimized/hero-background.webp" />
         {/* Analytics tracking scripts */}
         <GoogleAnalytics />
         <SmartlookScript />
