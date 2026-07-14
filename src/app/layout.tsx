@@ -43,7 +43,7 @@ const inter = Inter({
 const montserrat = Montserrat({
   subsets: ['latin'],
   display: 'swap',
-  preload: true,
+  preload: false,
   variable: '--font-montserrat',
   fallback: ['system-ui', 'Arial', 'sans-serif'],
 });
@@ -95,22 +95,10 @@ export default function RootLayout({
   const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || '';
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${montserrat.variable}`}>
       <head>
         <HeadPreload />
         <SchemaOrgData />
-        {/* Critical init function for Google Maps */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-            window.initMap = function() {
-              // This empty function prevents Maps API from blocking the main thread
-              // Actual map initialization happens in the components that need it
-              console.log('Maps API loaded');
-            };
-          `
-          }}
-        />
         {/* Inline critical CSS to reduce render blocking */}
         <style dangerouslySetInnerHTML={{ __html: criticalCSS }} />
         {/* Preload critical assets */}
@@ -122,7 +110,7 @@ export default function RootLayout({
           type="image/webp"
         />
       </head>
-      <body className="font-sans">
+      <body className={`${inter.className} font-sans`}>
         {/* Ultra-high priority hero image preload script - runs first */}
         <HeroPreloadScript />
         <ResourcePreloader />

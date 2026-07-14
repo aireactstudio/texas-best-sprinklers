@@ -58,7 +58,7 @@ const BlogPreview: React.FC<BlogPreviewProps> = ({
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-cover transition-all duration-300 hover:scale-105"
-                    priority={index < 2} // Load first two images with priority
+                    loading="lazy"
                   />
                 </div>
               </Link>

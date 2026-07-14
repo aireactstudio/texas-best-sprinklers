@@ -8,63 +8,63 @@ import { useIsMobile } from "@/hooks/use-mobile";
 
 const images = [
   {
-    mobile: "https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/long-shot-of-fort-worth-drainage.webp?updatedAt=1763144537900",
-    desktop: "https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/long-shot-of-fort-worth-drainage.webp?updatedAt=1763144537900",
+    mobile: "https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/long-shot-of-fort-worth-drainage.webp?tr=w-800,q-70&updatedAt=1763144537900",
+    desktop: "https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/long-shot-of-fort-worth-drainage.webp?tr=w-800,q-70&updatedAt=1763144537900",
     alt: "Fort Worth drainage long shot"
   },
   {
-    mobile: "https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/gutter-shot.webp?updatedAt=1763144536860",
-    desktop: "https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/gutter-shot.webp?updatedAt=1763144536860",
+    mobile: "https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/gutter-shot.webp?tr=w-640,q-70&updatedAt=1763144536860",
+    desktop: "https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/gutter-shot.webp?tr=w-1140,q-70&updatedAt=1763144536860",
     alt: "Downspout and gutter connection"
   },
   {
-    mobile: "https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/trencher.webp?updatedAt=1763144537647",
-    desktop: "https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/trencher.webp?updatedAt=1763144537647",
+    mobile: "https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/trencher.webp?tr=w-800,q-70&updatedAt=1763144537647",
+    desktop: "https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/trencher.webp?tr=w-800,q-70&updatedAt=1763144537647",
     alt: "Trencher equipment for drainage"
   },
   {
-    mobile: "https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/massive-drainage-project.webp?updatedAt=1763144537814",
-    desktop: "https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/massive-drainage-project.webp?updatedAt=1763144537814",
+    mobile: "https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/massive-drainage-project.webp?tr=w-640,q-70&updatedAt=1763144537814",
+    desktop: "https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/massive-drainage-project.webp?tr=w-1140,q-70&updatedAt=1763144537814",
     alt: "Large drainage installation"
   },
   {
-    mobile: "https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/sprinklerHead.webp?updatedAt=1763144537428",
-    desktop: "https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/sprinklerHead.webp?updatedAt=1763144537428",
+    mobile: "https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/sprinklerHead.webp?tr=w-640,q-70&updatedAt=1763144537428",
+    desktop: "https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/sprinklerHead.webp?tr=w-1140,q-70&updatedAt=1763144537428",
     alt: "Sprinkler head close-up"
   },
   {
-    mobile: "https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/drainage-t-off-gutter-connection.webp?updatedAt=1763144537797",
-    desktop: "https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/drainage-t-off-gutter-connection.webp?updatedAt=1763144537797",
+    mobile: "https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/drainage-t-off-gutter-connection.webp?tr=w-800,q-70&updatedAt=1763144537797",
+    desktop: "https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/drainage-t-off-gutter-connection.webp?tr=w-800,q-70&updatedAt=1763144537797",
     alt: "Drainage T off gutter connection"
   },
   {
-    mobile: "https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/sprinkler-head-rotating.webp?updatedAt=1763144537912",
-    desktop: "https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/sprinkler-head-rotating.webp?updatedAt=1763144537912",
+    mobile: "https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/sprinkler-head-rotating.webp?tr=w-800,q-70&updatedAt=1763144537912",
+    desktop: "https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/sprinkler-head-rotating.webp?tr=w-800,q-70&updatedAt=1763144537912",
     alt: "Sprinkler head rotating"
   },
   {
-    mobile: "/assets/images/optimized/tb-1/2885.jpg",
-    desktop: "/assets/images/optimized/tb-1/2885.jpg",
+    mobile: "/assets/images/optimized/tb-1/2885.webp",
+    desktop: "/assets/images/optimized/tb-1/2885.webp",
     alt: "Freshly poured concrete walkway alongside a brick home"
   },
   {
-    mobile: "/assets/images/optimized/tb-1/2886.jpg",
-    desktop: "/assets/images/optimized/tb-1/2886.jpg",
+    mobile: "/assets/images/optimized/tb-1/2886.webp",
+    desktop: "/assets/images/optimized/tb-1/2886.webp",
     alt: "New concrete patio slab curing in a backyard"
   },
   {
-    mobile: "/assets/images/optimized/tb-1/2888.jpg",
-    desktop: "/assets/images/optimized/tb-1/2888.jpg",
+    mobile: "/assets/images/optimized/tb-1/2888.webp",
+    desktop: "/assets/images/optimized/tb-1/2888.webp",
     alt: "Finished concrete patio with clean curved edge along a garden bed"
   },
   {
-    mobile: "/assets/images/optimized/tb-1/2890.jpg",
-    desktop: "/assets/images/optimized/tb-1/2890.jpg",
+    mobile: "/assets/images/optimized/tb-1/2890.webp",
+    desktop: "/assets/images/optimized/tb-1/2890.webp",
     alt: "Crew hand-finishing a wet concrete slab next to a home"
   },
   {
-    mobile: "/assets/images/optimized/tb-1/2892.jpg",
-    desktop: "/assets/images/optimized/tb-1/2892.jpg",
+    mobile: "/assets/images/optimized/tb-1/2892.webp",
+    desktop: "/assets/images/optimized/tb-1/2892.webp",
     alt: "Newly poured concrete patio slab with wood forms still in place"
   },
 ];
@@ -128,6 +128,9 @@ export const ScrollingCarousel = () => {
   const cycleSpeed = () => setSpeedIndex((prev) => (prev + 1) % speedOptions.length);
   const togglePause = () => setIsPaused((prev) => !prev);
 
+  // Two copies are enough for a seamless infinite loop; three tripled download work
+  const loopImages = [...images, ...images];
+
   return (
     <section className="py-16 overflow-hidden bg-white">
       <div className="container-custom px-4 mb-8">
@@ -159,14 +162,17 @@ export const ScrollingCarousel = () => {
       </div>
       <div className="relative">
         <div ref={containerRef} className="flex items-center will-change-transform">
-          {[...images, ...images, ...images].map((image, index) => {
+          {loopImages.map((image, index) => {
             const baseIndex = index % images.length;
             const isWide = baseIndex === 1 || baseIndex === 3 || baseIndex === 4; // gutter shot, massive drainage, sprinkler head
             const imageSrc = isMobile ? image.mobile : image.desktop;
+            const sizes = isWide
+              ? "(max-width: 768px) 320px, 570px"
+              : "(max-width: 768px) 280px, 400px";
             return (
               <div
                 key={`img-${index}`}
-                className={`flex-shrink-0 mx-4 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white ${
+                className={`relative flex-shrink-0 mx-4 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white ${
                   isWide 
                     ? 'w-[320px] h-[180px] md:w-[570px] md:h-[320px]'
                     : 'w-[280px] h-[280px] md:w-[400px] md:h-[400px]'
@@ -175,7 +181,10 @@ export const ScrollingCarousel = () => {
                 <OptimizedImage
                   src={imageSrc}
                   alt={image.alt}
-                  className="w-full h-full object-cover"
+                  fill
+                  sizes={sizes}
+                  quality={70}
+                  className="object-cover"
                 />
               </div>
             );

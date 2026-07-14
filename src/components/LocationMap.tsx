@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { GoogleMap, Circle } from '@react-google-maps/api';
 import { useGoogleMaps } from './GoogleMapsLoader';
 // Import the type directly
@@ -37,8 +37,12 @@ const LocationMap: React.FC<LocationMapProps> = ({
   height = '400px',
   width = '100%'
 }) => {
-  // Use our centralized Google Maps loader
-  const { isLoaded } = useGoogleMaps();
+  const { isLoaded, requestLoad } = useGoogleMaps();
+
+  // Only pull in Maps JS when an interactive map actually mounts
+  useEffect(() => {
+    requestLoad();
+  }, [requestLoad]);
 
   const center = useMemo(() => {
     if (locationData.coordinates) {

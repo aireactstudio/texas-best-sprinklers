@@ -187,7 +187,7 @@ export default function NeighborhoodPageTemplate({
               </p>
               <div className="grid grid-cols-2 gap-3">
                 <div className="rounded-lg bg-white/10 border border-white/10 p-3">
-                  <p className="text-2xl font-bold text-emerald-300">15+</p>
+                  <p className="text-2xl font-bold text-emerald-300">10+</p>
                   <p className="text-xs text-white/80">Years Serving DFW</p>
                 </div>
                 <div className="rounded-lg bg-white/10 border border-white/10 p-3">

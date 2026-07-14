@@ -194,8 +194,8 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ cityFilter, m
   const cycleSpeed = () => setSpeedIndex((prev) => (prev + 1) % speedOptions.length);
   const togglePause = () => setIsPaused((prev) => !prev);
 
-  // Create 3 sets for seamless scrolling
-  const displayItems = [...currentTestimonials, ...currentTestimonials, ...currentTestimonials];
+  // Two sets are enough for seamless scrolling
+  const displayItems = [...currentTestimonials, ...currentTestimonials];
 
   return (
     <section className="py-16 bg-slate-100 overflow-hidden">
@@ -341,9 +341,13 @@ const ReviewCard = ({ testimonial, expanded, onToggle }: { testimonial: Testimon
       <div className="flex items-center gap-3">
         {testimonial.photo ? (
           <img 
-            src={testimonial.photo}
+            src={testimonial.photo.replace(/=s\d+/, '=s64')}
             alt={testimonial.name} 
             className="h-8 w-8 rounded-full object-cover border-2 border-white shadow-sm"
+            width={32}
+            height={32}
+            loading="lazy"
+            decoding="async"
           />
         ) : (
           <div className="h-8 w-8 rounded-full bg-gradient-to-br from-irrigation-blue to-blue-600 text-white flex items-center justify-center font-bold text-xs shadow-sm">

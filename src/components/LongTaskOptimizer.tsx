@@ -67,12 +67,9 @@ const LongTaskOptimizer: React.FC = () => {
       (window as any).yieldToMain = yieldToMain;
     }
 
-    // Pre-connect to critical domains
+    // Pre-connect only to domains needed for above-the-fold content
     const preconnectDomains = [
       'https://imagedelivery.net',
-      'https://maps.googleapis.com',
-      'https://fonts.googleapis.com',
-      'https://fonts.gstatic.com'
     ];
 
     preconnectDomains.forEach(domain => {

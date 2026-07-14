@@ -1,25 +1,33 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import dynamic from 'next/dynamic';
 import LocationHeroSection from '@/components/location-homepages/LocationHeroSection';
-import ServicesSection from '@/components/ServicesSection';
-import FeaturesSection from '@/components/FeaturesSection';
-import HowItWorksSection from '@/components/HowItWorksSection';
-import TestimonialsSection from '@/components/TestimonialsSection';
-import BlogPreview from '@/components/BlogPreview';
-import StatsSection from '@/components/StatsSection';
-import CTA from '@/components/CTA';
 import StructuredData from '@/components/StructuredData';
-import HowToGetStartedSection from '@/components/HowToGetStartedSection';
 import MultiServiceHowToSchema from '@/components/MultiServiceHowToSchema';
-import ServiceAreaLocator from '@/components/ServiceAreaLocator';
-import ScrollingCarousel from '@/components/ScrollingCarousel';
 import { curatedReviews } from '@/data/curated-reviews';
-// import EndOfSummerSpecials from '@/components/EndOfSummerSpecials'; // Spring Special component temporarily disabled
-import HomeFAQ from '@/components/HomeFAQ';
-import GrassGuideSection from '@/components/GrassGuideSection';
-import InHouseFinancingSection from '@/components/InHouseFinancingSection';
 import { LOCATIONS, locationData } from '@/data/locationData';
+
+const ServicesSection = dynamic(() => import('@/components/ServicesSection'), {
+  loading: () => <div className="h-[480px] bg-white" aria-hidden />,
+});
+const FeaturesSection = dynamic(() => import('@/components/FeaturesSection'));
+const HowItWorksSection = dynamic(() => import('@/components/HowItWorksSection'));
+const TestimonialsSection = dynamic(() => import('@/components/TestimonialsSection'), {
+  loading: () => <div className="h-[420px] bg-slate-100" aria-hidden />,
+});
+const BlogPreview = dynamic(() => import('@/components/BlogPreview'));
+const StatsSection = dynamic(() => import('@/components/StatsSection'));
+const CTA = dynamic(() => import('@/components/CTA'));
+const HowToGetStartedSection = dynamic(() => import('@/components/HowToGetStartedSection'));
+const ServiceAreaLocator = dynamic(() => import('@/components/ServiceAreaLocator'));
+const ScrollingCarousel = dynamic(() => import('@/components/ScrollingCarousel'), {
+  loading: () => <div className="h-[420px] bg-white" aria-hidden />,
+});
+const HomeFAQ = dynamic(() => import('@/components/HomeFAQ'));
+const GrassGuideSection = dynamic(() => import('@/components/GrassGuideSection'));
+const InHouseFinancingSection = dynamic(() => import('@/components/InHouseFinancingSection'));
+// import EndOfSummerSpecials from '@/components/EndOfSummerSpecials'; // Spring Special component temporarily disabled
 
 export default function Home() {
   const [reviews, setReviews] = useState([]);

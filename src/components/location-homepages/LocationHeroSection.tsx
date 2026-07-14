@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Phone, MapPin, Clock, Star, CheckCircle } from 'lucide-react';
 import { trackPhoneCall } from '@/utils/analytics';
-import LocationMap from '@/components/LocationMap';
+import LazyLocationMap from '@/components/LazyLocationMap';
 import ErrorBoundary from '@/components/ErrorBoundary';
 import LicenseBadge from '@/components/LicenseBadge';
 
@@ -112,7 +112,7 @@ export default function LocationHeroSection({
             fetchPriority="high"
             sizes="100vw"
             loading="eager"
-            quality={80}
+            quality={72}
             decoding="async"
             style={{ 
               objectFit: 'cover', 
@@ -177,7 +177,7 @@ export default function LocationHeroSection({
               </div>
               <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-lg p-4 border border-white/10 min-h-[56px]">
                 <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0" />
-                <span className="text-white font-medium">15+ Years Experience</span>
+                <span className="text-white font-medium">10+ Years Experience</span>
               </div>
               <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-lg p-4 border border-white/10 min-h-[56px]">
                 <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0" />
@@ -232,33 +232,31 @@ export default function LocationHeroSection({
               {/* Floating Stats Card - Moved to top left */}
               <div className="absolute top-4 left-4 z-10 bg-white rounded-xl p-4 shadow-xl border border-gray-100">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-green-600">15+</div>
+                  <div className="text-3xl font-bold text-green-600">10+</div>
                   <div className="text-sm text-gray-600">Years Serving</div>
                   <div className="text-sm text-gray-600">{locationName}</div>
                 </div>
               </div>
 
-              {/* Google Map */}
+              {/* Static map preview — interactive Maps JS loads only on tap */}
               <div className="relative h-[320px] w-full rounded-xl overflow-hidden">
-                {typeof window !== 'undefined' && (
-                  <ErrorBoundary fallback={<div className="h-full w-full bg-gray-100 flex items-center justify-center"><span className="text-gray-500">Map unavailable</span></div>}>
-                    <LocationMap 
-                      locationData={{
-                        name: locationName,
-                        nearestOffice: nearestOffice,
-                        distanceFromOffice: distanceFromOffice,
-                        landmarks: landmarks,
-                        coordinates: {
-                          latitude: getLocationCoordinates(locationName, locationSlug).lat,
-                          longitude: getLocationCoordinates(locationName, locationSlug).lng
-                        }
-                      }}
-                      radiusMiles={getRadiusMiles(locationName, locationSlug)}
-                      height="350px"
-                      width="100%"
-                    />
-                  </ErrorBoundary>
-                )}
+                <ErrorBoundary fallback={<div className="h-full w-full bg-gray-100 flex items-center justify-center"><span className="text-gray-500">Map unavailable</span></div>}>
+                  <LazyLocationMap
+                    locationData={{
+                      name: locationName,
+                      nearestOffice: nearestOffice,
+                      distanceFromOffice: distanceFromOffice,
+                      landmarks: landmarks,
+                      coordinates: {
+                        latitude: getLocationCoordinates(locationName, locationSlug).lat,
+                        longitude: getLocationCoordinates(locationName, locationSlug).lng
+                      }
+                    }}
+                    radiusMiles={getRadiusMiles(locationName, locationSlug)}
+                    height="350px"
+                    width="100%"
+                  />
+                </ErrorBoundary>
               </div>
               
               {/* Location Info Badge */}

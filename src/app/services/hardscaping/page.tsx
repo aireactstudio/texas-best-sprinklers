@@ -112,27 +112,27 @@ export default function HardscapingPage() {
           <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-5">
             {[
               {
-                src: '/assets/images/optimized/tb-1/2885.jpg',
+                src: '/assets/images/optimized/tb-1/2885.webp',
                 alt: 'Freshly poured concrete walkway alongside a brick home',
                 caption: 'Finished walkway with clean curved edge',
               },
               {
-                src: '/assets/images/optimized/tb-1/2886.jpg',
+                src: '/assets/images/optimized/tb-1/2886.webp',
                 alt: 'New concrete patio slab curing in a backyard',
                 caption: 'Backyard patio slab, freshly formed',
               },
               {
-                src: '/assets/images/optimized/tb-1/2888.jpg',
+                src: '/assets/images/optimized/tb-1/2888.webp',
                 alt: 'Finished concrete patio with clean curved edge along a garden bed',
                 caption: 'Completed patio pour along the bed line',
               },
               {
-                src: '/assets/images/optimized/tb-1/2890.jpg',
+                src: '/assets/images/optimized/tb-1/2890.webp',
                 alt: 'Crew hand-finishing a wet concrete slab next to a home',
                 caption: 'Hand-finishing the surface for a smooth cure',
               },
               {
-                src: '/assets/images/optimized/tb-1/2892.jpg',
+                src: '/assets/images/optimized/tb-1/2892.webp',
                 alt: 'Newly poured concrete patio slab with wood forms still in place',
                 caption: 'Wet pour with forms still staked in place',
               },
@@ -146,6 +146,7 @@ export default function HardscapingPage() {
                     src={photo.src}
                     alt={photo.alt}
                     fill
+                    quality={70}
                     className="object-cover"
                     sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
                   />
@@ -356,11 +357,11 @@ export default function HardscapingPage() {
             image: [
               'https://sprinkleranddrains.com/assets/images/optimized/hardscaping1.jpeg',
               'https://sprinkleranddrains.com/assets/images/optimized/hardscaping2.jpeg',
-              'https://sprinkleranddrains.com/assets/images/optimized/tb-1/2885.jpg',
-              'https://sprinkleranddrains.com/assets/images/optimized/tb-1/2886.jpg',
-              'https://sprinkleranddrains.com/assets/images/optimized/tb-1/2888.jpg',
-              'https://sprinkleranddrains.com/assets/images/optimized/tb-1/2890.jpg',
-              'https://sprinkleranddrains.com/assets/images/optimized/tb-1/2892.jpg',
+              'https://sprinkleranddrains.com/assets/images/optimized/tb-1/2885.webp',
+              'https://sprinkleranddrains.com/assets/images/optimized/tb-1/2886.webp',
+              'https://sprinkleranddrains.com/assets/images/optimized/tb-1/2888.webp',
+              'https://sprinkleranddrains.com/assets/images/optimized/tb-1/2890.webp',
+              'https://sprinkleranddrains.com/assets/images/optimized/tb-1/2892.webp',
             ],
           }),
         }}
