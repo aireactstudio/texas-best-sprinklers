@@ -130,7 +130,7 @@ export default function BlogPost({ params }: BlogPostPageProps) {
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-4">
             <div className="lg:col-span-3">
               <div className="rounded-lg bg-white p-8 shadow-md">
-                <div className="prose prose-lg max-w-none prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-irrigation-blue prose-h2:mb-4 prose-h2:mt-10 prose-h2:text-2xl prose-h3:mb-3 prose-h3:mt-8 prose-h3:text-xl prose-p:mb-4 prose-p:leading-relaxed prose-p:text-gray-700 prose-li:my-1 prose-li:text-gray-700 prose-ul:my-5 prose-ol:my-5 prose-a:text-irrigation-blue prose-a:underline hover:prose-a:text-irrigation-green [&_ol]:border-l-2 [&_ol]:border-irrigation-blue/20 [&_ol]:pl-5 [&_ul]:border-l-2 [&_ul]:border-irrigation-blue/20 [&_ul]:pl-5">
+                <div className="prose prose-lg max-w-none prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-irrigation-blue prose-h2:mb-4 prose-h2:mt-10 prose-h2:text-2xl prose-h3:mb-3 prose-h3:mt-8 prose-h3:text-xl prose-p:mb-4 prose-p:leading-relaxed prose-p:text-gray-700 prose-li:my-1 prose-li:text-gray-700 prose-ul:my-5 prose-ol:my-5 [&_a]:font-semibold [&_a]:text-irrigation-blue [&_a]:underline [&_a]:decoration-irrigation-blue/40 [&_a]:underline-offset-2 hover:[&_a]:text-irrigation-green hover:[&_a]:decoration-irrigation-green [&_ol]:border-l-2 [&_ol]:border-irrigation-blue/20 [&_ol]:pl-5 [&_ul]:border-l-2 [&_ul]:border-irrigation-blue/20 [&_ul]:pl-5">
                   <div className="mb-6 flex flex-wrap gap-2 not-prose">
                     {post.tags.map((tag) => (
                       <span

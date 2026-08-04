@@ -216,6 +216,28 @@ export const blogPosts: BlogPost[] = [
   <li>Always call <a href="https://www.texas811.org/" target="_blank" rel="noopener noreferrer">Texas 811</a> before digging.</li>
 </ul>
 
+<div class="not-prose my-10 rounded-xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
+  <p class="m-0 text-lg font-bold text-irrigation-blue">Sources &amp; further reading</p>
+  <p class="mt-2 mb-4 text-sm text-gray-600">Authoritative references linked in this article:</p>
+  <ul class="m-0 space-y-2.5 pl-0 list-none">
+    <li><a class="font-semibold text-irrigation-blue underline underline-offset-2" href="https://soilseries.sc.egov.usda.gov/OSD_Docs/H/HOUSTON_BLACK.html" target="_blank" rel="noopener noreferrer">USDA NRCS — Houston Black soil series</a></li>
+    <li><a class="font-semibold text-irrigation-blue underline underline-offset-2" href="https://galveston.agrilife.org/files/2012/03/08-12-2015-Drought-Conditions-Pose-Threat-to-Home-Foundations-by-Dr.-William-M.-Johnson.pdf" target="_blank" rel="noopener noreferrer">Texas A&amp;M AgriLife — drought &amp; home foundations (PDF)</a></li>
+    <li><a class="font-semibold text-irrigation-blue underline underline-offset-2" href="https://txmg.org/orange/files/2020/05/Improving-Clay-Soil.pdf" target="_blank" rel="noopener noreferrer">Texas Master Gardener — improving clay soil (PDF)</a></li>
+    <li><a class="font-semibold text-irrigation-blue underline underline-offset-2" href="https://www.bobcat.com/na/en/equipment/loaders/compact-track-loaders" target="_blank" rel="noopener noreferrer">Bobcat — compact track loaders</a></li>
+    <li><a class="font-semibold text-irrigation-blue underline underline-offset-2" href="https://www.ready.gov/floods" target="_blank" rel="noopener noreferrer">Ready.gov — flood guidance</a></li>
+    <li><a class="font-semibold text-irrigation-blue underline underline-offset-2" href="https://www.texas811.org/" target="_blank" rel="noopener noreferrer">Texas 811 — call before you dig</a></li>
+    <li><a class="font-semibold text-irrigation-blue underline underline-offset-2" href="https://websoilsurvey.nrcs.usda.gov/" target="_blank" rel="noopener noreferrer">USDA Web Soil Survey</a></li>
+  </ul>
+  <p class="mt-5 mb-0 text-sm text-gray-600">On our site:</p>
+  <ul class="mt-2 mb-0 space-y-2.5 pl-0 list-none">
+    <li><a class="font-semibold text-irrigation-blue underline underline-offset-2" href="/services/sod-and-land-leveling">SOD installation &amp; land leveling</a></li>
+    <li><a class="font-semibold text-irrigation-blue underline underline-offset-2" href="/services/drainage-solutions">Drainage solutions</a></li>
+    <li><a class="font-semibold text-irrigation-blue underline underline-offset-2" href="/services/french-drains">French drains</a></li>
+    <li><a class="font-semibold text-irrigation-blue underline underline-offset-2" href="/services/sprinkler-installation">Sprinkler installation</a></li>
+    <li><a class="font-semibold text-irrigation-blue underline underline-offset-2" href="/contact">Request a free estimate</a></li>
+  </ul>
+</div>
+
 <div class="not-prose my-10 rounded-xl border border-irrigation-blue/20 bg-gradient-to-r from-irrigation-blue/5 to-emerald-50 p-8 text-center shadow-sm">
   <p class="m-0 text-2xl font-bold text-irrigation-blue">Ready for a level yard — and a green lawn?</p>
   <p class="mx-auto mt-3 mb-6 max-w-xl text-sm leading-relaxed text-gray-600">Get a plan for Bobcat grading, drainage-friendly slope, and finished SOD. Free estimates across Fort Worth and surrounding cities.</p>
