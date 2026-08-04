@@ -24,74 +24,181 @@ export const blogPosts: BlogPost[] = [
     content:
       'North Texas clay soils expand when wet and shrink when dry, which creates low spots, uneven grades, and water that pools near foundations. Machine land leveling with a compact track loader reshapes the yard so water drains correctly, then pairs with sod, irrigation adjustments, and drainage work for a finished lawn.',
     contentHtml: `
-<p>If your Fort Worth-area yard has soft low spots, trip hazards, or puddles that hang around after every storm, you are not imagining it. North Texas sits on expansive clay that moves with moisture — and that movement shows up in your grade long before you notice foundation trouble.</p>
+<p>If your Fort Worth-area yard has soft low spots, trip hazards, or puddles that hang around after every storm, you are not imagining it. North Texas sits on <strong>expansive clay</strong> that moves with moisture — and that movement shows up in your grade long before you notice foundation trouble.</p>
 
 <p>When the dips get bigger than a shovel-and-wheelbarrow fix, <a href="/services/sod-and-land-leveling">professional land leveling with a Bobcat track loader</a> is how we reshape the yard so water leaves the property the way it should.</p>
 
-<h2>Why North Texas clay creates low spots and drainage headaches</h2>
+<div class="not-prose my-8 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+  <img src="https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/trencher.webp?updatedAt=1763144537647" alt="Heavy equipment cutting and moving soil on a North Texas property" class="h-auto w-full object-cover" />
+  <p class="m-0 border-t border-slate-100 bg-slate-50 px-4 py-3 text-center text-sm text-gray-500">Machine dirt work makes full-yard regrades realistic on soft North Texas clay.</p>
+</div>
+
+<h2>Why North Texas clay creates low spots</h2>
 
 <p>Much of the Dallas–Fort Worth metro sits on heavy clay soils in and around the Blackland Prairie. The USDA Natural Resources Conservation Service’s official description of the <a href="https://soilseries.sc.egov.usda.gov/OSD_Docs/H/HOUSTON_BLACK.html" target="_blank" rel="noopener noreferrer">Houston Black soil series</a> is a classic example: deep, clay-rich Vertisols that crack when dry and swell when wet.</p>
 
-<p>That wet/dry cycle is hard on lawns and foundations. Texas A&amp;M AgriLife Extension has long warned homeowners that drought and uneven moisture around a slab can stress foundations — see AgriLife’s guidance on <a href="https://galveston.agrilife.org/files/2012/03/08-12-2015-Drought-Conditions-Pose-Threat-to-Home-Foundations-by-Dr.-William-M.-Johnson.pdf" target="_blank" rel="noopener noreferrer">drought conditions and home foundations</a>. Standing water near the house keeps clay wetter on one side of the slab than the other. Dry spells shrink it again. Over time you get differential movement, soft spots in the turf, and grades that no longer slope away from the home.</p>
+<div class="not-prose my-8 grid gap-4 sm:grid-cols-3">
+  <div class="rounded-xl border border-slate-200 bg-gradient-to-b from-slate-50 to-white p-5 shadow-sm">
+    <p class="m-0 text-xs font-semibold uppercase tracking-wide text-irrigation-blue">Wet season</p>
+    <p class="mt-2 mb-0 text-sm leading-relaxed text-gray-700">Clay <strong>swells</strong>, holds water, and softens low areas near the slab and patio.</p>
+  </div>
+  <div class="rounded-xl border border-slate-200 bg-gradient-to-b from-slate-50 to-white p-5 shadow-sm">
+    <p class="m-0 text-xs font-semibold uppercase tracking-wide text-irrigation-blue">Dry season</p>
+    <p class="mt-2 mb-0 text-sm leading-relaxed text-gray-700">Clay <strong>shrinks and cracks</strong>, leaving uneven grades and trip hazards in the turf.</p>
+  </div>
+  <div class="rounded-xl border border-slate-200 bg-gradient-to-b from-slate-50 to-white p-5 shadow-sm">
+    <p class="m-0 text-xs font-semibold uppercase tracking-wide text-irrigation-blue">The result</p>
+    <p class="mt-2 mb-0 text-sm leading-relaxed text-gray-700"><strong>Differential movement</strong>, puddles, and slopes that no longer drain away from the home.</p>
+  </div>
+</div>
 
-<p>Texas Master Gardener resources also note how sticky clay resists water movement and needs thoughtful prep — a useful primer is their PDF on <a href="https://txmg.org/orange/files/2020/05/Improving-Clay-Soil.pdf" target="_blank" rel="noopener noreferrer">improving clay soil</a>. For yard grading, the takeaway is simple: if the surface does not drain, clay holds the problem in place.</p>
+<p>Texas A&amp;M AgriLife Extension has long warned homeowners that drought and uneven moisture around a slab can stress foundations — see their guidance on <a href="https://galveston.agrilife.org/files/2012/03/08-12-2015-Drought-Conditions-Pose-Threat-to-Home-Foundations-by-Dr.-William-M.-Johnson.pdf" target="_blank" rel="noopener noreferrer">drought conditions and home foundations</a>. Texas Master Gardener resources also cover how sticky clay resists water movement in their PDF on <a href="https://txmg.org/orange/files/2020/05/Improving-Clay-Soil.pdf" target="_blank" rel="noopener noreferrer">improving clay soil</a>.</p>
 
-<h2>When machine land leveling beats hand grading</h2>
+<div class="not-prose my-8 rounded-xl border border-amber-200 bg-amber-50 p-5 shadow-sm">
+  <div class="flex items-start gap-3">
+    <span class="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-amber-100 text-sm font-bold text-amber-700" aria-hidden="true">!</span>
+    <div>
+      <p class="m-0 text-base font-semibold text-gray-900">Real-world failure</p>
+      <p class="mt-2 mb-0 text-sm leading-relaxed text-gray-700">Hand-raking a soft spot rarely fixes yard-wide settling. If water still sits against the foundation after a storm, the grade — not just the grass — is the problem.</p>
+    </div>
+  </div>
+</div>
 
-<p>Hand grading still has a place — small dips near beds, patio edges, or a single soft corner. Once you are dealing with:</p>
+<h2>When a track loader beats hand grading</h2>
 
-<ul>
-  <li>Yard-wide settling or multiple low zones</li>
-  <li>Water that ponds for hours after rain</li>
-  <li>Negative or flat grade toward the foundation</li>
-  <li>Dirt work before new sod, hardscape, or drainage</li>
-</ul>
+<p>Hand grading still has a place for small dips near beds, patio edges, or a single soft corner. Once you are dealing with bigger issues, you need machine power.</p>
 
-<p>…you need machine power. A <a href="https://www.bobcat.com/na/en/equipment/loaders/compact-track-loaders" target="_blank" rel="noopener noreferrer">compact track loader</a> (Bobcat-style) moves real volume: cut high spots, fill lows, haul material, and rough-in a new grade without waiting on a rental fleet. Tracks also tend to float better on soft North Texas clay than wheeled machines, which means less tearing up the yard while we get the slope right.</p>
+<div class="not-prose my-8 grid gap-6 md:grid-cols-2">
+  <div class="rounded-xl border border-emerald-200 bg-white p-6 shadow-sm">
+    <p class="m-0 text-base font-semibold text-emerald-700">Hand grading works for</p>
+    <ul class="mt-3 mb-0 space-y-2 pl-5 text-sm text-gray-700">
+      <li>Small dips near beds or edges</li>
+      <li>Light topdressing touch-ups</li>
+      <li>Finished areas where precision beats volume</li>
+    </ul>
+  </div>
+  <div class="rounded-xl border border-irrigation-blue/20 bg-white p-6 shadow-sm">
+    <p class="m-0 text-base font-semibold text-irrigation-blue">Bring the Bobcat when you have</p>
+    <ul class="mt-3 mb-0 space-y-2 pl-5 text-sm text-gray-700">
+      <li>Yard-wide settling or multiple low zones</li>
+      <li>Water that ponds for hours after rain</li>
+      <li>Negative or flat grade toward the foundation</li>
+      <li>Dirt work before new sod, hardscape, or drainage</li>
+    </ul>
+  </div>
+</div>
 
-<p>At Texas Best Sprinklers we run land leveling in-house with our own Bobcat track loader, then fine-grade and sand/topdress so the finish is smooth enough for sod. Details on what that includes are on our <a href="/services/sod-and-land-leveling">SOD installation &amp; land leveling</a> service page.</p>
+<p>A <a href="https://www.bobcat.com/na/en/equipment/loaders/compact-track-loaders" target="_blank" rel="noopener noreferrer">compact track loader</a> moves real volume: cut high spots, fill lows, haul material, and rough-in a new grade. Tracks also tend to float better on soft North Texas clay than wheeled machines — less tearing up the yard while we get the slope right.</p>
 
-<h2>Positive grade: the drainage goal that protects your home</h2>
+<div class="not-prose my-8 rounded-xl border border-emerald-200 bg-emerald-50/70 p-5 shadow-sm">
+  <div class="flex items-start gap-3">
+    <span class="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-sm font-bold text-emerald-700" aria-hidden="true">✓</span>
+    <div>
+      <p class="m-0 text-base font-semibold text-gray-900">Pro tip</p>
+      <p class="mt-2 mb-0 text-sm leading-relaxed text-gray-700">We run land leveling in-house with our own Bobcat track loader, then fine-grade and sand/topdress so the finish is smooth enough for sod. See the full scope on our <a href="/services/sod-and-land-leveling" class="font-semibold text-irrigation-blue underline">SOD &amp; land leveling</a> page.</p>
+    </div>
+  </div>
+</div>
 
-<p>Land leveling is not just about a lawn that looks flat. The job is to rebuild <strong>positive grade</strong> — a surface that sheds water away from the house and out of living areas. Industry and insurance-oriented guidance commonly targets roughly <strong>six inches of fall over the first ten feet</strong> away from the foundation, then continues moving water toward street, swale, or a designed drainage system.</p>
+<h2>Positive grade: the real goal</h2>
 
-<p>Federal flood-readiness resources from Ready.gov emphasize keeping water away from the structure as part of protecting a home — start with <a href="https://www.ready.gov/floods" target="_blank" rel="noopener noreferrer">Ready.gov’s flood guidance</a> if you want the homeowner-level overview. On clay lots in Fort Worth, Keller, Weatherford, and nearby cities, that usually means a combination of regrading plus, when needed, <a href="/services/drainage-solutions">drainage solutions</a> such as <a href="/services/french-drains">French drains</a>, surface drains, or downspout extensions.</p>
+<p>Land leveling is not just about a lawn that looks flat. The job is to rebuild <strong>positive grade</strong> — a surface that sheds water away from the house and out of living areas.</p>
 
-<h2>How land leveling pairs with sod, irrigation, and drainage</h2>
+<div class="not-prose my-8 overflow-hidden rounded-xl border border-irrigation-blue/15 bg-gradient-to-r from-slate-50 via-white to-sky-50 p-6 shadow-sm">
+  <p class="m-0 text-xs font-semibold uppercase tracking-wide text-irrigation-blue">Common drainage target</p>
+  <p class="mt-2 mb-1 text-2xl font-bold text-irrigation-darkBlue">~6 inches of fall over the first 10 feet</p>
+  <p class="m-0 text-sm leading-relaxed text-gray-600">Then keep moving water toward the street, a swale, or a designed drainage system — not back toward the slab.</p>
+</div>
+
+<p>Federal flood-readiness resources from Ready.gov emphasize keeping water away from the structure — start with <a href="https://www.ready.gov/floods" target="_blank" rel="noopener noreferrer">Ready.gov’s flood guidance</a>. On clay lots in Fort Worth, Keller, Weatherford, and nearby cities, that usually means regrading plus, when needed, <a href="/services/drainage-solutions">drainage solutions</a> such as <a href="/services/french-drains">French drains</a>, surface drains, or downspout extensions.</p>
+
+<div class="not-prose my-8 grid gap-4 md:grid-cols-2">
+  <figure class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+    <img src="https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/massive-drainage-project.webp?updatedAt=1763144537814" alt="Large drainage trench and gravel installation on a residential lot" class="h-48 w-full object-cover" />
+    <figcaption class="px-4 py-3 text-sm text-gray-500">Bigger drainage installs often follow a regrade when slope alone cannot carry water far enough.</figcaption>
+  </figure>
+  <figure class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+    <img src="https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/long-shot-of-fort-worth-drainage.webp?updatedAt=1763144537900" alt="Finished Fort Worth yard drainage project across a lawn" class="h-48 w-full object-cover" />
+    <figcaption class="px-4 py-3 text-sm text-gray-500">A finished grade should look clean and move stormwater away from living areas.</figcaption>
+  </figure>
+</div>
+
+<h2>How leveling pairs with sod, irrigation, and drainage</h2>
 
 <p>Grading alone is half the story. A finished North Texas lawn works when these pieces line up:</p>
 
-<ol>
-  <li><strong>Land leveling / dirt work</strong> — reshape the yard with the track loader, then fine-grade.</li>
-  <li><strong>Drainage</strong> — where grade alone cannot carry water far enough, add collection and discharge paths.</li>
-  <li><strong>SOD installation</strong> — lock in the surface, cut down mud and erosion, and get an instant lawn.</li>
-  <li><strong>Irrigation adjustments</strong> — retune heads and zones so the new turf gets even coverage without soaking the foundation line.</li>
-</ol>
+<div class="not-prose my-8 space-y-3">
+  <div class="flex gap-4 rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+    <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-irrigation-blue text-sm font-bold text-white">1</span>
+    <div>
+      <p class="m-0 font-semibold text-gray-900">Land leveling / dirt work</p>
+      <p class="mt-1 mb-0 text-sm text-gray-600">Reshape the yard with the track loader, then fine-grade.</p>
+    </div>
+  </div>
+  <div class="flex gap-4 rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+    <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-irrigation-blue text-sm font-bold text-white">2</span>
+    <div>
+      <p class="m-0 font-semibold text-gray-900">Drainage</p>
+      <p class="mt-1 mb-0 text-sm text-gray-600">Where grade alone cannot carry water far enough, add collection and discharge paths.</p>
+    </div>
+  </div>
+  <div class="flex gap-4 rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+    <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-irrigation-blue text-sm font-bold text-white">3</span>
+    <div>
+      <p class="m-0 font-semibold text-gray-900">SOD installation</p>
+      <p class="mt-1 mb-0 text-sm text-gray-600">Lock in the surface, cut down mud and erosion, and get an instant lawn.</p>
+    </div>
+  </div>
+  <div class="flex gap-4 rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+    <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-irrigation-blue text-sm font-bold text-white">4</span>
+    <div>
+      <p class="m-0 font-semibold text-gray-900">Irrigation adjustments</p>
+      <p class="mt-1 mb-0 text-sm text-gray-600">Retune heads and zones so new turf gets even coverage without soaking the foundation line.</p>
+    </div>
+  </div>
+</div>
 
-<p>That is why we keep land leveling under the same service as sod. If you are already opening the ground, it is the right time to fix slope, irrigation, and drainage together instead of redoing the yard twice. Explore the full scope on <a href="/services/sod-and-land-leveling">sod &amp; land leveling</a>, or jump to <a href="/services/sprinkler-installation">sprinkler installation</a> and <a href="/services/drainage-solutions">drainage</a> if those are the bigger need.</p>
-
-<p>Curious which turf fits your yard after a regrade? Our <a href="/#grass-guide">North Texas grass guide</a> on the homepage breaks down Zoysia, Bermuda, and St. Augustine in local conditions.</p>
+<p>That is why we keep land leveling under the same service as sod. If you are already opening the ground, fix slope, irrigation, and drainage together instead of redoing the yard twice. Explore <a href="/services/sod-and-land-leveling">sod &amp; land leveling</a>, <a href="/services/sprinkler-installation">sprinkler installation</a>, and <a href="/services/drainage-solutions">drainage</a> — or check our <a href="/#grass-guide">North Texas grass guide</a> for turf that fits after a regrade.</p>
 
 <h2>Safety before any digging: call 811</h2>
 
-<p>Before a track loader cuts a yard — or before any trench for drainage — mark underground utilities. In Texas, start with the official one-call system at <a href="https://www.texas811.org/" target="_blank" rel="noopener noreferrer">Texas 811</a> (or dial 811). Locates protect gas, electric, water, and communication lines, and they are a non-negotiable step on every job that disturbs soil.</p>
+<div class="not-prose my-8 rounded-xl border border-sky-200 bg-sky-50 p-5 shadow-sm">
+  <div class="flex items-start gap-3">
+    <span class="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-sky-100 text-sm font-bold text-sky-700" aria-hidden="true">i</span>
+    <div>
+      <p class="m-0 text-base font-semibold text-gray-900">Important</p>
+      <p class="mt-2 mb-0 text-sm leading-relaxed text-gray-700">Before a track loader cuts a yard — or before any trench for drainage — mark underground utilities through <a href="https://www.texas811.org/" target="_blank" rel="noopener noreferrer" class="font-semibold text-irrigation-blue underline">Texas 811</a> (or dial 811). Locates protect gas, electric, water, and communication lines.</p>
+    </div>
+  </div>
+</div>
 
-<p>If you want to map what kind of soil you are standing on before a big project, USDA’s <a href="https://websoilsurvey.nrcs.usda.gov/" target="_blank" rel="noopener noreferrer">Web Soil Survey</a> is the free federal tool for looking up soil map units on your parcel.</p>
+<p>Want to map what soil you are standing on before a big project? USDA’s <a href="https://websoilsurvey.nrcs.usda.gov/" target="_blank" rel="noopener noreferrer">Web Soil Survey</a> is the free federal tool for looking up soil map units on your parcel.</p>
 
 <h2>When to call a professional</h2>
 
 <p>Schedule a land-leveling visit if you notice:</p>
 
 <ul>
-  <li>Puddles that linger near the slab, patio, or AC pad</li>
-  <li>Soft, sinking turf or uneven walk paths</li>
-  <li>Mulch beds or fence lines that channel water toward the house</li>
-  <li>A yard you want to re-sod, but the grade is wrong first</li>
+  <li><strong>Puddles</strong> that linger near the slab, patio, or AC pad</li>
+  <li><strong>Soft, sinking turf</strong> or uneven walk paths</li>
+  <li><strong>Mulch beds or fence lines</strong> that channel water toward the house</li>
+  <li>A yard you want to <strong>re-sod</strong>, but the grade is wrong first</li>
 </ul>
 
-<p>Structural foundation repair is a separate specialty — if you already have significant cracks, sticking doors, or engineer recommendations, get that evaluated. For grade, drainage, sod, and irrigation on residential lots across Fort Worth and surrounding cities, we can assess the surface and put a practical plan together.</p>
+<div class="not-prose my-8 rounded-xl border border-amber-200 bg-amber-50 p-5 shadow-sm">
+  <p class="m-0 text-sm leading-relaxed text-gray-700"><strong>Note:</strong> Structural foundation repair is a separate specialty. If you already have significant cracks, sticking doors, or engineer recommendations, get that evaluated first. For grade, drainage, sod, and irrigation on residential lots, we can assess the surface and put a practical plan together.</p>
+</div>
 
-<p><a href="/contact">Request a free estimate</a> for land leveling and sod, or read more about equipment, grading, and lawn finish work on our <a href="/services/sod-and-land-leveling">SOD installation &amp; land leveling</a> page.</p>
+<h2>FAQ</h2>
+
+<h3>Do you own the equipment or rent it?</h3>
+<p>We own a Bobcat track loader for land leveling, grading, and dirt work — so larger regrades stay in-house without waiting on rentals.</p>
+
+<h3>Can you level first and install sod in the same project?</h3>
+<p>Yes. That is the usual workflow: machine grade → fine grade / sand → SOD → irrigation adjustments. See <a href="/services/sod-and-land-leveling">SOD installation &amp; land leveling</a>.</p>
+
+<h3>What if grade alone is not enough?</h3>
+<p>We add drainage where needed — French drains, surface drains, or downspout extensions — so water has somewhere to go after the slope is corrected.</p>
 
 <h2>Key takeaways</h2>
 
@@ -102,8 +209,17 @@ export const blogPosts: BlogPost[] = [
   <li>Best results pair leveling with sod, irrigation tuning, and drainage when needed.</li>
   <li>Always call <a href="https://www.texas811.org/" target="_blank" rel="noopener noreferrer">Texas 811</a> before digging.</li>
 </ul>
+
+<div class="not-prose my-10 rounded-xl border border-irrigation-blue/20 bg-gradient-to-r from-irrigation-blue/5 to-emerald-50 p-8 text-center shadow-sm">
+  <p class="m-0 text-2xl font-bold text-irrigation-blue">Ready for a level yard — and a green lawn?</p>
+  <p class="mx-auto mt-3 mb-6 max-w-xl text-sm leading-relaxed text-gray-600">Get a plan for Bobcat grading, drainage-friendly slope, and finished SOD. Free estimates across Fort Worth and surrounding cities.</p>
+  <div class="flex flex-wrap items-center justify-center gap-3">
+    <a href="/contact" class="inline-flex rounded-lg bg-irrigation-blue px-5 py-2.5 text-sm font-semibold text-white no-underline hover:bg-irrigation-darkBlue">Request Your Estimate</a>
+    <a href="/services/sod-and-land-leveling" class="inline-flex rounded-lg border border-irrigation-blue px-5 py-2.5 text-sm font-semibold text-irrigation-blue no-underline hover:bg-white">View SOD &amp; Land Leveling</a>
+  </div>
+</div>
 `.trim(),
-    image: 'https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/massive-drainage-project.webp?updatedAt=1763144537814',
+    image: 'https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/trencher.webp?updatedAt=1763144537647',
     date: 'August 4, 2026',
     author: 'Texas Best Sprinklers',
     category: 'Lawn Care',

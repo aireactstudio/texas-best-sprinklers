@@ -28,7 +28,7 @@ export default function Blog() {
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
             <div className="lg:col-span-3">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {blogPosts.map((post) => (
+                {blogPosts.map((post, index) => (
                   <div key={post.id} className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300">
                     <Link href={`/blog/${post.slug}`} className="block">
                       <div className="relative w-full h-48">
@@ -39,6 +39,11 @@ export default function Blog() {
                           sizes="(max-width: 768px) 100vw, 50vw"
                           className="object-cover"
                         />
+                        {index === 0 && (
+                          <span className="absolute left-3 top-3 rounded-full bg-irrigation-green px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-white shadow">
+                            New
+                          </span>
+                        )}
                       </div>
                     </Link>
                     <div className="p-6">
