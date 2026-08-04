@@ -28,6 +28,17 @@ export const blogPosts: BlogPost[] = [
 
 <p>When the dips get bigger than a shovel-and-wheelbarrow fix, <a href="/services/sod-and-land-leveling">professional land leveling with a Bobcat track loader</a> is how we reshape the yard so water leaves the property the way it should.</p>
 
+<div class="not-prose my-8 grid gap-4 md:grid-cols-2">
+  <figure class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+    <img src="/assets/images/optimized/bobcat/bobcat-t450-front.jpg" alt="Texas Best Sprinklers Bobcat T450 compact track loader with bucket" class="h-80 w-full object-cover" />
+    <figcaption class="px-4 py-3 text-sm text-gray-500">Our Bobcat T450 track loader — the machine we use for land leveling and dirt work.</figcaption>
+  </figure>
+  <figure class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+    <img src="/assets/images/optimized/bobcat/bobcat-t450-side.jpg" alt="Side profile of Texas Best Sprinklers Bobcat T450 track loader" class="h-80 w-full object-cover" />
+    <figcaption class="px-4 py-3 text-sm text-gray-500">Rubber tracks float better on soft North Texas clay than wheeled equipment.</figcaption>
+  </figure>
+</div>
+
 <h2>Why North Texas clay creates low spots</h2>
 
 <p>Much of the Dallas–Fort Worth metro sits on heavy clay soils in and around the Blackland Prairie. The USDA Natural Resources Conservation Service’s official description of the <a href="https://soilseries.sc.egov.usda.gov/OSD_Docs/H/HOUSTON_BLACK.html" target="_blank" rel="noopener noreferrer">Houston Black soil series</a> is a classic example: deep, clay-rich Vertisols that crack when dry and swell when wet.</p>
@@ -214,7 +225,7 @@ export const blogPosts: BlogPost[] = [
   </div>
 </div>
 `.trim(),
-    image: '/images/blog/lawn-health.jpg',
+    image: '/assets/images/optimized/bobcat/bobcat-t450-front.jpg',
     date: 'August 4, 2026',
     author: 'Texas Best Sprinklers',
     category: 'Lawn Care',

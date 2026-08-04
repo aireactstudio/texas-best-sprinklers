@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import type { Metadata } from 'next';
 import {
   Sprout,
@@ -14,6 +15,9 @@ import ServicePageLayout from '@/components/templates/ServicePageLayout';
 import ServiceAreaLocator from '@/components/ServiceAreaLocator';
 import CTA from '@/components/CTA';
 
+const BOBCAT_FRONT = '/assets/images/optimized/bobcat/bobcat-t450-front.jpg';
+const BOBCAT_SIDE = '/assets/images/optimized/bobcat/bobcat-t450-side.jpg';
+
 export const metadata: Metadata = {
   title: 'SOD Installation & Land Leveling | Texas Best Sprinklers',
   description:
@@ -24,12 +28,19 @@ export const metadata: Metadata = {
       'In-house Bobcat track loader grading, land leveling, site prep, and SOD installation for North Texas yards — built to drain correctly and look finished.',
     url: 'https://sprinkleranddrains.com/services/sod-and-land-leveling',
     type: 'website',
+    images: [
+      {
+        url: `https://sprinkleranddrains.com${BOBCAT_FRONT}`,
+        alt: 'Texas Best Sprinklers Bobcat T450 track loader for land leveling',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'SOD Installation & Land Leveling | Texas Best Sprinklers',
     description:
       'Bobcat track loader land leveling, grading, dirt work, and SOD installation across Fort Worth and nearby cities.',
+    images: [`https://sprinkleranddrains.com${BOBCAT_FRONT}`],
   },
 };
 
@@ -72,7 +83,7 @@ export default function SodAndLandLevelingPage() {
     description:
       'Professional land leveling with our Bobcat track loader, precision grading, dirt work, and SOD installation. We reshape problem yards so they drain correctly, feel even underfoot, and finish with a healthy North Texas lawn.',
     icon: <Sprout size={32} className="text-white" />,
-    image: '/assets/images/optimized/hero-background.webp',
+    image: BOBCAT_FRONT,
     features: [
       'In-house Bobcat track loader for land leveling & dirt work',
       'Full-yard grading, cut-and-fill, and slope correction',
@@ -118,6 +129,44 @@ export default function SodAndLandLevelingPage() {
                 <p className="mt-2 text-sm leading-relaxed text-gray-700">{body}</p>
               </div>
             ))}
+          </div>
+        </div>
+
+        <div className="mb-12">
+          <h2 className="mb-4 text-2xl font-bold text-irrigation-blue md:text-3xl">Our Bobcat T450 track loader</h2>
+          <p className="mb-6 text-lg leading-relaxed text-gray-800">
+            This is the machine we use for land leveling, dirt work, and site prep — owned in-house so we can schedule
+            bigger grading jobs without waiting on a rental.
+          </p>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
+            <figure className="overflow-hidden rounded-xl border border-gray-200 bg-gray-100 shadow-md">
+              <div className="relative aspect-[3/4] w-full">
+                <Image
+                  src={BOBCAT_FRONT}
+                  alt="Texas Best Sprinklers Bobcat T450 compact track loader with bucket"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+              <figcaption className="px-4 py-3 text-sm text-gray-600">
+                Bobcat T450 — front view with loader bucket
+              </figcaption>
+            </figure>
+            <figure className="overflow-hidden rounded-xl border border-gray-200 bg-gray-100 shadow-md">
+              <div className="relative aspect-[3/4] w-full">
+                <Image
+                  src={BOBCAT_SIDE}
+                  alt="Side profile of Texas Best Sprinklers Bobcat T450 track loader"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+              <figcaption className="px-4 py-3 text-sm text-gray-600">
+                Side profile — rubber tracks built for soft North Texas clay
+              </figcaption>
+            </figure>
           </div>
         </div>
 
