@@ -28,11 +28,6 @@ export const blogPosts: BlogPost[] = [
 
 <p>When the dips get bigger than a shovel-and-wheelbarrow fix, <a href="/services/sod-and-land-leveling">professional land leveling with a Bobcat track loader</a> is how we reshape the yard so water leaves the property the way it should.</p>
 
-<div class="not-prose my-8 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
-  <img src="https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/trencher.webp?updatedAt=1763144537647" alt="Heavy equipment cutting and moving soil on a North Texas property" class="h-auto w-full object-cover" />
-  <p class="m-0 border-t border-slate-100 bg-slate-50 px-4 py-3 text-center text-sm text-gray-500">Machine dirt work makes full-yard regrades realistic on soft North Texas clay.</p>
-</div>
-
 <h2>Why North Texas clay creates low spots</h2>
 
 <p>Much of the Dallas–Fort Worth metro sits on heavy clay soils in and around the Blackland Prairie. The USDA Natural Resources Conservation Service’s official description of the <a href="https://soilseries.sc.egov.usda.gov/OSD_Docs/H/HOUSTON_BLACK.html" target="_blank" rel="noopener noreferrer">Houston Black soil series</a> is a classic example: deep, clay-rich Vertisols that crack when dry and swell when wet.</p>
@@ -219,7 +214,7 @@ export const blogPosts: BlogPost[] = [
   </div>
 </div>
 `.trim(),
-    image: 'https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/trencher.webp?updatedAt=1763144537647',
+    image: '/images/blog/lawn-health.jpg',
     date: 'August 4, 2026',
     author: 'Texas Best Sprinklers',
     category: 'Lawn Care',
