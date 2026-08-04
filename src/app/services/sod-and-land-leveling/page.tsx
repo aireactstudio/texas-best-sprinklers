@@ -132,7 +132,15 @@ export default function SodAndLandLevelingPage() {
           </p>
           <p className="mt-4 text-lg leading-relaxed text-gray-800">
             Track loaders also work better on soft North Texas clay than wheeled equipment. Less tearing up the yard while we
-            get the grade right.
+            get the grade right. For a deeper look at why DFW clay creates low spots — and how grading pairs with sod,
+            irrigation, and drainage — read our guide:{' '}
+            <Link
+              href="/blog/land-leveling-bobcat-track-loader-north-texas-clay"
+              className="font-semibold text-irrigation-blue underline underline-offset-2 hover:text-irrigation-green"
+            >
+              Land Leveling With a Bobcat Track Loader: Fixing Low Spots in North Texas Clay
+            </Link>
+            .
           </p>
         </div>
 
