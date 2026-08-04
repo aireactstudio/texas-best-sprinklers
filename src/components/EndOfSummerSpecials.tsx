@@ -83,7 +83,7 @@ export default function EndOfSummerSpecials() {
           <OfferCard
             icon={<Sprout className="h-5 w-5" />}
             title="SOD Installation & Land Leveling — 10% Off This Spring"
-            desc="Spring special on professional SOD install, sanding/topdressing, and grading to fix low spots, improve drainage, and give you an instantly green lawn this season."
+            desc="Spring special on Bobcat land leveling, grading, sanding/topdressing, and SOD install to fix low spots, improve drainage, and give you an instantly green lawn this season."
             badge="Spring Special"
             href="/contact"
             cta="Lock In Spring Pricing"

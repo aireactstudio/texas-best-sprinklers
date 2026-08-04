@@ -8,14 +8,6 @@ import React from 'react';
 export default function Head() {
   return (
     <>
-      {/* Preload the hero image for faster LCP */}
-      <link 
-        rel="preload" 
-        href="https://imagedelivery.net/Hs1aBZ5UERW4OpkuLtKJ6A/b96197d9-8f69-4145-7b7b-0b5a7ba70900/public" 
-        as="image" 
-        type="image/webp" 
-        fetchPriority="high"
-      />
       {/* Ensure mobile devices use the full screen including the notch area */}
       <meta
         name="viewport"

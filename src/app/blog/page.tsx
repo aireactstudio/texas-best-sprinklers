@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import HeroSection from '@/components/HeroSection';
 import CTA from '@/components/CTA';
 import { Calendar, User } from 'lucide-react';
@@ -30,11 +31,15 @@ export default function Blog() {
                 {blogPosts.map((post) => (
                   <div key={post.id} className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300">
                     <Link href={`/blog/${post.slug}`} className="block">
-                      <img 
-                        src={post.image} 
-                        alt={post.title} 
-                        className="w-full h-48 object-cover"
-                      />
+                      <div className="relative w-full h-48">
+                        <Image 
+                          src={post.image} 
+                          alt={post.title} 
+                          fill
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                          className="object-cover"
+                        />
+                      </div>
                     </Link>
                     <div className="p-6">
                       <div className="flex items-center text-sm text-gray-500 mb-3">

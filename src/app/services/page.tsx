@@ -86,7 +86,7 @@ export default function Services() {
             
             <ServiceCard 
               title="SOD Installation & Land Leveling"
-              description="Professional SOD installation, grading, and land leveling to fix low spots, improve drainage, and create an instantly green lawn."
+              description="Bobcat track loader land leveling, grading, dirt work, and professional SOD installation to fix low spots, reshape yards, and create an instantly green lawn."
               icon={<Droplet size={32} />}
               id="sod-and-land-leveling"
             />

@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Calendar, User, ArrowLeft, ArrowRight } from 'lucide-react';
 import CTA from '@/components/CTA';
 import type { Metadata } from 'next';
@@ -51,10 +52,13 @@ export default function BlogPost({ params }: BlogPostPageProps) {
     <>
       {/* Hero/Header Image */}
       <div className="relative h-96">
-        <img 
+        <Image 
           src={post.image} 
           alt={post.title} 
-          className="absolute inset-0 w-full h-full object-cover"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
         />
         <div className="absolute inset-0 bg-irrigation-blue bg-opacity-70"></div>
         <div className="absolute inset-0 flex items-center justify-center">
@@ -209,11 +213,15 @@ export default function BlogPost({ params }: BlogPostPageProps) {
                 <div className="space-y-4">
                   {relatedPosts.map((relatedPost) => (
                     <div key={relatedPost.id} className="flex items-start">
-                      <img 
-                        src={relatedPost.image} 
-                        alt={relatedPost.title} 
-                        className="w-16 h-16 object-cover rounded mr-3"
-                      />
+                      <div className="relative w-16 h-16 mr-3 flex-shrink-0">
+                        <Image 
+                          src={relatedPost.image} 
+                          alt={relatedPost.title} 
+                          fill
+                          sizes="64px"
+                          className="object-cover rounded"
+                        />
+                      </div>
                       <div>
                         <Link 
                           href={`/blog/${relatedPost.slug}`} 

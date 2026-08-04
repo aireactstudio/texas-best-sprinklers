@@ -3,7 +3,6 @@ import '../styles/critical.css';
 import { Inter, Montserrat } from 'next/font/google';
 import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
-import HeadPreload from './head-preload';
 import SchemaOrgData from '@/components/SchemaOrgData';
 import GoogleMapsProviderWrapper from '@/components/GoogleMapsProvider';
 import { SITE_CONFIG } from '@/config/site';
@@ -93,18 +92,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={`${inter.variable} ${montserrat.variable}`}>
       <head>
-        <HeadPreload />
         <SchemaOrgData />
         {/* Inline critical CSS to reduce render blocking */}
         <style dangerouslySetInnerHTML={{ __html: criticalCSS }} />
-        {/* Preload critical assets */}
-        <link 
-          rel="preload" 
-          href="/assets/images/optimized/hero-background.webp" 
-          as="image" 
-          fetchPriority="high" 
-          type="image/webp"
-        />
       </head>
       <body className={`${inter.className} font-sans`}>
         <ResourcePreloader />

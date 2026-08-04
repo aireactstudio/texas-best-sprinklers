@@ -83,11 +83,11 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         ];
       case 'SOD Installation & Land Leveling':
         return [
+          'In-house Bobcat track loader for land leveling and dirt work',
+          'Full-yard grading, cut-and-fill, and slope correction',
           'Professional SOD installation matched to North Texas conditions',
-          'Land leveling, sanding, and grading to fix low spots and pooling',
-          'Integration with existing or new irrigation systems',
           'Drainage-friendly slopes away from the home',
-          'Clean edges around driveways, patios, and beds'
+          'Irrigation adjustments for even coverage on new turf'
         ];
       case 'Hardscaping':
         return [
@@ -322,11 +322,11 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName, routePrefix
         ];
       case 'SOD Installation & Land Leveling':
         return [
+          'In-house Bobcat track loader for land leveling and dirt work',
+          'Full-yard grading, cut-and-fill, and slope correction',
           'Professional SOD installation matched to North Texas conditions',
-          'Land leveling, sanding, and grading to fix low spots and pooling',
-          'Integration with existing or new irrigation systems',
           'Drainage-friendly slopes away from the home',
-          'Clean edges around driveways, patios, and beds'
+          'Irrigation adjustments for even coverage on new turf'
         ];
       case 'French Drain Installation':
         return [
@@ -472,9 +472,9 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ cityName, routePrefix
     {
       icon: <CloudRain size={32} />,
       title: "SOD Installation & Land Leveling",
-      description: "SOD installation, sanding, grading, and land leveling to fix low spots, improve drainage, and give you an instantly green, even lawn.",
+      description: "Bobcat track loader land leveling, grading, dirt work, and SOD installation to fix low spots, reshape yards, and deliver an instantly green lawn.",
       link: "/services/sod-and-land-leveling",
-      longDescription: "Our SOD installation and land-leveling services are designed to correct problem areas and create a smooth, healthy lawn. We handle tear-out, soil prep, grading, sanding/topdressing, and SOD installation while paying attention to drainage and irrigation coverage. The result is an instantly green yard that drains correctly, feels level underfoot, and is easier to maintain over time."
+      longDescription: "Our land-leveling and SOD services reshape problem yards with our in-house Bobcat track loader — full regrades, dirt work, cut-and-fill, and slope correction — then fine grading, sanding/topdressing, and SOD installation. We pay attention to drainage and irrigation coverage so the result drains correctly, feels level underfoot, and stays easier to maintain."
     },
     {
       icon: <CloudRain size={32} />,

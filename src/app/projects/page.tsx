@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import HeroSection from '@/components/HeroSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import CTA from '@/components/CTA';
@@ -20,10 +21,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, category, description,
   return (
     <div className="bg-white rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
       <div className="relative h-64">
-        <img 
+        <Image 
           src={image} 
           alt={title} 
-          className="w-full h-full object-cover"
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className="object-cover"
         />
         <div className="absolute inset-0 bg-irrigation-blue bg-opacity-30"></div>
         <div className="absolute top-4 left-4 bg-irrigation-green text-white rounded-full px-4 py-1 text-sm font-medium">

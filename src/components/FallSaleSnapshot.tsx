@@ -60,7 +60,7 @@ export default function FallSaleSnapshot() {
             iconClass="bg-amber-100 text-amber-800"
             title="SOD Installation & Land Leveling — 10% Off All Winter"
             badge="Winter-Long Special"
-            desc="Winter-long special on professional SOD install, sanding/topdressing, and grading to fix low spots, improve drainage, and give you an instantly green lawn before spring."
+            desc="Winter-long special on Bobcat land leveling, grading, sanding/topdressing, and SOD install to fix low spots, improve drainage, and give you an instantly green lawn before spring."
           />
 
           <SnapshotCard
