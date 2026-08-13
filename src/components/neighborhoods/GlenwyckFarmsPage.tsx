@@ -110,17 +110,17 @@ export default function GlenwyckFarmsPage() {
           {
             name: 'Vaquero',
             description: 'Irrigation and drainage service for estate homes in Westlake\'s Vaquero community with similar large-lot and clay-soil conditions.',
-            link: '/westlake'
+            link: '/westlake/vaquero'
+          },
+          {
+            name: 'Terra Bella',
+            description: 'Sprinkler and drainage support for gated Westlake estate lots beside a nature preserve.',
+            link: '/westlake/terra-bella'
           },
           {
             name: 'Entrada',
             description: 'Sprinkler repair and outdoor lighting support for Westlake homes along the Entrada corridor.',
-            link: '/westlake'
-          },
-          {
-            name: 'Southlake',
-            description: 'Sprinkler repair, drainage planning, and irrigation service for neighboring Southlake properties sharing North Texas clay conditions.',
-            link: '/westlake'
+            link: '/westlake/entrada'
           }
         ]}
         popularServices={[

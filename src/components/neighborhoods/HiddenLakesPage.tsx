@@ -99,7 +99,7 @@ export default function HiddenLakesPage() {
       relatedAreas={[
         { name: 'Marshall Ridge', description: 'HOA-focused irrigation tuning and seasonal checkups.', link: '/keller/marshall-ridge' },
         { name: 'Oakmont', description: 'Repairs and drainage strategies for clay-heavy soil.', link: '/keller/oakmont' },
-        { name: 'Ridgewood', description: 'Fast sprinkler diagnostics and system tune-ups.', link: '/keller' }
+        { name: 'Ridgewood', description: 'Fast sprinkler diagnostics and system tune-ups.', link: '/keller/ridgewood' }
       ]}
       popularServices={[
         {

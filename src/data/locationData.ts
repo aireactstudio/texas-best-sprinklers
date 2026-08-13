@@ -83,8 +83,16 @@ export const locationData = {
         description: 'Targeted repairs and drainage upgrades for clay-heavy soil conditions and seasonal heat stress.',
         link: '/keller/oakmont'
       },
-      'Ridgewood',
-      'Highland Oaks'
+      {
+        name: 'Ridgewood',
+        description: 'Sprinkler repair, irrigation diagnostics, and drainage planning for established Ridgewood homes in Keller.',
+        link: '/keller/ridgewood'
+      },
+      {
+        name: 'Highland Oaks',
+        description: 'Irrigation repair and drainage support for established treed lots near Rufe Snow Drive and North Tarrant Parkway.',
+        link: '/keller/highland-oaks'
+      }
     ],
     serviceAreas: ['Southlake', 'Colleyville', 'Watauga', 'North Richland Hills'],
     coordinates: {
@@ -237,15 +245,31 @@ export const locationData = {
     distanceFromOffice: 31,
     landmarks: ['Solana Business Park', 'Westlake Academy', 'Vaquero Golf Club'],
     neighborhoods: [
-      'Vaquero',
-      'Granada',
-      'Terra Bella',
+      {
+        name: 'Vaquero',
+        description: 'Estate-lot irrigation, drainage, and lighting support for Westlake’s guard-gated golf community.',
+        link: '/westlake/vaquero'
+      },
+      {
+        name: 'Granada',
+        description: 'Sprinkler repair, seasonal controller tuning, and drainage planning for luxury homes near Dove Road and Solana.',
+        link: '/westlake/granada'
+      },
+      {
+        name: 'Terra Bella',
+        description: 'Irrigation and drainage service for gated one-acre wooded lots beside Westlake’s nature preserve.',
+        link: '/westlake/terra-bella'
+      },
       {
         name: 'Glenwyck Farms',
         description: 'Sprinkler repair, irrigation tuning, drainage planning, and lighting support for Glenwyck Farms homeowners in Westlake, TX.',
         link: '/westlake/glenwyck-farms'
       },
-      'Entrada'
+      {
+        name: 'Entrada',
+        description: 'Precise irrigation, drip conversion, and courtyard drainage for Entrada villas, townhomes, and canal-adjacent homes.',
+        link: '/westlake/entrada'
+      }
     ],
     coordinates: {
       latitude: 32.9918,
