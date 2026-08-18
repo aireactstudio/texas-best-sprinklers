@@ -1,3 +1,5 @@
+import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import Link from 'next/link';
 import { Wrench } from 'lucide-react';
 import { ServiceType } from '@/data/serviceTypes';
@@ -5,9 +7,13 @@ import ServicePageLayout from '@/components/templates/ServicePageLayout';
 import ServiceAreaLocator from '@/components/ServiceAreaLocator';
 import CTA from '@/components/CTA';
 
-export const metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Sprinkler Repair Services | Texas Best Sprinklers',
-};
+  description:
+    'Broken heads, leaks, stuck valves, and dry spots fixed across Fort Worth and surrounding cities. Licensed irrigators, same-week scheduling.',
+  path: '/services/sprinkler-repair',
+  image: 'sprinkler',
+});
 
 export default function SprinklerRepairPage() {
   // Service data for the template

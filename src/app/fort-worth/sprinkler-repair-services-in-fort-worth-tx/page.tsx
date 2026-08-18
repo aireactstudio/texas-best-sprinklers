@@ -1,14 +1,17 @@
+import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import ServicePageLayout from '@/components/templates/ServicePageLayout';
 import { Wrench, Droplet, Sprout, ClipboardList, Repeat2 } from 'lucide-react';
 import CityServicesList from '@/components/CityServicesList';
 import ServiceAreaLocator from '@/components/ServiceAreaLocator';
 import CTA from '@/components/CTA';
 
-export const metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Sprinkler Repair Services in Fort Worth, TX | Texas Best Sprinklers',
-  description:
-    'Expert sprinkler repairs in Fort Worth, TX. We repair heads, valves, leaks, wiring, timers, and more for all major brands.',
-};
+  description: "Expert sprinkler repairs in Fort Worth, TX. We repair heads, valves, leaks, wiring, timers, and more for all major brands.",
+  path: '/fort-worth/sprinkler-repair-services-in-fort-worth-tx',
+  image: 'sprinkler',
+});
 
 export default function SprinklerRepairFortWorthPage() {
   return (

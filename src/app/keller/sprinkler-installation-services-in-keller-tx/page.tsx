@@ -1,3 +1,5 @@
+import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import Script from "next/script";
 import React from "react";
 import { getLocationData } from "@/data/locationData";
@@ -7,11 +9,12 @@ import ServiceAreaLocator from "@/components/ServiceAreaLocator";
 import CTA from "@/components/CTA";
 import { ServiceType } from "@/data/serviceTypes";
 
-export const metadata = {
-  title: "Sprinkler Installation in Keller, TX | Texas Best Sprinklers",
-  description:
-    "Professional sprinkler installation in Keller, TX. Custom-designed irrigation systems for North Texas clay soils and water restrictions. Efficient coverage, smart controllers, and clean installs.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: 'Sprinkler Installation in Keller, TX | Texas Best Sprinklers',
+  description: "Professional sprinkler installation in Keller, TX. Custom-designed irrigation systems for North Texas clay soils and water restrictions. Efficient coverage, smart controllers, and clean installs.",
+  path: '/keller/sprinkler-installation-services-in-keller-tx',
+  image: 'sprinkler',
+});
 
 export default function Page() {
   const { name, neighborhoods } = getLocationData("keller");

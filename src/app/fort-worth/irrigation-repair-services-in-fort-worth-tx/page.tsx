@@ -1,14 +1,17 @@
+import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import ServicePageLayout from '@/components/templates/ServicePageLayout';
 import { Wrench, Droplet, Sprout, ClipboardList, Repeat2 } from 'lucide-react';
 import CityServicesList from '@/components/CityServicesList';
 import ServiceAreaLocator from '@/components/ServiceAreaLocator';
 import CTA from '@/components/CTA';
 
-export const metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Irrigation Repair Services in Fort Worth, TX | Texas Best Sprinklers',
-  description:
-    'Fast, reliable irrigation and sprinkler system repairs in Fort Worth, TX. We fix leaks, broken heads, valves, controllers, and more.',
-};
+  description: "Fast, reliable irrigation and sprinkler system repairs in Fort Worth, TX. We fix leaks, broken heads, valves, controllers, and more.",
+  path: '/fort-worth/irrigation-repair-services-in-fort-worth-tx',
+  image: 'sprinkler',
+});
 
 export default function IrrigationRepairFortWorthPage() {
   return (

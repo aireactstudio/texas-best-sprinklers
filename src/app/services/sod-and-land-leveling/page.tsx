@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import {
   Sprout,
   Tractor,
@@ -46,31 +47,12 @@ const LEVELING_PHOTOS = [
   },
 ];
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'SOD Installation & Land Leveling | Texas Best Sprinklers',
-  description:
-    'Professional land leveling, Bobcat track loader grading, dirt work, and SOD installation in Fort Worth and surrounding DFW cities. Fix low spots, improve drainage, and get a smooth, green lawn.',
-  openGraph: {
-    title: 'SOD Installation & Land Leveling | Texas Best Sprinklers',
-    description:
-      'In-house Bobcat track loader grading, land leveling, site prep, and SOD installation for North Texas yards — built to drain correctly and look finished.',
-    url: 'https://sprinkleranddrains.com/services/sod-and-land-leveling',
-    type: 'website',
-    images: [
-      {
-        url: `https://sprinkleranddrains.com${BOBCAT_FRONT}`,
-        alt: 'Texas Best Sprinklers Bobcat T450 track loader for land leveling',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'SOD Installation & Land Leveling | Texas Best Sprinklers',
-    description:
-      'Bobcat track loader land leveling, grading, dirt work, and SOD installation across Fort Worth and nearby cities.',
-    images: [`https://sprinkleranddrains.com${BOBCAT_FRONT}`],
-  },
-};
+  description: "Professional land leveling, Bobcat track loader grading, dirt work, and SOD installation in Fort Worth and surrounding DFW cities. Fix low spots, improve drainage, and get a smooth, green lawn.",
+  path: '/services/sod-and-land-leveling',
+  image: 'leveling',
+});
 
 const equipmentCapabilities = [
   {

@@ -1,3 +1,5 @@
+import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import { Waves } from 'lucide-react';
 import { ServiceType } from '@/data/serviceTypes';
 import ServicePageLayout from '@/components/templates/ServicePageLayout';
@@ -5,9 +7,11 @@ import ServiceAreaLocator from '@/components/ServiceAreaLocator';
 import CTA from '@/components/CTA';
 import DrainPromo from '@/components/DrainPromo';
 
-export const metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Channel Drains & Catch Basins | Texas Best Sprinklers',
-};
+  path: '/services/channel-drains',
+  image: 'drainage',
+});
 
 export default function ChannelDrainsPage() {
   // Service data for the template

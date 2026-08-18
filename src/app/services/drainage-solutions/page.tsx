@@ -1,3 +1,5 @@
+import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import Link from 'next/link';
 import Image from 'next/image';
 import { CloudRain } from 'lucide-react';
@@ -7,9 +9,13 @@ import ServiceAreaLocator from '@/components/ServiceAreaLocator';
 import CTA from '@/components/CTA';
 import DrainPromo from '@/components/DrainPromo';
 
-export const metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Drainage Solutions & French Drains | Texas Best Sprinklers',
-};
+  description:
+    'French drains, catch basins, and yard drainage built for North Texas clay. Stop pooling water and protect your foundation.',
+  path: '/services/drainage-solutions',
+  image: 'drainage',
+});
 
 export default function DrainageSolutionsPage() {
   // Service data for the template

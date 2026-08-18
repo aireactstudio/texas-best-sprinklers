@@ -3,7 +3,8 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import LocationHomepage from '@/components/location-homepages/LocationHomepage';
 import { getLocationData, isValidLocation } from '@/data/locationData';
-import { SITE_CONFIG } from '@/config/site';
+import { pageMetadata } from '@/lib/seo';
+import type { OgImageKey } from '@/lib/ogCard';
 
 interface LocationPageProps {
   params: { location: string };
@@ -27,37 +28,19 @@ export async function generateMetadata({ params }: LocationPageProps): Promise<M
     };
   }
 
-  const { name: locationName, landmarks, nearestOffice, distanceFromOffice } = locationData;
+  const { name: locationName } = locationData;
+  const title = `${locationName} Sprinkler & Irrigation Services | Texas Best Sprinklers`;
+  const description = `Professional sprinkler installation, repair & maintenance in ${locationName}, TX. Texas Best Sprinklers provides expert irrigation services for ${locationName} homes and businesses. Licensed & insured with 15+ years experience.`;
+  const image: OgImageKey = location === 'southlake' ? 'lighting' : 'sprinkler';
 
   return {
-    title: `${locationName} Sprinkler & Irrigation Services | Texas Best Sprinklers`,
-    description: `Professional sprinkler installation, repair & maintenance in ${locationName}, TX. Texas Best Sprinklers provides expert irrigation services for ${locationName} homes and businesses. Licensed & insured with 15+ years experience.`,
+    ...pageMetadata({
+      title,
+      description,
+      path: `/${location}`,
+      image,
+    }),
     keywords: `sprinkler installation ${locationName}, irrigation repair ${locationName}, sprinkler system ${locationName}, lawn sprinklers ${locationName}, Texas Best Sprinklers`,
-    alternates: {
-      canonical: `https://sprinkleranddrains.com/${location}`
-    },
-    openGraph: {
-      title: `${locationName} Sprinkler & Irrigation Services | ${SITE_CONFIG.fullName}`,
-      description: `Professional sprinkler installation, repair & maintenance in ${locationName}, TX. Licensed & insured with 15+ years experience.`,
-      url: `https://sprinkleranddrains.com/${location}`,
-      siteName: SITE_CONFIG.fullName,
-      images: [
-        {
-          url: 'https://sprinkleranddrains.com/assets/images/optimized/hero-background.webp',
-          width: 1200,
-          height: 630,
-          alt: `${locationName} Sprinkler Services`
-        }
-      ],
-      locale: 'en_US',
-      type: 'website',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: `${locationName} Sprinkler & Irrigation Services | Texas Best Sprinklers`,
-      description: `Professional sprinkler installation, repair & maintenance in ${locationName}, TX. Licensed & insured.`,
-      images: ['https://sprinkleranddrains.com/assets/images/optimized/hero-background.webp'],
-    },
     robots: {
       index: true,
       follow: true,

@@ -1,12 +1,16 @@
+import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import { Settings } from 'lucide-react';
 import { ServiceType } from '@/data/serviceTypes';
 import ServicePageLayout from '@/components/templates/ServicePageLayout';
 import ServiceAreaLocator from '@/components/ServiceAreaLocator';
 import CTA from '@/components/CTA';
 
-export const metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Irrigation System Maintenance | Texas Best Sprinklers',
-};
+  path: '/services/maintenance',
+  image: 'sprinkler',
+});
 
 export default function MaintenancePage() {
   // Service data for the template

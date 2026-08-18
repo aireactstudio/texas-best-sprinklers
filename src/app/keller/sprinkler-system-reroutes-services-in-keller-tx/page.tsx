@@ -1,3 +1,5 @@
+import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import Script from "next/script";
 import React from "react";
 import { getLocationData } from "@/data/locationData";
@@ -7,11 +9,12 @@ import ServiceAreaLocator from "@/components/ServiceAreaLocator";
 import CTA from "@/components/CTA";
 import { ServiceType } from "@/data/serviceTypes";
 
-export const metadata = {
-  title: "Sprinkler System Reroutes in Keller, TX | Texas Best Sprinklers",
-  description:
-    "Professional sprinkler system reroutes in Keller, TX. Adjust zones for remodels, pools, patios, new beds, and landscape changes with clean, efficient results.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: 'Sprinkler System Reroutes in Keller, TX | Texas Best Sprinklers',
+  description: "Professional sprinkler system reroutes in Keller, TX. Adjust zones for remodels, pools, patios, new beds, and landscape changes with clean, efficient results.",
+  path: '/keller/sprinkler-system-reroutes-services-in-keller-tx',
+  image: 'sprinkler',
+});
 
 export default function Page() {
   const { name } = getLocationData("keller");

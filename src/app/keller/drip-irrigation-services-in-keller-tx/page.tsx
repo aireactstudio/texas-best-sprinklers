@@ -1,3 +1,5 @@
+import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import Script from "next/script";
 import React from "react";
 import { getLocationData } from "@/data/locationData";
@@ -7,11 +9,12 @@ import ServiceAreaLocator from "@/components/ServiceAreaLocator";
 import CTA from "@/components/CTA";
 import { ServiceType } from "@/data/serviceTypes";
 
-export const metadata = {
-  title: "Drip Irrigation in Keller, TX | Texas Best Sprinklers",
-  description:
-    "Efficient drip irrigation in Keller, TX for beds, foundations, and water-wise landscapes. Reduce runoff, target roots, and meet watering guidelines.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: 'Drip Irrigation in Keller, TX | Texas Best Sprinklers',
+  description: "Efficient drip irrigation in Keller, TX for beds, foundations, and water-wise landscapes. Reduce runoff, target roots, and meet watering guidelines.",
+  path: '/keller/drip-irrigation-services-in-keller-tx',
+  image: 'sprinkler',
+});
 
 export default function Page() {
   const { name } = getLocationData("keller");

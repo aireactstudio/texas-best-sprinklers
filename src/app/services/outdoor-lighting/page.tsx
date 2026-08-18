@@ -1,3 +1,5 @@
+import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import Image from 'next/image';
 import Script from 'next/script';
 import { CloudSun } from 'lucide-react';
@@ -29,9 +31,13 @@ const LIGHTING_PHOTOS = [
   },
 ];
 
-export const metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Outdoor Lighting Services | Texas Best Sprinklers',
-};
+  description:
+    'Architectural LED lighting for North Texas homes: wall-washing, tree uplights, path lighting, and driveway lanterns. See a recent Southlake install.',
+  path: '/services/outdoor-lighting',
+  image: 'lighting',
+});
 
 const lightingPhotoSchema = {
   '@context': 'https://schema.org',

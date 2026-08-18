@@ -1,14 +1,17 @@
+import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import ServicePageLayout from '@/components/templates/ServicePageLayout';
 import { Droplet, Wrench, Sprout, ClipboardList, Repeat2 } from 'lucide-react';
 import CityServicesList from '@/components/CityServicesList';
 import ServiceAreaLocator from '@/components/ServiceAreaLocator';
 import CTA from '@/components/CTA';
 
-export const metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Drip Irrigation Services in Fort Worth, TX | Texas Best Sprinklers',
-  description:
-    'Professional drip irrigation design and installation in Fort Worth, TX. Improve water efficiency and plant health with custom drip systems.',
-};
+  description: "Professional drip irrigation design and installation in Fort Worth, TX. Improve water efficiency and plant health with custom drip systems.",
+  path: '/fort-worth/drip-irrigation-services-in-fort-worth-tx',
+  image: 'sprinkler',
+});
 
 export default function DripIrrigationFortWorthPage() {
   return (

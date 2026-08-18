@@ -1,21 +1,16 @@
 import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import Image from 'next/image';
 import { Trees } from 'lucide-react';
 import ServicePageLayout from '@/components/templates/ServicePageLayout';
 import CTA from '@/components/CTA';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Landscaping Installation | Texas Best Sprinklers',
-  description:
-    'Professional landscaping installation services in Fort Worth and surrounding North Texas cities, including hardscape construction, retaining walls, sod installation, softscape design, and water features.',
-  openGraph: {
-    title: 'Landscaping Installation | Texas Best Sprinklers',
-    description:
-      'Upgrade your outdoor space with complete landscaping installation services built for North Texas homes.',
-    url: 'https://sprinkleranddrains.com/services/landscaping-installation',
-    type: 'website',
-  },
-};
+  description: "Professional landscaping installation services in Fort Worth and surrounding North Texas cities, including hardscape construction, retaining walls, sod installation, softscape design, and water features.",
+  path: '/services/landscaping-installation',
+  image: 'landscaping',
+});
 
 const landscapingServices = [
   {

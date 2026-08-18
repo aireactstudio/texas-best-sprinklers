@@ -1,12 +1,18 @@
+import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import { Droplet } from 'lucide-react';
 import { ServiceType } from '@/data/serviceTypes';
 import ServicePageLayout from '@/components/templates/ServicePageLayout';
 import ServiceAreaLocator from '@/components/ServiceAreaLocator';
 import CTA from '@/components/CTA';
 
-export const metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Sprinkler System Installation | Texas Best Sprinklers',
-};
+  description:
+    'Custom sprinkler installation for North Texas clay, heat, and watering rules. Smart controllers, even coverage, and clean professional installs.',
+  path: '/services/sprinkler-installation',
+  image: 'sprinkler',
+});
 
 export default function SprinklerInstallationPage() {
   // Service data for the template

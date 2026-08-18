@@ -1,12 +1,16 @@
+import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import { GitFork } from 'lucide-react';
 import { ServiceType } from '@/data/serviceTypes';
 import ServicePageLayout from '@/components/templates/ServicePageLayout';
 import ServiceAreaLocator from '@/components/ServiceAreaLocator';
 import CTA from '@/components/CTA';
 
-export const metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Sprinkler System Reroutes | Texas Best Sprinklers',
-};
+  path: '/services/sprinkler-system-reroutes',
+  image: 'sprinkler',
+});
 
 export default function SprinklerSystemReroutesPage() {
   // Service data for the template
