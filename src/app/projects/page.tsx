@@ -1,12 +1,81 @@
 'use client';
 
-import Link from 'next/link';
 import Image from 'next/image';
+import Script from 'next/script';
 import HeroSection from '@/components/HeroSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import CTA from '@/components/CTA';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { Droplet, CloudRain, CloudSun } from 'lucide-react';
+
+const LIGHTING_PROJECT_PHOTOS = [
+  {
+    src: '/assets/images/optimized/lighting/3419.webp',
+    alt: 'Southlake driveway lighting with lantern pillars, tree uplights, and a wall-washed brick home',
+  },
+  {
+    src: '/assets/images/optimized/lighting/3417.webp',
+    alt: 'Southlake architectural uplighting on a white brick home, chimney, and arched entry at night',
+  },
+  {
+    src: '/assets/images/optimized/lighting/3418.webp',
+    alt: 'Southlake wall-wash LED columns and eave lighting along a white brick facade at twilight',
+  },
+  {
+    src: '/assets/images/optimized/lighting/3420.webp',
+    alt: 'Southlake foundation uplights washing light brick and a black-framed window',
+  },
+];
+
+const lightingProjectSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Project',
+  name: 'White Brick Architectural Lighting — Southlake, TX',
+  description:
+    'Residential outdoor lighting installation with architectural wall-washing, chimney accents, tree uplights, and driveway lanterns on a white brick home in Southlake, TX.',
+  image: LIGHTING_PROJECT_PHOTOS.map((photo) => `https://sprinkleranddrains.com${photo.src}`),
+  provider: {
+    '@type': 'HomeAndConstructionBusiness',
+    name: 'Texas Best Sprinklers',
+    telephone: '(817) 304-7896',
+    url: 'https://sprinkleranddrains.com',
+  },
+  areaServed: {
+    '@type': 'Place',
+    name: 'Southlake, TX',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Southlake',
+      addressRegion: 'TX',
+      addressCountry: 'US',
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 32.9414,
+      longitude: -97.1342,
+    },
+  },
+  about: LIGHTING_PROJECT_PHOTOS.map((photo) => ({
+    '@type': 'Photograph',
+    contentUrl: `https://sprinkleranddrains.com${photo.src}`,
+    description: photo.alt,
+    contentLocation: {
+      '@type': 'Place',
+      name: 'Southlake, TX',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Southlake',
+        addressRegion: 'TX',
+        addressCountry: 'US',
+      },
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: 32.9414,
+        longitude: -97.1342,
+      },
+    },
+  })),
+};
 
 interface ProjectCardProps {
   title: string;
@@ -62,6 +131,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, category, description,
 export default function Projects() {
   return (
     <>
+      <Script id="ld-lighting-project" type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify(lightingProjectSchema)}
+      </Script>
+
       {/* Hero Section */}
       <HeroSection 
         title="Featured Irrigation Projects" 
@@ -80,6 +153,57 @@ export default function Projects() {
               Browse through our recently completed irrigation, drainage, and outdoor lighting projects to see how we transform properties throughout Fort Worth and Weatherford.
             </p>
           </div>
+
+          <article className="mb-16 overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-lg">
+            <div className="grid grid-cols-2 md:grid-cols-4">
+              {LIGHTING_PROJECT_PHOTOS.map((photo, index) => (
+                <div key={photo.src} className={`relative ${index === 0 ? 'col-span-2 aspect-[16/10] md:col-span-2 md:row-span-2 md:aspect-auto md:min-h-[360px]' : 'aspect-[4/3] md:aspect-auto'}`}>
+                  <Image
+                    src={photo.src}
+                    alt={photo.alt}
+                    fill
+                    quality={75}
+                    className="object-cover"
+                    sizes={index === 0 ? '(max-width: 768px) 100vw, 50vw' : '(max-width: 768px) 50vw, 25vw'}
+                  />
+                </div>
+              ))}
+            </div>
+            <div className="p-6 md:p-8">
+              <div className="mb-4 flex flex-wrap items-center gap-3">
+                <span className="rounded-full bg-irrigation-green px-4 py-1 text-sm font-medium text-white">
+                  Outdoor Lighting
+                </span>
+                <span className="text-sm font-medium text-irrigation-blue">Southlake, TX</span>
+              </div>
+              <div className="mb-4 flex items-center">
+                <div className="mr-3 flex h-10 w-10 items-center justify-center rounded-full bg-irrigation-green/20 text-irrigation-green">
+                  <CloudSun size={24} />
+                </div>
+                <h3 className="text-2xl font-bold text-irrigation-blue">
+                  White Brick Architectural Lighting
+                </h3>
+              </div>
+              <p className="mb-5 max-w-4xl text-gray-700">
+                Layered LED lighting for a white-brick home in Southlake: wall-washing that shows masonry
+                texture, chimney and entry accents, tree uplights, and lantern-topped driveway pillars.
+              </p>
+              <h4 className="mb-2 font-semibold text-irrigation-blue">Results:</h4>
+              <ul className="grid gap-2 sm:grid-cols-2">
+                {[
+                  'Warm wall-wash coverage across the brick facade',
+                  'Chimney and arched entry used as nighttime focal points',
+                  'Tree and driveway lighting that frames the approach',
+                  'Low-voltage LEDs with fixtures hidden in foundation beds',
+                ].map((result) => (
+                  <li key={result} className="flex items-start text-gray-700">
+                    <span className="mr-2 text-irrigation-green">✓</span>
+                    <span>{result}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </article>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <ProjectCard 

@@ -18,6 +18,34 @@ import CTA from '@/components/CTA';
 const BOBCAT_FRONT = '/assets/images/optimized/bobcat/bobcat-t450-front.jpg';
 const BOBCAT_SIDE = '/assets/images/optimized/bobcat/bobcat-t450-side.jpg';
 
+const LEVELING_PHOTOS = [
+  {
+    src: '/assets/images/optimized/leveling/3409.webp',
+    alt: 'Freshly graded gravel drive with a riprap drainage swale leading toward a lakeside lot',
+    caption: 'Track-loader grading on a sloped access drive, with a rock-lined swale to carry runoff',
+  },
+  {
+    src: '/assets/images/optimized/leveling/3410.webp',
+    alt: 'Compacted gravel access path with a crushed-stone shoulder after track-loader grading',
+    caption: 'Even compacted surface and a defined stone shoulder after cut-and-fill work',
+  },
+  {
+    src: '/assets/images/optimized/leveling/3412.webp',
+    alt: 'Concrete catch basin set in riprap to collect runoff at the base of a graded slope',
+    caption: 'Catch basin inlet surrounded by riprap so water drops in without washing out the bank',
+  },
+  {
+    src: '/assets/images/optimized/leveling/3411.webp',
+    alt: 'Catch basin and riprap inlet at the bottom of a graded lakeside driveway',
+    caption: 'Finished grade at the low point, with drainage structure and gravel drive working together',
+  },
+  {
+    src: '/assets/images/optimized/leveling/3413.webp',
+    alt: 'Riprap-lined drainage ditch feeding a catch basin beside a leveled gravel path',
+    caption: 'Uphill riprap channel that collects slope runoff and feeds the basin',
+  },
+];
+
 export const metadata: Metadata = {
   title: 'SOD Installation & Land Leveling | Texas Best Sprinklers',
   description:
@@ -71,6 +99,7 @@ const projectTypes = [
   'Full-yard regrades and land leveling',
   'Fixing low spots, pooling, and soggy corners',
   'Slope correction away from the foundation',
+  'Driveway and access-road grading',
   'Dirt work and site prep for new builds',
   'Grading before SOD, hardscape, or drainage',
   'Hauling and spreading fill or topsoil',
@@ -170,6 +199,38 @@ export default function SodAndLandLevelingPage() {
           </div>
         </div>
 
+        <div className="mb-12">
+          <h2 className="mb-4 text-2xl font-bold text-irrigation-blue md:text-3xl">
+            Recent Land Leveling & Slope Drainage Work
+          </h2>
+          <p className="mb-6 text-lg leading-relaxed text-gray-800">
+            On sloped lots, land leveling is more than a smooth surface. We cut and compact the drive, set a consistent
+            grade, and install the drainage that keeps rain from chewing out the edge. These photos show a gravel access
+            path, a riprap-lined swale, and a concrete catch basin at the low point — the same combination we use when a
+            yard or driveway needs to shed water without washing soil downhill.
+          </p>
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6">
+            {LEVELING_PHOTOS.map((photo) => (
+              <figure
+                key={photo.src}
+                className="overflow-hidden rounded-xl border border-gray-200 bg-gray-100 shadow-md"
+              >
+                <div className="relative aspect-[3/4] w-full">
+                  <Image
+                    src={photo.src}
+                    alt={photo.alt}
+                    fill
+                    quality={75}
+                    className="object-cover"
+                    sizes="(max-width: 768px) 50vw, 33vw"
+                  />
+                </div>
+                <figcaption className="px-3 py-2 text-xs text-gray-600">{photo.caption}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+
         <div className="mb-10">
           <h2 className="mb-4 text-2xl font-bold text-irrigation-blue md:text-3xl">
             Land Leveling That Actually Moves Dirt
@@ -220,8 +281,10 @@ export default function SodAndLandLevelingPage() {
           <p className="text-lg leading-relaxed text-gray-800">
             North Texas clay and settling around the foundation create low spots, trip hazards, and areas where water just will
             not leave. We grade and level so water moves away from the house and high-use areas, then tie into French drains,
-            surface drains, or other drainage work when the property needs it. The goal is simple: water goes where it should,
-            the lawn looks finished, and irrigation and drainage both work better.
+            surface drains, catch basins, or other drainage work when the property needs it. On steeper drives and lakeside
+            slopes, that often means a compacted gravel surface, a riprap-lined swale, and an inlet at the low point so runoff
+            does not ravel the bank. The goal is simple: water goes where it should, the lawn or drive looks finished, and
+            irrigation and drainage both work better.
           </p>
         </div>
 
@@ -235,8 +298,42 @@ export default function SodAndLandLevelingPage() {
           <p className="text-lg leading-relaxed text-gray-800">
             Once the grade is right, we install premium SOD matched to North Texas conditions and your specific site. We lay
             SOD in a staggered pattern, tight to seams and edges, then roll and water in the new lawn so it can start rooting
-            quickly. Heads, valves, and zones get adjusted for the new turf so coverage is even from day one.
+            quickly. Heads, valves, and zones get adjusted for the new turf so coverage is even from day one. Tight side yards
+            and patio-adjacent turf still need a clean edge, a level base, and a place for downspout water to go — otherwise
+            the new lawn stays soggy along the fence and hardscape.
           </p>
+          <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
+            <figure className="overflow-hidden rounded-xl border border-gray-200 bg-gray-100 shadow-md">
+              <div className="relative aspect-[3/4] w-full">
+                <Image
+                  src="/assets/images/optimized/turf/3245.webp"
+                  alt="Finished even turf lawn with a dark brick garden border, mulched planting bed, and evergreen hedges"
+                  fill
+                  quality={75}
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+              <figcaption className="px-4 py-3 text-sm text-gray-600">
+                Finished turf with a crisp brick bed border — even color, a flat grade, and plantings set above the lawn.
+              </figcaption>
+            </figure>
+            <figure className="overflow-hidden rounded-xl border border-gray-200 bg-gray-100 shadow-md">
+              <div className="relative aspect-[4/3] w-full">
+                <Image
+                  src="/assets/images/optimized/turf/3246.webp"
+                  alt="Side-yard turf installation bordered by a wood fence, brick planter wall, and a downspout tied into a drainage pipe"
+                  fill
+                  quality={75}
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+              <figcaption className="px-4 py-3 text-sm text-gray-600">
+                Compact turf pad with drainage built in: downspout to corrugated pipe and a clean-out in the lawn so water does not sit on the surface.
+              </figcaption>
+            </figure>
+          </div>
         </div>
 
         <div className="mb-10">

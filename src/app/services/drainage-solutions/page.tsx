@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { CloudRain } from 'lucide-react';
 import { ServiceType } from '@/data/serviceTypes';
 import ServicePageLayout from '@/components/templates/ServicePageLayout';
@@ -58,6 +59,21 @@ export default function DrainageSolutionsPage() {
               See our dedicated French drain service.
             </Link>
           </p>
+          <figure className="mt-6 max-w-md overflow-hidden rounded-xl border border-gray-200 bg-gray-100 shadow-md">
+            <div className="relative h-64 w-full sm:h-72">
+              <Image
+                src="/assets/images/optimized/drainage/3249.webp"
+                alt="French drain gravel trench between a white brick foundation and a concrete driveway, with a downspout tied into the drain"
+                fill
+                quality={75}
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 448px"
+              />
+            </div>
+            <figcaption className="px-4 py-3 text-sm text-gray-600">
+              Tight side-yard French drain: gravel trench, clean driveway edge, and a downspout tied in so roof water never sits against the foundation.
+            </figcaption>
+          </figure>
         </div>
         
         <div className="mb-10">

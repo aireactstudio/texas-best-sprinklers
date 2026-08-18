@@ -13,34 +13,15 @@ const images = [
     alt: "Fort Worth drainage long shot"
   },
   {
-    mobile: "https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/gutter-shot.webp?tr=w-640,q-70&updatedAt=1763144536860",
-    desktop: "https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/gutter-shot.webp?tr=w-1140,q-70&updatedAt=1763144536860",
-    alt: "Downspout and gutter connection"
+    mobile: "/assets/images/optimized/lighting/3419.webp",
+    desktop: "/assets/images/optimized/lighting/3419.webp",
+    alt: "Southlake driveway lighting with lantern pillars, tree uplights, and a wall-washed brick home",
+    wide: true
   },
   {
-    mobile: "https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/trencher.webp?tr=w-800,q-70&updatedAt=1763144537647",
-    desktop: "https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/trencher.webp?tr=w-800,q-70&updatedAt=1763144537647",
-    alt: "Trencher equipment for drainage"
-  },
-  {
-    mobile: "https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/massive-drainage-project.webp?tr=w-640,q-70&updatedAt=1763144537814",
-    desktop: "https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/massive-drainage-project.webp?tr=w-1140,q-70&updatedAt=1763144537814",
-    alt: "Large drainage installation"
-  },
-  {
-    mobile: "https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/sprinklerHead.webp?tr=w-640,q-70&updatedAt=1763144537428",
-    desktop: "https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/sprinklerHead.webp?tr=w-1140,q-70&updatedAt=1763144537428",
-    alt: "Sprinkler head close-up"
-  },
-  {
-    mobile: "https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/drainage-t-off-gutter-connection.webp?tr=w-800,q-70&updatedAt=1763144537797",
-    desktop: "https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/drainage-t-off-gutter-connection.webp?tr=w-800,q-70&updatedAt=1763144537797",
-    alt: "Drainage T off gutter connection"
-  },
-  {
-    mobile: "https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/sprinkler-head-rotating.webp?tr=w-800,q-70&updatedAt=1763144537912",
-    desktop: "https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/sprinkler-head-rotating.webp?tr=w-800,q-70&updatedAt=1763144537912",
-    alt: "Sprinkler head rotating"
+    mobile: "/assets/images/optimized/leveling/3409.webp",
+    desktop: "/assets/images/optimized/leveling/3409.webp",
+    alt: "Freshly graded gravel drive with a riprap drainage swale leading toward a lakeside lot"
   },
   {
     mobile: "/assets/images/optimized/tb-1/2885.webp",
@@ -48,9 +29,53 @@ const images = [
     alt: "Freshly poured concrete walkway alongside a brick home"
   },
   {
+    mobile: "https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/sprinklerHead.webp?tr=w-640,q-70&updatedAt=1763144537428",
+    desktop: "https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/sprinklerHead.webp?tr=w-1140,q-70&updatedAt=1763144537428",
+    alt: "Sprinkler head close-up",
+    wide: true
+  },
+  {
+    mobile: "/assets/images/optimized/leveling/3412.webp",
+    desktop: "/assets/images/optimized/leveling/3412.webp",
+    alt: "Concrete catch basin set in riprap to collect runoff at the base of a graded slope"
+  },
+  {
+    mobile: "/assets/images/optimized/lighting/3417.webp",
+    desktop: "/assets/images/optimized/lighting/3417.webp",
+    alt: "Southlake architectural uplighting on a white brick home, chimney, and arched entry at night",
+    wide: true
+  },
+  {
+    mobile: "https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/gutter-shot.webp?tr=w-640,q-70&updatedAt=1763144536860",
+    desktop: "https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/gutter-shot.webp?tr=w-1140,q-70&updatedAt=1763144536860",
+    alt: "Downspout and gutter connection",
+    wide: true
+  },
+  {
+    mobile: "/assets/images/optimized/leveling/3410.webp",
+    desktop: "/assets/images/optimized/leveling/3410.webp",
+    alt: "Compacted gravel access path with a crushed-stone shoulder after track-loader grading"
+  },
+  {
     mobile: "/assets/images/optimized/tb-1/2886.webp",
     desktop: "/assets/images/optimized/tb-1/2886.webp",
     alt: "New concrete patio slab curing in a backyard"
+  },
+  {
+    mobile: "https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/trencher.webp?tr=w-800,q-70&updatedAt=1763144537647",
+    desktop: "https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/trencher.webp?tr=w-800,q-70&updatedAt=1763144537647",
+    alt: "Trencher equipment for drainage"
+  },
+  {
+    mobile: "/assets/images/optimized/lighting/3418.webp",
+    desktop: "/assets/images/optimized/lighting/3418.webp",
+    alt: "Southlake wall-wash LED columns and eave lighting along a white brick facade at twilight",
+    wide: true
+  },
+  {
+    mobile: "/assets/images/optimized/leveling/3411.webp",
+    desktop: "/assets/images/optimized/leveling/3411.webp",
+    alt: "Catch basin and riprap inlet at the bottom of a graded lakeside driveway"
   },
   {
     mobile: "/assets/images/optimized/tb-1/2888.webp",
@@ -58,9 +83,35 @@ const images = [
     alt: "Finished concrete patio with clean curved edge along a garden bed"
   },
   {
+    mobile: "https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/sprinkler-head-rotating.webp?tr=w-800,q-70&updatedAt=1763144537912",
+    desktop: "https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/sprinkler-head-rotating.webp?tr=w-800,q-70&updatedAt=1763144537912",
+    alt: "Sprinkler head rotating"
+  },
+  {
+    mobile: "/assets/images/optimized/lighting/3420.webp",
+    desktop: "/assets/images/optimized/lighting/3420.webp",
+    alt: "Southlake foundation uplights washing light brick and a black-framed window"
+  },
+  {
+    mobile: "/assets/images/optimized/leveling/3413.webp",
+    desktop: "/assets/images/optimized/leveling/3413.webp",
+    alt: "Riprap-lined drainage ditch feeding a catch basin beside a leveled gravel path"
+  },
+  {
+    mobile: "https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/massive-drainage-project.webp?tr=w-640,q-70&updatedAt=1763144537814",
+    desktop: "https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/massive-drainage-project.webp?tr=w-1140,q-70&updatedAt=1763144537814",
+    alt: "Large drainage installation",
+    wide: true
+  },
+  {
     mobile: "/assets/images/optimized/tb-1/2890.webp",
     desktop: "/assets/images/optimized/tb-1/2890.webp",
     alt: "Crew hand-finishing a wet concrete slab next to a home"
+  },
+  {
+    mobile: "https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/drainage-t-off-gutter-connection.webp?tr=w-800,q-70&updatedAt=1763144537797",
+    desktop: "https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/drainage-t-off-gutter-connection.webp?tr=w-800,q-70&updatedAt=1763144537797",
+    alt: "Drainage T off gutter connection"
   },
   {
     mobile: "/assets/images/optimized/tb-1/2892.webp",
@@ -136,7 +187,7 @@ export const ScrollingCarousel = () => {
       <div className="container-custom px-4 mb-8">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-irrigation-darkBlue mb-4">Recent Projects Gallery</h2>
         <p className="text-lg text-gray-600 text-center max-w-3xl mx-auto">
-          A look at our irrigation, drainage, and concrete work across Fort Worth and nearby cities.
+          A look at our irrigation, drainage, land leveling, outdoor lighting, and concrete work across Fort Worth and nearby cities.
         </p>
 
         <div className="flex justify-center items-center gap-3 mt-6">
@@ -163,8 +214,7 @@ export const ScrollingCarousel = () => {
       <div className="relative">
         <div ref={containerRef} className="flex items-center will-change-transform">
           {loopImages.map((image, index) => {
-            const baseIndex = index % images.length;
-            const isWide = baseIndex === 1 || baseIndex === 3 || baseIndex === 4; // gutter shot, massive drainage, sprinkler head
+            const isWide = Boolean(image.wide);
             const imageSrc = isMobile ? image.mobile : image.desktop;
             const sizes = isWide
               ? "(max-width: 768px) 320px, 570px"

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { Trees } from 'lucide-react';
 import ServicePageLayout from '@/components/templates/ServicePageLayout';
 import CTA from '@/components/CTA';
@@ -64,6 +65,21 @@ export default function LandscapingInstallationPage() {
         <p className="text-lg leading-relaxed text-gray-800">
           Texas Best Sprinklers provides full-service landscaping installation for homeowners across the Fort Worth area. Whether you are refreshing one section of your yard or building a complete outdoor environment, we install every layer with long-term performance in mind.
         </p>
+        <figure className="max-w-md overflow-hidden rounded-xl border border-gray-200 bg-gray-100 shadow-md">
+          <div className="relative h-64 w-full sm:h-72">
+            <Image
+              src="/assets/images/optimized/landscaping/3248.webp"
+              alt="Landscape bed install in progress with curved white stone edging, potted shrubs staged for planting, and a leveled side yard beside a white brick home"
+              fill
+              quality={75}
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 700px"
+            />
+          </div>
+          <figcaption className="px-4 py-3 text-sm text-gray-600">
+            Softscape in progress: curved stone edging, a prepared planting bed, and shrubs staged before they go in — the same sequence we use when a side yard needs a finished landscape, not just a plant drop.
+          </figcaption>
+        </figure>
       </section>
 
       <section className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">

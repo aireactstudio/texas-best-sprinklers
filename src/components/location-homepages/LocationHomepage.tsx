@@ -13,6 +13,7 @@ import { getLocationData } from '@/data/locationData';
 import LocationServicesAndAreas from './LocationServicesAndAreas';
 import LocationSEOArticle from './LocationSEOArticle';
 import WeatherfordFAQ from './WeatherfordFAQ';
+import SouthlakeLightingGallery from './SouthlakeLightingGallery';
 import Script from 'next/script';
 
 interface LocationHomepageProps {
@@ -70,6 +71,8 @@ export default function LocationHomepage({ locationSlug }: LocationHomepageProps
         neighborhoods={neighborhoods}
         serviceAreas={serviceAreas}
       />
+
+      {locationSlug === 'southlake' && <SouthlakeLightingGallery />}
 
       {/* Local Information & Expertise */}
       <LocationLocalInfo
