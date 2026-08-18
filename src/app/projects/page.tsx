@@ -1,12 +1,13 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import Script from 'next/script';
 import HeroSection from '@/components/HeroSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import CTA from '@/components/CTA';
 import Breadcrumbs from '@/components/Breadcrumbs';
-import { Droplet, CloudRain, CloudSun } from 'lucide-react';
+import { Droplet, CloudRain, CloudSun, Hammer, TreeDeciduous } from 'lucide-react';
 
 const LIGHTING_PROJECT_PHOTOS = [
   {
@@ -82,26 +83,28 @@ interface ProjectCardProps {
   category: string;
   description: string;
   image: string;
+  href: string;
   results: string[];
   icon: React.ReactNode;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ title, category, description, image, results, icon }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ title, category, description, image, href, results, icon }) => {
   return (
     <div className="bg-white rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-      <div className="relative h-64">
-        <Image 
-          src={image} 
-          alt={title} 
-          fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-irrigation-blue bg-opacity-30"></div>
-        <div className="absolute top-4 left-4 bg-irrigation-green text-white rounded-full px-4 py-1 text-sm font-medium">
-          {category}
+      <Link href={href} className="block">
+        <div className="relative aspect-[3/4] bg-gray-100">
+          <Image 
+            src={image} 
+            alt={title} 
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-cover object-center"
+          />
+          <div className="absolute top-4 left-4 bg-irrigation-green text-white rounded-full px-4 py-1 text-sm font-medium">
+            {category}
+          </div>
         </div>
-      </div>
+      </Link>
       <div className="p-6">
         <div className="flex items-center mb-4">
           <div className="h-10 w-10 rounded-full bg-irrigation-green bg-opacity-20 flex items-center justify-center mr-3 text-irrigation-green">
@@ -123,6 +126,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, category, description,
             ))}
           </ul>
         </div>
+        <Link href={href} className="font-semibold text-irrigation-blue hover:underline">
+          View {category} service →
+        </Link>
       </div>
     </div>
   );
@@ -202,92 +208,161 @@ export default function Projects() {
                   </li>
                 ))}
               </ul>
+              <Link href="/services/outdoor-lighting" className="mt-5 inline-block font-semibold text-irrigation-blue hover:underline">
+                View outdoor lighting service →
+              </Link>
             </div>
           </article>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <ProjectCard 
-              title="Residential Irrigation Overhaul"
-              category="Sprinkler System"
-              description="Complete redesign and installation of a water-efficient sprinkler system for a 1-acre property in Westover Hills, Fort Worth."
-              image="/assets/images/project-1.jpg"
+              title="Residential Sprinkler Installation"
+              category="Sprinkler Installation"
+              href="/services/sprinkler-installation"
+              description="New irrigation install with even coverage, pressure-regulated heads, and a controller set for North Texas heat."
+              image="https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/sprinkler-head-rotating.webp?tr=w-1140,q-70&updatedAt=1763144537912"
               results={[
-                "Reduced water usage by 35%",
-                "Improved coverage to eliminate dry spots",
-                "Added smart controller with weather adaptation",
-                "Zoned system for different plant needs"
+                "Full-yard coverage with matched precipitation",
+                "Smart scheduling for local watering days",
+                "Heads set to skip sidewalks and the slab",
+                "Walkthrough so the homeowner can run the system"
               ]}
               icon={<Droplet size={24} />}
             />
-            
+
             <ProjectCard 
-              title="Commercial Property Drainage"
-              category="Drainage Solution"
-              description="Installation of a comprehensive drainage system for a retail center in Weatherford to prevent water accumulation and parking lot flooding."
-              image="/assets/images/project-2.jpg"
+              title="Sprinkler Repair & Tune-Up"
+              category="Sprinkler Repair"
+              href="/services/sprinkler-repair"
+              description="Broken heads, leaks, and dead zones diagnosed and repaired so the existing system waters the lawn instead of the street."
+              image="https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/sprinklerHead.webp?tr=w-1140,q-70&updatedAt=1763144537428"
               results={[
-                "Eliminated standing water in parking areas",
-                "Prevented foundation issues",
-                "Improved customer accessibility during rain",
-                "Low-maintenance, self-cleaning system"
+                "Replaced failed heads and nozzles",
+                "Stopped leaks at fittings and valves",
+                "Restored coverage in dry patches",
+                "Recalibrated run times after the repair"
+              ]}
+              icon={<Droplet size={24} />}
+            />
+
+            <ProjectCard 
+              title="Yard Drainage System"
+              category="Drainage Solutions"
+              href="/services/drainage-solutions"
+              description="Full drainage layout to move stormwater off the lot, away from the foundation, and into a controlled discharge."
+              image="https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/long-shot-of-fort-worth-drainage.webp?tr=w-800,q-70&updatedAt=1763144537900"
+              results={[
+                "Cleared standing water after storms",
+                "Protected the foundation and beds",
+                "Tied roof and yard water into one path",
+                "Left the lawn usable instead of soggy"
               ]}
               icon={<CloudRain size={24} />}
             />
             
             <ProjectCard 
-              title="Smart Irrigation Conversion"
-              category="Smart Technology"
-              description="Upgrade of an existing irrigation system to incorporate smart controllers and high-efficiency components for a large residence in Tanglewood."
-              image="/assets/images/project-3.jpg"
+              title="Driveway French Drain"
+              category="French Drains"
+              href="/services/french-drains"
+              description="French drain installed between a driveway and white-brick home, tied into a downspout so roof and surface water leave the slab instead of pooling."
+              image="/assets/images/optimized/drainage/3249.webp"
               results={[
-                "Water usage reduced by 40%",
-                "Smartphone control added",
-                "Automatic weather adjustments",
-                "Integration with rain sensors"
-              ]}
-              icon={<CloudSun size={24} />}
-            />
-            
-            <ProjectCard 
-              title="New Construction Irrigation"
-              category="Sprinkler System"
-              description="Design and installation of a complete irrigation system for a newly constructed home on a half-acre lot in Aledo."
-              image="/assets/images/project-4.jpg"
-              results={[
-                "Full coverage with minimal water waste",
-                "Smart controller installation",
-                "Drip zones for garden beds",
-                "Future-ready system with expansion capability"
-              ]}
-              icon={<Droplet size={24} />}
-            />
-            
-            <ProjectCard 
-              title="HOA Common Area Upgrade"
-              category="Commercial"
-              description="Renovation of irrigation systems for all common areas in a Fort Worth homeowners association, covering multiple acres of landscape."
-              image="/assets/images/project-5.jpg"
-              results={[
-                "Reduced monthly water costs by 25%",
-                "Enhanced landscape appearance",
-                "Added central control system",
-                "Minimized maintenance requirements"
-              ]}
-              icon={<Droplet size={24} />}
-            />
-            
-            <ProjectCard 
-              title="French Drain Installation"
-              category="Drainage Solution"
-              description="Installation of an extensive French drain system for a sloped property in Weatherford experiencing severe runoff and erosion issues."
-              image="/assets/images/project-6.jpg"
-              results={[
-                "Eliminated landscape erosion",
-                "Protected home foundation",
-                "Preserved landscape plantings",
-                "Invisible solution that maintained aesthetics"
+                "Captured runoff along the driveway edge",
+                "Tied the downspout into the drain line",
+                "Protected the foundation from standing water",
+                "Kept the install tight to the hardscape"
               ]}
               icon={<CloudRain size={24} />}
+            />
+            
+            <ProjectCard 
+              title="Catch Basin & Channel Drain"
+              category="Channel Drains"
+              href="/services/channel-drains"
+              description="Concrete catch basin set in riprap to collect runoff at the bottom of a graded slope before it can sit against the drive or landscape."
+              image="/assets/images/optimized/leveling/3412.webp"
+              results={[
+                "Collected concentrated flow at the low point",
+                "Stabilized the inlet with riprap",
+                "Protected the graded path from washouts",
+                "Gave the yard a clear discharge point"
+              ]}
+              icon={<CloudRain size={24} />}
+            />
+
+            <ProjectCard 
+              title="Large-Scale Yard Drainage"
+              category="Yard Drainage"
+              href="/services/yard-drainage-systems"
+              description="Deep drainage trench and pipe work across a property that was holding water, with discharge routed off the lawn."
+              image="https://ik.imagekit.io/6j5o4uwvz/TexasBest_webp/massive-drainage-project.webp?tr=w-1140,q-70&updatedAt=1763144537814"
+              results={[
+                "Moved a high volume of stormwater",
+                "Cut a proper fall across the yard",
+                "Buried the system so the lawn could go back",
+                "Stopped water from sitting against the house"
+              ]}
+              icon={<CloudRain size={24} />}
+            />
+            
+            <ProjectCard 
+              title="Land Leveling with a Track Loader"
+              category="Land Leveling"
+              href="/services/sod-and-land-leveling"
+              description="Track-loader grading on a lakeside lot: compacted gravel drive, a riprap drainage swale, and a catch basin at the base of the slope."
+              image="/assets/images/optimized/leveling/3409.webp"
+              results={[
+                "Rebuilt the grade so water moves downhill",
+                "Armored the swale with riprap",
+                "Set a catch basin at the collection point",
+                "Left a stable gravel access path"
+              ]}
+              icon={<CloudRain size={24} />}
+            />
+            
+            <ProjectCard 
+              title="Sod After Grading"
+              category="Sod Installation"
+              href="/services/sod-and-land-leveling"
+              description="Fresh sod laid after the grade was corrected, so the lawn sits on a working slope instead of low spots that hold water."
+              image="/assets/images/optimized/turf/3245.webp"
+              results={[
+                "New turf on a corrected grade",
+                "Even coverage across the lawn",
+                "Better drainage under the sod",
+                "Ready for irrigation fine-tuning"
+              ]}
+              icon={<Droplet size={24} />}
+            />
+            
+            <ProjectCard 
+              title="Landscape Installation"
+              category="Landscaping"
+              href="/services/landscaping-installation"
+              description="Planting and bed work on a finished residential lot, with irrigation and drainage planned around the new landscape."
+              image="/assets/images/optimized/landscaping/3248.webp"
+              results={[
+                "New beds tied into the irrigation plan",
+                "Plantings placed off the foundation",
+                "Cleaned up the front-yard presentation",
+                "Room for drip zones in the beds"
+              ]}
+              icon={<TreeDeciduous size={24} />}
+            />
+            
+            <ProjectCard 
+              title="Concrete Patio"
+              category="Hardscaping"
+              href="/services/hardscaping"
+              description="Elevated backyard patio with a finished edge and a curved corner, poured beside the house and graded so water does not sit on the slab."
+              image="/assets/images/optimized/tb-1/2886.webp"
+              results={[
+                "New patio slab with a clean curved edge",
+                "Finished face on the raised pour",
+                "Grade held so runoff leaves the concrete",
+                "Irrigation kept clear of the new hardscape"
+              ]}
+              icon={<Hammer size={24} />}
             />
           </div>
           
