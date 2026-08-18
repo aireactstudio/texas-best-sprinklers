@@ -321,21 +321,6 @@ export default function Projects() {
             />
             
             <ProjectCard 
-              title="Sod After Grading"
-              category="Sod Installation"
-              href="/services/sod-and-land-leveling"
-              description="Fresh sod laid after the grade was corrected, so the lawn sits on a working slope instead of low spots that hold water."
-              image="/assets/images/optimized/turf/3245.webp"
-              results={[
-                "New turf on a corrected grade",
-                "Even coverage across the lawn",
-                "Better drainage under the sod",
-                "Ready for irrigation fine-tuning"
-              ]}
-              icon={<Droplet size={24} />}
-            />
-            
-            <ProjectCard 
               title="Landscape Installation"
               category="Landscaping"
               href="/services/landscaping-installation"
