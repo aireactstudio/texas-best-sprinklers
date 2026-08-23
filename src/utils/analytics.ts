@@ -1,7 +1,19 @@
-// Google Analytics tracking utilities
+// Google Analytics + PostHog tracking utilities
+import { posthogSuperProperties } from '@/lib/posthogConfig';
+
 declare global {
   interface Window {
     gtag: (...args: any[]) => void;
+    posthog?: { capture: (event: string, properties?: Record<string, unknown>) => void };
+  }
+}
+
+function capturePosthog(event: string, properties?: Record<string, unknown>) {
+  if (typeof window === 'undefined') return;
+  try {
+    window.posthog?.capture?.(event, { ...posthogSuperProperties(), ...properties });
+  } catch {
+    // analytics must never break the page
   }
 }
 
@@ -9,6 +21,11 @@ declare global {
  * Track phone call clicks
  */
 export const trackPhoneCall = (phoneNumber: string, pagePath?: string) => {
+  const path = pagePath || (typeof window !== 'undefined' ? window.location.pathname : '');
+  capturePosthog('phone_call', {
+    phone_number: phoneNumber,
+    page_path: path,
+  });
   if (typeof window !== 'undefined' && window.gtag) {
     window.gtag('event', 'phone_call', {
       event_category: 'engagement',
@@ -29,6 +46,12 @@ export const trackPhoneCall = (phoneNumber: string, pagePath?: string) => {
  * Track form submissions
  */
 export const trackFormSubmission = (formType: string, serviceName?: string, pagePath?: string) => {
+  capturePosthog('lead_submitted', {
+    form_type: formType,
+    service_type: serviceName || 'general',
+    page_path: pagePath || (typeof window !== 'undefined' ? window.location.pathname : ''),
+  });
+
   const waitForGtag = (callback: () => void, maxAttempts = 10) => {
     let attempts = 0;
     const checkGtag = () => {
@@ -67,6 +90,13 @@ export const trackFormSubmission = (formType: string, serviceName?: string, page
  * Track CTA button clicks
  */
 export const trackCTAClick = (ctaText: string, ctaType: string, pagePath?: string) => {
+  const path = pagePath || (typeof window !== 'undefined' ? window.location.pathname : '');
+  capturePosthog('lead_intent', {
+    intent_type: 'cta_click',
+    cta_text: ctaText,
+    cta_type: ctaType,
+    page_path: path,
+  });
   if (typeof window !== 'undefined' && window.gtag) {
     window.gtag('event', 'cta_click', {
       event_category: 'engagement',
@@ -88,6 +118,11 @@ export const trackCTAClick = (ctaText: string, ctaType: string, pagePath?: strin
  * Track service page views
  */
 export const trackServiceView = (serviceName: string, location?: string) => {
+  capturePosthog('service_view', {
+    service_name: serviceName,
+    service_location: location || 'general',
+    page_path: typeof window !== 'undefined' ? window.location.pathname : '',
+  });
   if (typeof window !== 'undefined' && window.gtag) {
     window.gtag('event', 'service_view', {
       event_category: 'page_view',

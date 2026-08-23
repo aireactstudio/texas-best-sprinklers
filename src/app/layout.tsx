@@ -19,7 +19,7 @@ const StyleManager = dynamic(() => import('@/components/StyleManager'), { ssr: f
 const NavigationObserver = dynamic(() => import('@/components/NavigationObserver'), { ssr: false });
 const ModulePreloader = dynamic(() => import('@/components/ModulePreloader'), { ssr: false });
 const GoogleAnalytics = dynamic(() => import('@/components/GoogleAnalytics'), { ssr: false, loading: () => null });
-const SmartlookScript = dynamic(() => import('@/components/SmartlookScript'), { ssr: false, loading: () => null });
+const PostHogScript = dynamic(() => import('@/components/PostHogScript'), { ssr: false, loading: () => null });
 
 // Dynamically import non-critical components
 const Footer = dynamic(() => import('@/components/Footer'), {
@@ -103,7 +103,7 @@ export default function RootLayout({
         <ModulePreloader />
         {/* Analytics tracking scripts */}
         <GoogleAnalytics />
-        <SmartlookScript />
+        <PostHogScript />
         <GoogleMapsProviderWrapper>
           <AppHeader />
           <main>{children}</main>

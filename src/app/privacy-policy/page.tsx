@@ -51,8 +51,10 @@ export default function PrivacyPolicyPage() {
           <div>
             <h2 className="text-xl font-semibold text-irrigation-blue mb-2">Cookies and Tracking</h2>
             <p>
-              We use cookies and similar technologies for functionality and analytics. You can control cookies
-              through your browser settings.
+              We use cookies and similar technologies for functionality and analytics. One of the
+              tools we use is PostHog, which may record website sessions and interactions such as
+              clicks, scrolling, navigation, and heatmaps (form fields are masked). You can control
+              cookies through your browser settings.
             </p>
           </div>
 
