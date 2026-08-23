@@ -1,5 +1,5 @@
 // Google Analytics + PostHog tracking utilities
-import { posthogSuperProperties } from '@/lib/posthogConfig';
+import { posthogSuperProperties, shouldSkipPosthogCapture } from '@/lib/posthogConfig';
 
 declare global {
   interface Window {
@@ -9,7 +9,7 @@ declare global {
 }
 
 function capturePosthog(event: string, properties?: Record<string, unknown>) {
-  if (typeof window === 'undefined') return;
+  if (typeof window === 'undefined' || shouldSkipPosthogCapture()) return;
   try {
     window.posthog?.capture?.(event, { ...posthogSuperProperties(), ...properties });
   } catch {
