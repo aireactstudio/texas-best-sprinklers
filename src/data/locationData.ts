@@ -106,7 +106,18 @@ export const locationData = {
     nearestOffice: 'Weatherford',
     distanceFromOffice: 28,
     landmarks: ['Southlake Town Square', 'Bob Jones Park', 'The Marq Southlake'],
-    neighborhoods: ['Carillon', 'Coventry Manor', 'Timber Lake', 'Southlake Meadows', 'Kirkwood Hollow'],
+    neighborhoods: [
+      {
+        name: 'Carillon',
+        description:
+          'Irrigation repair, drip conversion, and drainage planning for gated Carillon homes around community lakes and mature trees. Click to learn more →',
+        link: '/southlake/carillon'
+      },
+      'Coventry Manor',
+      'Timber Lake',
+      'Southlake Meadows',
+      'Kirkwood Hollow'
+    ],
     coordinates: {
       latitude: 32.9414,
       longitude: -97.1342
