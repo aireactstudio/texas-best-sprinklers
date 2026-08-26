@@ -114,7 +114,12 @@ export const locationData = {
         link: '/southlake/carillon'
       },
       'Coventry Manor',
-      'Timber Lake',
+      {
+        name: 'Timber Lake',
+        description:
+          'Sprinkler repair, drip conversion, and drainage planning for 1990s Timber Lake lots between Southlake Boulevard and Continental, including pond-edge clay and mature shade. Click to learn more →',
+        link: '/southlake/timber-lake'
+      },
       'Southlake Meadows',
       'Kirkwood Hollow'
     ],
