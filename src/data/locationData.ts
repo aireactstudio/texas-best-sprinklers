@@ -115,7 +115,12 @@ export const locationData = {
       },
       'Coventry Manor',
       'Timber Lake',
-      'Southlake Meadows',
+      {
+        name: 'Southlake Meadows',
+        description:
+          'Sprinkler repair, drip conversion, and drainage planning for newer Toll Brothers lots on Charleston Drive and Jamestown Lane. Click to learn more →',
+        link: '/southlake/southlake-meadows'
+      },
       'Kirkwood Hollow'
     ],
     coordinates: {
