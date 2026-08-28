@@ -116,7 +116,12 @@ export const locationData = {
       'Coventry Manor',
       'Timber Lake',
       'Southlake Meadows',
-      'Kirkwood Hollow'
+      {
+        name: 'Kirkwood Hollow',
+        description:
+          'Irrigation repair, drip conversion, and drainage planning for wooded custom lots and Drees-era lawns west of E. Dove Road. Click to learn more →',
+        link: '/southlake/kirkwood-hollow'
+      }
     ],
     coordinates: {
       latitude: 32.9414,
