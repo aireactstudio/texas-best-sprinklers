@@ -381,7 +381,12 @@ export const locationData = {
         description: 'Sprinkler repair, irrigation tuning, drainage planning, and lighting support for Bedford Heights homeowners in Bedford, TX.',
         link: '/bedford/bedford-heights'
       },
-      'Bell Manor',
+      {
+        name: 'Bell Manor',
+        description:
+          'Irrigation repair, drip conversion, and drainage planning for 1960s–70s Bell Manor lots on Winchester Way and Chattanooga Drive. Click to learn more →',
+        link: '/bedford/bell-manor'
+      },
       'Mayfair Hills',
       'Bedford Meadows',
       'Stonegate'
