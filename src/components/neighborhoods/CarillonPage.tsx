@@ -243,8 +243,8 @@ export default function CarillonPage() {
         },
         {
           name: 'Kirkwood Hollow',
-          description: 'Seasonal sprinkler service and clay-soil watering help for Southlake neighborhoods.',
-          link: '/southlake'
+          description: 'Sprinkler repair and drainage for wooded custom lots and Drees-era lawns west of E. Dove Road.',
+          link: '/southlake/kirkwood-hollow'
         }
       ]}
       popularServices={[
