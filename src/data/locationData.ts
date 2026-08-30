@@ -382,7 +382,12 @@ export const locationData = {
         link: '/bedford/bedford-heights'
       },
       'Bell Manor',
-      'Mayfair Hills',
+      {
+        name: 'Mayfair Hills',
+        description:
+          'Irrigation repair, drip conversion, and drainage planning for established Mayfair Hills homes on clay lots with mature oaks and 1960s–70s irrigation. Click to learn more →',
+        link: '/bedford/mayfair-hills'
+      },
       'Bedford Meadows',
       'Stonegate'
     ],
