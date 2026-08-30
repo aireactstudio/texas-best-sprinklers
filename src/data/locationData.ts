@@ -114,9 +114,19 @@ export const locationData = {
         link: '/southlake/carillon'
       },
       'Coventry Manor',
-      'Timber Lake',
+      {
+        name: 'Timber Lake',
+        description:
+          'Sprinkler repair, drip conversion, and drainage planning for 1990s Timber Lake lots between Southlake Boulevard and Continental, including pond-edge clay and mature shade. Click to learn more →',
+        link: '/southlake/timber-lake'
+      },
       'Southlake Meadows',
-      'Kirkwood Hollow'
+      {
+        name: 'Kirkwood Hollow',
+        description:
+          'Irrigation repair, drip conversion, and drainage planning for wooded custom lots and Drees-era lawns west of E. Dove Road. Click to learn more →',
+        link: '/southlake/kirkwood-hollow'
+      }
     ],
     coordinates: {
       latitude: 32.9414,
@@ -387,7 +397,12 @@ export const locationData = {
           'Irrigation repair, drip conversion, and drainage planning for 1960s–70s Bell Manor lots on Winchester Way and Chattanooga Drive. Click to learn more →',
         link: '/bedford/bell-manor'
       },
-      'Mayfair Hills',
+      {
+        name: 'Mayfair Hills',
+        description:
+          'Irrigation repair, drip conversion, and drainage planning for established Mayfair Hills homes on clay lots with mature oaks and 1960s–70s irrigation. Click to learn more →',
+        link: '/bedford/mayfair-hills'
+      },
       'Bedford Meadows',
       'Stonegate'
     ],
