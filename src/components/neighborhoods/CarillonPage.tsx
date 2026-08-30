@@ -233,8 +233,8 @@ export default function CarillonPage() {
         },
         {
           name: 'Timber Lake',
-          description: 'Sprinkler repair and lake-adjacent watering strategies for Southlake properties.',
-          link: '/southlake'
+          description: 'Sprinkler repair, drip, and pond-edge drainage for 1990s lots between Southlake Boulevard and Continental.',
+          link: '/southlake/timber-lake'
         },
         {
           name: 'Southlake Meadows',
