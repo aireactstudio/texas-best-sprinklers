@@ -233,8 +233,8 @@ export default function CarillonPage() {
         },
         {
           name: 'Timber Lake',
-          description: 'Sprinkler repair and lake-adjacent watering strategies for Southlake properties.',
-          link: '/southlake'
+          description: 'Sprinkler repair, drip, and pond-edge drainage for 1990s lots between Southlake Boulevard and Continental.',
+          link: '/southlake/timber-lake'
         },
         {
           name: 'Southlake Meadows',
@@ -243,8 +243,8 @@ export default function CarillonPage() {
         },
         {
           name: 'Kirkwood Hollow',
-          description: 'Seasonal sprinkler service and clay-soil watering help for Southlake neighborhoods.',
-          link: '/southlake'
+          description: 'Sprinkler repair and drainage for wooded custom lots and Drees-era lawns west of E. Dove Road.',
+          link: '/southlake/kirkwood-hollow'
         }
       ]}
       popularServices={[
