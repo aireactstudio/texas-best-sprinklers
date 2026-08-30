@@ -3,9 +3,6 @@ import '../styles/critical.css';
 import { Inter, Montserrat } from 'next/font/google';
 import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
-import HeroImagePreload from '@/components/HeroImagePreload';
-import HeadPreload from './head-preload';
-import HeroPreloadScript from '@/components/HeroPreloadScript';
 import SchemaOrgData from '@/components/SchemaOrgData';
 import GoogleMapsProviderWrapper from '@/components/GoogleMapsProvider';
 import { SITE_CONFIG } from '@/config/site';
@@ -20,11 +17,9 @@ const AppHeader = dynamic(() => import('@/components/AppHeader'), { ssr: true })
 const ResourcePreloader = dynamic(() => import('@/components/ResourcePreloader'), { ssr: false });
 const StyleManager = dynamic(() => import('@/components/StyleManager'), { ssr: false });
 const NavigationObserver = dynamic(() => import('@/components/NavigationObserver'), { ssr: false });
-const PerformanceMonitor = dynamic(() => import('@/components/PerformanceMonitor'), { ssr: false });
 const ModulePreloader = dynamic(() => import('@/components/ModulePreloader'), { ssr: false });
-const LongTaskOptimizer = dynamic(() => import('@/components/LongTaskOptimizer'), { ssr: false });
 const GoogleAnalytics = dynamic(() => import('@/components/GoogleAnalytics'), { ssr: false, loading: () => null });
-const SmartlookScript = dynamic(() => import('@/components/SmartlookScript'), { ssr: false, loading: () => null });
+const PostHogScript = dynamic(() => import('@/components/PostHogScript'), { ssr: false, loading: () => null });
 
 // Dynamically import non-critical components
 const Footer = dynamic(() => import('@/components/Footer'), {
@@ -43,7 +38,7 @@ const inter = Inter({
 const montserrat = Montserrat({
   subsets: ['latin'],
   display: 'swap',
-  preload: true,
+  preload: false,
   variable: '--font-montserrat',
   fallback: ['system-ui', 'Arial', 'sans-serif'],
 });
@@ -95,47 +90,20 @@ export default function RootLayout({
   const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || '';
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${montserrat.variable}`}>
       <head>
-        <HeadPreload />
         <SchemaOrgData />
-        {/* Critical init function for Google Maps */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-            window.initMap = function() {
-              // This empty function prevents Maps API from blocking the main thread
-              // Actual map initialization happens in the components that need it
-              console.log('Maps API loaded');
-            };
-          `
-          }}
-        />
         {/* Inline critical CSS to reduce render blocking */}
         <style dangerouslySetInnerHTML={{ __html: criticalCSS }} />
-        {/* Preload critical assets */}
-        <link 
-          rel="preload" 
-          href="/assets/images/optimized/hero-background.webp" 
-          as="image" 
-          fetchPriority="high" 
-          type="image/webp"
-        />
       </head>
-      <body className="font-sans">
-        {/* Ultra-high priority hero image preload script - runs first */}
-        <HeroPreloadScript />
+      <body className={`${inter.className} font-sans`}>
         <ResourcePreloader />
         <StyleManager />
         <NavigationObserver />
-        <PerformanceMonitor />
-        <LongTaskOptimizer />
         <ModulePreloader />
-        {/* Preload hero image to fix LCP issues */}
-        <HeroImagePreload imagePath="/assets/images/optimized/hero-background.webp" />
         {/* Analytics tracking scripts */}
         <GoogleAnalytics />
-        <SmartlookScript />
+        <PostHogScript />
         <GoogleMapsProviderWrapper>
           <AppHeader />
           <main>{children}</main>

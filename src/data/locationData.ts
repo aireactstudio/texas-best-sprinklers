@@ -83,8 +83,16 @@ export const locationData = {
         description: 'Targeted repairs and drainage upgrades for clay-heavy soil conditions and seasonal heat stress.',
         link: '/keller/oakmont'
       },
-      'Ridgewood',
-      'Highland Oaks'
+      {
+        name: 'Ridgewood',
+        description: 'Sprinkler repair, irrigation diagnostics, and drainage planning for established Ridgewood homes in Keller.',
+        link: '/keller/ridgewood'
+      },
+      {
+        name: 'Highland Oaks',
+        description: 'Irrigation repair and drainage support for established treed lots near Rufe Snow Drive and North Tarrant Parkway.',
+        link: '/keller/highland-oaks'
+      }
     ],
     serviceAreas: ['Southlake', 'Colleyville', 'Watauga', 'North Richland Hills'],
     coordinates: {
@@ -98,7 +106,28 @@ export const locationData = {
     nearestOffice: 'Weatherford',
     distanceFromOffice: 28,
     landmarks: ['Southlake Town Square', 'Bob Jones Park', 'The Marq Southlake'],
-    neighborhoods: ['Carillon', 'Coventry Manor', 'Timber Lake', 'Southlake Meadows', 'Kirkwood Hollow'],
+    neighborhoods: [
+      {
+        name: 'Carillon',
+        description:
+          'Irrigation repair, drip conversion, and drainage planning for gated Carillon homes around community lakes and mature trees. Click to learn more →',
+        link: '/southlake/carillon'
+      },
+      'Coventry Manor',
+      {
+        name: 'Timber Lake',
+        description:
+          'Sprinkler repair, drip conversion, and drainage planning for 1990s Timber Lake lots between Southlake Boulevard and Continental, including pond-edge clay and mature shade. Click to learn more →',
+        link: '/southlake/timber-lake'
+      },
+      'Southlake Meadows',
+      {
+        name: 'Kirkwood Hollow',
+        description:
+          'Irrigation repair, drip conversion, and drainage planning for wooded custom lots and Drees-era lawns west of E. Dove Road. Click to learn more →',
+        link: '/southlake/kirkwood-hollow'
+      }
+    ],
     coordinates: {
       latitude: 32.9414,
       longitude: -97.1342
@@ -237,13 +266,29 @@ export const locationData = {
     distanceFromOffice: 31,
     landmarks: ['Solana Business Park', 'Westlake Academy', 'Vaquero Golf Club'],
     neighborhoods: [
-      'Vaquero',
-      'Granada',
-      'Terra Bella',
-      'Glenwyck Farms',
+      {
+        name: 'Vaquero',
+        description: 'Estate-lot irrigation, drainage, and lighting support for Westlake’s guard-gated golf community.',
+        link: '/westlake/vaquero'
+      },
+      {
+        name: 'Granada',
+        description: 'Sprinkler repair, seasonal controller tuning, and drainage planning for luxury homes near Dove Road and Solana.',
+        link: '/westlake/granada'
+      },
+      {
+        name: 'Terra Bella',
+        description: 'Irrigation and drainage service for gated one-acre wooded lots beside Westlake’s nature preserve.',
+        link: '/westlake/terra-bella'
+      },
+      {
+        name: 'Glenwyck Farms',
+        description: 'Sprinkler repair, irrigation tuning, drainage planning, and lighting support for Glenwyck Farms homeowners in Westlake, TX.',
+        link: '/westlake/glenwyck-farms'
+      },
       {
         name: 'Entrada',
-        description: 'Sprinkler repair, irrigation tuning, drainage planning, and lighting support for Entrada homeowners in Westlake, TX.',
+        description: 'Precise irrigation, drip conversion, and courtyard drainage for Entrada villas, townhomes, and canal-adjacent homes.',
         link: '/westlake/entrada'
       }
     ],
@@ -340,7 +385,22 @@ export const locationData = {
     nearestOffice: 'Fort Worth',
     distanceFromOffice: 18,
     landmarks: ['Boys Ranch Park', 'Bedford Public Library', 'Old Bedford School'],
-    neighborhoods: ['Bedford Heights', 'Bell Manor', 'Mayfair Hills', 'Bedford Meadows', 'Stonegate'],
+    neighborhoods: [
+      {
+        name: 'Bedford Heights',
+        description: 'Sprinkler repair, irrigation tuning, drainage planning, and lighting support for Bedford Heights homeowners in Bedford, TX.',
+        link: '/bedford/bedford-heights'
+      },
+      'Bell Manor',
+      {
+        name: 'Mayfair Hills',
+        description:
+          'Irrigation repair, drip conversion, and drainage planning for established Mayfair Hills homes on clay lots with mature oaks and 1960s–70s irrigation. Click to learn more →',
+        link: '/bedford/mayfair-hills'
+      },
+      'Bedford Meadows',
+      'Stonegate'
+    ],
     coordinates: {
       latitude: 32.8440,
       longitude: -97.1431

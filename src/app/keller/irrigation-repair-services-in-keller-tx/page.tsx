@@ -1,3 +1,5 @@
+import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import Script from "next/script";
 import React from "react";
 import { getLocationData } from "@/data/locationData";
@@ -7,11 +9,12 @@ import ServiceAreaLocator from "@/components/ServiceAreaLocator";
 import CTA from "@/components/CTA";
 import { ServiceType } from "@/data/serviceTypes";
 
-export const metadata = {
-  title: "Irrigation Repair in Keller, TX | Texas Best Sprinklers",
-  description:
-    "Fast, reliable irrigation repair in Keller, TX. We fix leaks, broken heads, wiring issues, valves, controllers, and low pressure problems—done right the first time.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: 'Irrigation Repair in Keller, TX | Texas Best Sprinklers',
+  description: "Fast, reliable irrigation repair in Keller, TX. We fix leaks, broken heads, wiring issues, valves, controllers, and low pressure problems\u2014done right the first time.",
+  path: '/keller/irrigation-repair-services-in-keller-tx',
+  image: 'sprinkler',
+});
 
 export default function Page() {
   const { name } = getLocationData("keller");

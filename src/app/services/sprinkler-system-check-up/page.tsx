@@ -1,12 +1,16 @@
+import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import { ClipboardCheck } from 'lucide-react';
 import { ServiceType } from '@/data/serviceTypes';
 import ServicePageLayout from '@/components/templates/ServicePageLayout';
 import ServiceAreaLocator from '@/components/ServiceAreaLocator';
 import CTA from '@/components/CTA';
 
-export const metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Sprinkler System Check-Up | Texas Best Sprinklers',
-};
+  path: '/services/sprinkler-system-check-up',
+  image: 'sprinkler',
+});
 
 export default function SprinklerSystemCheckUpPage() {
   // Service data for the template

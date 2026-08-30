@@ -1,3 +1,5 @@
+import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import Link from 'next/link';
 import Image from 'next/image';
 import HeroSection from '@/components/HeroSection';
@@ -5,9 +7,13 @@ import CTA from '@/components/CTA';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { Droplet, CloudRain, Settings, TreeDeciduous, CloudSun, Hammer } from 'lucide-react';
 
-export const metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Irrigation & Drainage Services | Texas Best Sprinklers',
-};
+  description:
+    'Sprinkler installation and repair, drainage, outdoor lighting, sod, land leveling, and hardscaping across Fort Worth, Weatherford, and nearby cities.',
+  path: '/services',
+  image: 'sprinkler',
+});
 
 interface ServiceCardProps {
   title: string;
@@ -86,7 +92,7 @@ export default function Services() {
             
             <ServiceCard 
               title="SOD Installation & Land Leveling"
-              description="Professional SOD installation, grading, and land leveling to fix low spots, improve drainage, and create an instantly green lawn."
+              description="Bobcat track loader land leveling, grading, dirt work, and professional SOD installation to fix low spots, reshape yards, and create an instantly green lawn."
               icon={<Droplet size={32} />}
               id="sod-and-land-leveling"
             />

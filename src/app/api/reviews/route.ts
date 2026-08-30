@@ -1,5 +1,17 @@
 import { NextResponse } from 'next/server';
 
+/** Shrink Google profile photo URLs to the display size (32px → 64px request). */
+function resizeGooglePhoto(uri: string | undefined, size = 64): string | undefined {
+  if (!uri) return undefined;
+  if (/=s\d+/.test(uri)) {
+    return uri.replace(/=s\d+/, `=s${size}`);
+  }
+  if (uri.includes('googleusercontent.com')) {
+    return `${uri}=s${size}-c`;
+  }
+  return uri;
+}
+
 // Define the structure for our API response
 interface ReviewsResponse {
   reviews: {
@@ -107,7 +119,7 @@ export async function GET() {
       location: 'Fort Worth', // Default location - could be enhanced to extract from review content
       content: review.text?.text || '',
       stars: review.rating || 0,
-      photo: review.authorAttribution?.photoUri,
+      photo: resizeGooglePhoto(review.authorAttribution?.photoUri, 64),
       time: review.relativePublishTimeDescription || '',
       publishTime: review.publishTime,
       authorUri: review.authorAttribution?.uri

@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import SouthlakeSEOArticle from './SouthlakeSEOArticle';
 
 interface Props {
   locationSlug: string;
@@ -9,6 +10,10 @@ interface Props {
 }
 
 export default function LocationSEOArticle({ locationSlug, locationName }: Props) {
+  if (locationSlug === 'southlake') {
+    return <SouthlakeSEOArticle />;
+  }
+
   if (locationSlug === 'westlake') {
     return (
       <section className="relative py-16">

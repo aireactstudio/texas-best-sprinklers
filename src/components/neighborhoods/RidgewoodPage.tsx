@@ -109,8 +109,8 @@ export default function RidgewoodPage() {
         }
       ]}
       relatedAreas={[
+        { name: 'Highland Oaks', description: 'Irrigation repair and drainage support for established treed lots near Rufe Snow Drive.', link: '/keller/highland-oaks' },
         { name: 'Hidden Lakes', description: 'Sprinkler repair, irrigation upgrades, and drainage solutions for larger Keller lots.', link: '/keller/hidden-lakes' },
-        { name: 'Marshall Ridge', description: 'Efficient system tune-ups and smart-controller optimization for HOA-focused landscapes.', link: '/keller/marshall-ridge' },
         { name: 'Oakmont', description: 'Targeted repairs and drainage upgrades for clay-heavy soil and seasonal heat stress.', link: '/keller/oakmont' }
       ]}
       popularServices={[

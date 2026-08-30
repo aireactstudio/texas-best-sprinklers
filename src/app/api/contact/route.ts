@@ -3,9 +3,6 @@ import { z } from 'zod';
 import twilio from 'twilio';
 import { Resend } from 'resend';
 
-// Initialize Resend with API key
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 // Initialize Twilio
 const twilioClient = process.env.TWILIO_ACCOUNT_SID && process.env.TWILIO_AUTH_TOKEN
   ? twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN)
@@ -169,6 +166,10 @@ ${validatedData.message}
 
     // --- Step 1: Send the primary email ---
     console.log(`Sending primary email to ${EMAIL_CONFIG.primaryRecipient}`);
+    
+    // Initialize Resend with API key inside the handler so it doesn't break the build
+    const resend = new Resend(process.env.RESEND_API_KEY || 're_dummy_key_for_build');
+    
     const emailResult = await resend.emails.send({
       from: EMAIL_CONFIG.from,
       to: [EMAIL_CONFIG.primaryRecipient], // Send only to the main email address

@@ -17,6 +17,24 @@ interface NavItem {
   submenu?: NavItem[];
 }
 
+const locationRegions = [
+  {
+    name: 'Core & West',
+    description: 'Fort Worth, Parker County, and west-side service areas.',
+    slugs: ['fort-worth', 'weatherford', 'azle', 'saginaw', 'blue-mound', 'haslet', 'northlake']
+  },
+  {
+    name: 'Northeast Tarrant',
+    description: 'Keller, Southlake, Grapevine, and nearby communities.',
+    slugs: ['keller', 'southlake', 'westlake', 'trophy-club', 'roanoke', 'grapevine', 'watauga', 'north-richland-hills']
+  },
+  {
+    name: 'Mid-Cities & Denton',
+    description: 'Arlington, HEB, Flower Mound, Argyle, and surrounding areas.',
+    slugs: ['arlington', 'bedford', 'euless', 'hurst', 'haltom-city', 'flower-mound', 'argyle']
+  }
+];
+
 const AppHeader = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -172,16 +190,20 @@ const AppHeader = () => {
     });
   })();
 
-  // Build dynamic locations list for mega menu
+  // Build dynamic locations list for mobile and region-based desktop mega menu.
   const allLocations = LOCATIONS.map(slug => {
     const info = getLocationData(slug);
     return { slug, name: info.name };
   });
-  const locationColumnsCount = 3; // adjust to 3-4 if needed
-  const perCol = Math.ceil(allLocations.length / locationColumnsCount);
-  const locationCols = Array.from({ length: locationColumnsCount }, (_, i) =>
-    allLocations.slice(i * perCol, (i + 1) * perCol)
-  );
+  const locationsByRegion = locationRegions.map((region) => ({
+    ...region,
+    locations: region.slugs
+      .filter((slug) => LOCATIONS.includes(slug))
+      .map((slug) => {
+        const info = getLocationData(slug);
+        return { slug, name: info.name };
+      })
+  }));
 
   const bannerSpacerClass = isScrolled ? 'h-0' : 'h-[36px] sm:h-[40px]';
 
@@ -224,23 +246,62 @@ const AppHeader = () => {
                 {/* Desktop Dropdown */}
                 {item.submenu && (
                   item.name === 'Locations' ? (
-                    // Mega menu for Locations (centered under trigger, constrained to viewport)
-                    <div className={`absolute mt-2 bg-white rounded-md shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 -translate-x-1/2 left-1/2 z-50 p-4 w-[640px] max-w-[90vw]`}>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                        {locationCols.map((col, ci) => (
-                          <ul key={ci} className="space-y-1">
-                            {col.map((loc) => (
-                              <li key={loc.slug}>
-                                <Link 
-                                  href={`/${loc.slug}`}
-                                  className="relative block px-2 py-2 pl-4 text-sm text-gray-800 hover:bg-irrigation-darkGreen/5 hover:text-irrigation-darkGreen rounded-md transition-all before:content-[''] before:absolute before:left-0 before:top-0 before:h-full before:w-[3px] before:bg-irrigation-darkGreen before:rounded-full before:origin-center before:scale-y-0 before:transition-transform before:duration-300 hover:before:scale-y-100"
-                                >
-                                  {loc.name}
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
-                        ))}
+                    <div className="absolute left-1/2 z-50 mt-3 w-[860px] max-w-[92vw] -translate-x-1/2 translate-y-2 overflow-hidden rounded-2xl border border-white/20 bg-white shadow-2xl shadow-black/20 opacity-0 invisible transition-all duration-300 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+                      <div className="grid grid-cols-[240px_1fr]">
+                        <div className="relative overflow-hidden bg-gradient-to-br from-irrigation-darkGreen via-irrigation-blue to-black p-6 text-white">
+                          <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-white/10 blur-2xl" />
+                          <div className="absolute -bottom-12 -left-10 h-36 w-36 rounded-full bg-irrigation-lightBlue/20 blur-2xl" />
+                          <div className="relative">
+                            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-white/70">
+                              Service Areas
+                            </p>
+                            <h3 className="text-2xl font-bold leading-tight">
+                              Local sprinkler help across DFW
+                            </h3>
+                            <p className="mt-3 text-sm leading-6 text-white/75">
+                              Choose your city to see nearby sprinkler, drainage, lighting, and landscape services.
+                            </p>
+                            <Link
+                              href="/fort-worth"
+                              className="mt-5 inline-flex items-center rounded-full bg-white px-4 py-2 text-sm font-semibold text-irrigation-darkGreen shadow-sm transition hover:bg-irrigation-a11y-light-green"
+                            >
+                              Start in Fort Worth
+                              <ChevronRight className="ml-1 h-4 w-4" />
+                            </Link>
+                          </div>
+                        </div>
+
+                        <div className="grid grid-cols-3 gap-4 p-5">
+                          {locationsByRegion.map((region) => (
+                            <div key={region.name} className="rounded-xl border border-slate-100 bg-slate-50/70 p-3">
+                              <div className="mb-3">
+                                <h4 className="text-sm font-bold text-irrigation-darkBlue">{region.name}</h4>
+                                <p className="mt-1 text-xs leading-5 text-slate-500">{region.description}</p>
+                              </div>
+                              <ul className="space-y-1">
+                                {region.locations.map((loc) => {
+                                  const isActiveLocation = pathname === `/${loc.slug}` || pathname?.startsWith(`/${loc.slug}/`);
+
+                                  return (
+                                    <li key={loc.slug}>
+                                      <Link
+                                        href={`/${loc.slug}`}
+                                        className={`group/location flex items-center justify-between rounded-lg px-3 py-2 text-sm font-medium transition-all ${
+                                          isActiveLocation
+                                            ? 'bg-white text-irrigation-darkGreen shadow-sm ring-1 ring-emerald-100'
+                                            : 'text-slate-700 hover:bg-white hover:text-irrigation-darkGreen hover:shadow-sm'
+                                        }`}
+                                      >
+                                        <span>{loc.name}</span>
+                                        <ChevronRight className="h-3.5 w-3.5 opacity-0 transition-all group-hover/location:translate-x-0.5 group-hover/location:opacity-100" />
+                                      </Link>
+                                    </li>
+                                  );
+                                })}
+                              </ul>
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   ) : (

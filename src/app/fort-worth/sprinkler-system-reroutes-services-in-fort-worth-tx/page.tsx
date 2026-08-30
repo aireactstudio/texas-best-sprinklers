@@ -1,13 +1,17 @@
+import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import ServicePageLayout from '@/components/templates/ServicePageLayout';
 import { Repeat, Wrench, Droplet, Sprout, ClipboardList, Repeat2 } from 'lucide-react';
 import CityServicesList from '@/components/CityServicesList';
 import ServiceAreaLocator from '@/components/ServiceAreaLocator';
 import CTA from '@/components/CTA';
 
-export const metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Sprinkler System Reroutes in Fort Worth, TX | Texas Best Sprinklers',
-  description: 'Professional sprinkler reroutes for pools, patios, home additions, and landscape changes in Fort Worth, TX.',
-};
+  description: "Professional sprinkler reroutes for pools, patios, home additions, and landscape changes in Fort Worth, TX.",
+  path: '/fort-worth/sprinkler-system-reroutes-services-in-fort-worth-tx',
+  image: 'sprinkler',
+});
 
 export default function SprinklerReroutesFortWorthPage() {
   return (

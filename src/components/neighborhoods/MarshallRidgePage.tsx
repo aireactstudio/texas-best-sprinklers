@@ -99,7 +99,7 @@ export default function MarshallRidgePage() {
       relatedAreas={[
         { name: 'Hidden Lakes', description: 'Mature landscape irrigation balancing and drainage planning.', link: '/keller/hidden-lakes' },
         { name: 'Oakmont', description: 'Clay-soil focused repairs and smart upgrades.', link: '/keller/oakmont' },
-        { name: 'Ridgewood', description: 'Local system checks and responsive repair support.', link: '/keller' }
+        { name: 'Ridgewood', description: 'Local system checks and responsive repair support.', link: '/keller/ridgewood' }
       ]}
       popularServices={[
         {

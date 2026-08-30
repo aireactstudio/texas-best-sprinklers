@@ -1,14 +1,8 @@
 'use client';
 
 import React from 'react';
-import dynamic from 'next/dynamic';
+import LazyLocationMap from './LazyLocationMap';
 import { getLocationData } from '../data/locationData';
-
-// Dynamically import the LocationMap component to avoid SSR issues with Google Maps
-const LocationMap = dynamic(() => import('./LocationMap'), {
-  ssr: false,
-  loading: () => <div className="h-[400px] w-full bg-gray-100 animate-pulse rounded-lg"></div>
-});
 
 interface ServiceAreaMapProps {
   locationSlug: string;
@@ -38,7 +32,7 @@ const ServiceAreaMap: React.FC<ServiceAreaMapProps> = ({
       {title && <h3 className="text-xl font-semibold mb-4">{title}</h3>}
       {!title && <h3 className="text-xl font-semibold mb-4">Our Service Area in {locationName}</h3>}
       
-      <LocationMap 
+      <LazyLocationMap
         locationData={locationData}
         radiusMiles={radiusMiles}
         height="400px"

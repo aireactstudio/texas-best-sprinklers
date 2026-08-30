@@ -124,7 +124,7 @@ export default function LocationServicesOverview({ locationName, locationSlug }:
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {[
-                  { number: '15+', label: 'Years Experience' },
+                  { number: '10+', label: 'Years Experience' },
                   { number: '500+', label: 'Happy Customers' },
                   { number: '24/7', label: 'Emergency Service' },
                   { number: '100%', label: 'Satisfaction Guaranteed' }

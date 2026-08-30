@@ -1,3 +1,5 @@
+import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 
 import Script from "next/script";
 import React from "react";
@@ -8,11 +10,12 @@ import ServiceAreaLocator from "@/components/ServiceAreaLocator";
 import CTA from "@/components/CTA";
 import { ServiceType } from "@/data/serviceTypes";
 
-export const metadata = {
-  title: "Sprinkler System Check-Up in Keller, TX | Texas Best Sprinklers",
-  description:
-    "Comprehensive sprinkler system check-ups in Keller, TX. Seasonal tune-ups, controller optimization, coverage adjustments, and leak prevention.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: 'Sprinkler System Check-Up in Keller, TX | Texas Best Sprinklers',
+  description: "Comprehensive sprinkler system check-ups in Keller, TX. Seasonal tune-ups, controller optimization, coverage adjustments, and leak prevention.",
+  path: '/keller/sprinkler-system-check-up-services-in-keller-tx',
+  image: 'sprinkler',
+});
 
 export default function Page() {
   const { name } = getLocationData("keller");

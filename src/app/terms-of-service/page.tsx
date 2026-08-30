@@ -1,11 +1,13 @@
+import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import React from 'react';
 import Link from 'next/link';
 
-export const metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Terms of Service | Texas Best Sprinklers',
-  description: 'Terms governing use of the Texas Best Sprinklers, Drainage and Lighting LLC website and services.',
-  robots: { index: true, follow: true },
-};
+  description: "Terms governing use of the Texas Best Sprinklers, Drainage and Lighting LLC website and services.",
+  path: '/terms-of-service',
+});
 
 export default function TermsOfServicePage() {
   return (

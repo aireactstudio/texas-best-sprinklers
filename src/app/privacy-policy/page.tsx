@@ -1,15 +1,13 @@
+import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import React from 'react';
 import Link from 'next/link';
 
-export const metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Privacy Policy | Texas Best Sprinklers',
-  description:
-    'Learn how Texas Best Sprinklers, Drainage and Lighting LLC collects, uses, and protects your information.',
-  robots: {
-    index: true,
-    follow: true,
-  },
-};
+  description: "Learn how Texas Best Sprinklers, Drainage and Lighting LLC collects, uses, and protects your information.",
+  path: '/privacy-policy',
+});
 
 export default function PrivacyPolicyPage() {
   return (
@@ -53,8 +51,10 @@ export default function PrivacyPolicyPage() {
           <div>
             <h2 className="text-xl font-semibold text-irrigation-blue mb-2">Cookies and Tracking</h2>
             <p>
-              We use cookies and similar technologies for functionality and analytics. You can control cookies
-              through your browser settings.
+              We use cookies and similar technologies for functionality and analytics. One of the
+              tools we use is PostHog, which may record website sessions and interactions such as
+              clicks, scrolling, navigation, and heatmaps (form fields are masked). You can control
+              cookies through your browser settings.
             </p>
           </div>
 

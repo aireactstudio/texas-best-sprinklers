@@ -10,239 +10,239 @@ export default function EntradaPage() {
         neighborhoodName='Entrada'
         canonicalUrl='https://sprinkleranddrains.com/westlake/entrada'
         pageTitle='Entrada Sprinkler Services in Westlake, TX'
-        metaDescription='Sprinkler repair, irrigation tuning, drainage planning, and outdoor lighting support for Entrada homeowners in Westlake, TX. Licensed irrigator service for estate-scale systems.'
+        metaDescription='Sprinkler repair, irrigation tuning, drainage planning, and lighting support for Entrada homes, villas, and townhomes in Westlake, TX. Licensed service around canals, hardscape, and mixed-use landscape.'
         heroTitle='Entrada Sprinkler Services in Westlake, TX'
-        heroDescription='Licensed irrigation, sprinkler repair, drainage, and lighting service for Entrada homes in Westlake — where canal-side courtyards, shared infrastructure, and meticulous landscaping demand precision irrigation management.'
-        introHeading='Irrigation and Drainage Service for Entrada Properties'
-        intro='Entrada homeowners in Westlake manage irrigation across a uniquely dense, mixed-use environment where canals, pedestrian plazas, shared walls, and courtyard plantings create challenges that differ from conventional Texas subdivisions. Texas Best Sprinklers, Drainage and Lighting works with Entrada residents to diagnose coverage gaps, repair aging or malfunctioning components, tune controllers for water conservation compliance, and address drainage concerns specific to compact lots and shared hardscape. Whether your system is protecting a narrow courtyard garden, a front-entry planter, or a rooftop terrace irrigation circuit, we bring the technical precision that Westlake properties require.'
+        heroDescription='Licensed irrigation, sprinkler repair, drainage, and lighting service for Entrada at Westlake, a walkable mixed-use village with villas, townhomes, canals, and tightly designed landscape beds.'
+        introHeading='Irrigation and Drainage Planning for Entrada Properties'
+        intro='Entrada at Westlake is a European-style mixed-use village of about 80 acres at SH 114 and Davis Boulevard. Homes include single-family villas, townhomes, and condominiums around canals, a lake, cobblestone-style streets, and on-site retail. Irrigation here is not a wide suburban lawn problem. It is a tight mix of small turf, foundation beds, hardscape edges, and water features where overspray, drainage, and controller timing show immediately. Texas Best Sprinklers, Drainage and Lighting helps Entrada residents repair heads and valves, keep water off walks and canals, and plan drainage that protects finishes without wasting water.'
         highlights={[
-          'Licensed irrigator service for Entrada homeowners navigating courtyard, villa, and townhome-scale irrigation systems in a dense mixed-use environment.',
-          'Water conservation scheduling aligned with Westlake and Tarrant Regional Water District guidelines to keep systems compliant and efficient.',
-          'Precision nozzle selection and zone balancing for narrow planting beds, canal-adjacent landscaping, and pedestrian plaza borders.',
-          'Drainage assessment and planning for compact lots, shared courtyards, and low-lying areas where stormwater management is critical to property protection.'
+          'Licensed irrigator service for Entrada villas, townhomes, and condos where landscape zones sit close to hardscape, entries, and water amenities.',
+          'Overspray control so spray heads do not wet cobblestone walks, garage aprons, or canal edges.',
+          'Controller programming for smaller, more frequent zones that dry differently than estate-lot turf in nearby Westlake neighborhoods.',
+          'Drainage planning around canals, lake edges, downspouts, and patio courtyards that can hold water after storms.',
+          'Outdoor lighting service for walkways, entries, trees, and common-area-facing elevations in a walkable village setting.'
         ]}
         serviceFocus={[
-          'Sprinkler repair for broken heads, clogged nozzles, valve failures, low-pressure zones, and coverage gaps in courtyard and villa-scale plantings.',
-          'Irrigation system diagnostics and controller troubleshooting for Entrada townhomes, attached villas, and mixed-use residential units with complex zone layouts.',
-          'Smart controller installation and seasonal runtime calibration tuned to Westlake watering schedules and North Texas climate conditions.',
-          'Drainage solutions for canal-adjacent lots, shared courtyard runoff, low-lying planter beds, and compact hardscape areas that retain water after heavy rain.',
-          'Outdoor lighting service for walkways, entry columns, courtyard trees, and plaza-facing facades common throughout Entrada.'
+          'Sprinkler repair for broken heads, leaking valves, low-pressure zones, and coverage gaps in compact turf and bed areas.',
+          'Irrigation repair and controller troubleshooting for systems that soak hardscape or miss narrow planting strips.',
+          'Smart controller setup and seasonal runtime optimization for Westlake watering schedules.',
+          'Drainage solutions for courtyard pooling, downspout discharge, and runoff toward canals or building foundations.',
+          'Outdoor lighting service for entries, walkways, and landscape features throughout Entrada.'
         ]}
         localTips={[
-          'Program shorter, more frequent watering cycles for Entrada courtyard beds — compact planters with limited soil volume dry out faster than open turf and benefit from cycle-and-soak scheduling.',
-          'Inspect heads along pedestrian walkways and canal-side borders after heavy foot traffic seasons, as shifting pavers and settling can tilt or bury spray heads and reduce coverage.',
-          'Check drainage outlets and low-point catch areas after storms to ensure water is moving away from shared walls, courtyard foundations, and pedestrian surfaces.',
-          'Adjust controller runtimes each spring and fall — Entrada plantings respond quickly to seasonal shifts, and a system running August runtimes in October wastes water and stresses plants.'
+          'Prefer drip or low-angle nozzles in narrow beds. Full-circle spray on compact Entrada lots often hits stone, glass, and neighboring units.',
+          'Check drains and canal-adjacent grades after heavy rain. Mixed-use paving can send water toward doors if irrigation and storm flow stack up.',
+          'Inspect heads after landscape or hardscape work. Tight planting pockets are easy to block with new shrubs or mulch buildup.',
+          'Shorten runtimes in spring and fall. Small turf areas overwater quickly when a summer program is left unchanged.',
+          'Confirm association rules before adding lighting or changing visible irrigation along shared streets and water amenities.'
         ]}
         reviews={[
           {
-            reviewer: 'Entrada Villa Homeowner',
+            reviewer: 'Homeowner in Entrada',
             date: 'March 2026',
-            quote: 'Our courtyard irrigation had been running unevenly for two seasons. They identified a failed valve and two misaligned heads, repaired everything cleanly, and reset the controller. The planting beds finally look the way they should.'
+            quote:
+              'They stopped the overspray onto our walk and converted a bed to drip. The courtyard finally dries between cycles instead of staying slick.'
           },
           {
-            reviewer: 'Entrada Townhome Resident',
+            reviewer: 'Entrada resident',
             date: 'February 2026',
-            quote: 'Very professional and clearly experienced with the kind of tight-space systems we have here. They worked around the canal-side paving carefully and gave us practical advice on water conservation scheduling.'
+            quote:
+              'Good communication in a compact neighborhood. They repaired a leaking valve without tearing up the finished landscape around the canal side.'
           },
           {
-            reviewer: 'Westlake Entrada Homeowner',
+            reviewer: 'Family in Entrada, Westlake',
             date: 'January 2026',
-            quote: 'We had a drainage issue in our rear courtyard that pooled after every rain. The team assessed it thoroughly, explained the fix clearly, and completed the work without disturbing the surrounding landscape.'
+            quote:
+              'The controller was still on a large-lawn schedule. They reset it for our small turf and beds, and water use dropped immediately.'
           }
         ]}
         considerations={[
           {
-            title: 'Compact Lots and Shared Infrastructure',
-            description: 'Entrada properties are built closer together than most Westlake neighborhoods, with shared walls, canals, and pedestrian corridors that limit where irrigation and drainage work can be performed. We plan repairs carefully to protect adjacent property and shared hardscape.'
+            title: 'Compact Villas, Townhomes, and Courtyards',
+            description:
+              'Entrada’s residential mix is denser than Westlake’s estate neighborhoods. Zones are shorter, planting strips are narrower, and mistakes show on hardscape. Nozzle choice and drip conversion matter more than adding more spray.'
           },
           {
-            title: 'Canal-Adjacent Drainage Sensitivity',
-            description: 'Homes near Entrada\'s canals and water features require drainage solutions that respect the engineered water management already in place. We evaluate how lot-level drainage connects to the broader stormwater infrastructure before recommending any modifications.'
+            title: 'Canals, Lake, and Water Amenities',
+            description:
+              'The village is organized around water features, bridges, and lakeside landscape. Irrigation runoff and drainage need to stay out of canals and off building walls. We look at both spray direction and surface flow.'
           },
           {
-            title: 'Water Conservation Compliance',
-            description: 'Westlake participates in regional water conservation programs through the Tarrant Regional Water District. Entrada irrigation systems should be scheduled and maintained to comply with local watering guidelines, which we incorporate into every controller calibration.'
+            title: 'Walkable Mixed-Use Streets',
+            description:
+              'Retail, dining, a school, and residences share the same 80-acre site. Work has to stay tidy, and irrigation should not soak public walks or storefront-facing pavement that residents and visitors use daily.'
           },
           {
-            title: 'Courtyard and Villa Planting Complexity',
-            description: 'Entrada\'s Spanish-inspired architecture includes intimate courtyard gardens, entry planters, and facade-adjacent greenery that require precise nozzle selection and low-volume drip conversion to water effectively without saturating pavers or shared surfaces.'
+            title: 'Westlake Clay Under Paving',
+            description:
+              'Clay soil plus courtyards and compacted paving can hold water against slabs. Cycle-and-soak for remaining turf, drip in beds, and clear drainage paths reduce that saturation.'
           }
         ]}
         pricing={[
           { label: 'Sprinkler Repair Visit', range: '$175–$475 typical scope' },
           { label: 'Smart Controller Upgrade', range: '$475–$1,100 installed' },
-          { label: 'Drainage Improvement', range: '$1,500–$7,000 based on layout' }
+          { label: 'Drainage Improvement', range: '$1,800–$7,500 based on layout' },
+          { label: 'Outdoor Lighting Service', range: '$300–$2,500 depending on scope' }
         ]}
         processSteps={[
-          'Schedule an Entrada site assessment tailored to your property type — villa, townhome, or courtyard residence',
-          'Walk each zone and document spray coverage, pressure, valve function, controller settings, and any drainage concerns',
-          'Review repair or upgrade recommendations with transparent pricing before any work begins',
-          'Complete repairs with durable components, careful protection of surrounding pavers and plantings, and clean site restoration',
-          'Calibrate runtimes to Westlake watering guidelines and provide seasonal maintenance guidance for Entrada conditions'
+          'Schedule an Entrada site assessment and describe irrigation, drainage, or lighting concerns',
+          'Walk turf, beds, hardscape edges, and any canal- or courtyard-adjacent zones',
+          'Review repair, drip conversion, or drainage recommendations before work begins',
+          'Complete clean repairs with careful protection of finished paving and plantings',
+          'Calibrate runtimes for compact zones and review Westlake watering guidance'
         ]}
         faqs={[
           {
-            question: 'Can you service irrigation systems on Entrada townhomes and attached villas?',
-            answer: 'Yes. We regularly work on compact, courtyard-scale systems common in mixed-use communities like Entrada. We understand the zone layouts, shared infrastructure considerations, and tight working conditions these properties present.'
+            question: 'Do you service Entrada villas, townhomes, and condos?',
+            answer:
+              'Yes. We work on compact residential irrigation systems throughout Entrada, including shared-edge lots where spray, drip, and drainage have to respect neighboring units and common walks.'
           },
           {
-            question: 'Do you help with water conservation scheduling for Westlake properties?',
-            answer: 'Yes. We calibrate controllers to align with Tarrant Regional Water District guidelines and Westlake\'s local watering schedules, helping homeowners stay compliant while keeping landscapes healthy.'
+            question: 'Can you stop sprinklers from soaking walks and canal edges?',
+            answer:
+              'Yes. We adjust or replace nozzles, correct head tilt, lower pressure where needed, and often convert narrow beds to drip so water stays in planting soil instead of on stone and water amenities.'
           },
           {
-            question: 'What drainage options are available for canal-adjacent Entrada lots?',
-            answer: 'We assess how your lot drains relative to the canal infrastructure and recommend solutions such as surface regrading, courtyard catch basins, or directed outlet adjustments that work within the existing water management framework.'
+            question: 'Is drainage different here than in estate Westlake neighborhoods?',
+            answer:
+              'Often yes. Courtyards, paving, and canals change how stormwater moves. We look at downspouts, surface slope, and irrigation contribution together instead of treating drainage as a simple backyard swale.'
           },
           {
-            question: 'Can you convert Entrada planting beds to drip irrigation?',
-            answer: 'Yes. Drip conversion is often the right solution for the narrow, paver-bordered beds in Entrada where spray heads create overspray onto hardscape. We design low-volume drip layouts matched to each bed\'s plant material and sun exposure.'
+            question: 'Do you follow Westlake watering guidelines at Entrada?',
+            answer:
+              'Yes. We program controllers within Westlake water-utility conservation schedules and help you match runtimes to small turf and bed zones rather than a large-lawn default.'
           }
         ]}
         relatedAreas={[
           {
-            name: 'Westlake',
-            description: 'Full-service sprinkler repair, irrigation management, drainage planning, and outdoor lighting for the broader Westlake community.',
-            link: '/westlake'
+            name: 'Granada',
+            description: 'Irrigation repair and seasonal tuning for luxury Westlake homes near Dove Road and Solana.',
+            link: '/westlake/granada'
           },
           {
             name: 'Glenwyck Farms',
-            description: 'Estate-scale irrigation and drainage service for large custom home lots in one of Westlake\'s premier gated communities.',
-            link: '/westlake'
+            description: 'Estate-lot irrigation and creek-adjacent drainage planning in Westlake.',
+            link: '/westlake/glenwyck-farms'
           },
           {
             name: 'Vaquero',
-            description: 'High-end sprinkler system repair and seasonal tuning for Westlake\'s private golf community with elaborate landscape programs.',
-            link: '/westlake'
+            description: 'Large-lot sprinkler and drainage service in Westlake’s guard-gated golf community.',
+            link: '/westlake/vaquero'
           }
         ]}
         popularServices={[
           {
             title: 'Sprinkler Repair',
-            description: 'Broken heads, valve leaks, wiring faults, low pressure, and uneven coverage corrections for Entrada irrigation systems.',
+            description: 'Broken heads, valve leaks, overspray corrections, and coverage fixes for compact Westlake landscape zones.',
             link: '/westlake/sprinkler-repair-services-in-westlake-tx'
           },
           {
             title: 'Irrigation Repair',
-            description: 'System-level diagnostics for zone control, controller performance, pressure regulation, and scheduling optimization.',
+            description: 'System-level diagnostics for zone control, controller performance, pressure, and scheduling.',
             link: '/westlake/irrigation-repair-services-in-westlake-tx'
           },
           {
             title: 'Drainage Solutions',
-            description: 'Canal-aware drainage planning, courtyard catch basins, and runoff management for compact Entrada lots.',
-            link: '/westlake'
+            description: 'Courtyard, downspout, and runoff planning for mixed-use paving and canal-adjacent lots.',
+            link: '/services/drainage-solutions'
+          },
+          {
+            title: 'Sprinkler Installation',
+            description: 'New irrigation design and installation for Westlake homes adding or replacing coverage.',
+            link: '/westlake/sprinkler-installation-services-in-westlake-tx'
           }
         ]}
         attractions={[
           {
-            name: 'Town of Westlake — Entrada Development',
-            url: 'https://westlaketx.gov/555/Entrada',
-            description: 'The official Town of Westlake page describing the Entrada master-planned development, its architecture, and the mixed-use vision behind the neighborhood.'
+            name: 'Entrada at Westlake',
+            url: 'https://www.entradasocial.com/',
+            description: 'The mixed-use village itself, with residential, retail, dining, canals, and a signature bridge inspired by Venice’s Rialto Bridge.'
           },
           {
-            name: 'Westlake Academy',
-            url: 'https://www.westlakeacademy.org',
-            description: 'The acclaimed open-enrollment public charter school operated by the Town of Westlake, a key draw for families choosing Entrada and surrounding neighborhoods.'
+            name: 'Chapel at Palacios',
+            url: 'https://www.entradasocial.com/',
+            description: 'A Spanish-villa-inspired ceremony and event venue inside Entrada, reflecting the neighborhood’s European streetscape.'
           },
           {
-            name: 'Tarrant Regional Water District',
-            url: 'https://www.trwd.com',
-            description: 'The wholesale water provider for the region, offering conservation guidance and watering schedules relevant to Entrada homeowners managing irrigation systems.'
+            name: 'Town of Westlake',
+            url: 'https://www.westlake-tx.org',
+            description: 'Municipal information on water utilities, planning, and standards that affect irrigation and drainage at Entrada.'
           },
           {
-            name: 'Westlake Parks & Recreation',
-            url: 'https://westlaketx.gov/229/Parks-Recreation',
-            description: 'Town-managed parks, trails, and open spaces available to Entrada residents seeking outdoor recreation beyond the neighborhood\'s pedestrian plazas.'
+            name: 'Dallas Fort Worth International Airport',
+            url: 'https://www.dfwairport.com',
+            description: 'A short drive via SH 114 from Entrada’s location at Davis Boulevard, a primary travel corridor for Westlake residents.'
           }
         ]}
         localLivingContent={
           <>
             <p>
-              Entrada is one of Westlake's most architecturally distinctive neighborhoods — a walkable, European-inspired enclave where canals, stone bridges, and Catalan-style buildings create a setting unlike anything else in North Texas. For homeowners, that uniqueness comes with equally distinctive maintenance considerations, particularly around irrigation, drainage, and water management in a compact, mixed-use environment.
+              Entrada is Westlake’s walkable mixed-use village rather than an estate-lot subdivision. Residents live around canals, retail, and compact landscape beds, so irrigation and drainage have to be precise. Overspray and courtyard pooling are the problems we see most often here.
             </p>
             <p>
-              Texas Best Sprinklers, Drainage and Lighting serves the broader{' '}
+              Texas Best Sprinklers, Drainage and Lighting serves Entrada as part of the{' '}
               <a
                 href='/westlake'
                 className='font-semibold text-emerald-200 hover:text-emerald-100 underline decoration-2 underline-offset-4'
               >
                 Westlake service area
+              </a>
+              , along with nearby{' '}
+              <a
+                href='/westlake/granada'
+                className='font-semibold text-emerald-200 hover:text-emerald-100 underline decoration-2 underline-offset-4'
+              >
+                Granada
               </a>{' '}
-              with precision sprinkler repair, drainage planning, and outdoor lighting support. Entrada homeowners can also explore our{' '}
+              and{' '}
+              <a
+                href='/westlake/vaquero'
+                className='font-semibold text-emerald-200 hover:text-emerald-100 underline decoration-2 underline-offset-4'
+              >
+                Vaquero
+              </a>
+              . For leaking zones or controllers that still run like a large lawn, start with our{' '}
               <a
                 href='/westlake/sprinkler-repair-services-in-westlake-tx'
                 className='font-semibold text-emerald-200 hover:text-emerald-100 underline decoration-2 underline-offset-4'
               >
-                Westlake sprinkler repair services
-              </a>{' '}
-              and{' '}
-              <a
-                href='/westlake/irrigation-repair-services-in-westlake-tx'
-                className='font-semibold text-emerald-200 hover:text-emerald-100 underline decoration-2 underline-offset-4'
-              >
-                irrigation repair services
-              </a>{' '}
-              tailored to the town's premium properties and conservation standards.
+                Westlake sprinkler repair service
+              </a>
+              .
             </p>
           </>
         }
-        articleContent={
-          <section className='py-12 px-4'>
-            <div className='mx-auto max-w-4xl'>
-              <h2 className='text-2xl font-bold mb-6'>About the Entrada Area</h2>
-              <p className='mb-4'>
-                Entrada is one of Westlake's most distinctive neighborhoods, a master-planned village where residential streets, plazas, shops, and office spaces are all woven together with a European-inspired feel. Set on roughly 85 acres near the heart of Westlake, Entrada is designed as a walkable enclave with canals, stone bridges, and architecture modeled after the Catalonia region of northeastern Spain, according to the Town of Westlake's own description of the development on its{' '}
-                <a href='https://westlaketx.gov/555/Entrada' target='_blank' rel='noopener noreferrer' className='underline'>
-                  official Entrada page
-                </a>
-                .
-              </p>
-              <p className='mb-4'>
-                Most homes in Entrada are attached townhomes, villas, or courtyard-style residences, making the neighborhood feel more like a historic European village than a conventional Texas subdivision. Narrow, pedestrian-friendly streets and intimate squares encourage walking to nearby cafés, offices, and event spaces. While it feels tucked away, Entrada sits within the broader Westlake community and benefits from town services, development oversight, and planning guidance provided by the{' '}
-                <a href='https://westlaketx.gov' target='_blank' rel='noopener noreferrer' className='underline'>
-                  Town of Westlake
-                </a>
-                .
-              </p>
-              <p className='mb-4'>
-                Families in Entrada are drawn in part by the educational options that have made Westlake well known regionally. Much of Westlake is served by Keller ISD and Northwest ISD, and residents can also apply to the acclaimed Westlake Academy, an open-enrollment public charter school operated by the town. Parents researching schools often start at the{' '}
-                <a href='https://www.kellerisd.net' target='_blank' rel='noopener noreferrer' className='underline'>
-                  Keller Independent School District
-                </a>{' '}
-                and{' '}
-                <a href='https://www.nisdtx.org' target='_blank' rel='noopener noreferrer' className='underline'>
-                  Northwest Independent School District
-                </a>{' '}
-                websites to understand attendance zones, transportation, and program offerings that may apply to their Entrada address.
-              </p>
-              <p className='mb-4'>
-                Entrada's location along major regional corridors makes commuting relatively straightforward for many homeowners. The neighborhood sits near key routes that provide access to the broader Dallas–Fort Worth area, with office clusters, shopping, and airports within an easy drive. At the same time, the internal street network and compact layout mean many everyday errands, social gatherings, or dining outings can be handled on foot within the development itself, reducing the need for long drives for daily activities.
-              </p>
-              <p className='mb-4'>
-                Outdoor space in Entrada is carefully integrated into the built environment, with plazas, walkways, and waterfront promenades replacing large private yards in many cases. Homeowners who want more traditional green space often explore the wider system of parks and natural areas maintained by the{' '}
-                <a href='https://westlaketx.gov/229/Parks-Recreation' target='_blank' rel='noopener noreferrer' className='underline'>
-                  Westlake Parks &amp; Recreation
-                </a>{' '}
-                department. Nearby regional parks, trails, and open spaces give residents options for biking, jogging, or simply enjoying the natural beauty that still surrounds this fast-growing corridor of North Texas.
-              </p>
-              <p className='mb-4'>
-                Because Entrada is a dense, mixed-use environment with canals, courtyards, and shared walls, homeowners pay particular attention to how their properties handle drainage, irrigation, and outdoor maintenance. Westlake participates in regional water conservation initiatives, and residents are encouraged to follow watering schedules and efficiency guidelines promoted through agencies such as the wholesale water provider{' '}
-                <a href='https://www.trwd.com' target='_blank' rel='noopener noreferrer' className='underline'>
-                  Tarrant Regional Water District
-                </a>
-                . Understanding local watering recommendations, stormwater considerations, and HOA rules helps Entrada homeowners protect both their property and the shared infrastructure that makes the neighborhood unique.
-              </p>
-              <p className='mb-4'>
-                Community life in Entrada tends to center on its plazas, chapel, and event venues, along with the broader civic resources available throughout Westlake. Residents stay informed about town meetings, development updates, and community events through the{' '}
-                <a href='https://westlaketx.gov' target='_blank' rel='noopener noreferrer' className='underline'>
-                  Town of Westlake
-                </a>{' '}
-                website and other official channels. For many homeowners, Entrada offers a blend of lock-and-leave convenience, architectural charm, and access to excellent schools and regional amenities, all within one of Westlake's most thoughtfully designed neighborhoods.
-              </p>
-            </div>
-          </section>
-        }
       />
+      <section className='py-12 px-4 bg-white'>
+        <div className='mx-auto max-w-4xl prose prose-slate lg:prose-lg'>
+          <h2 className='text-2xl font-bold text-slate-800 mb-6'>About the Entrada Area</h2>
+          <p>
+            Entrada at Westlake is an approximately 80-acre mixed-use community on the southeast corner of SH 114 and Davis Boulevard. The design is modeled after a Catalonian village, with stone architecture, walkable streets, canals, a lake, and a signature bridge. Residential options include single-family villas, townhomes, and condominiums totaling more than 300 units, plus on-site retail, dining, and a Primrose School.
+          </p>
+          <p>
+            The{' '}
+            <a href='https://westlakeentradahoa.com/homepage.aspx' target='_blank' rel='noopener noreferrer' className='text-emerald-700 hover:text-emerald-800 underline'>
+              Westlake Entrada HOA
+            </a>{' '}
+            and related owners associations govern common standards. Because homes sit close to shared walks and water amenities, irrigation changes should stay within association and town expectations. Water service follows{' '}
+            <a href='https://www.westlake-tx.org/171/Water-Utilities' target='_blank' rel='noopener noreferrer' className='text-emerald-700 hover:text-emerald-800 underline'>
+              Westlake water utilities
+            </a>{' '}
+            conservation schedules.
+          </p>
+          <p>
+            Learn more about the village at{' '}
+            <a href='https://www.entradasocial.com/' target='_blank' rel='noopener noreferrer' className='text-emerald-700 hover:text-emerald-800 underline'>
+              Entrada at Westlake
+            </a>{' '}
+            and town planning resources at the{' '}
+            <a href='https://www.westlake-tx.org' target='_blank' rel='noopener noreferrer' className='text-emerald-700 hover:text-emerald-800 underline'>
+              Town of Westlake
+            </a>
+            . For outdoor systems, Entrada rewards precise drip, tight spray control, and drainage that keeps courtyards and canal edges dry.
+          </p>
+        </div>
+      </section>
     </>
   );
 }

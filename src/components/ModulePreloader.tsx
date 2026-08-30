@@ -33,10 +33,9 @@ const ModulePreloader: React.FC = () => {
    * Preload modules based on the current route
    */
   const preloadModulesForRoute = (path: string) => {
-    // Home page preloads
+    // Home page: below-fold modules are already dynamically imported in page.tsx
     if (path === '/') {
-      import('./ServicesSection').catch(() => {});
-      import('./TestimonialsSection').catch(() => {});
+      return;
     }
     
     // Location pages preloads (e.g., /fort-worth)

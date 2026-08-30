@@ -1,3 +1,5 @@
+import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import Link from 'next/link';
 import { CloudRain } from 'lucide-react';
 import { ServiceType } from '@/data/serviceTypes';
@@ -6,9 +8,11 @@ import ServiceAreaLocator from '@/components/ServiceAreaLocator';
 import CTA from '@/components/CTA';
 import DrainPromo from '@/components/DrainPromo';
 
-export const metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Yard Drainage System Installation | Texas Best Sprinklers',
-};
+  path: '/services/yard-drainage-systems',
+  image: 'drainage',
+});
 
 export default function YardDrainageSystemsPage() {
   // Service data for the template

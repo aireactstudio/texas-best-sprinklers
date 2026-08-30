@@ -1,39 +1,18 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import { Hammer } from 'lucide-react';
 import ServicePageLayout from '@/components/templates/ServicePageLayout';
 import ServiceAreaLocator from '@/components/ServiceAreaLocator';
 import CTA from '@/components/CTA';
 
-const OG_IMAGE =
-  'https://sprinkleranddrains.com/assets/images/optimized/hardscaping1.jpeg';
-
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Hardscaping — Concrete Slabs, Retaining Walls & More | Texas Best Sprinklers',
-  description:
-    'Professional hardscaping services in Fort Worth and surrounding DFW cities. Concrete patios, slabs, retaining walls, walkways, steps, and more.',
-  openGraph: {
-    title: 'Hardscaping — Concrete Slabs, Retaining Walls & More | Texas Best Sprinklers',
-    description:
-      'Hardscaping is the built part of your yard—concrete, stone, and block for patios, retaining walls, walks, and bed borders. Learn how proper grading, drainage, and materials matter in North Texas, and how we coordinate hardscape with irrigation.',
-    url: 'https://sprinkleranddrains.com/services/hardscaping',
-    type: 'website',
-    images: [
-      {
-        url: OG_IMAGE,
-        alt: 'Professional hardscaping: stone tree ring and landscape borders at a North Texas home',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Hardscaping — Concrete Slabs, Retaining Walls & More | Texas Best Sprinklers',
-    description:
-      'Hardscaping is the built part of your yard—concrete, stone, and block for patios, retaining walls, walks, and bed borders. How grading, drainage, and irrigation work together in DFW.',
-    images: [OG_IMAGE],
-  },
-};
+  description: "Professional hardscaping services in Fort Worth and surrounding DFW cities. Concrete patios, slabs, retaining walls, walkways, steps, and more.",
+  path: '/services/hardscaping',
+  image: 'hardscape',
+});
 
 export default function HardscapingPage() {
   const serviceProps = {
@@ -102,6 +81,59 @@ export default function HardscapingPage() {
             that is properly graded, reinforced, and finished to last in North Texas conditions. We account for slope and drainage
             from the start so water moves away from your home and off the slab correctly.
           </p>
+        </div>
+
+        <div className="mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4 text-irrigation-blue">Recent concrete pours</h2>
+          <p className="text-gray-800 leading-relaxed text-lg mb-6">
+            From backyard patios to walkways, here's a look at concrete slabs we've formed, poured, and finished for North Texas homeowners.
+          </p>
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-5">
+            {[
+              {
+                src: '/assets/images/optimized/tb-1/2885.webp',
+                alt: 'Freshly poured concrete walkway alongside a brick home',
+                caption: 'Finished walkway with clean curved edge',
+              },
+              {
+                src: '/assets/images/optimized/tb-1/2886.webp',
+                alt: 'New concrete patio slab curing in a backyard',
+                caption: 'Backyard patio slab, freshly formed',
+              },
+              {
+                src: '/assets/images/optimized/tb-1/2888.webp',
+                alt: 'Finished concrete patio with clean curved edge along a garden bed',
+                caption: 'Completed patio pour along the bed line',
+              },
+              {
+                src: '/assets/images/optimized/tb-1/2890.webp',
+                alt: 'Crew hand-finishing a wet concrete slab next to a home',
+                caption: 'Hand-finishing the surface for a smooth cure',
+              },
+              {
+                src: '/assets/images/optimized/tb-1/2892.webp',
+                alt: 'Newly poured concrete patio slab with wood forms still in place',
+                caption: 'Wet pour with forms still staked in place',
+              },
+            ].map((photo) => (
+              <figure
+                key={photo.src}
+                className="overflow-hidden rounded-xl border border-gray-200 bg-gray-100 shadow-md"
+              >
+                <div className="relative aspect-[3/4] w-full">
+                  <Image
+                    src={photo.src}
+                    alt={photo.alt}
+                    fill
+                    quality={70}
+                    className="object-cover"
+                    sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                  />
+                </div>
+                <figcaption className="px-3 py-2 text-xs text-gray-600">{photo.caption}</figcaption>
+              </figure>
+            ))}
+          </div>
         </div>
 
         <div className="mb-10">
@@ -304,6 +336,11 @@ export default function HardscapingPage() {
             image: [
               'https://sprinkleranddrains.com/assets/images/optimized/hardscaping1.jpeg',
               'https://sprinkleranddrains.com/assets/images/optimized/hardscaping2.jpeg',
+              'https://sprinkleranddrains.com/assets/images/optimized/tb-1/2885.webp',
+              'https://sprinkleranddrains.com/assets/images/optimized/tb-1/2886.webp',
+              'https://sprinkleranddrains.com/assets/images/optimized/tb-1/2888.webp',
+              'https://sprinkleranddrains.com/assets/images/optimized/tb-1/2890.webp',
+              'https://sprinkleranddrains.com/assets/images/optimized/tb-1/2892.webp',
             ],
           }),
         }}

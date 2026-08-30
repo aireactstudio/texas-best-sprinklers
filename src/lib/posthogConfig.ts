@@ -1,0 +1,37 @@
+/**
+ * Texas Best Sprinklers lives in the billed Reactiv Labs PostHog
+ * organization as its own project. Do not use the MyFence token.
+ */
+export const SITE_ID = String(process.env.NEXT_PUBLIC_SITE_ID ?? "texas-best").trim() || "texas-best";
+
+const TEXAS_BEST_PROJECT_KEY = "phc_C67BoWQhFDg8dJL4oLwRnGbwfdvJeZ3AFSwDw36UhQ5L";
+
+export const POSTHOG_KEY =
+  String(process.env.NEXT_PUBLIC_POSTHOG_KEY ?? "").trim() || TEXAS_BEST_PROJECT_KEY;
+
+export const POSTHOG_HOST = String(process.env.NEXT_PUBLIC_POSTHOG_HOST ?? "https://us.i.posthog.com").trim();
+
+export function posthogSuperProperties(): Record<string, string> {
+  return {
+    client: SITE_ID,
+    site: SITE_ID,
+  };
+}
+
+const INTERNAL_OPT_OUT_KEY = "ph_internal_opt_out";
+
+/** Persist opt-out for this browser via `?ph_internal=1` (use `?ph_internal=0` to resume). */
+export function shouldSkipPosthogCapture(): boolean {
+  if (typeof window === "undefined") return false;
+  try {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("ph_internal") === "1") {
+      window.localStorage.setItem(INTERNAL_OPT_OUT_KEY, "1");
+    } else if (params.get("ph_internal") === "0") {
+      window.localStorage.removeItem(INTERNAL_OPT_OUT_KEY);
+    }
+    return window.localStorage.getItem(INTERNAL_OPT_OUT_KEY) === "1";
+  } catch {
+    return false;
+  }
+}

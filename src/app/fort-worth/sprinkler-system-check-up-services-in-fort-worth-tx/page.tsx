@@ -1,14 +1,17 @@
+import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import ServicePageLayout from '@/components/templates/ServicePageLayout';
 import { CheckCircle, Wrench, Droplet, Sprout, ClipboardList, Repeat2 } from 'lucide-react';
 import CityServicesList from '@/components/CityServicesList';
 import ServiceAreaLocator from '@/components/ServiceAreaLocator';
 import CTA from '@/components/CTA';
 
-export const metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Sprinkler System Check-Up in Fort Worth, TX | Texas Best Sprinklers',
-  description:
-    'Comprehensive sprinkler inspections and tune-ups in Fort Worth, TX. Optimize coverage, fix leaks, and save water.',
-};
+  description: "Comprehensive sprinkler inspections and tune-ups in Fort Worth, TX. Optimize coverage, fix leaks, and save water.",
+  path: '/fort-worth/sprinkler-system-check-up-services-in-fort-worth-tx',
+  image: 'sprinkler',
+});
 
 export default function SprinklerCheckupFortWorthPage() {
   return (

@@ -23,7 +23,7 @@ export default function ServiceHero({ serviceContent, location }: ServiceHeroPro
         fill
         priority
         sizes="100vw"
-        quality={90}
+        quality={75}
         style={{ objectFit: 'cover' }}
         className="brightness-50" // Darker image overlay
         placeholder="blur"

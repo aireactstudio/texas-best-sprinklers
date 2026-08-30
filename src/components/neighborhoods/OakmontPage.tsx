@@ -99,7 +99,7 @@ export default function OakmontPage() {
       relatedAreas={[
         { name: 'Hidden Lakes', description: 'Large-lot irrigation and drainage planning.', link: '/keller/hidden-lakes' },
         { name: 'Marshall Ridge', description: 'Performance tuning for HOA-focused landscapes.', link: '/keller/marshall-ridge' },
-        { name: 'Ridgewood', description: 'General sprinkler and irrigation support in Keller.', link: '/keller' }
+        { name: 'Ridgewood', description: 'General sprinkler and irrigation support in Keller.', link: '/keller/ridgewood' }
       ]}
       popularServices={[
         {

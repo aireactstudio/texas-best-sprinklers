@@ -17,12 +17,18 @@ import {
   ArrowRight,
   Quote,
   BadgeDollarSign,
-  CalendarClock
+  CalendarClock,
+  Home,
+  Leaf,
+  Waves,
+  Images
 } from 'lucide-react';
 import CTA from '@/components/CTA';
 import HomeFAQ from '@/components/HomeFAQ';
 import AboutTheArea, { LocalAttraction } from '@/components/AboutTheArea';
+import LazyLocationMap from '@/components/LazyLocationMap';
 import { buildNeighborhoodStructuredData } from '@/components/neighborhoods/structuredData';
+import { getLocationData } from '@/data/locationData';
 
 interface FAQItem {
   question: string;
@@ -33,6 +39,8 @@ interface ReviewItem {
   reviewer: string;
   date: string;
   quote: string;
+  location?: string;
+  stars?: number;
 }
 
 interface ConsiderationItem {
@@ -57,6 +65,26 @@ interface PopularServiceItem {
   link: string;
 }
 
+interface TrustCardItem {
+  title: string;
+  description: string;
+}
+
+interface GalleryItem {
+  src: string;
+  alt: string;
+  caption: string;
+}
+
+interface CaseStudyItem {
+  heading?: string;
+  title: string;
+  body: string;
+  image: string;
+  imageAlt: string;
+  locationNote?: string;
+}
+
 interface NeighborhoodPageTemplateProps {
   cityName: string;
   citySlug: string;
@@ -67,7 +95,7 @@ interface NeighborhoodPageTemplateProps {
   heroTitle: string;
   heroDescription: string;
   introHeading: string;
-  intro: string;
+  intro: React.ReactNode;
   highlights: string[];
   serviceFocus: string[];
   localTips: string[];
@@ -80,9 +108,15 @@ interface NeighborhoodPageTemplateProps {
   popularServices: PopularServiceItem[];
   attractions: LocalAttraction[];
   localLivingContent: React.ReactNode;
-  /** Optional long-form local SEO article rendered as the last section of the page. */
-  articleContent?: React.ReactNode;
+  trustCards?: TrustCardItem[];
+  gallery?: GalleryItem[];
+  caseStudy?: CaseStudyItem;
+  ctaTitle?: string;
+  ctaSubtitle?: string;
+  showMap?: boolean;
 }
+
+const TRUST_CARD_ICONS = [Home, Leaf, Waves, Shield];
 
 export default function NeighborhoodPageTemplate({
   cityName,
@@ -107,14 +141,31 @@ export default function NeighborhoodPageTemplate({
   popularServices,
   attractions,
   localLivingContent,
-  articleContent
+  trustCards,
+  gallery,
+  caseStudy,
+  ctaTitle,
+  ctaSubtitle,
+  showMap = true
 }: NeighborhoodPageTemplateProps) {
+  const locationInfo = getLocationData(citySlug);
+  const coordinates =
+    locationInfo && 'coordinates' in locationInfo ? locationInfo.coordinates : undefined;
+  const serviceRadiusMiles =
+    locationInfo && 'serviceRadius' in locationInfo
+      ? (locationInfo as { serviceRadius?: number }).serviceRadius
+      : undefined;
+
   const structuredData = buildNeighborhoodStructuredData({
     canonical: canonicalUrl,
     neighborhoodName: `${neighborhoodName}, ${cityName}`,
+    cityName,
     pageTitle,
     description: metaDescription,
-    faqItems: faqs
+    faqItems: faqs,
+    geo: coordinates,
+    serviceRadiusMiles,
+    reviews
   });
 
   return (
@@ -190,7 +241,7 @@ export default function NeighborhoodPageTemplate({
               </p>
               <div className="grid grid-cols-2 gap-3">
                 <div className="rounded-lg bg-white/10 border border-white/10 p-3">
-                  <p className="text-2xl font-bold text-emerald-300">15+</p>
+                  <p className="text-2xl font-bold text-emerald-300">10+</p>
                   <p className="text-xs text-white/80">Years Serving DFW</p>
                 </div>
                 <div className="rounded-lg bg-white/10 border border-white/10 p-3">
@@ -206,6 +257,16 @@ export default function NeighborhoodPageTemplate({
                   <p className="text-xs text-white/80">New Install Warranty</p>
                 </div>
               </div>
+
+              {showMap && coordinates && (
+                <div className="mt-5 overflow-hidden rounded-xl border border-white/10">
+                  <LazyLocationMap
+                    locationData={locationInfo}
+                    radiusMiles={serviceRadiusMiles ?? 8}
+                    height="220px"
+                  />
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -239,7 +300,11 @@ export default function NeighborhoodPageTemplate({
           <div className="grid grid-cols-1 lg:grid-cols-[1.3fr_0.9fr] gap-8 items-start">
             <div className="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm">
               <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">{introHeading}</h2>
-              <p className="text-slate-700 leading-relaxed">{intro}</p>
+              {typeof intro === 'string' ? (
+                <p className="text-slate-700 leading-relaxed">{intro}</p>
+              ) : (
+                <div className="space-y-4 text-slate-700 leading-relaxed">{intro}</div>
+              )}
             </div>
             <div className="rounded-2xl border border-emerald-100 bg-emerald-50/70 p-6">
               <p className="text-xs uppercase tracking-[0.2em] font-semibold text-emerald-700 mb-2">Fast Response</p>
@@ -299,31 +364,113 @@ export default function NeighborhoodPageTemplate({
             </div>
           </div>
 
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">What {neighborhoodName} Homeowners Say</h2>
+          {trustCards && trustCards.length > 0 && (
+            <div className="mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Why homeowners in {neighborhoodName} call us</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                {trustCards.map((card, idx) => {
+                  const Icon = TRUST_CARD_ICONS[idx % TRUST_CARD_ICONS.length];
+                  return (
+                    <div key={card.title} className="rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
+                      <div className="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center mb-3">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <h3 className="text-lg font-semibold text-slate-900 mb-2">{card.title}</h3>
+                      <p className="text-sm text-slate-700 leading-relaxed">{card.description}</p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">What Nearby Homeowners Say</h2>
+          <p className="text-slate-600 mb-6 max-w-3xl">
+            Quotes below are from real Texas Best Sprinklers customers in {cityName} and nearby DFW cities. We do not invent neighborhood-specific names.
+          </p>
           <div className="relative overflow-hidden">
             <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-10 bg-gradient-to-r from-white to-transparent" />
             <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-10 bg-gradient-to-l from-white to-transparent" />
             <div className="flex w-max gap-5 animate-neighborhood-reviews hover:[animation-play-state:paused]">
-              {[...reviews, ...reviews].map((review, idx) => (
-                <div
-                  key={`${review.reviewer}-${review.date}-${idx}`}
-                  className="w-[320px] md:w-[360px] rounded-2xl border border-slate-200 p-6 bg-white shadow-sm hover:shadow-md transition-shadow"
-                >
-                  <Quote className="h-6 w-6 text-irrigation-blue/40 mb-3" />
-                  <div className="flex items-center gap-1 text-amber-500 mb-2">
-                    {[1, 2, 3, 4, 5].map((star) => (
-                      <Star key={`${review.reviewer}-${idx}-${star}`} className="h-4 w-4 fill-current" />
-                    ))}
+              {[...reviews, ...reviews].map((review, idx) => {
+                const starCount = review.stars ?? 5;
+                return (
+                  <div
+                    key={`${review.reviewer}-${review.date}-${idx}`}
+                    className="w-[320px] md:w-[360px] rounded-2xl border border-slate-200 p-6 bg-white shadow-sm hover:shadow-md transition-shadow"
+                  >
+                    <Quote className="h-6 w-6 text-irrigation-blue/40 mb-3" />
+                    <div className="flex items-center gap-1 text-amber-500 mb-2">
+                      {Array.from({ length: starCount }).map((_, star) => (
+                        <Star key={`${review.reviewer}-${idx}-${star}`} className="h-4 w-4 fill-current" />
+                      ))}
+                    </div>
+                    <p className="text-sm text-slate-700 leading-relaxed">{review.quote}</p>
+                    <p className="mt-4 text-sm font-semibold text-slate-900">{review.reviewer}</p>
+                    <p className="text-xs text-slate-500">
+                      {review.location ? `${review.location} · ${review.date}` : review.date}
+                    </p>
                   </div>
-                  <p className="text-sm text-slate-700 leading-relaxed">{review.quote}</p>
-                  <p className="mt-4 text-sm font-semibold text-slate-900">{review.reviewer}</p>
-                  <p className="text-xs text-slate-500">{review.date}</p>
-                </div>
-              ))}
+                );
+              })}
             </div>
+          </div>
+          <div className="mt-5">
+            <Link href={`/${citySlug}`} className="inline-flex items-center gap-2 text-sm font-semibold text-irrigation-blue hover:underline">
+              See {cityName} service details and more homeowner feedback
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         </div>
       </section>
+
+      {gallery && gallery.length > 0 && (
+        <section className="py-16 bg-slate-50">
+          <div className="container-custom">
+            <div className="mb-6 flex items-center gap-3">
+              <Images className="h-7 w-7 text-irrigation-blue" />
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900">Our Work Near {neighborhoodName}</h2>
+            </div>
+            <p className="text-slate-600 max-w-3xl mb-8">
+              Photos are from Texas Best Sprinklers projects in {cityName} and nearby DFW — not claimed as street-level work inside {neighborhoodName} unless noted.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+              {gallery.map((item) => (
+                <figure key={item.src} className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+                  <div className="relative aspect-[4/3]">
+                    <Image src={item.src} alt={item.alt} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover" />
+                  </div>
+                  <figcaption className="px-4 py-3 text-sm text-slate-700">{item.caption}</figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {caseStudy && (
+        <section className="py-16 bg-white">
+          <div className="container-custom">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
+              {caseStudy.heading || `Featured work for homes like these in ${neighborhoodName}`}
+            </h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center rounded-2xl border border-slate-200 bg-slate-50 overflow-hidden shadow-sm">
+              <div className="relative min-h-[260px] aspect-[4/3] lg:aspect-auto lg:min-h-[360px]">
+                <Image src={caseStudy.image} alt={caseStudy.imageAlt} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
+              </div>
+              <div className="p-6 md:p-8">
+                <h3 className="text-2xl font-bold text-slate-900 mb-3">{caseStudy.title}</h3>
+                <p className="text-slate-700 leading-relaxed whitespace-pre-line">{caseStudy.body}</p>
+                {caseStudy.locationNote && <p className="mt-4 text-sm text-slate-500">{caseStudy.locationNote}</p>}
+                <Link href="/contact" className="mt-6 inline-flex items-center gap-2 font-semibold text-irrigation-blue hover:underline">
+                  Ask about similar work for your property
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="py-16 bg-slate-900 text-white">
         <div className="container-custom">
@@ -382,6 +529,36 @@ export default function NeighborhoodPageTemplate({
                 </Link>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-12 bg-emerald-700 text-white">
+        <div className="container-custom flex flex-col md:flex-row md:items-center md:justify-between gap-5">
+          <div>
+            <h2 className="text-2xl md:text-3xl font-bold mb-2">Need a walkthrough of your {neighborhoodName} system?</h2>
+            <p className="text-emerald-50 max-w-2xl">
+              Call (817) 304-7896 or send photos of dry spots, leaks, or pooling. Quotes go to{' '}
+              <Link href="/contact" className="font-semibold text-white underline decoration-2 underline-offset-4">
+                /contact
+              </Link>
+              — there is no online quote widget.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <a
+              href="tel:8173047896"
+              className="inline-flex items-center gap-2 rounded-xl bg-white px-5 py-3 font-semibold text-emerald-800 hover:bg-emerald-50"
+            >
+              <Phone className="h-4 w-4" />
+              Call (817) 304-7896
+            </a>
+            <Link
+              href="/contact"
+              className="inline-flex items-center rounded-xl border border-white/40 px-5 py-3 font-semibold text-white hover:bg-white/10"
+            >
+              Get Free Quote
+            </Link>
           </div>
         </div>
       </section>
@@ -449,13 +626,15 @@ export default function NeighborhoodPageTemplate({
       </section>
 
       <CTA
-        title={`Need sprinkler help in ${neighborhoodName}?`}
-        subtitle={`Get licensed, local service from the ${cityName} team at Texas Best Sprinklers.`}
+        locationName={neighborhoodName}
+        title={ctaTitle ?? `Ready to Improve Irrigation in ${neighborhoodName}?`}
+        subtitle={
+          ctaSubtitle ??
+          `Get a free quote for sprinkler, drainage, or lighting work. Call (817) 304-7896. Licensed irrigator LI22462 serving ${neighborhoodName}, ${cityName}.`
+        }
         buttonText="Get Free Estimate"
         buttonLink="/contact"
       />
-
-      {articleContent}
 
       <style jsx>{`
         @keyframes neighborhood-review-marquee {

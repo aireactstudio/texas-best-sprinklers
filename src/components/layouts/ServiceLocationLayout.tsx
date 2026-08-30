@@ -1,8 +1,8 @@
 import React from 'react';
 import { Metadata } from 'next';
 import { getServiceLocationData } from '@/data/utils/serviceUtils';
-import { getLocationData } from '@/data/locationData';
 import { ServiceType } from '@/data/serviceTypes';
+import { imageKeyForPath, pageMetadata } from '@/lib/seo';
 
 // Helper function to generate metadata for location-specific service pages
 export async function generateServiceLocationMetadata(
@@ -12,15 +12,6 @@ export async function generateServiceLocationMetadata(
   // Get service content for this location using our centralized data structure
   const serviceContent = getServiceLocationData(location, serviceType);
   
-  // Get location data
-  const locationInfo = getLocationData(location);
-  
-  // Format the city name from the location slug
-  const cityName = locationInfo?.name || location
-    .split('-')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
-  
   // If service not found for this location, return default metadata
   if (!serviceContent) {
     return {
@@ -29,28 +20,12 @@ export async function generateServiceLocationMetadata(
     };
   }
   
-  return {
+  return pageMetadata({
     title: serviceContent.title,
     description: serviceContent.metaDescription,
-    openGraph: {
-      title: serviceContent.title,
-      description: serviceContent.metaDescription,
-      images: serviceContent.heroImage ? [
-        {
-          url: serviceContent.heroImage,
-          width: 1200,
-          height: 630,
-          alt: serviceContent.title
-        }
-      ] : []
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: serviceContent.title,
-      description: serviceContent.metaDescription,
-      images: serviceContent.heroImage ? [serviceContent.heroImage] : []
-    }
-  };
+    path: `/${location}/${serviceType}`,
+    image: imageKeyForPath(`/${location}/${serviceType}`),
+  });
 }
 
 // Simple layout component that just renders children

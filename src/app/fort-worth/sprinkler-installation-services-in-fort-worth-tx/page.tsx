@@ -1,13 +1,17 @@
+import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import ServicePageLayout from '@/components/templates/ServicePageLayout';
 import { Droplet, Wrench, Sprout, ClipboardList, Repeat2 } from 'lucide-react';
 import CityServicesList from '@/components/CityServicesList';
 import ServiceAreaLocator from '@/components/ServiceAreaLocator';
 import CTA from '@/components/CTA';
 
-export const metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Sprinkler Installation in Fort Worth, TX | Texas Best Sprinklers',
-  description: 'Professional sprinkler system design and installation in Fort Worth, TX. Smart, water-efficient systems built to last.',
-};
+  description: "Professional sprinkler system design and installation in Fort Worth, TX. Smart, water-efficient systems built to last.",
+  path: '/fort-worth/sprinkler-installation-services-in-fort-worth-tx',
+  image: 'sprinkler',
+});
 
 export default function SprinklerInstallationFortWorthPage() {
   return (

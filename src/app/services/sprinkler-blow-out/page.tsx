@@ -1,12 +1,16 @@
+import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import { Settings } from 'lucide-react';
 import ServicePageLayout from '@/components/templates/ServicePageLayout';
 import ServiceAreaLocator from '@/components/ServiceAreaLocator';
 import CTA from '@/components/CTA';
 import Link from 'next/link';
 
-export const metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Sprinkler Blow Out Service | Texas Best Sprinklers',
-};
+  path: '/services/sprinkler-blow-out',
+  image: 'sprinkler',
+});
 
 export default function SprinklerBlowOutPage() {
   const serviceProps = {

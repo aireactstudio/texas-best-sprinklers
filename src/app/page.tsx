@@ -1,25 +1,35 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import dynamic from 'next/dynamic';
 import LocationHeroSection from '@/components/location-homepages/LocationHeroSection';
-import ServicesSection from '@/components/ServicesSection';
-import FeaturesSection from '@/components/FeaturesSection';
-import HowItWorksSection from '@/components/HowItWorksSection';
-import TestimonialsSection from '@/components/TestimonialsSection';
-import BlogPreview from '@/components/BlogPreview';
-import StatsSection from '@/components/StatsSection';
-import CTA from '@/components/CTA';
 import StructuredData from '@/components/StructuredData';
-import HowToGetStartedSection from '@/components/HowToGetStartedSection';
 import MultiServiceHowToSchema from '@/components/MultiServiceHowToSchema';
-import ServiceAreaLocator from '@/components/ServiceAreaLocator';
-import ScrollingCarousel from '@/components/ScrollingCarousel';
 import { curatedReviews } from '@/data/curated-reviews';
-import EndOfSummerSpecials from '@/components/EndOfSummerSpecials';
-import HomeFAQ from '@/components/HomeFAQ';
-import GrassGuideSection from '@/components/GrassGuideSection';
-import InHouseFinancingSection from '@/components/InHouseFinancingSection';
 import { LOCATIONS, locationData } from '@/data/locationData';
+
+import DeferredSection from '@/components/DeferredSection';
+
+// SEO-relevant sections keep SSR so their text/links are in the initial HTML.
+const ServicesSection = dynamic(() => import('@/components/ServicesSection'), {
+  loading: () => <div className="h-[480px] bg-white" aria-hidden />,
+});
+const HomeFAQ = dynamic(() => import('@/components/HomeFAQ'));
+const GrassGuideSection = dynamic(() => import('@/components/GrassGuideSection'));
+const BlogPreview = dynamic(() => import('@/components/BlogPreview'));
+
+// Purely visual/interactive sections: no SSR + mounted only when scrolled
+// near (via DeferredSection), so their JS stays off the critical path.
+const FeaturesSection = dynamic(() => import('@/components/FeaturesSection'), { ssr: false });
+const HowItWorksSection = dynamic(() => import('@/components/HowItWorksSection'), { ssr: false });
+const TestimonialsSection = dynamic(() => import('@/components/TestimonialsSection'), { ssr: false });
+const StatsSection = dynamic(() => import('@/components/StatsSection'), { ssr: false });
+const CTA = dynamic(() => import('@/components/CTA'), { ssr: false });
+const HowToGetStartedSection = dynamic(() => import('@/components/HowToGetStartedSection'), { ssr: false });
+const ServiceAreaLocator = dynamic(() => import('@/components/ServiceAreaLocator'), { ssr: false });
+const ScrollingCarousel = dynamic(() => import('@/components/ScrollingCarousel'), { ssr: false });
+const InHouseFinancingSection = dynamic(() => import('@/components/InHouseFinancingSection'), { ssr: false });
+// import EndOfSummerSpecials from '@/components/EndOfSummerSpecials'; // Spring Special component temporarily disabled
 
 export default function Home() {
   const [reviews, setReviews] = useState([]);
@@ -147,20 +157,35 @@ export default function Home() {
         distanceFromOffice={0}
         serviceAreas={[]}
       />
-      {/* End of Summer Specials - prominent and above the fold */}
+      {/* Spring Special component temporarily disabled
       <div className="px-4 sm:px-6 lg:px-8 mt-8">
         <EndOfSummerSpecials />
       </div>
-      <ScrollingCarousel />
+      */}
+      <DeferredSection minHeight={520}>
+        <ScrollingCarousel />
+      </DeferredSection>
       <ServicesSection />
       <GrassGuideSection />
       {/* Move reviews up: 1–2 sections below hero */}
-      <TestimonialsSection />
-      <FeaturesSection />
-      <InHouseFinancingSection />
-      <StatsSection />
-      <HowItWorksSection />
-      <HowToGetStartedSection />
+      <DeferredSection minHeight={560}>
+        <TestimonialsSection />
+      </DeferredSection>
+      <DeferredSection>
+        <FeaturesSection />
+      </DeferredSection>
+      <DeferredSection>
+        <InHouseFinancingSection />
+      </DeferredSection>
+      <DeferredSection minHeight={300}>
+        <StatsSection />
+      </DeferredSection>
+      <DeferredSection>
+        <HowItWorksSection />
+      </DeferredSection>
+      <DeferredSection>
+        <HowToGetStartedSection />
+      </DeferredSection>
       {/* New beautiful Home FAQ with categories per service */}
       <HomeFAQ
         categories={[
@@ -248,10 +273,12 @@ export default function Home() {
         faqs={homeFaqs}
       />
       <BlogPreview />
-      <ServiceAreaLocator 
-        title="Our Service Areas"
-        subtitle="Texas Best Sprinklers provides expert irrigation and drainage solutions throughout the Fort Worth metroplex"
-      />
+      <DeferredSection>
+        <ServiceAreaLocator 
+          title="Our Service Areas"
+          subtitle="Texas Best Sprinklers provides expert irrigation and drainage solutions throughout the Fort Worth metroplex"
+        />
+      </DeferredSection>
       <section className="px-4 sm:px-6 lg:px-8 py-12">
         <div className="mx-auto max-w-4xl">
           <h2 className="text-2xl md:text-3xl font-bold text-irrigation-darkBlue tracking-tight">Fort Worth Sprinkler & Drainage Experts</h2>
@@ -295,7 +322,9 @@ export default function Home() {
           </p>
         </div>
       </section>
-      <CTA />
+      <DeferredSection minHeight={300}>
+        <CTA />
+      </DeferredSection>
       {/* SEO: Structured Data - LocalBusiness, Services, Breadcrumbs */}
       <script
         type="application/ld+json"
