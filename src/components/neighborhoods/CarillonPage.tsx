@@ -238,8 +238,8 @@ export default function CarillonPage() {
         },
         {
           name: 'Southlake Meadows',
-          description: 'Controller tuning, drip upgrades, and drainage planning across Southlake.',
-          link: '/southlake'
+          description: 'Builder-system tune-ups, drip upgrades, and drainage for newer lots near West Dove Road.',
+          link: '/southlake/southlake-meadows'
         },
         {
           name: 'Kirkwood Hollow',

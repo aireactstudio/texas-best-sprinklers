@@ -120,7 +120,12 @@ export const locationData = {
           'Sprinkler repair, drip conversion, and drainage planning for 1990s Timber Lake lots between Southlake Boulevard and Continental, including pond-edge clay and mature shade. Click to learn more →',
         link: '/southlake/timber-lake'
       },
-      'Southlake Meadows',
+      {
+        name: 'Southlake Meadows',
+        description:
+          'Sprinkler repair, drip conversion, and drainage planning for newer Toll Brothers lots on Charleston Drive and Jamestown Lane. Click to learn more →',
+        link: '/southlake/southlake-meadows'
+      },
       {
         name: 'Kirkwood Hollow',
         description:
