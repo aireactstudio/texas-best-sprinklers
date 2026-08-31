@@ -113,7 +113,12 @@ export const locationData = {
           'Irrigation repair, drip conversion, and drainage planning for gated Carillon homes around community lakes and mature trees. Click to learn more →',
         link: '/southlake/carillon'
       },
-      'Coventry Manor',
+      {
+        name: 'Coventry Manor',
+        description:
+          'Sprinkler repair, drip conversion, and drainage for late-1990s custom lots on Turnberry Lane and Lands End Court. Click to learn more →',
+        link: '/southlake/coventry-manor'
+      },
       {
         name: 'Timber Lake',
         description:

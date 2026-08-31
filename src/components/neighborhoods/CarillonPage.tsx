@@ -229,7 +229,7 @@ export default function CarillonPage() {
         {
           name: 'Coventry Manor',
           description: 'Irrigation and drainage support for nearby Southlake homes with HOA landscape standards.',
-          link: '/southlake'
+          link: '/southlake/coventry-manor'
         },
         {
           name: 'Timber Lake',
