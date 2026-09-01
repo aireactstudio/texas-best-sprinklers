@@ -435,6 +435,10 @@ export const locationData = {
         link: '/euless/morningside'
       },
       'Oakwood Terrace',
+      'Morningside',
+        name: 'Oakwood Terrace',
+          'Irrigation repair, drip conversion, and drainage planning for south Euless Oakwood Terrace lots on Oakwood Drive and Vine Street — 1950s–60s homes mixed with infill rebuilds on clay. Click to learn more →',
+        link: '/euless/oakwood-terrace'
       'Bear Creek',
       'Timber Ridge',
       {
