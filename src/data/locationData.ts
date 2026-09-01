@@ -429,7 +429,12 @@ export const locationData = {
     landmarks: ['Bob Eden Park', 'Euless Family Life Center', 'Heritage Park'],
     neighborhoods: [
       'Morningside',
-      'Oakwood Terrace',
+      {
+        name: 'Oakwood Terrace',
+        description:
+          'Irrigation repair, drip conversion, and drainage planning for south Euless Oakwood Terrace lots on Oakwood Drive and Vine Street — 1950s–60s homes mixed with infill rebuilds on clay. Click to learn more →',
+        link: '/euless/oakwood-terrace'
+      },
       'Bear Creek',
       'Timber Ridge',
       {
