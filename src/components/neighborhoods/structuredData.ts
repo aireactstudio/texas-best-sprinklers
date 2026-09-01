@@ -120,6 +120,13 @@ export function buildNeighborhoodStructuredData({
     areaServed
   };
 
+  const reviewRatings = reviews.map((item) => item.stars ?? 5);
+  const reviewCount = reviewRatings.length;
+  const averageRating =
+    reviewCount > 0
+      ? (reviewRatings.reduce((sum, stars) => sum + stars, 0) / reviewCount).toFixed(1)
+      : undefined;
+
   const localBusiness = {
     '@context': 'https://schema.org',
     '@type': 'HomeAndConstructionBusiness',
@@ -130,8 +137,16 @@ export function buildNeighborhoodStructuredData({
     areaServed,
     ...(geoCoordinates ? { geo: geoCoordinates } : {}),
     ...(geoCircle ? { location: geoCircle } : {}),
-    ...(reviews.length > 0
+    ...(reviewCount > 0
       ? {
+          aggregateRating: {
+            '@type': 'AggregateRating',
+            ratingValue: averageRating,
+            reviewCount,
+            ratingCount: reviewCount,
+            bestRating: '5',
+            worstRating: '1'
+          },
           review: reviews.map((item) => ({
             '@type': 'Review',
             author: {
@@ -143,7 +158,8 @@ export function buildNeighborhoodStructuredData({
             reviewRating: {
               '@type': 'Rating',
               ratingValue: String(item.stars ?? 5),
-              bestRating: '5'
+              bestRating: '5',
+              worstRating: '1'
             }
           }))
         }
