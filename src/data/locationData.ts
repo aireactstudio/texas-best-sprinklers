@@ -430,7 +430,12 @@ export const locationData = {
     neighborhoods: [
       'Morningside',
       'Oakwood Terrace',
-      'Bear Creek',
+      {
+        name: 'Bear Creek',
+        description:
+          'Irrigation repair, drip conversion, and drainage planning for 1970s–80s Bear Creek lots on Bear Creek Drive and Bear Creek Parkway. Click to learn more →',
+        link: '/euless/bear-creek'
+      },
       'Timber Ridge',
       {
         name: 'Wilshire Village',
