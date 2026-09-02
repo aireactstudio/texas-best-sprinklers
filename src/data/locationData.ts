@@ -440,6 +440,12 @@ export const locationData = {
           'Irrigation repair, drip conversion, and drainage planning for south Euless Oakwood Terrace lots on Oakwood Drive and Vine Street — 1950s–60s homes mixed with infill rebuilds on clay. Click to learn more →',
         link: '/euless/oakwood-terrace'
       'Bear Creek',
+      {
+        name: 'Bear Creek',
+        description:
+          'Irrigation repair, drip conversion, and drainage planning for 1970s–80s Bear Creek lots on Bear Creek Drive and Bear Creek Parkway. Click to learn more →',
+        link: '/euless/bear-creek'
+      },
       'Timber Ridge',
       {
         name: 'Wilshire Village',
