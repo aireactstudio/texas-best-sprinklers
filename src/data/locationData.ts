@@ -447,6 +447,9 @@ export const locationData = {
         link: '/euless/bear-creek'
       },
       'Timber Ridge',
+        name: 'Timber Ridge',
+          'Sprinkler repair, irrigation tuning, drainage planning, and outdoor lighting support for Timber Ridge homes in Euless, TX. Click to learn more →',
+        link: '/euless/timber-ridge'
       {
         name: 'Wilshire Village',
         description: 'Sprinkler repair, irrigation tuning, drainage planning, and lighting support for Wilshire Village homes in Euless.',
