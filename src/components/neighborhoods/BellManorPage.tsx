@@ -237,12 +237,12 @@ export default function BellManorPage() {
         {
           name: 'Mayfair Hills',
           description: 'Controller tuning, leak repair, and clay-soil watering help across nearby Bedford streets.',
-          link: '/bedford'
+          link: '/bedford/mayfair-hills'
         },
         {
           name: 'Bedford Meadows',
           description: 'Seasonal sprinkler service and drainage planning for Mid-Cities lots in Bedford.',
-          link: '/bedford'
+          link: '/bedford/bedford-meadows'
         },
         {
           name: 'Stonegate',
