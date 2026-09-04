@@ -413,7 +413,12 @@ export const locationData = {
           'Irrigation repair, drip conversion, and drainage planning for established Mayfair Hills homes on clay lots with mature oaks and 1960s–70s irrigation. Click to learn more →',
         link: '/bedford/mayfair-hills'
       },
-      'Bedford Meadows',
+      {
+        name: 'Bedford Meadows',
+        description:
+          'Irrigation repair, drip conversion, and drainage planning for 1970s–90s Bedford Meadows homes and townhomes on Meadow Park Drive and Meadow Creek Drive. Click to learn more →',
+        link: '/bedford/bedford-meadows'
+      },
       'Stonegate'
     ],
     coordinates: {

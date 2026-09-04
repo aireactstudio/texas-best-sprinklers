@@ -236,12 +236,12 @@ export default function MayfairHillsPage() {
         {
           name: 'Bell Manor',
           description: 'Irrigation and drainage support for established Bedford streets near Forest Ridge and HEB ISD campuses.',
-          link: '/bedford'
+          link: '/bedford/bell-manor'
         },
         {
           name: 'Bedford Meadows',
           description: 'Seasonal sprinkler service and clay-soil watering help across central Bedford.',
-          link: '/bedford'
+          link: '/bedford/bedford-meadows'
         },
         {
           name: 'Stonegate',
