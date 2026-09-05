@@ -420,6 +420,11 @@ export const locationData = {
         link: '/bedford/bedford-meadows'
       },
       'Stonegate'
+      'Bedford Meadows',
+        name: 'Stonegate',
+          'Irrigation repair, drip conversion, and drainage planning for late-1960s Stonegate Addition lots on Stonegate Drive North, Stratford Drive, and Regents Park. Click to learn more →',
+        link: '/bedford/stonegate'
+      }
     ],
     coordinates: {
       latitude: 32.8440,
