@@ -49,6 +49,10 @@ export const locationData = {
           'Irrigation repair, drip conversion, and drainage planning for historic Fairmount bungalows on compact clay lots near Magnolia Avenue. Click to learn more →',
         link: '/fort-worth/fairmount'
       },
+        name: 'Downtown Fort Worth',
+          'Irrigation repair, drip conversion, and drainage planning for Downtown courtyards, street-tree wells, and amenity lawns in ZIP 76102. Click to learn more →',
+        link: '/fort-worth/downtown'
+      'Fairmount',
       'Arlington Heights',
       'Wedgwood',
       'Ridglea'
