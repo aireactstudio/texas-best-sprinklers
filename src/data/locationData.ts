@@ -40,7 +40,19 @@ export const locationData = {
     nearestOffice: 'Fort Worth',
     distanceFromOffice: 0,
     landmarks: ['Fort Worth Water Gardens', 'Sundance Square', 'Fort Worth Stockyards'],
-    neighborhoods: ['Downtown Fort Worth', 'Cultural District', 'Fairmount', 'Arlington Heights', 'Wedgwood', 'Ridglea'],
+    neighborhoods: [
+      'Downtown Fort Worth',
+      {
+        name: 'Cultural District',
+        description:
+          'Irrigation repair, drip conversion, and drainage planning for Cultural District courtyards, street-tree wells, and museum-campus beds in ZIP 76107. Click to learn more →',
+        link: '/fort-worth/cultural-district'
+      },
+      'Fairmount',
+      'Arlington Heights',
+      'Wedgwood',
+      'Ridglea'
+    ],
     coordinates: {
       latitude: 32.7555,
       longitude: -97.3308
