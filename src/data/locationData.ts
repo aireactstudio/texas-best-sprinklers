@@ -40,7 +40,19 @@ export const locationData = {
     nearestOffice: 'Fort Worth',
     distanceFromOffice: 0,
     landmarks: ['Fort Worth Water Gardens', 'Sundance Square', 'Fort Worth Stockyards'],
-    neighborhoods: ['Downtown Fort Worth', 'Cultural District', 'Fairmount', 'Arlington Heights', 'Wedgwood', 'Ridglea'],
+    neighborhoods: [
+      'Downtown Fort Worth',
+      'Cultural District',
+      'Fairmount',
+      {
+        name: 'Arlington Heights',
+        description:
+          'Irrigation repair, drip conversion, and drainage planning for Arlington Heights bungalow lots between Camp Bowie, Montgomery, and I-30. Click to learn more →',
+        link: '/fort-worth/arlington-heights'
+      },
+      'Wedgwood',
+      'Ridglea'
+    ],
     coordinates: {
       latitude: 32.7555,
       longitude: -97.3308
