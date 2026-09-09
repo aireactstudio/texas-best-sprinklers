@@ -57,6 +57,9 @@ export const locationData = {
         link: '/fort-worth/cultural-district'
       'Fairmount',
       'Arlington Heights',
+        name: 'Arlington Heights',
+          'Irrigation repair, drip conversion, and drainage planning for Arlington Heights bungalow lots between Camp Bowie, Montgomery, and I-30. Click to learn more →',
+        link: '/fort-worth/arlington-heights'
       'Wedgwood',
       'Ridglea'
     ],
