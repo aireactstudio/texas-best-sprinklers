@@ -61,6 +61,9 @@ export const locationData = {
           'Irrigation repair, drip conversion, and drainage planning for Arlington Heights bungalow lots between Camp Bowie, Montgomery, and I-30. Click to learn more →',
         link: '/fort-worth/arlington-heights'
       'Wedgwood',
+        name: 'Wedgwood',
+          'Sprinkler repair, drip at brick-ranch foundations, and drainage for midcentury 76133 lots on clay with few sidewalks. Click to learn more →',
+        link: '/fort-worth/wedgwood'
       'Ridglea'
     ],
     coordinates: {

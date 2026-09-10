@@ -82,12 +82,15 @@ const LocationHighlights: React.FC<LocationHighlightsProps> = ({ locationSlug, s
           </h4>
           
           <ul className="space-y-2">
-            {locationInfo.neighborhoods.slice(0, 5).map((neighborhood, index) => (
-              <li key={index} className="flex items-start">
-                <MapPin className="h-5 w-5 text-irrigation-green mr-2 flex-shrink-0 mt-0.5" />
-                <span>{neighborhood}</span>
-              </li>
-            ))}
+            {(locationInfo.neighborhoods ?? []).slice(0, 5).map((neighborhood) => {
+              const name = typeof neighborhood === 'string' ? neighborhood : neighborhood.name;
+              return (
+                <li key={name} className="flex items-start">
+                  <MapPin className="h-5 w-5 text-irrigation-green mr-2 flex-shrink-0 mt-0.5" />
+                  <span>{name}</span>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </div>
