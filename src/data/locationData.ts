@@ -40,7 +40,19 @@ export const locationData = {
     nearestOffice: 'Fort Worth',
     distanceFromOffice: 0,
     landmarks: ['Fort Worth Water Gardens', 'Sundance Square', 'Fort Worth Stockyards'],
-    neighborhoods: ['Downtown Fort Worth', 'Cultural District', 'Fairmount', 'Arlington Heights', 'Wedgwood', 'Ridglea'],
+    neighborhoods: [
+      'Downtown Fort Worth',
+      'Cultural District',
+      'Fairmount',
+      'Arlington Heights',
+      {
+        name: 'Wedgwood',
+        description:
+          'Sprinkler repair, drip at brick-ranch foundations, and drainage for midcentury 76133 lots on clay with few sidewalks. Click to learn more →',
+        link: '/fort-worth/wedgwood'
+      },
+      'Ridglea'
+    ],
     coordinates: {
       latitude: 32.7555,
       longitude: -97.3308
