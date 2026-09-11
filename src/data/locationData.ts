@@ -40,7 +40,19 @@ export const locationData = {
     nearestOffice: 'Fort Worth',
     distanceFromOffice: 0,
     landmarks: ['Fort Worth Water Gardens', 'Sundance Square', 'Fort Worth Stockyards'],
-    neighborhoods: ['Downtown Fort Worth', 'Cultural District', 'Fairmount', 'Arlington Heights', 'Wedgwood', 'Ridglea'],
+    neighborhoods: [
+      'Downtown Fort Worth',
+      'Cultural District',
+      'Fairmount',
+      'Arlington Heights',
+      'Wedgwood',
+      {
+        name: 'Ridglea',
+        description:
+          'Irrigation repair, drip conversion, and hillside drainage for Ridglea lots on rolling clay between Camp Bowie and West Vickery. Click to learn more →',
+        link: '/fort-worth/ridglea'
+      }
+    ],
     coordinates: {
       latitude: 32.7555,
       longitude: -97.3308
