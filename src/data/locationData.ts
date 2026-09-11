@@ -65,6 +65,10 @@ export const locationData = {
           'Sprinkler repair, drip at brick-ranch foundations, and drainage for midcentury 76133 lots on clay with few sidewalks. Click to learn more →',
         link: '/fort-worth/wedgwood'
       'Ridglea'
+        name: 'Ridglea',
+          'Irrigation repair, drip conversion, and hillside drainage for Ridglea lots on rolling clay between Camp Bowie and West Vickery. Click to learn more →',
+        link: '/fort-worth/ridglea'
+      }
     ],
     coordinates: {
       latitude: 32.7555,
