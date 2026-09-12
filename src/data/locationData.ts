@@ -350,7 +350,12 @@ export const locationData = {
     distanceFromOffice: 35,
     landmarks: ['Argyle Town Square', 'Liberty Christian School', 'Cross Oaks Ranch'],
     neighborhoods: [
-      'Canyon Falls',
+      {
+        name: 'Canyon Falls',
+        description:
+          'Irrigation repair, drip conversion, and drainage for rolling Canyon Falls lots north of FM 1171, including HOA front lawns and clay that sheds toward Graham Branch. Click to learn more →',
+        link: '/argyle/canyon-falls'
+      },
       'Harvest',
       {
         name: 'Argyle Meadows',
