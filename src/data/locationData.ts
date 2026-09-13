@@ -351,7 +351,12 @@ export const locationData = {
     landmarks: ['Argyle Town Square', 'Liberty Christian School', 'Cross Oaks Ranch'],
     neighborhoods: [
       'Canyon Falls',
-      'Harvest',
+      {
+        name: 'Harvest',
+        description:
+          'Irrigation repair, drip upgrades, and drainage for Hillwood’s Harvest agrihood on Argyle and Northlake clay lots. Click to learn more →',
+        link: '/argyle/harvest'
+      },
       {
         name: 'Argyle Meadows',
         description: 'Sprinkler repair, irrigation tuning, drainage planning, and lighting support for Argyle Meadows homes and landscape beds.',
