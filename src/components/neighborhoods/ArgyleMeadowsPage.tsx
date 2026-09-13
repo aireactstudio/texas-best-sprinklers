@@ -100,7 +100,7 @@ export default function ArgyleMeadowsPage() {
       ]}
       relatedAreas={[
         { name: 'Canyon Falls', description: 'Irrigation service and seasonal sprinkler tuning for nearby Argyle-area homes.', link: '/argyle' },
-        { name: 'Harvest', description: 'Sprinkler repair, controller adjustments, and drainage planning for growing landscape areas.', link: '/argyle' },
+        { name: 'Harvest', description: 'Sprinkler repair, controller adjustments, and drainage planning for growing landscape areas.', link: '/argyle/harvest' },
         { name: 'Cross Oaks', description: 'Coverage troubleshooting and water-efficient irrigation support near Argyle Meadows.', link: '/argyle' }
       ]}
       popularServices={[
