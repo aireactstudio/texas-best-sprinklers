@@ -396,7 +396,12 @@ export const locationData = {
         link: '/argyle/argyle-meadows'
       },
       'Cross Oaks',
-      '5T Ranch'
+      {
+        name: '5T Ranch',
+        description:
+          'Irrigation repair, drip conversion, and drainage planning for custom quarter- to half-acre 5T Ranch lots off Country Club Road. Click to learn more →',
+        link: '/argyle/5t-ranch'
+      }
     ],
     coordinates: {
       latitude: 33.1215,
