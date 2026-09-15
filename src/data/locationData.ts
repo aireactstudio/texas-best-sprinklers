@@ -520,7 +520,18 @@ export const locationData = {
     nearestOffice: 'Fort Worth',
     distanceFromOffice: 19,
     landmarks: ['Chisholm Park', 'Northeast Mall', 'Hurst Public Library'],
-    neighborhoods: ['Mayfair North', 'Hurst Hills', 'Shady Oaks', 'Bellaire Park North', 'Wintergreen Acres'],
+    neighborhoods: [
+      'Mayfair North',
+      {
+        name: 'Hurst Hills',
+        description:
+          'Irrigation repair, drip conversion, and drainage planning for established Hurst Hills lots around Billie Ruth Lane, West Redbud Drive, and Hurst Hills Elementary. Click to learn more →',
+        link: '/hurst/hurst-hills'
+      },
+      'Shady Oaks',
+      'Bellaire Park North',
+      'Wintergreen Acres'
+    ],
     coordinates: {
       latitude: 32.8235,
       longitude: -97.1706
