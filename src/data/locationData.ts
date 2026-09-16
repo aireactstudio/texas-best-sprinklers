@@ -449,7 +449,18 @@ export const locationData = {
     nearestOffice: 'Fort Worth',
     distanceFromOffice: 19,
     landmarks: ['Chisholm Park', 'Northeast Mall', 'Hurst Public Library'],
-    neighborhoods: ['Mayfair North', 'Hurst Hills', 'Shady Oaks', 'Bellaire Park North', 'Wintergreen Acres'],
+    neighborhoods: [
+      {
+        name: 'Mayfair North',
+        description:
+          '1980s Mayfair North Addition lots on Norwood, Farrington, and Parkridge need clay-smart sprinkler repair, drip at foundations, and drainage toward Chisholm Park. Click to learn more →',
+        link: '/hurst/mayfair-north'
+      },
+      'Hurst Hills',
+      'Shady Oaks',
+      'Bellaire Park North',
+      'Wintergreen Acres'
+    ],
     coordinates: {
       latitude: 32.8235,
       longitude: -97.1706
