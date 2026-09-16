@@ -528,6 +528,10 @@ export const locationData = {
           'Irrigation repair, drip conversion, and drainage planning for established Hurst Hills lots around Billie Ruth Lane, West Redbud Drive, and Hurst Hills Elementary. Click to learn more →',
         link: '/hurst/hurst-hills'
       },
+        name: 'Mayfair North',
+          '1980s Mayfair North Addition lots on Norwood, Farrington, and Parkridge need clay-smart sprinkler repair, drip at foundations, and drainage toward Chisholm Park. Click to learn more →',
+        link: '/hurst/mayfair-north'
+      'Hurst Hills',
       'Shady Oaks',
       'Bellaire Park North',
       'Wintergreen Acres'
