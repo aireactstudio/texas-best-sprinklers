@@ -533,6 +533,9 @@ export const locationData = {
         link: '/hurst/mayfair-north'
       'Hurst Hills',
       'Shady Oaks',
+        name: 'Shady Oaks',
+          'Irrigation repair, drip conversion, and drainage planning for Shady Oaks Addition lots on Circleview Drive and Shade Tree Circle — 1960s ranches and 1990s infill on clay at the Valley View Branch headwaters. Click to learn more →',
+        link: '/hurst/shady-oaks'
       'Bellaire Park North',
       'Wintergreen Acres'
     ],
