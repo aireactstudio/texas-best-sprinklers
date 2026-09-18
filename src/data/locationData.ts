@@ -449,7 +449,18 @@ export const locationData = {
     nearestOffice: 'Fort Worth',
     distanceFromOffice: 19,
     landmarks: ['Chisholm Park', 'Northeast Mall', 'Hurst Public Library'],
-    neighborhoods: ['Mayfair North', 'Hurst Hills', 'Shady Oaks', 'Bellaire Park North', 'Wintergreen Acres'],
+    neighborhoods: [
+      'Mayfair North',
+      'Hurst Hills',
+      {
+        name: 'Shady Oaks',
+        description:
+          'Irrigation repair, drip conversion, and drainage planning for Shady Oaks Addition lots on Circleview Drive and Shade Tree Circle — 1960s ranches and 1990s infill on clay at the Valley View Branch headwaters. Click to learn more →',
+        link: '/hurst/shady-oaks'
+      },
+      'Bellaire Park North',
+      'Wintergreen Acres'
+    ],
     coordinates: {
       latitude: 32.8235,
       longitude: -97.1706
