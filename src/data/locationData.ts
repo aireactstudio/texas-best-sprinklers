@@ -449,7 +449,18 @@ export const locationData = {
     nearestOffice: 'Fort Worth',
     distanceFromOffice: 19,
     landmarks: ['Chisholm Park', 'Northeast Mall', 'Hurst Public Library'],
-    neighborhoods: ['Mayfair North', 'Hurst Hills', 'Shady Oaks', 'Bellaire Park North', 'Wintergreen Acres'],
+    neighborhoods: [
+      'Mayfair North',
+      'Hurst Hills',
+      'Shady Oaks',
+      'Bellaire Park North',
+      {
+        name: 'Wintergreen Acres',
+        description:
+          'Sprinkler repair, drip conversion, and drainage planning for 1970s Wintergreen Acres lots on Toni Drive, Autumn Drive, and Hurstview. Click to learn more →',
+        link: '/hurst/wintergreen-acres'
+      }
+    ],
     coordinates: {
       latitude: 32.8235,
       longitude: -97.1706
