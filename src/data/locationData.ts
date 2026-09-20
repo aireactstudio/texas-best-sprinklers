@@ -541,6 +541,10 @@ export const locationData = {
           'Park-edge irrigation, courtyard repair, and drainage for Bellaire Park North in southeast Hurst. Click to learn more →',
         link: '/hurst/bellaire-park-north'
       'Wintergreen Acres'
+        name: 'Wintergreen Acres',
+          'Sprinkler repair, drip conversion, and drainage planning for 1970s Wintergreen Acres lots on Toni Drive, Autumn Drive, and Hurstview. Click to learn more →',
+        link: '/hurst/wintergreen-acres'
+      }
     ],
     coordinates: {
       latitude: 32.8235,
