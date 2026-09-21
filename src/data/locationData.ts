@@ -179,7 +179,18 @@ export const locationData = {
     nearestOffice: 'Weatherford',
     distanceFromOffice: 32,
     landmarks: ['Grapevine Lake', 'Historic Downtown Grapevine', 'Gaylord Texan Resort'],
-    neighborhoods: ['Historic Township', 'Meadowmere Park', 'Silver Lake', 'Stone Bridge Oaks', 'Dove Crossing'],
+    neighborhoods: [
+      'Historic Township',
+      'Meadowmere Park',
+      {
+        name: 'Silver Lake',
+        description:
+          'Irrigation repair, drip conversion, and drainage for Weekley-built Silver Lake villa and estate lots off Dove Loop. Click to learn more →',
+        link: '/grapevine/silver-lake'
+      },
+      'Stone Bridge Oaks',
+      'Dove Crossing'
+    ],
     coordinates: {
       latitude: 32.9343,
       longitude: -97.0780
