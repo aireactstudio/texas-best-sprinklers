@@ -189,6 +189,10 @@ export const locationData = {
         link: '/grapevine/silver-lake'
       },
       'Stone Bridge Oaks',
+      'Silver Lake',
+        name: 'Stone Bridge Oaks',
+          'Sprinkler repair, drip conversion, and drainage for Grenadier patio homes and townhomes off Glade Road, including HOA-watered fronts and private courtyard systems. Click to learn more →',
+        link: '/grapevine/stone-bridge-oaks'
       'Dove Crossing'
     ],
     coordinates: {
