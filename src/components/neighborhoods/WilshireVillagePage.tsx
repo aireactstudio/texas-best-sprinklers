@@ -103,6 +103,7 @@ export default function WilshireVillagePage() {
         }
       ]}
       relatedAreas={[
+        { name: 'Morningside', description: 'Sprinkler repair, drip conversion, and drainage planning for Twin Creek Estates lots in south Euless.', link: '/euless/morningside' },
         { name: 'Grapevine', description: 'Sprinkler repair, irrigation tuning, and drainage planning for nearby Grapevine homeowners.', link: '/grapevine' },
         { name: 'Bedford', description: 'Irrigation diagnostics, controller upgrades, and drainage solutions for Bedford residential properties.', link: '/bedford' },
         { name: 'Hurst', description: 'Coverage troubleshooting and water-efficient sprinkler service near the Euless and Hurst area.', link: '/hurst' }

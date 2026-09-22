@@ -428,7 +428,12 @@ export const locationData = {
     distanceFromOffice: 20,
     landmarks: ['Bob Eden Park', 'Euless Family Life Center', 'Heritage Park'],
     neighborhoods: [
-      'Morningside',
+      {
+        name: 'Morningside',
+        description:
+          'Irrigation repair, drip conversion, and drainage planning for Twin Creek Estates lots on Morningside Drive and Creekside Drive. Click to learn more →',
+        link: '/euless/morningside'
+      },
       'Oakwood Terrace',
       'Bear Creek',
       'Timber Ridge',
