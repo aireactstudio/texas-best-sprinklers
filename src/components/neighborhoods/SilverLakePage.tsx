@@ -250,12 +250,12 @@ export default function SilverLakePage() {
         {
           name: 'Stone Bridge Oaks',
           description: 'Patio and townhome irrigation on Glade Road in central Grapevine.',
-          link: '/grapevine'
+          link: '/grapevine/stone-bridge-oaks'
         },
         {
           name: 'Dove Crossing',
-          description: 'Sprinkler repair and drainage planning for established Grapevine lots south of Dove Loop.',
-          link: '/grapevine'
+          description: '1980s clay lots on Thistlewood, Ryan Ridge, and Mockingbird near Dove Park — not this Dove Loop Weekley plat.',
+          link: '/grapevine/dove-crossing'
         }
       ]}
       popularServices={[

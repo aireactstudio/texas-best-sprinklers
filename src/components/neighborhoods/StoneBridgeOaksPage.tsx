@@ -245,12 +245,12 @@ export default function StoneBridgeOaksPage() {
         {
           name: 'Silver Lake',
           description: 'Weekley villa and estate irrigation off Dove Loop — a different Grapevine plat, not this Glade Road community.',
-          link: '/grapevine'
+          link: '/grapevine/silver-lake'
         },
         {
           name: 'Dove Crossing',
-          description: 'Sprinkler repair and drainage planning for established Grapevine lots south of Dove Loop.',
-          link: '/grapevine'
+          description: '1980s clay lots on Thistlewood, Ryan Ridge, and Mockingbird near Dove Park — no HOA-watered fronts.',
+          link: '/grapevine/dove-crossing'
         },
         {
           name: 'Meadowmere Park',
