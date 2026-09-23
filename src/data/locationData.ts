@@ -41,31 +41,39 @@ export const locationData = {
     distanceFromOffice: 0,
     landmarks: ['Fort Worth Water Gardens', 'Sundance Square', 'Fort Worth Stockyards'],
     neighborhoods: [
-      'Downtown Fort Worth',
-      'Cultural District',
       {
         name: 'Fairmount',
         description:
           'Irrigation repair, drip conversion, and drainage planning for historic Fairmount bungalows on compact clay lots near Magnolia Avenue. Click to learn more →',
         link: '/fort-worth/fairmount'
       },
+      {
         name: 'Downtown Fort Worth',
+        description:
           'Irrigation repair, drip conversion, and drainage planning for Downtown courtyards, street-tree wells, and amenity lawns in ZIP 76102. Click to learn more →',
         link: '/fort-worth/downtown'
+      },
+      {
         name: 'Cultural District',
+        description:
           'Irrigation repair, drip conversion, and drainage planning for Cultural District courtyards, street-tree wells, and museum-campus beds in ZIP 76107. Click to learn more →',
         link: '/fort-worth/cultural-district'
-      'Fairmount',
-      'Arlington Heights',
+      },
+      {
         name: 'Arlington Heights',
+        description:
           'Irrigation repair, drip conversion, and drainage planning for Arlington Heights bungalow lots between Camp Bowie, Montgomery, and I-30. Click to learn more →',
         link: '/fort-worth/arlington-heights'
-      'Wedgwood',
+      },
+      {
         name: 'Wedgwood',
+        description:
           'Sprinkler repair, drip at brick-ranch foundations, and drainage for midcentury 76133 lots on clay with few sidewalks. Click to learn more →',
         link: '/fort-worth/wedgwood'
-      'Ridglea'
+      },
+      {
         name: 'Ridglea',
+        description:
           'Irrigation repair, drip conversion, and hillside drainage for Ridglea lots on rolling clay between Camp Bowie and West Vickery. Click to learn more →',
         link: '/fort-worth/ridglea'
       }
@@ -188,12 +196,18 @@ export const locationData = {
           'Irrigation repair, drip conversion, and drainage for Weekley-built Silver Lake villa and estate lots off Dove Loop. Click to learn more →',
         link: '/grapevine/silver-lake'
       },
-      'Stone Bridge Oaks',
-      'Silver Lake',
+      {
         name: 'Stone Bridge Oaks',
+        description:
           'Sprinkler repair, drip conversion, and drainage for Grenadier patio homes and townhomes off Glade Road, including HOA-watered fronts and private courtyard systems. Click to learn more →',
         link: '/grapevine/stone-bridge-oaks'
-      'Dove Crossing'
+      },
+      {
+        name: 'Dove Crossing',
+        description:
+          'Sprinkler repair, drip conversion, and drainage for 1980s Dove Crossing lots on Thistlewood Lane, Ryan Ridge, and Mockingbird Drive near Dove Park. Click to learn more →',
+        link: '/grapevine/dove-crossing'
+      }
     ],
     coordinates: {
       latitude: 32.9343,
@@ -400,11 +414,12 @@ export const locationData = {
           'Irrigation repair, drip conversion, and drainage for rolling Canyon Falls lots north of FM 1171, including HOA front lawns and clay that sheds toward Graham Branch. Click to learn more →',
         link: '/argyle/canyon-falls'
       },
-      'Harvest',
-      'Canyon Falls',
+      {
         name: 'Harvest',
+        description:
           'Irrigation repair, drip upgrades, and drainage for Hillwood’s Harvest agrihood on Argyle and Northlake clay lots. Click to learn more →',
         link: '/argyle/harvest'
+      },
       {
         name: 'Argyle Meadows',
         description: 'Sprinkler repair, irrigation tuning, drainage planning, and lighting support for Argyle Meadows homes and landscape beds.',
@@ -477,9 +492,9 @@ export const locationData = {
           'Irrigation repair, drip conversion, and drainage planning for 1970s–90s Bedford Meadows homes and townhomes on Meadow Park Drive and Meadow Creek Drive. Click to learn more →',
         link: '/bedford/bedford-meadows'
       },
-      'Stonegate'
-      'Bedford Meadows',
+      {
         name: 'Stonegate',
+        description:
           'Irrigation repair, drip conversion, and drainage planning for late-1960s Stonegate Addition lots on Stonegate Drive North, Stratford Drive, and Regents Park. Click to learn more →',
         link: '/bedford/stonegate'
       }
@@ -502,22 +517,24 @@ export const locationData = {
           'Irrigation repair, drip conversion, and drainage planning for Twin Creek Estates lots on Morningside Drive and Creekside Drive. Click to learn more →',
         link: '/euless/morningside'
       },
-      'Oakwood Terrace',
-      'Morningside',
+      {
         name: 'Oakwood Terrace',
+        description:
           'Irrigation repair, drip conversion, and drainage planning for south Euless Oakwood Terrace lots on Oakwood Drive and Vine Street — 1950s–60s homes mixed with infill rebuilds on clay. Click to learn more →',
         link: '/euless/oakwood-terrace'
-      'Bear Creek',
+      },
       {
         name: 'Bear Creek',
         description:
           'Irrigation repair, drip conversion, and drainage planning for 1970s–80s Bear Creek lots on Bear Creek Drive and Bear Creek Parkway. Click to learn more →',
         link: '/euless/bear-creek'
       },
-      'Timber Ridge',
+      {
         name: 'Timber Ridge',
+        description:
           'Sprinkler repair, irrigation tuning, drainage planning, and outdoor lighting support for Timber Ridge homes in Euless, TX. Click to learn more →',
         link: '/euless/timber-ridge'
+      },
       {
         name: 'Wilshire Village',
         description: 'Sprinkler repair, irrigation tuning, drainage planning, and lighting support for Wilshire Village homes in Euless.',
@@ -536,27 +553,33 @@ export const locationData = {
     distanceFromOffice: 19,
     landmarks: ['Chisholm Park', 'Northeast Mall', 'Hurst Public Library'],
     neighborhoods: [
-      'Mayfair North',
+      {
+        name: 'Mayfair North',
+        description:
+          '1980s Mayfair North Addition lots on Norwood, Farrington, and Parkridge need clay-smart sprinkler repair, drip at foundations, and drainage toward Chisholm Park. Click to learn more →',
+        link: '/hurst/mayfair-north'
+      },
       {
         name: 'Hurst Hills',
         description:
           'Irrigation repair, drip conversion, and drainage planning for established Hurst Hills lots around Billie Ruth Lane, West Redbud Drive, and Hurst Hills Elementary. Click to learn more →',
         link: '/hurst/hurst-hills'
       },
-        name: 'Mayfair North',
-          '1980s Mayfair North Addition lots on Norwood, Farrington, and Parkridge need clay-smart sprinkler repair, drip at foundations, and drainage toward Chisholm Park. Click to learn more →',
-        link: '/hurst/mayfair-north'
-      'Hurst Hills',
-      'Shady Oaks',
+      {
         name: 'Shady Oaks',
+        description:
           'Irrigation repair, drip conversion, and drainage planning for Shady Oaks Addition lots on Circleview Drive and Shade Tree Circle — 1960s ranches and 1990s infill on clay at the Valley View Branch headwaters. Click to learn more →',
         link: '/hurst/shady-oaks'
-      'Bellaire Park North',
+      },
+      {
         name: 'Bellaire Park North',
+        description:
           'Park-edge irrigation, courtyard repair, and drainage for Bellaire Park North in southeast Hurst. Click to learn more →',
         link: '/hurst/bellaire-park-north'
-      'Wintergreen Acres'
+      },
+      {
         name: 'Wintergreen Acres',
+        description:
           'Sprinkler repair, drip conversion, and drainage planning for 1970s Wintergreen Acres lots on Toni Drive, Autumn Drive, and Hurstview. Click to learn more →',
         link: '/hurst/wintergreen-acres'
       }
