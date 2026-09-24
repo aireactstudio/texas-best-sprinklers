@@ -90,7 +90,23 @@ export const locationData = {
     nearestOffice: 'Weatherford',
     distanceFromOffice: 0,
     landmarks: ['Parker County Courthouse', 'Chandor Gardens', 'Heritage Park'],
-    neighborhoods: ['Downtown Weatherford', 'Hudson Oaks', 'Brock', 'Willow Park', 'Aledo', 'Annetta', 'Peaster', 'Millsap', 'Cool', 'Springtown'],
+    neighborhoods: [
+      {
+        name: 'Downtown Weatherford',
+        description:
+          'Irrigation repair, drip conversion, and drainage for courthouse-square storefronts and compact historic lots in ZIP 76086. Click to learn more →',
+        link: '/weatherford/downtown'
+      },
+      'Hudson Oaks',
+      'Brock',
+      'Willow Park',
+      'Aledo',
+      'Annetta',
+      'Peaster',
+      'Millsap',
+      'Cool',
+      'Springtown'
+    ],
     coordinates: {
       latitude: 32.7593,
       longitude: -97.7972
