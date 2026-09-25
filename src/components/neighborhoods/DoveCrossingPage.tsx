@@ -252,7 +252,7 @@ export default function DoveCrossingPage() {
         {
           name: 'Historic Township',
           description: 'Irrigation and drainage for Grapevine properties closer to the original township and Historic Main Street.',
-          link: '/grapevine'
+          link: '/grapevine/historic-township'
         },
         {
           name: 'Meadowmere Park',
