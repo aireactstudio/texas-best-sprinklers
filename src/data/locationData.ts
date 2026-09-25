@@ -204,7 +204,12 @@ export const locationData = {
     distanceFromOffice: 32,
     landmarks: ['Grapevine Lake', 'Historic Downtown Grapevine', 'Gaylord Texan Resort'],
     neighborhoods: [
-      'Historic Township',
+      {
+        name: 'Historic Township',
+        description:
+          'Irrigation repair, drip conversion, and drainage for Grapevine’s 1854 original plat — South Main storefronts and compact Original Town lots on Church, Hudgins, and Jenkins. Click to learn more →',
+        link: '/grapevine/historic-township'
+      },
       'Meadowmere Park',
       {
         name: 'Silver Lake',
