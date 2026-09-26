@@ -244,7 +244,7 @@ export default function DowntownWeatherfordPage() {
           name: 'Hudson Oaks',
           description:
             'Nearby Parker County city east of Weatherford — a different municipal water calendar and usually an HOA street view, not this courthouse-square district.',
-          link: '/weatherford'
+          link: '/weatherford/hudson-oaks'
         },
         {
           name: 'Willow Park',
