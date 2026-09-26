@@ -97,7 +97,12 @@ export const locationData = {
           'Irrigation repair, drip conversion, and drainage for courthouse-square storefronts and compact historic lots in ZIP 76086. Click to learn more →',
         link: '/weatherford/downtown'
       },
-      'Hudson Oaks',
+      {
+        name: 'Hudson Oaks',
+        description:
+          'Sprinkler repair, drip conversion, and drainage for I-20 clay lots in Red Eagle, Diamond Oaks, Parker Oaks, and nearby Hudson Oaks plats. Click to learn more →',
+        link: '/weatherford/hudson-oaks'
+      },
       'Brock',
       'Willow Park',
       'Aledo',
