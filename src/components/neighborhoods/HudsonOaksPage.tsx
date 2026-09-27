@@ -255,7 +255,7 @@ export default function HudsonOaksPage() {
           name: 'Willow Park',
           description:
             'Parker County city along I-20 toward Fort Worth. Shares the Fort Worth wholesale water story — still a different municipal clock, not a Hudson Oaks plat.',
-          link: '/weatherford'
+          link: '/weatherford/willow-park'
         },
         {
           name: 'Aledo',

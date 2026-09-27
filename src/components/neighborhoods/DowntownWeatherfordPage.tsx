@@ -250,7 +250,7 @@ export default function DowntownWeatherfordPage() {
           name: 'Willow Park',
           description:
             'Parker County city along I-20 toward Fort Worth. Larger lots and a different city utility — not Downtown Weatherford’s compact historic pads.',
-          link: '/weatherford'
+          link: '/weatherford/willow-park'
         },
         {
           name: 'Aledo',
