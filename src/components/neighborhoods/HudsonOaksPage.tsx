@@ -260,8 +260,8 @@ export default function HudsonOaksPage() {
         {
           name: 'Aledo',
           description:
-            'Southeast Parker County acreage and newer tracts. Some Hudson Oaks addresses zone Aledo ISD, but Aledo irrigation is not a substitute for diagnosing Parker Oaks Lane.',
-          link: '/weatherford'
+            'Southeast Parker County railroad town in ZIP 76008. Some Hudson Oaks addresses zone Aledo ISD, but Aledo irrigation is not a substitute for diagnosing Parker Oaks Lane.',
+          link: '/weatherford/aledo'
         },
         {
           name: 'Annetta',
