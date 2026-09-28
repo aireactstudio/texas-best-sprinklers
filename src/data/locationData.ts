@@ -104,7 +104,12 @@ export const locationData = {
         link: '/weatherford/hudson-oaks'
       },
       'Brock',
-      'Willow Park',
+      {
+        name: 'Willow Park',
+        description:
+          'Sprinkler repair, drip conversion, and drainage for I-20 clay lots in El Chico Ranch Estates, Stage Coach Estates, and Willow Park North. Click to learn more →',
+        link: '/weatherford/willow-park'
+      },
       'Aledo',
       'Annetta',
       'Peaster',
