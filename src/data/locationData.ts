@@ -111,7 +111,12 @@ export const locationData = {
         link: '/weatherford/willow-park'
       },
       'Aledo',
-      'Annetta',
+      {
+        name: 'Annetta',
+        description:
+          'Sprinkler repair, drip conversion, and drainage for Town of Annetta groundwater lots in Deer Creek, Lakes of Aledo, and Learners Lane clay — not Annetta North or Annetta South. Click to learn more →',
+        link: '/weatherford/annetta'
+      },
       'Peaster',
       'Millsap',
       'Cool',
