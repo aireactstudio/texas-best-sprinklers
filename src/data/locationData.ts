@@ -256,7 +256,18 @@ export const locationData = {
     nearestOffice: 'Weatherford',
     distanceFromOffice: 27,
     landmarks: ['NRH2O Family Water Park', 'Iron Horse Golf Course', 'NYTEX Sports Centre'],
-    neighborhoods: ['Smithfield', 'Chapman Heights', 'Meadow Ridge', 'Vista Ridge', 'Home Town'],
+    neighborhoods: [
+      {
+        name: 'Smithfield',
+        description:
+          'Irrigation repair, drip conversion, and drainage for historic Smithfield lots north of Loop 820 between Davis Boulevard and Smithfield Road in ZIP 76182. Click to learn more →',
+        link: '/north-richland-hills/smithfield'
+      },
+      'Chapman Heights',
+      'Meadow Ridge',
+      'Vista Ridge',
+      'Home Town'
+    ],
     coordinates: {
       latitude: 32.8342,
       longitude: -97.2289
