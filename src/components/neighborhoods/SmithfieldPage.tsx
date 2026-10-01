@@ -256,7 +256,7 @@ export default function SmithfieldPage() {
         {
           name: 'Home Town',
           description: 'Newer new-urbanist NRH streets — not the Cotton Belt-era Smithfield district in 76182.',
-          link: '/north-richland-hills'
+          link: '/north-richland-hills/home-town'
         },
         {
           name: 'Wintergreen Acres',

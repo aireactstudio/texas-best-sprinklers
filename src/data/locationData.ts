@@ -271,7 +271,12 @@ export const locationData = {
       'Chapman Heights',
       'Meadow Ridge',
       'Vista Ridge',
-      'Home Town'
+      {
+        name: 'Home Town',
+        description:
+          'Irrigation repair, drip conversion, and drainage for Home Town new-urbanist lots, Canal District townhomes, and lake-edge clay between Mid-Cities Boulevard and Boulevard 26. Click to learn more →',
+        link: '/north-richland-hills/home-town'
+      }
     ],
     coordinates: {
       latitude: 32.8342,
