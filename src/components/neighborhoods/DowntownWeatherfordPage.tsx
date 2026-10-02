@@ -255,8 +255,8 @@ export default function DowntownWeatherfordPage() {
         {
           name: 'Aledo',
           description:
-            'Southeast Parker County acreage and newer tracts. Irrigation here is not a substitute for diagnosing a South Main or Palo Pinto lot.',
-          link: '/weatherford'
+            'Southeast Parker County railroad town in ZIP 76008. Irrigation here is not a substitute for diagnosing a South Main or Palo Pinto lot.',
+          link: '/weatherford/aledo'
         },
         {
           name: 'Brock',

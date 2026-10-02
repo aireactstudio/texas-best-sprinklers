@@ -110,7 +110,12 @@ export const locationData = {
           'Sprinkler repair, drip conversion, and drainage for I-20 clay lots in El Chico Ranch Estates, Stage Coach Estates, and Willow Park North. Click to learn more →',
         link: '/weatherford/willow-park'
       },
-      'Aledo',
+      {
+        name: 'Aledo',
+        description:
+          'Irrigation repair, drip conversion, and drainage for Aledo Original Town lots on Front Street and Parks of Aledo clay off Bailey Ranch Road. Click to learn more →',
+        link: '/weatherford/aledo'
+      },
       {
         name: 'Annetta',
         description:
