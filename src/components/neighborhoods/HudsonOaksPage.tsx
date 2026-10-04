@@ -273,7 +273,7 @@ export default function HudsonOaksPage() {
           name: 'Brock',
           description:
             'Rural Parker County community west of Weatherford. Well pressure and open acreage are a different problem than I-20 clay lots.',
-          link: '/weatherford'
+          link: '/weatherford/brock'
         }
       ]}
       popularServices={[

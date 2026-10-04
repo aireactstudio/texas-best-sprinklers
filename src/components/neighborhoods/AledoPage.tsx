@@ -273,7 +273,7 @@ export default function AledoPage() {
           name: 'Brock',
           description:
             'Rural Parker County community west of Weatherford. Well pressure and open acreage are a different problem than Original Town clay or Parks of Aledo HOA fronts.',
-          link: '/weatherford'
+          link: '/weatherford/brock'
         }
       ]}
       popularServices={[

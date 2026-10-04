@@ -278,7 +278,7 @@ export default function WillowParkPage() {
           name: 'Brock',
           description:
             'Rural Parker County community west of Weatherford. Well pressure and open acreage are a different problem than I-20 clay lots with Fort Worth wholesale blend.',
-          link: '/weatherford'
+          link: '/weatherford/brock'
         }
       ]}
       popularServices={[

@@ -103,7 +103,12 @@ export const locationData = {
           'Sprinkler repair, drip conversion, and drainage for I-20 clay lots in Red Eagle, Diamond Oaks, Parker Oaks, and nearby Hudson Oaks plats. Click to learn more →',
         link: '/weatherford/hudson-oaks'
       },
-      'Brock',
+      {
+        name: 'Brock',
+        description:
+          'Sprinkler repair, drip conversion, and drainage for Town of Brock acreage and newer plats on Parker County SUD water along FM 1189, Eagle Spirit Lane, and Olive Branch Road. Click to learn more →',
+        link: '/weatherford/brock'
+      },
       {
         name: 'Willow Park',
         description:
