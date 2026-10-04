@@ -262,7 +262,7 @@ export default function DowntownWeatherfordPage() {
           name: 'Brock',
           description:
             'Rural Parker County community west of Weatherford. Well pressure and open acreage are a different problem than courthouse-square clay.',
-          link: '/weatherford'
+          link: '/weatherford/brock'
         },
         {
           name: 'Annetta',

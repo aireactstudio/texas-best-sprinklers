@@ -276,7 +276,7 @@ export default function AnnettaPage() {
           name: 'Brock',
           description:
             'Rural Parker County community west of Weatherford. Open acreage is a different problem than Annetta’s town well plants and HOA-visible Deer Creek fronts.',
-          link: '/weatherford'
+          link: '/weatherford/brock'
         }
       ]}
       popularServices={[
