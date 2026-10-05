@@ -333,7 +333,18 @@ export const locationData = {
     nearestOffice: 'Weatherford',
     distanceFromOffice: 32,
     landmarks: ['Trophy Club Country Club', 'Trophy Club Park', 'Independence Park'],
-    neighborhoods: ['The Highlands', 'Old Town', 'The Vineyards', 'Trophy Wood', 'Hogan\'s Glen'],
+    neighborhoods: [
+      'The Highlands',
+      'Old Town',
+      'The Vineyards',
+      'Trophy Wood',
+      {
+        name: "Hogan's Glen",
+        description:
+          'Irrigation repair, drip conversion, and drainage for gated Hogan’s Glen lots on Indian Creek, Cypress Court, and Hale Court — golf-edge clay and pond-side runoff on Trophy Club MUD water. Click to learn more →',
+        link: '/trophy-club/hogans-glen'
+      }
+    ],
     coordinates: {
       latitude: 33.0011,
       longitude: -97.1900
