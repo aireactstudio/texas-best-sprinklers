@@ -320,7 +320,18 @@ export const locationData = {
     nearestOffice: 'Weatherford',
     distanceFromOffice: 38,
     landmarks: ['Grapevine Lake', 'Heritage Park', 'Flower Mound Community Activity Center'],
-    neighborhoods: ['Bridlewood', 'Wellington', 'Lakeside', 'Highland Village', 'Canyon Falls'],
+    neighborhoods: [
+      {
+        name: 'Bridlewood',
+        description:
+          'Irrigation repair, drip conversion, and drainage for Bridlewood golf-community lots on Fairway Drive, Remington Park Drive, and Par Drive — Town of Flower Mound even Tuesday/Friday days, not an HOA Monday/Thursday commons clock. Click to learn more →',
+        link: '/flower-mound/bridlewood'
+      },
+      'Wellington',
+      'Lakeside',
+      'Highland Village',
+      'Canyon Falls'
+    ],
     coordinates: {
       latitude: 33.0145,
       longitude: -97.0969
