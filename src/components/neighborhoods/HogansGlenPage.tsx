@@ -276,7 +276,7 @@ export default function HogansGlenPage() {
           name: 'The Highlands',
           description:
             'Trophy Club’s multi-section Highlands HOAs — Neighborhoods 1–9, Abbey Moor, and Turnberry — are not the gated Indian Creek enclave.',
-          link: '/trophy-club'
+          link: '/trophy-club/the-highlands'
         },
         {
           name: 'Old Town',
