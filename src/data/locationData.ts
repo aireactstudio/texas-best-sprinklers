@@ -416,7 +416,12 @@ export const locationData = {
     distanceFromOffice: 33,
     landmarks: ['Historic Downtown Roanoke', 'Roanoke Recreation Center', 'Oak Street'],
     neighborhoods: [
-      'Marshall Creek',
+      {
+        name: 'Marshall Creek',
+        description:
+          'Sprinkler repair, drip conversion, and drainage for compact Marshall Creek lots on Sycamore Lane and Marshall Creek Road — Sanger and Branyon clay on City of Roanoke water. Click to learn more →',
+        link: '/roanoke/marshall-creek'
+      },
       {
         name: 'Fairway Ranch',
         description:

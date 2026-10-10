@@ -114,6 +114,8 @@ interface NeighborhoodPageTemplateProps {
   ctaTitle?: string;
   ctaSubtitle?: string;
   showMap?: boolean;
+  /** When false, curated review quotes still render but are omitted from JSON-LD. */
+  includeReviewSchema?: boolean;
 }
 
 const TRUST_CARD_ICONS = [Home, Leaf, Waves, Shield];
@@ -146,7 +148,8 @@ export default function NeighborhoodPageTemplate({
   caseStudy,
   ctaTitle,
   ctaSubtitle,
-  showMap = true
+  showMap = true,
+  includeReviewSchema = true
 }: NeighborhoodPageTemplateProps) {
   const locationInfo = getLocationData(citySlug);
   const coordinates =
@@ -165,7 +168,7 @@ export default function NeighborhoodPageTemplate({
     faqItems: faqs,
     geo: coordinates,
     serviceRadiusMiles,
-    reviews
+    reviews: includeReviewSchema ? reviews : []
   });
 
   return (
