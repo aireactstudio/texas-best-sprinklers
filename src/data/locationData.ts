@@ -345,7 +345,12 @@ export const locationData = {
     distanceFromOffice: 32,
     landmarks: ['Trophy Club Country Club', 'Trophy Club Park', 'Independence Park'],
     neighborhoods: [
-      'The Highlands',
+      {
+        name: 'The Highlands',
+        description:
+          'Irrigation repair, drip conversion, and drainage for Trophy Club Highlands PID lots on Trophy Club Drive, Parkview Drive, and Abbey Moor / Turnberry clay — house even/odd days, not a park or school clock. Click to learn more →',
+        link: '/trophy-club/the-highlands'
+      },
       'Old Town',
       'The Vineyards',
       'Trophy Wood',
