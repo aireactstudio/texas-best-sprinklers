@@ -301,6 +301,12 @@ export default function HogansGlenPage() {
           description:
             'Westlake wooded lots beside the nature preserve. Similar clay, different city utility and HOA map.',
           link: '/westlake/glenwyck-farms'
+        },
+        {
+          name: 'Marshall Creek',
+          description:
+            'City of Roanoke compact lots on Sycamore Lane and Marshall Creek Road. City of Roanoke water, not Trophy Club MUD.',
+          link: '/roanoke/marshall-creek'
         }
       ]}
       popularServices={[
