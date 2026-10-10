@@ -430,7 +430,12 @@ export const locationData = {
       },
       'The Highlands',
       'Woodcreek',
-      'Briarwyck'
+      {
+        name: 'Briarwyck',
+        description:
+          'Irrigation repair, drip conversion, and drainage for Briarwyck 114 lots on Hackworth, Manchester, and Lancelot — school-corridor clay and HOA-visible fronts on City of Roanoke water. Click to learn more →',
+        link: '/roanoke/briarwyck'
+      }
     ],
     coordinates: {
       latitude: 33.0040,
