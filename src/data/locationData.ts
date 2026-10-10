@@ -327,7 +327,12 @@ export const locationData = {
           'Irrigation repair, drip conversion, and drainage for Bridlewood golf-community lots on Fairway Drive, Remington Park Drive, and Par Drive — Town of Flower Mound even Tuesday/Friday days, not an HOA Monday/Thursday commons clock. Click to learn more →',
         link: '/flower-mound/bridlewood'
       },
-      'Wellington',
+      {
+        name: 'Wellington',
+        description:
+          'Irrigation repair, drip conversion, and drainage for Wellington of Flower Mound lots on Furlong Drive, Sterling Parkway, and Mandalay Drive — 1995-era clay with house even/odd days versus HOA Monday/Thursday commons. Click to learn more →',
+        link: '/flower-mound/wellington'
+      },
       'Lakeside',
       'Highland Village',
       'Canyon Falls'
@@ -411,7 +416,12 @@ export const locationData = {
     distanceFromOffice: 33,
     landmarks: ['Historic Downtown Roanoke', 'Roanoke Recreation Center', 'Oak Street'],
     neighborhoods: [
-      'Marshall Creek',
+      {
+        name: 'Marshall Creek',
+        description:
+          'Sprinkler repair, drip conversion, and drainage for compact Marshall Creek lots on Sycamore Lane and Marshall Creek Road — Sanger and Branyon clay on City of Roanoke water. Click to learn more →',
+        link: '/roanoke/marshall-creek'
+      },
       {
         name: 'Fairway Ranch',
         description:
