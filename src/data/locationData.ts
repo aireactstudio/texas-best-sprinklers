@@ -410,7 +410,18 @@ export const locationData = {
     nearestOffice: 'Weatherford',
     distanceFromOffice: 33,
     landmarks: ['Historic Downtown Roanoke', 'Roanoke Recreation Center', 'Oak Street'],
-    neighborhoods: ['Marshall Creek', 'Fairway Ranch', 'The Highlands', 'Woodcreek', 'Briarwyck'],
+    neighborhoods: [
+      'Marshall Creek',
+      {
+        name: 'Fairway Ranch',
+        description:
+          'Sprinkler repair, drip conversion, and drainage for Wilbow’s ~500-home Fairway Ranch lots on Fairway Ranch Parkway, Broadmoor Way, and Highpoint Way — ridge clay next to city-park and greenbelt grade on City of Roanoke water. Click to learn more →',
+        link: '/roanoke/fairway-ranch'
+      },
+      'The Highlands',
+      'Woodcreek',
+      'Briarwyck'
+    ],
     coordinates: {
       latitude: 33.0040,
       longitude: -97.2253
