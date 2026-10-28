@@ -214,6 +214,12 @@ export const locationData = {
         description:
           'Irrigation repair, drip conversion, and drainage planning for wooded custom lots and Drees-era lawns west of E. Dove Road. Click to learn more →',
         link: '/southlake/kirkwood-hollow'
+      },
+      {
+        name: 'Timarron',
+        description:
+          'Irrigation repair, drip conversion, and drainage planning for Timarron homes built from 1992 through 2004, with controllers set for the City of Southlake twice-weekly schedule. Click to learn more →',
+        link: '/southlake/timarron'
       }
     ],
     coordinates: {
