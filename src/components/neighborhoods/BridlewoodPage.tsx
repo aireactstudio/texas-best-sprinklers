@@ -285,13 +285,13 @@ export default function BridlewoodPage() {
           name: 'Wellington',
           description:
             'Another large Flower Mound master-planned community. Similar clay, a different street map and amenity pattern than Bridlewood’s golf villages.',
-          link: '/flower-mound'
+          link: '/flower-mound/wellington'
         },
         {
           name: 'Lakeside',
           description:
             'Lakeside DFW sits closer to the Grapevine Lake corridor. Do not copy a lake-edge clock onto a Fairway Drive lot.',
-          link: '/flower-mound'
+          link: '/flower-mound/lakeside'
         },
         {
           name: 'Canyon Falls',

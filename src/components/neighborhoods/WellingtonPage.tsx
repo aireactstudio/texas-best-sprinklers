@@ -283,13 +283,13 @@ export default function WellingtonPage() {
           name: 'Bridlewood',
           description:
             'Flower Mound’s master-planned golf community with its own villages and HOA map — not the Wellington association on Furlong Drive.',
-          link: '/flower-mound'
+          link: '/flower-mound/bridlewood'
         },
         {
           name: 'Lakeside',
           description:
-            'A different Flower Mound listing name. Do not copy a lakeside controller guess onto a Wellington house meter.',
-          link: '/flower-mound'
+            'Lakeside DFW’s mixed-use district on Lakeside Parkway. Do not copy a restaurant-row controller guess onto a Wellington house meter.',
+          link: '/flower-mound/lakeside'
         },
         {
           name: 'Canyon Falls',
