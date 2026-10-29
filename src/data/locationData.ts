@@ -339,7 +339,12 @@ export const locationData = {
           'Irrigation repair, drip conversion, and drainage for Wellington of Flower Mound lots on Furlong Drive, Sterling Parkway, and Mandalay Drive — 1995-era clay with house even/odd days versus HOA Monday/Thursday commons. Click to learn more →',
         link: '/flower-mound/wellington'
       },
-      'Lakeside',
+      {
+        name: 'Lakeside',
+        description:
+          'Irrigation repair, drip conversion, and drainage for Lakeside DFW lots on Lakeside Parkway, Sunset Boulevard, and West Village Parkway — mixed-use clay with house even/odd days versus commercial Monday/Thursday commons. Click to learn more →',
+        link: '/flower-mound/lakeside'
+      },
       'Highland Village',
       'Canyon Falls'
     ],
