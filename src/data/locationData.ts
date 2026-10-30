@@ -339,6 +339,12 @@ export const locationData = {
           'Irrigation repair, drip conversion, and drainage for Wellington of Flower Mound lots on Furlong Drive, Sterling Parkway, and Mandalay Drive — 1995-era clay with house even/odd days versus HOA Monday/Thursday commons. Click to learn more →',
         link: '/flower-mound/wellington'
       },
+      {
+        name: 'Chimney Rock',
+        description:
+          'Irrigation repair, drip, and drainage for Chimney Rock conservation-subdivision lots in western Flower Mound, with long zones, open-space edges, and Town even Tuesday/Friday or odd Wednesday/Saturday days. Click to learn more →',
+        link: '/flower-mound/chimney-rock'
+      },
       'Lakeside',
       'Highland Village',
       'Canyon Falls'
