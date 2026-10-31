@@ -374,7 +374,12 @@ export const locationData = {
           'Irrigation repair, drip conversion, and drainage for gated Lakes of Trophy Club lots near Parkway Court and Ridgewood Drive — 1998–2002 systems on Trophy Club MUD even/odd days, not a commercial Tuesday/Friday clock. Click to learn more →',
         link: '/trophy-club/the-lakes'
       },
-      'Old Town',
+      {
+        name: 'Old Town',
+        description:
+          'Sprinkler repair, irrigation tuning, and drainage planning for Old Town homes in Trophy Club near Trophy Club Park and the country club, on Trophy Club MUD even/odd days. Click to learn more →',
+        link: '/trophy-club/old-town'
+      },
       'The Vineyards',
       'Trophy Wood',
       {
