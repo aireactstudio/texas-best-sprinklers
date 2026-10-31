@@ -3,6 +3,7 @@ import '../styles/critical.css';
 import { Inter, Montserrat } from 'next/font/google';
 import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
+import Script from 'next/script';
 import SchemaOrgData from '@/components/SchemaOrgData';
 import GoogleMapsProviderWrapper from '@/components/GoogleMapsProvider';
 import { SITE_CONFIG } from '@/config/site';
@@ -109,6 +110,9 @@ export default function RootLayout({
           <main>{children}</main>
           <Footer />
         </GoogleMapsProviderWrapper>
+        {/* AI chat widget (server-side proxy: netlify/functions/chat.mjs) */}
+        <link rel="stylesheet" href="/chat/chat-widget.css" />
+        <Script src="/chat/chat-widget.js" strategy="lazyOnload" />
       </body>
     </html>
   );
