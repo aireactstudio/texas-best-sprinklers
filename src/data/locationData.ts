@@ -346,7 +346,12 @@ export const locationData = {
           'Irrigation repair, drip, and drainage for Chimney Rock conservation-subdivision lots in western Flower Mound, with long zones, open-space edges, and Town even Tuesday/Friday or odd Wednesday/Saturday days. Click to learn more →',
         link: '/flower-mound/chimney-rock'
       },
-      'Lakeside',
+      {
+        name: 'Lakeside',
+        description:
+          'Irrigation repair, drip conversion, and drainage for Lakeside DFW lots on Lakeside Parkway, Sunset Boulevard, and West Village Parkway — mixed-use clay with house even/odd days versus commercial Monday/Thursday commons. Click to learn more →',
+        link: '/flower-mound/lakeside'
+      },
       'Highland Village',
       'Canyon Falls'
     ],
