@@ -21,7 +21,8 @@ export const LOCATIONS = [
   'arlington',
   'bedford',
   'euless',
-  'hurst'
+  'hurst',
+  'colleyville'
 ];
 
 /**
@@ -214,6 +215,12 @@ export const locationData = {
         description:
           'Irrigation repair, drip conversion, and drainage planning for wooded custom lots and Drees-era lawns west of E. Dove Road. Click to learn more →',
         link: '/southlake/kirkwood-hollow'
+      },
+      {
+        name: 'Timarron',
+        description:
+          'Irrigation repair, drip conversion, and drainage planning for Timarron homes built from 1992 through 2004, with controllers set for the City of Southlake twice-weekly schedule. Click to learn more →',
+        link: '/southlake/timarron'
       }
     ],
     coordinates: {
@@ -334,6 +341,12 @@ export const locationData = {
         link: '/flower-mound/wellington'
       },
       {
+        name: 'Chimney Rock',
+        description:
+          'Irrigation repair, drip, and drainage for Chimney Rock conservation-subdivision lots in western Flower Mound, with long zones, open-space edges, and Town even Tuesday/Friday or odd Wednesday/Saturday days. Click to learn more →',
+        link: '/flower-mound/chimney-rock'
+      },
+      {
         name: 'Lakeside',
         description:
           'Irrigation repair, drip conversion, and drainage for Lakeside DFW lots on Lakeside Parkway, Sunset Boulevard, and West Village Parkway — mixed-use clay with house even/odd days versus commercial Monday/Thursday commons. Click to learn more →',
@@ -367,7 +380,12 @@ export const locationData = {
           'Irrigation repair, drip conversion, and drainage for gated Lakes of Trophy Club lots near Parkway Court and Ridgewood Drive — 1998–2002 systems on Trophy Club MUD even/odd days, not a commercial Tuesday/Friday clock. Click to learn more →',
         link: '/trophy-club/the-lakes'
       },
-      'Old Town',
+      {
+        name: 'Old Town',
+        description:
+          'Sprinkler repair, irrigation tuning, and drainage planning for Old Town homes in Trophy Club near Trophy Club Park and the country club, on Trophy Club MUD even/odd days. Click to learn more →',
+        link: '/trophy-club/old-town'
+      },
       'The Vineyards',
       'Trophy Wood',
       {
@@ -670,6 +688,19 @@ export const locationData = {
     coordinates: {
       latitude: 32.8371,
       longitude: -97.0819
+    },
+    serviceRadius: 8
+  },
+  'colleyville': {
+    name: 'Colleyville',
+    nearestOffice: 'Fort Worth',
+    distanceFromOffice: 22,
+    landmarks: ['City Park', 'Colleyville Nature Center', 'Village at Colleyville'],
+    neighborhoods: ['Caldwell Creek', 'Colleyville Downs', 'Creekwood', 'Montclair Parc', 'Oakleigh', 'Kingswood Estates'],
+    serviceAreas: ['Southlake', 'Grapevine', 'Keller', 'Hurst', 'Bedford', 'North Richland Hills'],
+    coordinates: {
+      latitude: 32.8810,
+      longitude: -97.1550
     },
     serviceRadius: 8
   },
