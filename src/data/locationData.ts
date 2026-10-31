@@ -21,7 +21,8 @@ export const LOCATIONS = [
   'arlington',
   'bedford',
   'euless',
-  'hurst'
+  'hurst',
+  'colleyville'
 ];
 
 /**
@@ -677,6 +678,19 @@ export const locationData = {
     coordinates: {
       latitude: 32.8371,
       longitude: -97.0819
+    },
+    serviceRadius: 8
+  },
+  'colleyville': {
+    name: 'Colleyville',
+    nearestOffice: 'Fort Worth',
+    distanceFromOffice: 22,
+    landmarks: ['City Park', 'Colleyville Nature Center', 'Village at Colleyville'],
+    neighborhoods: ['Caldwell Creek', 'Colleyville Downs', 'Creekwood', 'Montclair Parc', 'Oakleigh', 'Kingswood Estates'],
+    serviceAreas: ['Southlake', 'Grapevine', 'Keller', 'Hurst', 'Bedford', 'North Richland Hills'],
+    coordinates: {
+      latitude: 32.8810,
+      longitude: -97.1550
     },
     serviceRadius: 8
   },
