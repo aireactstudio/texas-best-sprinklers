@@ -281,7 +281,12 @@ export const locationData = {
         link: '/north-richland-hills/smithfield'
       },
       'Chapman Heights',
-      'Meadow Ridge',
+      {
+        name: 'Meadow Ridge',
+        description:
+          'Irrigation repair, drip conversion, and drainage for Meadow Ridge Estates court lots off Rufe Snow Drive in ZIP 76180, on NRH even Wednesday/Saturday or odd Thursday/Sunday days. Click to learn more →',
+        link: '/north-richland-hills/meadow-ridge'
+      },
       'Vista Ridge',
       {
         name: 'Home Town',
