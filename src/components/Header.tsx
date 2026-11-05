@@ -162,6 +162,17 @@ const Header = () => {
             </li>
             <li>
               <Link 
+                href="/careers" 
+                className={`relative inline-flex items-center text-base lg:text-lg px-2 py-1 font-medium after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-1 after:h-[2px] after:w-full after:scale-x-0 after:origin-center after:bg-current after:rounded-full after:transition-transform after:duration-300 hover:after:scale-x-100 ${
+                  pathname === '/careers' ? 'text-irrigation-green' : 
+                  isScrolled ? 'text-gray-700 hover:text-irrigation-green' : 'text-white hover:text-irrigation-lightBlue'
+                } transition-colors duration-300`}
+              >
+                Careers
+              </Link>
+            </li>
+            <li>
+              <Link 
                 href="/contact" 
                 className={`relative inline-flex items-center text-base lg:text-lg px-2 py-1 font-medium after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-1 after:h-[2px] after:w-full after:scale-x-0 after:origin-center after:bg-current after:rounded-full after:transition-transform after:duration-300 hover:after:scale-x-100 ${
                   pathname === '/contact' ? 'text-irrigation-green' : 
@@ -351,6 +362,19 @@ const Header = () => {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Blog
+              </Link>
+            </li>
+            <li>
+              <Link 
+                href="/careers" 
+                className={`relative font-medium text-sm hover:text-irrigation-blue transition-colors ${
+                  pathname === '/careers' 
+                  ? 'text-irrigation-blue' 
+                  : 'text-gray-800'
+                }`}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Careers
               </Link>
             </li>
             <li>

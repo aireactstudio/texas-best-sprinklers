@@ -167,6 +167,7 @@ const AppHeader = () => {
       submenu: [
         { name: 'About', path: '/about' },
         { name: 'Blog', path: '/blog' },
+        { name: 'Careers', path: '/careers' },
       ]
     }
   ];
