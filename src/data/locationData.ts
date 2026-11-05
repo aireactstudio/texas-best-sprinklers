@@ -701,7 +701,19 @@ export const locationData = {
     nearestOffice: 'Fort Worth',
     distanceFromOffice: 22,
     landmarks: ['City Park', 'Colleyville Nature Center', 'Village at Colleyville'],
-    neighborhoods: ['Caldwell Creek', 'Colleyville Downs', 'Creekwood', 'Montclair Parc', 'Oakleigh', 'Kingswood Estates'],
+    neighborhoods: [
+      {
+        name: 'Caldwell Creek',
+        description:
+          "Irrigation repair, drip conversion, and drainage for Caldwell's Creek Addition court lots in northwest Colleyville ZIP 76034, on Bellefonte Lane, Shepherds Glen, Whippoorwill Court, Lismore Court, and Caldwell Creek Drive. Click to learn more →",
+        link: '/colleyville/caldwell-creek'
+      },
+      'Colleyville Downs',
+      'Creekwood',
+      'Montclair Parc',
+      'Oakleigh',
+      'Kingswood Estates'
+    ],
     serviceAreas: ['Southlake', 'Grapevine', 'Keller', 'Hurst', 'Bedford', 'North Richland Hills'],
     coordinates: {
       latitude: 32.8810,
