@@ -544,7 +544,18 @@ export const locationData = {
     nearestOffice: 'Fort Worth',
     distanceFromOffice: 32,
     landmarks: ['Northlake Town Hall', 'Robson Ranch Golf Club', 'Eagle Mountain Lake'],
-    neighborhoods: ['Robson Ranch', 'Eagle Mountain Estates', 'Northlake Meadows', 'Pecan Square', 'Harvest'],
+    neighborhoods: [
+      'Robson Ranch',
+      'Eagle Mountain Estates',
+      'Northlake Meadows',
+      {
+        name: 'Pecan Square',
+        description:
+          'Irrigation repair, drip conversion, and drainage for Pecan Square lots on North Pecan Parkway, Cleveland Gibbs Road, and Market Square — Town of Northlake even Wednesday/Saturday or odd Thursday/Sunday days. Click to learn more →',
+        link: '/northlake/pecan-square'
+      },
+      'Harvest'
+    ],
     coordinates: {
       latitude: 33.1151,
       longitude: -97.2497
