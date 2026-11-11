@@ -77,6 +77,12 @@ export const locationData = {
         description:
           'Irrigation repair, drip conversion, and hillside drainage for Ridglea lots on rolling clay between Camp Bowie and West Vickery. Click to learn more →',
         link: '/fort-worth/ridglea'
+      },
+      {
+        name: 'Tanglewood',
+        description:
+          'Irrigation repair, drip conversion, and drainage for Tanglewood Addition homes on Bellaire Drive South, Shady Creek Drive, and Overton Park Drive East in ZIP 76109, on Fort Worth even Wednesday/Saturday or odd Thursday/Sunday days. Click to learn more →',
+        link: '/fort-worth/tanglewood'
       }
     ],
     coordinates: {
