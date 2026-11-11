@@ -357,6 +357,12 @@ export const locationData = {
           'Irrigation repair, drip conversion, and drainage for Lakeside DFW lots on Lakeside Parkway, Sunset Boulevard, and West Village Parkway — mixed-use clay with house even/odd days versus commercial Monday/Thursday commons. Click to learn more →',
         link: '/flower-mound/lakeside'
       },
+      {
+        name: 'The Estates at Tour 18',
+        description:
+          'Irrigation repair, drip conversion, and drainage for gated Estates at Tour 18 lots on Tour 18 Drive, Baltusrol Drive, and Amen Corner — house even Tuesday/Friday or odd Wednesday/Saturday days, not the HOA Monday/Thursday commons clock. Click to learn more →',
+        link: '/flower-mound/estates-at-tour-18'
+      },
       'Highland Village',
       'Canyon Falls'
     ],
