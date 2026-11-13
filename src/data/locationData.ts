@@ -77,6 +77,12 @@ export const locationData = {
         description:
           'Irrigation repair, drip conversion, and hillside drainage for Ridglea lots on rolling clay between Camp Bowie and West Vickery. Click to learn more →',
         link: '/fort-worth/ridglea'
+      },
+      {
+        name: 'Berkeley Place',
+        description:
+          'Irrigation repair, drip conversion, and drainage for Berkeley Place and Cheltenham lots between Park Place and Ward Parkway, next to Forest Park, on Fort Worth even/odd watering days. Click to learn more →',
+        link: '/fort-worth/berkeley-place'
       }
     ],
     coordinates: {
