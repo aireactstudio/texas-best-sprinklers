@@ -221,6 +221,12 @@ export const locationData = {
         description:
           'Irrigation repair, drip conversion, and drainage planning for Timarron homes built from 1992 through 2004, with controllers set for the City of Southlake twice-weekly schedule. Click to learn more →',
         link: '/southlake/timarron'
+      },
+      {
+        name: 'Stone Lakes',
+        description:
+          'Sprinkler repair, drip conversion, and drainage planning for Stone Lakes homes south of FM 1709, platted from 1991 through 1995 and built out by 1997, with controllers set for the City of Southlake twice-weekly schedule. Click to learn more →',
+        link: '/southlake/stone-lakes'
       }
     ],
     coordinates: {
