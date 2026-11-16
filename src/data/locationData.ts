@@ -83,6 +83,12 @@ export const locationData = {
         description:
           'Irrigation repair, drip conversion, and drainage for Berkeley Place and Cheltenham lots between Park Place and Ward Parkway, next to Forest Park, on Fort Worth even/odd watering days. Click to learn more →',
         link: '/fort-worth/berkeley-place'
+      },
+      {
+        name: 'Tanglewood',
+        description:
+          'Irrigation repair, drip conversion, and drainage for Tanglewood Addition homes on Bellaire Drive South, Shady Creek Drive, and Overton Park Drive East in ZIP 76109, on Fort Worth even Wednesday/Saturday or odd Thursday/Sunday days. Click to learn more →',
+        link: '/fort-worth/tanglewood'
       }
     ],
     coordinates: {
