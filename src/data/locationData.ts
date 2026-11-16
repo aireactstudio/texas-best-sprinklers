@@ -77,6 +77,18 @@ export const locationData = {
         description:
           'Irrigation repair, drip conversion, and hillside drainage for Ridglea lots on rolling clay between Camp Bowie and West Vickery. Click to learn more →',
         link: '/fort-worth/ridglea'
+      },
+      {
+        name: 'Berkeley Place',
+        description:
+          'Irrigation repair, drip conversion, and drainage for Berkeley Place and Cheltenham lots between Park Place and Ward Parkway, next to Forest Park, on Fort Worth even/odd watering days. Click to learn more →',
+        link: '/fort-worth/berkeley-place'
+      },
+      {
+        name: 'Tanglewood',
+        description:
+          'Irrigation repair, drip conversion, and drainage for Tanglewood Addition homes on Bellaire Drive South, Shady Creek Drive, and Overton Park Drive East in ZIP 76109, on Fort Worth even Wednesday/Saturday or odd Thursday/Sunday days. Click to learn more →',
+        link: '/fort-worth/tanglewood'
       }
     ],
     coordinates: {
@@ -221,6 +233,12 @@ export const locationData = {
         description:
           'Irrigation repair, drip conversion, and drainage planning for Timarron homes built from 1992 through 2004, with controllers set for the City of Southlake twice-weekly schedule. Click to learn more →',
         link: '/southlake/timarron'
+      },
+      {
+        name: 'Stone Lakes',
+        description:
+          'Sprinkler repair, drip conversion, and drainage planning for Stone Lakes homes south of FM 1709, platted from 1991 through 1995 and built out by 1997, with controllers set for the City of Southlake twice-weekly schedule. Click to learn more →',
+        link: '/southlake/stone-lakes'
       }
     ],
     coordinates: {
@@ -356,6 +374,12 @@ export const locationData = {
         description:
           'Irrigation repair, drip conversion, and drainage for Lakeside DFW lots on Lakeside Parkway, Sunset Boulevard, and West Village Parkway — mixed-use clay with house even/odd days versus commercial Monday/Thursday commons. Click to learn more →',
         link: '/flower-mound/lakeside'
+      },
+      {
+        name: 'The Estates at Tour 18',
+        description:
+          'Irrigation repair, drip conversion, and drainage for gated Estates at Tour 18 lots on Tour 18 Drive, Baltusrol Drive, and Amen Corner — house even Tuesday/Friday or odd Wednesday/Saturday days, not the HOA Monday/Thursday commons clock. Click to learn more →',
+        link: '/flower-mound/estates-at-tour-18'
       },
       'Highland Village',
       'Canyon Falls'
@@ -712,7 +736,19 @@ export const locationData = {
     nearestOffice: 'Fort Worth',
     distanceFromOffice: 22,
     landmarks: ['City Park', 'Colleyville Nature Center', 'Village at Colleyville'],
-    neighborhoods: ['Caldwell Creek', 'Colleyville Downs', 'Creekwood', 'Montclair Parc', 'Oakleigh', 'Kingswood Estates'],
+    neighborhoods: [
+      {
+        name: 'Caldwell Creek',
+        description:
+          "Irrigation repair, drip conversion, and drainage for Caldwell's Creek Addition court lots in northwest Colleyville ZIP 76034, on Bellefonte Lane, Shepherds Glen, Whippoorwill Court, Lismore Court, and Caldwell Creek Drive. Click to learn more →",
+        link: '/colleyville/caldwell-creek'
+      },
+      'Colleyville Downs',
+      'Creekwood',
+      'Montclair Parc',
+      'Oakleigh',
+      'Kingswood Estates'
+    ],
     serviceAreas: ['Southlake', 'Grapevine', 'Keller', 'Hurst', 'Bedford', 'North Richland Hills'],
     coordinates: {
       latitude: 32.8810,
