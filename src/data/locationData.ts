@@ -183,6 +183,12 @@ export const locationData = {
         name: 'Highland Oaks',
         description: 'Irrigation repair and drainage support for established treed lots near Rufe Snow Drive and North Tarrant Parkway.',
         link: '/keller/highland-oaks'
+      },
+      {
+        name: 'Villas of Stone Glen',
+        description:
+          'Sprinkler repair, drip conversion, and drainage planning for Villas of Stone Glen condominium homes at 301 Tulip Way, platted in 2013 and 2014, with controllers checked against the City of Keller watering schedule. Click to learn more →',
+        link: '/keller/stone-glen'
       }
     ],
     serviceAreas: ['Southlake', 'Colleyville', 'Watauga', 'North Richland Hills'],
