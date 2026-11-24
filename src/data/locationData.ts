@@ -751,7 +751,12 @@ export const locationData = {
       },
       'Colleyville Downs',
       'Creekwood',
-      'Montclair Parc',
+      {
+        name: 'Montclair Parc',
+        description:
+          'Irrigation repair, drip conversion, and drainage for Montclair Parc Addition lots in Colleyville ZIP 76034, on Miramar Lane, Normandy Drive, Morlaix Court, Reims Court, and Clermont Court. Click to learn more →',
+        link: '/colleyville/montclair-parc'
+      },
       'Oakleigh',
       'Kingswood Estates'
     ],
