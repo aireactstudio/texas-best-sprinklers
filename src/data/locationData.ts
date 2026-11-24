@@ -317,6 +317,12 @@ export const locationData = {
         description:
           'Irrigation repair, drip conversion, and drainage for Home Town new-urbanist lots, Canal District townhomes, and lake-edge clay between Mid-Cities Boulevard and Boulevard 26. Click to learn more →',
         link: '/north-richland-hills/home-town'
+      },
+      {
+        name: 'Iron Horse',
+        description:
+          'Sprinkler repair, drip conversion, and drainage for Iron Horse Addition Phase II homes on Valhalla Drive, Pinehurst Drive, and Sawgrass Court in ZIP 76180, on NRH even Wednesday/Saturday or odd Thursday/Sunday days. Click to learn more →',
+        link: '/north-richland-hills/iron-horse'
       }
     ],
     coordinates: {
