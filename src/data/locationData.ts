@@ -284,6 +284,12 @@ export const locationData = {
         description:
           'Sprinkler repair, drip conversion, and drainage for 1980s Dove Crossing lots on Thistlewood Lane, Ryan Ridge, and Mockingbird Drive near Dove Park. Click to learn more →',
         link: '/grapevine/dove-crossing'
+      },
+      {
+        name: 'Glade Landing',
+        description:
+          'Sprinkler repair, drip conversion, and drainage for Glade Landing Addition homes on Brettenmeadow Drive, Haydenbend Circle, Fairmount Drive, Ashcroft Drive, and Altacrest Court beside Glade Landing Park. Click to learn more →',
+        link: '/grapevine/glade-landing'
       }
     ],
     coordinates: {
