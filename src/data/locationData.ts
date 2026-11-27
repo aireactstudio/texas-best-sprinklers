@@ -770,7 +770,13 @@ export const locationData = {
         link: '/colleyville/montclair-parc'
       },
       'Oakleigh',
-      'Kingswood Estates'
+      'Kingswood Estates',
+      {
+        name: 'Ross Downs',
+        description:
+          'Irrigation repair, drip conversion, and drainage for Ross Downs Estates lots in northeast Colleyville ZIP 76034, on Twelve Oaks Lane, Melanie Drive, Reynolds Drive, Atlanta Drive, and McMakin Court. Click to learn more →',
+        link: '/colleyville/ross-downs'
+      }
     ],
     serviceAreas: ['Southlake', 'Grapevine', 'Keller', 'Hurst', 'Bedford', 'North Richland Hills'],
     coordinates: {
